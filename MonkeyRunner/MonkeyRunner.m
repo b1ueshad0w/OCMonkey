@@ -24,7 +24,7 @@
 }
 
 - (void)testRunner {
-    [[[Monkey alloc] initWithBundleID:@"com.apple.Health"] run:100];
+    [[[Monkey alloc] initWithBundleID:@"com.blueshadow.OCMonkeyExample"] run:100];
 }
 
 @end
