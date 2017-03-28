@@ -159,7 +159,6 @@
 
 /* Begin PBXFileReference section */
 		4069E7251E67FB2800C1C832 /* OCMonkeyLib.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = OCMonkeyLib.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		4069E7281E67FB2800C1C832 /* OCMonkeyLib.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OCMonkeyLib.h; sourceTree = "<group>"; };
 		4069E7291E67FB2800C1C832 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4069E72E1E67FC2800C1C832 /* Monkey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Monkey.h; sourceTree = "<group>"; };
 		4069E72F1E67FC2800C1C832 /* Monkey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Monkey.m; sourceTree = "<group>"; };
@@ -350,7 +349,6 @@
 		4069E7271E67FB2800C1C832 /* OCMonkeyLib */ = {
 			isa = PBXGroup;
 			children = (
-				4069E7281E67FB2800C1C832 /* OCMonkeyLib.h */,
 				4069E7291E67FB2800C1C832 /* Info.plist */,
 				4069E72E1E67FC2800C1C832 /* Monkey.h */,
 				4069E72F1E67FC2800C1C832 /* Monkey.m */,

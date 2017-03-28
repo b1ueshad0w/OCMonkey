@@ -110,7 +110,7 @@ UIBezierPath* crossPath()
 {
     _number = number;
     _numberLayer.string = [NSString stringWithFormat:@"%d", number];
-    float fraction = (float)(number - 1) / (float)maxGesturesShown;
+    float fraction = (float)(number - 1) / (float)[MonkeyPaws maxGesturesShown];
     float alpha = sqrtf(1 - fraction);
     _containerLayer.opacity = alpha;
 }

@@ -23,6 +23,7 @@ extern const CGFloat circleRadius;
 @property CALayer *layer;
 
 +(NSMutableArray<MonkeyPaws*>*)tappingTracks;
++(int)maxGesturesShown;
 -(id)initWithView:(UIView *)view tapUIApplication: (BOOL)tap;
 -(void)append:(UIEvent *)event;
 //+(void)drawPaw:(UIView *)view at:(CGPoint)point;

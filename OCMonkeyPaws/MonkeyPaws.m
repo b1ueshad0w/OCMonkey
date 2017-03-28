@@ -29,6 +29,17 @@ const CGFloat circleRadius = 7;
     return tracks;
 }
 
++(int)maxGesturesShown
+{
+    static int _maxGesturesShown = nil;
+    if (_maxGesturesShown == nil) {
+        _maxGesturesShown = [[[NSProcessInfo processInfo] environment][@"maxGesturesShown"] intValue];
+        if (!_maxGesturesShown)
+            _maxGesturesShown = maxGesturesShown;
+    }
+    return _maxGesturesShown;
+}
+
 -(id)initWithView:(UIView *)view tapUIApplication: (BOOL)tap
 {
     self = [super init];
@@ -114,7 +125,7 @@ const CGFloat circleRadius = 7;
             [gesture extend:point];
         }
     } else {
-        if ([_gestures count] > maxGesturesShown) {
+        if ([_gestures count] > [MonkeyPaws maxGesturesShown]) {
             [_gestures removeObjectAtIndex:0];
         }
         [_gestures addObject:[[GestureHash alloc] initWithHash:touchHash
