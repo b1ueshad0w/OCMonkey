@@ -24,7 +24,8 @@
 }
 
 - (void)testRunner {
-    [[[Monkey alloc] initWithBundleID:@"com.blueshadow.OCMonkeyExample"] run:100];
+    NSString *bundleID = @"com.apple.Health";
+    [[[Monkey alloc] initWithBundleID:bundleID] run:100];
 }
 
 @end

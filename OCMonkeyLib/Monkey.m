@@ -9,10 +9,20 @@
 #import "Monkey.h"
 #import "XCUIApplication.h"
 #import "XCEventGenerator.h"
+#import "XCElementSnapshot.h"
+#import "XCUIElement.h"
+#import "Tree.h"
+#import "ElementInfo.h"
+#import "XCUIApplication+Monkey.h"
+#import "ElementTree.h"
+#import "ClassPath.h"
+#import "ClassPathItem.h"
+#import "ElementTypeTransformer.h"
 
 
 @interface Monkey()
 @property NSString *testedAppBundleID;
+@property XCUIApplication *testedApp;
 @property XCEventGenerator *eventGenerator;
 @property int screenWidth;
 @property int screenHeight;
@@ -24,6 +34,7 @@
 {
     if (self = [super init]) {
         self.testedAppBundleID = bundleID;
+        self.testedApp = [[XCUIApplication alloc] initPrivateWithPath:nil bundleID:self.testedAppBundleID];
         self.eventGenerator = [XCEventGenerator sharedGenerator];
         self.screenWidth = 375;
         self.screenHeight = 667;
@@ -33,25 +44,26 @@
 
 -(void)run:(int)steps
 {
-    XCUIApplication *app = [[XCUIApplication alloc] initPrivateWithPath:nil bundleID:self.testedAppBundleID];
-    [app launch];
-    
+    [self.testedApp launch];
+    [self.testedApp query];
+    [self.testedApp resolve];
     for (int i = 0; i < steps; i++) {
         @autoreleasepool {
-            [self one_step:app];
+            [self performAction];
         }
     }
     
-    [app terminate];
+    [self.testedApp terminate];
 }
 
--(void)one_step:(XCUIApplication *)app
+-(void)performAction
 {
-//    [self random_drag:app];
-    [self random_tap:app];
+//    [self performActionRandomDrag];
+//    [self performActionRandomTap];
+    [self performActionRandomLeafElement];
 }
 
--(void)random_drag:(XCUIApplication *)app
+-(void)performActionRandomDrag
 {
     float from_x = arc4random() % self.screenWidth;
     float from_y = arc4random() % self.screenHeight;
@@ -71,11 +83,17 @@
     //        [eventGenerator tapAtTouchLocations:@[[NSValue valueWithCGPoint:point]] numberOfTaps:1 orientation:app.interfaceOrientation handler:handlerBlock];
     //    }
     
-    [self.eventGenerator pressAtPoint:point forDuration:0 liftAtPoint:pointEnd velocity:1000 orientation:app.interfaceOrientation name:@"Monkey Drag" handler:handlerBlock];
+    [self.eventGenerator pressAtPoint:point
+                          forDuration:0
+                          liftAtPoint:pointEnd
+                             velocity:1000
+                          orientation:self.testedApp.interfaceOrientation
+                                 name:@"Monkey Drag"
+                              handler:handlerBlock];
     dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
 }
 
--(void)random_tap:(XCUIApplication *)app
+-(void)performActionRandomTap
 {
     
     float x = arc4random() % self.screenWidth;
@@ -91,7 +109,40 @@
         dispatch_semaphore_signal(semaphore);
     };
     
-    [self.eventGenerator tapAtTouchLocations:locations numberOfTaps:1 orientation:app.interfaceOrientation handler:handlerBlock];
+    [self.eventGenerator tapAtTouchLocations:locations
+                                numberOfTaps:1
+                                 orientation:self.testedApp.interfaceOrientation
+                                     handler:handlerBlock];
     dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
 }
+
+-(void)performActionRandomLeafElement
+{
+    Tree *tree = [self.testedApp tree];
+//    NSLog(@"tree: %@", tree);
+    NSArray<Tree *> *leaves = [tree leaves];
+//    for (Tree *leaf in leaves) {
+//        NSLog(@"leaf: %@ %@", leaf.identifier, leaf.data);
+//    }
+    
+    Tree *leafChosen = leaves[arc4random() % leaves.count];
+    ClassPath *path = getClassPathForElement(leafChosen);
+    NSLog(@"Chosen element: path: %@ data: %@", path, leafChosen.data);
+    
+    XCUIElement *element = [self findElementByClassPath:path];
+    if (element && element.hittable && element.enabled) {
+        [element tap];
+    }
+}
+
+-(XCUIElement *)findElementByClassPath:(ClassPath *)classPath
+{
+    XCUIElement *element = self.testedApp;
+    for (ClassPathItem *pathItem in classPath.pathItems) {
+        XCUIElementType elementType = [ElementTypeTransformer elementTypeWithTypeName:pathItem.className];
+        element = [[element childrenMatchingType:elementType] elementBoundByIndex:pathItem.index];
+    }
+    return element;
+}
+
 @end

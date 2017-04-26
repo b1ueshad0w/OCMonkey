@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		401AB0671EB0BADF00CC1046 /* Tree.h in Headers */ = {isa = PBXBuildFile; fileRef = 401AB0651EB0BADF00CC1046 /* Tree.h */; };
+		401AB0681EB0BADF00CC1046 /* Tree.m in Sources */ = {isa = PBXBuildFile; fileRef = 401AB0661EB0BADF00CC1046 /* Tree.m */; };
+		401AB06B1EB0BB3400CC1046 /* ElementInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 401AB0691EB0BB3400CC1046 /* ElementInfo.h */; };
+		401AB06C1EB0BB3400CC1046 /* ElementInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 401AB06A1EB0BB3400CC1046 /* ElementInfo.m */; };
+		401AB06F1EB0C7C200CC1046 /* ElementTypeTransformer.h in Headers */ = {isa = PBXBuildFile; fileRef = 401AB06D1EB0C7C200CC1046 /* ElementTypeTransformer.h */; };
+		401AB0701EB0C7C200CC1046 /* ElementTypeTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 401AB06E1EB0C7C200CC1046 /* ElementTypeTransformer.m */; };
+		401AB0741EB0DDBE00CC1046 /* XCUIApplication+Monkey.h in Headers */ = {isa = PBXBuildFile; fileRef = 401AB0721EB0DDBE00CC1046 /* XCUIApplication+Monkey.h */; };
+		401AB0751EB0DDBE00CC1046 /* XCUIApplication+Monkey.m in Sources */ = {isa = PBXBuildFile; fileRef = 401AB0731EB0DDBE00CC1046 /* XCUIApplication+Monkey.m */; };
 		4069E7301E67FC2800C1C832 /* Monkey.h in Headers */ = {isa = PBXBuildFile; fileRef = 4069E72E1E67FC2800C1C832 /* Monkey.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4069E7311E67FC2800C1C832 /* Monkey.m in Sources */ = {isa = PBXBuildFile; fileRef = 4069E72F1E67FC2800C1C832 /* Monkey.m */; };
 		4069E79C1E68042E00C1C832 /* _XCInternalTestRun.h in Headers */ = {isa = PBXBuildFile; fileRef = 4069E7361E68042E00C1C832 /* _XCInternalTestRun.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -130,6 +138,14 @@
 		407B10551E893B0E00C2E93D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 407B10531E893B0E00C2E93D /* LaunchScreen.storyboard */; };
 		407B105A1E893B6300C2E93D /* OCMonkeyPaws.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 407B10261E89390600C2E93D /* OCMonkeyPaws.framework */; };
 		407B105C1E893CD000C2E93D /* OCMonkeyPaws.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 407B10261E89390600C2E93D /* OCMonkeyPaws.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		40E1B83B1EB105D1000EBEAA /* ElementTree.h in Headers */ = {isa = PBXBuildFile; fileRef = 40E1B8391EB105D1000EBEAA /* ElementTree.h */; };
+		40E1B83C1EB105D1000EBEAA /* ElementTree.m in Sources */ = {isa = PBXBuildFile; fileRef = 40E1B83A1EB105D1000EBEAA /* ElementTree.m */; };
+		40E1B83F1EB10783000EBEAA /* ClassPath.h in Headers */ = {isa = PBXBuildFile; fileRef = 40E1B83D1EB10783000EBEAA /* ClassPath.h */; };
+		40E1B8401EB10783000EBEAA /* ClassPath.m in Sources */ = {isa = PBXBuildFile; fileRef = 40E1B83E1EB10783000EBEAA /* ClassPath.m */; };
+		40E1B8431EB10802000EBEAA /* ClassPathItem.h in Headers */ = {isa = PBXBuildFile; fileRef = 40E1B8411EB10802000EBEAA /* ClassPathItem.h */; };
+		40E1B8441EB10802000EBEAA /* ClassPathItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 40E1B8421EB10802000EBEAA /* ClassPathItem.m */; };
+		40E1B8471EB11473000EBEAA /* NSMutableArray+Reverse.h in Headers */ = {isa = PBXBuildFile; fileRef = 40E1B8451EB11473000EBEAA /* NSMutableArray+Reverse.h */; };
+		40E1B8481EB11473000EBEAA /* NSMutableArray+Reverse.m in Sources */ = {isa = PBXBuildFile; fileRef = 40E1B8461EB11473000EBEAA /* NSMutableArray+Reverse.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -158,6 +174,14 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		401AB0651EB0BADF00CC1046 /* Tree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tree.h; sourceTree = "<group>"; };
+		401AB0661EB0BADF00CC1046 /* Tree.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tree.m; sourceTree = "<group>"; };
+		401AB0691EB0BB3400CC1046 /* ElementInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ElementInfo.h; sourceTree = "<group>"; };
+		401AB06A1EB0BB3400CC1046 /* ElementInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ElementInfo.m; sourceTree = "<group>"; };
+		401AB06D1EB0C7C200CC1046 /* ElementTypeTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ElementTypeTransformer.h; sourceTree = "<group>"; };
+		401AB06E1EB0C7C200CC1046 /* ElementTypeTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ElementTypeTransformer.m; sourceTree = "<group>"; };
+		401AB0721EB0DDBE00CC1046 /* XCUIApplication+Monkey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "XCUIApplication+Monkey.h"; sourceTree = "<group>"; };
+		401AB0731EB0DDBE00CC1046 /* XCUIApplication+Monkey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "XCUIApplication+Monkey.m"; sourceTree = "<group>"; };
 		4069E7251E67FB2800C1C832 /* OCMonkeyLib.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = OCMonkeyLib.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4069E7291E67FB2800C1C832 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4069E72E1E67FC2800C1C832 /* Monkey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Monkey.h; sourceTree = "<group>"; };
@@ -287,6 +311,14 @@
 		407B10511E893B0E00C2E93D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		407B10541E893B0E00C2E93D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		407B10561E893B0E00C2E93D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		40E1B8391EB105D1000EBEAA /* ElementTree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ElementTree.h; sourceTree = "<group>"; };
+		40E1B83A1EB105D1000EBEAA /* ElementTree.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ElementTree.m; sourceTree = "<group>"; };
+		40E1B83D1EB10783000EBEAA /* ClassPath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassPath.h; sourceTree = "<group>"; };
+		40E1B83E1EB10783000EBEAA /* ClassPath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassPath.m; sourceTree = "<group>"; };
+		40E1B8411EB10802000EBEAA /* ClassPathItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassPathItem.h; sourceTree = "<group>"; };
+		40E1B8421EB10802000EBEAA /* ClassPathItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassPathItem.m; sourceTree = "<group>"; };
+		40E1B8451EB11473000EBEAA /* NSMutableArray+Reverse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+Reverse.h"; sourceTree = "<group>"; };
+		40E1B8461EB11473000EBEAA /* NSMutableArray+Reverse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+Reverse.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -323,6 +355,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		401AB0711EB0DD6C00CC1046 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				401AB0721EB0DDBE00CC1046 /* XCUIApplication+Monkey.h */,
+				401AB0731EB0DDBE00CC1046 /* XCUIApplication+Monkey.m */,
+				40E1B8451EB11473000EBEAA /* NSMutableArray+Reverse.h */,
+				40E1B8461EB11473000EBEAA /* NSMutableArray+Reverse.m */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
 		4069E7191E67F77D00C1C832 = {
 			isa = PBXGroup;
 			children = (
@@ -349,9 +392,15 @@
 		4069E7271E67FB2800C1C832 /* OCMonkeyLib */ = {
 			isa = PBXGroup;
 			children = (
+				40E1B8381EB10565000EBEAA /* Utilities */,
+				401AB0711EB0DD6C00CC1046 /* Categories */,
 				4069E7291E67FB2800C1C832 /* Info.plist */,
 				4069E72E1E67FC2800C1C832 /* Monkey.h */,
 				4069E72F1E67FC2800C1C832 /* Monkey.m */,
+				401AB0691EB0BB3400CC1046 /* ElementInfo.h */,
+				401AB06A1EB0BB3400CC1046 /* ElementInfo.m */,
+				40E1B8391EB105D1000EBEAA /* ElementTree.h */,
+				40E1B83A1EB105D1000EBEAA /* ElementTree.m */,
 			);
 			path = OCMonkeyLib;
 			sourceTree = "<group>";
@@ -522,6 +571,21 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		40E1B8381EB10565000EBEAA /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				401AB0651EB0BADF00CC1046 /* Tree.h */,
+				401AB0661EB0BADF00CC1046 /* Tree.m */,
+				401AB06D1EB0C7C200CC1046 /* ElementTypeTransformer.h */,
+				401AB06E1EB0C7C200CC1046 /* ElementTypeTransformer.m */,
+				40E1B83D1EB10783000EBEAA /* ClassPath.h */,
+				40E1B83E1EB10783000EBEAA /* ClassPath.m */,
+				40E1B8411EB10802000EBEAA /* ClassPathItem.h */,
+				40E1B8421EB10802000EBEAA /* ClassPathItem.m */,
+			);
+			name = Utilities;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -552,6 +616,7 @@
 				4069E7E01E68042E00C1C832 /* XCTestProbe.h in Headers */,
 				4069E7D61E68042E00C1C832 /* XCTestExpectationDelegate-Protocol.h in Headers */,
 				4069E7B71E68042E00C1C832 /* XCDebugLogDelegate-Protocol.h in Headers */,
+				401AB06F1EB0C7C200CC1046 /* ElementTypeTransformer.h in Headers */,
 				4069E7AF1E68042E00C1C832 /* UISwipeGestureRecognizer-RecordingAdditions.h in Headers */,
 				4069E7E71E68042E00C1C832 /* XCTNSNotificationExpectation.h in Headers */,
 				4069E79F1E68042E00C1C832 /* _XCTestCaseImplementation.h in Headers */,
@@ -569,7 +634,9 @@
 				4069E7F41E68042E00C1C832 /* XCTWaiterManager.h in Headers */,
 				4069E7DD1E68042E00C1C832 /* XCTestObservation-Protocol.h in Headers */,
 				4069E7D01E68042E00C1C832 /* XCTestConfiguration.h in Headers */,
+				401AB0741EB0DDBE00CC1046 /* XCUIApplication+Monkey.h in Headers */,
 				4069E7ED1E68042E00C1C832 /* XCTTestRunSession.h in Headers */,
+				40E1B8431EB10802000EBEAA /* ClassPathItem.h in Headers */,
 				4069E7CE1E68042E00C1C832 /* XCTestCaseRun.h in Headers */,
 				4069E7301E67FC2800C1C832 /* Monkey.h in Headers */,
 				4069E7C11E68042E00C1C832 /* XCSourceCodeRecording.h in Headers */,
@@ -581,6 +648,8 @@
 				4069E7BA1E68042E00C1C832 /* XCEventGenerator.h in Headers */,
 				4069E7D11E68042E00C1C832 /* XCTestContext.h in Headers */,
 				4069E7B61E68042E00C1C832 /* XCAXClient_iOS.h in Headers */,
+				401AB0671EB0BADF00CC1046 /* Tree.h in Headers */,
+				40E1B8471EB11473000EBEAA /* NSMutableArray+Reverse.h in Headers */,
 				4069E7F51E68042E00C1C832 /* XCUIApplication.h in Headers */,
 				4069E7CC1E68042E00C1C832 /* XCTest.h in Headers */,
 				4069E7FD1E68042E00C1C832 /* XCUIElementQuery.h in Headers */,
@@ -599,6 +668,7 @@
 				4069E7AC1E68042E00C1C832 /* UILongPressGestureRecognizer-RecordingAdditions.h in Headers */,
 				4069E79E1E68042E00C1C832 /* _XCTDarwinNotificationExpectationImplementation.h in Headers */,
 				4069E7FF1E68042E00C1C832 /* XCUIRecorderNodeFinderMatch.h in Headers */,
+				401AB06B1EB0BB3400CC1046 /* ElementInfo.h in Headers */,
 				4069E7F71E68042E00C1C832 /* XCUIApplicationProcess.h in Headers */,
 				4069E8011E68042E00C1C832 /* XCUIRecorderUtilities.h in Headers */,
 				4069E7D31E68042E00C1C832 /* XCTestDriver.h in Headers */,
@@ -621,11 +691,13 @@
 				4069E7C91E68042E00C1C832 /* XCTAutomationTarget-Protocol.h in Headers */,
 				4069E7D71E68042E00C1C832 /* XCTestExpectationWaiter.h in Headers */,
 				4069E7BE1E68042E00C1C832 /* XCKeyMappingPath.h in Headers */,
+				40E1B83F1EB10783000EBEAA /* ClassPath.h in Headers */,
 				4069E7BB1E68042E00C1C832 /* XCKeyboardInputSolver.h in Headers */,
 				4069E7DA1E68042E00C1C832 /* XCTestManager_ManagerInterface-Protocol.h in Headers */,
 				4069E7A41E68042E00C1C832 /* _XCTestSuiteImplementation.h in Headers */,
 				4069E7DC1E68042E00C1C832 /* XCTestMisuseObserver.h in Headers */,
 				4069E7D41E68042E00C1C832 /* XCTestDriverInterface-Protocol.h in Headers */,
+				40E1B83B1EB105D1000EBEAA /* ElementTree.h in Headers */,
 				4069E7B91E68042E00C1C832 /* XCElementSnapshot.h in Headers */,
 				4069E7EB1E68042E00C1C832 /* XCTRunnerDaemonSession.h in Headers */,
 				4069E7D21E68042E00C1C832 /* XCTestContextScope.h in Headers */,
@@ -808,6 +880,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				4069E7311E67FC2800C1C832 /* Monkey.m in Sources */,
+				401AB0681EB0BADF00CC1046 /* Tree.m in Sources */,
+				40E1B83C1EB105D1000EBEAA /* ElementTree.m in Sources */,
+				40E1B8481EB11473000EBEAA /* NSMutableArray+Reverse.m in Sources */,
+				401AB0701EB0C7C200CC1046 /* ElementTypeTransformer.m in Sources */,
+				40E1B8441EB10802000EBEAA /* ClassPathItem.m in Sources */,
+				401AB06C1EB0BB3400CC1046 /* ElementInfo.m in Sources */,
+				40E1B8401EB10783000EBEAA /* ClassPath.m in Sources */,
+				401AB0751EB0DDBE00CC1046 /* XCUIApplication+Monkey.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -904,6 +984,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				FRAMEWORK_SEARCH_PATHS = "$(PLATFORM_DIR)/Developer/Library/Frameworks";
@@ -967,6 +1048,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_BITCODE = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				FRAMEWORK_SEARCH_PATHS = "$(PLATFORM_DIR)/Developer/Library/Frameworks";
@@ -1352,6 +1434,7 @@
 				407B10591E893B0E00C2E93D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
