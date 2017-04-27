@@ -11,6 +11,7 @@
 @interface Tree : NSObject
 
 @property (nonatomic, weak) Tree *parent;
+@property (nonatomic, weak) Tree *root;
 @property (nonatomic, strong) NSMutableArray<Tree *> *children;
 @property (nonatomic, strong) id data;
 @property (nonatomic, strong) NSString *identifier;

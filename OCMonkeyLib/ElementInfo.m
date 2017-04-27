@@ -45,7 +45,7 @@
 -(NSString *)description
 {
     NSString *elementType = [ElementTypeTransformer shortStringWithElementType:_elementType];
-    return [NSString stringWithFormat:@"type: %@|identifier: %@|label: %@", elementType, _identifier, _label];
+    return [NSString stringWithFormat:@"type: %@ | frame: {{%.1f, %.1f},{%.1f, %.1f}} | label: %@", elementType, _frame.origin.x, _frame.origin.y, _frame.size.width, _frame.size.height, _label];
 }
 
 @end

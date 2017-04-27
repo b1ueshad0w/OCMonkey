@@ -40,3 +40,17 @@ ClassPath* getClassPathForElement(Tree *element)
     [pathItems reverse];
     return [[ClassPath alloc]  initWithPathItems:pathItems];
 }
+
+NSUInteger getIndexOfDescendantsMatchingType(Tree *element)
+{
+    __block NSMutableArray<Tree *> *elementsOfType = [[NSMutableArray alloc] init];
+    XCUIElementType elementType = ((ElementInfo *)(element.data)).elementType;
+    Tree *root = [element root];
+    [root traverseDown:^BOOL(Tree *node){
+        if (((ElementInfo *)(node.data)).elementType == elementType) {
+            [elementsOfType addObject:node];
+        }
+        return YES;
+    }];
+    return [elementsOfType indexOfObject:element];
+}

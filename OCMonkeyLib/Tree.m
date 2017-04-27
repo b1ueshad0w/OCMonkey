@@ -30,10 +30,14 @@
 {
     self = [super init];
     if (self) {
-        if (!parent)
+        if (!parent) {
             _depth = 0;
-        else
+            _root = self;
+        }
+        else {
             _depth = parent.depth + 1;
+            _root = parent.root;
+        }
         _parent = parent;
         _data = data;
         _children = [NSMutableArray new];
@@ -57,14 +61,30 @@
     return [self appendChildWithData:data identifier:nil];
 }
 
+// preorder traversal
 -(void)traverseDown:(BOOL(^)(Tree *))callback
 {
-    callback(self);
+    if (!callback(self)) {
+        return;
+    };
     if (![self.children count])
         return;
     for (Tree *child in self.children) {
         [child traverseDown:callback];
     }
+}
+
+// preorder traversal
+-(void)traverseUp:(BOOL(^)(Tree *))callback
+{
+    callback(self);
+    if (!_parent)
+        return;
+    NSUInteger index = [_parent.children indexOfObject:self];
+    for (int i = 0; i < index; i++) {
+        callback(_parent.children[i]);
+    }
+    [_parent traverseUp:callback];
 }
 
 

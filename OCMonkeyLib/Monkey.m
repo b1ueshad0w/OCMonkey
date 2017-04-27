@@ -22,7 +22,7 @@
 
 @interface Monkey()
 @property NSString *testedAppBundleID;
-@property XCUIApplication *testedApp;
+@property (nonatomic) XCUIApplication *testedApp;
 @property XCEventGenerator *eventGenerator;
 @property int screenWidth;
 @property int screenHeight;
@@ -42,11 +42,16 @@
     return self;
 }
 
+-(XCUIApplication *)testedApp
+{
+    [_testedApp query];
+    [_testedApp resolve];
+    return _testedApp;
+}
+
 -(void)run:(int)steps
 {
-    [self.testedApp launch];
-    [self.testedApp query];
-    [self.testedApp resolve];
+    [_testedApp launch];
     for (int i = 0; i < steps; i++) {
         @autoreleasepool {
             [self performAction];
@@ -99,7 +104,12 @@
     float x = arc4random() % self.screenWidth;
     float y = arc4random() % self.screenHeight;
     CGPoint point = {x, y};
-    NSArray *locations = @[[NSValue valueWithCGPoint:point]];
+    [self tap:point];
+}
+
+-(void)tap:(CGPoint)location
+{
+    NSArray *locations = @[[NSValue valueWithCGPoint:location]];
     
     dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
     XCEventGeneratorHandler handlerBlock = ^(XCSynthesizedEventRecord *record, NSError *commandError) {
@@ -116,23 +126,40 @@
     dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
 }
 
+-(CGPoint)getCenter:(CGRect)rect
+{
+    return CGPointMake(rect.origin.x + rect.size.width / 2, rect.origin.y + rect.size.height / 2);
+}
+
 -(void)performActionRandomLeafElement
 {
-    Tree *tree = [self.testedApp tree];
-//    NSLog(@"tree: %@", tree);
+    XCUIApplication *app = self.testedApp;
+    Tree *tree = [app tree];
     NSArray<Tree *> *leaves = [tree leaves];
+    Tree *leafChosen = leaves[arc4random() % leaves.count];
+//    Tree *leafChosen = leaves[0];
+    NSLog(@"Chosen element: id: %@ data: %@", leafChosen.identifier, leafChosen.data);
+//    NSLog(@"tree: %@", tree);
 //    for (Tree *leaf in leaves) {
 //        NSLog(@"leaf: %@ %@", leaf.identifier, leaf.data);
 //    }
+
     
-    Tree *leafChosen = leaves[arc4random() % leaves.count];
-    ClassPath *path = getClassPathForElement(leafChosen);
-    NSLog(@"Chosen element: path: %@ data: %@", path, leafChosen.data);
-    
-    XCUIElement *element = [self findElementByClassPath:path];
-    if (element && element.hittable && element.enabled) {
-        [element tap];
-    }
+    CGPoint center = [self getCenter:((ElementInfo*)leafChosen.data).frame];
+    [self tap:center];
+}
+
+-(XCUIElement *)findTreeCorrespondingXCUIElementByClassPath:(Tree *)tree
+{
+    ClassPath *path = getClassPathForElement(tree);
+    return [self findElementByClassPath:path];
+}
+
+-(XCUIElement *)findTreeCorrespondingXCUIElementByDescendantsIndex:(Tree *)tree
+{
+    NSUInteger index = getIndexOfDescendantsMatchingType(tree);
+    XCUIElementType elementType = ((ElementInfo *)(tree.data)).elementType;
+    return [[self.testedApp descendantsMatchingType:elementType] allElementsBoundByIndex][index];
 }
 
 -(XCUIElement *)findElementByClassPath:(ClassPath *)classPath

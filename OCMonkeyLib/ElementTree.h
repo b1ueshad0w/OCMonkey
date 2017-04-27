@@ -15,3 +15,5 @@
 @end
 
 ClassPath* getClassPathForElement(Tree *element);
+
+NSUInteger getIndexOfDescendantsMatchingType(Tree *element);
