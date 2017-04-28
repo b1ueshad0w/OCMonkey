@@ -7,7 +7,7 @@ Inspired from [SwiftMonkey](https://github.com/zalando/SwiftMonkey), written in 
 * __OCMonkey is totally irrelevant to your test target__
 You don't need to embed it into your app's source. OCMonkey can launch any app with a given bundleID.
 * __Support element-based actions__
-Element-based actions are very important for a Monkey tool. Coordinated-based actions are likely trigger no action on app. For example, clicking on app's blank area is not a valid action. Also, these actions are implemented with private API and executed more faster than using the original APIs. 
+Element-based actions are very important for a Monkey tool. Coordinate-based actions are likely to have no effect on app. For example, clicking on app's blank area makes no sense. Besides, these element-based actions are implemented with private API and executed more faster than using the original APIs. 
 
 
 ## Requirements

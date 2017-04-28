@@ -8,26 +8,16 @@
 
 #import "Monkey.h"
 #import "XCUIApplication.h"
-#import "XCEventGenerator.h"
-#import "XCElementSnapshot.h"
 #import "XCUIElement.h"
-#import "Tree.h"
-#import "ElementInfo.h"
 #import "XCUIApplication+Monkey.h"
-#import "ElementTree.h"
-#import "ClassPath.h"
-#import "ClassPathItem.h"
-#import "ElementTypeTransformer.h"
 #import "RandomAction.h"
 #import "RegularAction.h"
 #import "Macros.h"
-#import "MathUtils.h"
 
 
 @interface Monkey()
 @property NSString *testedAppBundleID;
 @property (nonatomic) XCUIApplication *testedApp;
-@property XCEventGenerator *eventGenerator;
 @property CGRect screenFrame;
 @property (readwrite) int actionCounter;
 @property double totalWeight;
