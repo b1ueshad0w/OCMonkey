@@ -18,14 +18,21 @@
 #import "ClassPath.h"
 #import "ClassPathItem.h"
 #import "ElementTypeTransformer.h"
+#import "RandomAction.h"
+#import "RegularAction.h"
+#import "Macros.h"
+#import "MathUtils.h"
 
 
 @interface Monkey()
 @property NSString *testedAppBundleID;
 @property (nonatomic) XCUIApplication *testedApp;
 @property XCEventGenerator *eventGenerator;
-@property int screenWidth;
-@property int screenHeight;
+@property CGRect screenFrame;
+@property (readwrite) int actionCounter;
+@property double totalWeight;
+@property NSMutableArray<RandomAction *> *randomActions;
+@property NSMutableArray<RegularAction *> *regularActions;
 @end
 
 @implementation Monkey
@@ -33,11 +40,14 @@
 -(id)initWithBundleID:(NSString*)bundleID
 {
     if (self = [super init]) {
-        self.testedAppBundleID = bundleID;
-        self.testedApp = [[XCUIApplication alloc] initPrivateWithPath:nil bundleID:self.testedAppBundleID];
-        self.eventGenerator = [XCEventGenerator sharedGenerator];
-        self.screenWidth = 375;
-        self.screenHeight = 667;
+        _testedAppBundleID = bundleID;
+        _testedApp = [[XCUIApplication alloc] initPrivateWithPath:nil bundleID:self.testedAppBundleID];
+        _testedApp.launchEnvironment = @{@"maxGesturesShown": @45};
+        [_testedApp launch];
+        _screenFrame = CGRectMake(0, 0, 375, 667);
+        _actionCounter = 0;
+        _regularActions = [[NSMutableArray alloc] init];
+        _randomActions = [[NSMutableArray alloc] init];
     }
     return self;
 }
@@ -51,125 +61,103 @@
 
 -(void)run:(int)steps
 {
-    [_testedApp launch];
     for (int i = 0; i < steps; i++) {
         @autoreleasepool {
-            [self performAction];
+            [self actRandomly];
+            [self actRegularly];
         }
     }
     
     [self.testedApp terminate];
 }
 
--(void)performAction
+-(void)run
 {
-//    [self performActionRandomDrag];
-//    [self performActionRandomTap];
-    [self performActionRandomLeafElement];
-}
-
--(void)performActionRandomDrag
-{
-    float from_x = arc4random() % self.screenWidth;
-    float from_y = arc4random() % self.screenHeight;
-    float to_x = arc4random() % self.screenWidth;
-    float to_y = arc4random() % self.screenHeight;
-    CGPoint point = {from_x, from_y};
-    CGPoint pointEnd = {to_x, to_y};
-    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
-    XCEventGeneratorHandler handlerBlock = ^(XCSynthesizedEventRecord *record, NSError *commandError) {
-        if (commandError) {
-            NSLog(@"Failed to perform step: %@", commandError);
+    while (YES) {
+        @autoreleasepool {
+            [self actRandomly];
+            [self actRegularly];
         }
-        dispatch_semaphore_signal(semaphore);
-    };
-    
-    //    if ([eventGenerator respondsToSelector:@selector(tapAtTouchLocations:numberOfTaps:orientation:handler:)]) {
-    //        [eventGenerator tapAtTouchLocations:@[[NSValue valueWithCGPoint:point]] numberOfTaps:1 orientation:app.interfaceOrientation handler:handlerBlock];
-    //    }
-    
-    [self.eventGenerator pressAtPoint:point
-                          forDuration:0
-                          liftAtPoint:pointEnd
-                             velocity:1000
-                          orientation:self.testedApp.interfaceOrientation
-                                 name:@"Monkey Drag"
-                              handler:handlerBlock];
-    dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
-}
-
--(void)performActionRandomTap
-{
-    
-    float x = arc4random() % self.screenWidth;
-    float y = arc4random() % self.screenHeight;
-    CGPoint point = {x, y};
-    [self tap:point];
-}
-
--(void)tap:(CGPoint)location
-{
-    NSArray *locations = @[[NSValue valueWithCGPoint:location]];
-    
-    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
-    XCEventGeneratorHandler handlerBlock = ^(XCSynthesizedEventRecord *record, NSError *commandError) {
-        if (commandError) {
-            NSLog(@"Failed to perform step: %@", commandError);
-        }
-        dispatch_semaphore_signal(semaphore);
-    };
-    
-    [self.eventGenerator tapAtTouchLocations:locations
-                                numberOfTaps:1
-                                 orientation:self.testedApp.interfaceOrientation
-                                     handler:handlerBlock];
-    dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
-}
-
--(CGPoint)getCenter:(CGRect)rect
-{
-    return CGPointMake(rect.origin.x + rect.size.width / 2, rect.origin.y + rect.size.height / 2);
-}
-
--(void)performActionRandomLeafElement
-{
-    XCUIApplication *app = self.testedApp;
-    Tree *tree = [app tree];
-    NSArray<Tree *> *leaves = [tree leaves];
-    Tree *leafChosen = leaves[arc4random() % leaves.count];
-//    Tree *leafChosen = leaves[0];
-    NSLog(@"Chosen element: id: %@ data: %@", leafChosen.identifier, leafChosen.data);
-//    NSLog(@"tree: %@", tree);
-//    for (Tree *leaf in leaves) {
-//        NSLog(@"leaf: %@ %@", leaf.identifier, leaf.data);
-//    }
-
-    
-    CGPoint center = [self getCenter:((ElementInfo*)leafChosen.data).frame];
-    [self tap:center];
-}
-
--(XCUIElement *)findTreeCorrespondingXCUIElementByClassPath:(Tree *)tree
-{
-    ClassPath *path = getClassPathForElement(tree);
-    return [self findElementByClassPath:path];
-}
-
--(XCUIElement *)findTreeCorrespondingXCUIElementByDescendantsIndex:(Tree *)tree
-{
-    NSUInteger index = getIndexOfDescendantsMatchingType(tree);
-    XCUIElementType elementType = ((ElementInfo *)(tree.data)).elementType;
-    return [[self.testedApp descendantsMatchingType:elementType] allElementsBoundByIndex][index];
-}
-
--(XCUIElement *)findElementByClassPath:(ClassPath *)classPath
-{
-    XCUIElement *element = self.testedApp;
-    for (ClassPathItem *pathItem in classPath.pathItems) {
-        XCUIElementType elementType = [ElementTypeTransformer elementTypeWithTypeName:pathItem.className];
-        element = [[element childrenMatchingType:elementType] elementBoundByIndex:pathItem.index];
     }
-    return element;
 }
+
+-(void)actRandomly
+{
+    double x = RandomZeroToOne * _totalWeight;
+    for (RandomAction *action in _randomActions) {
+        if (x < action.accumulatedWeight) {
+            action.action();
+            return;
+        }
+    }
+}
+
+-(void)actRegularly
+{
+    _actionCounter += 1;
+    for (RegularAction *action in _regularActions) {
+        if (_actionCounter % action.interval == 0) {
+            action.action();
+        }
+    }
+}
+
+-(void)addAction:(ActionBlock)action withWeight:(double)weight
+{
+    _totalWeight += weight;
+    [_randomActions addObject:[[RandomAction alloc] initWithWeight:_totalWeight action:action]];
+}
+
+-(void)addAction:(ActionBlock)action  withInterval:(int)interval
+{
+    [_regularActions addObject:[[RegularAction alloc] initWithInterval:interval action:action]];
+}
+
+-(CGPoint)randomPoint
+{
+    return [self randomPointInRect:_screenFrame];
+}
+
+-(CGPoint)randomPointInRect:(CGRect)rect
+{
+    return CGPointMake(rect.origin.x + RandomZeroToOne * rect.size.width,
+                       rect.origin.y + RandomZeroToOne * rect.size.height);
+}
+
+-(CGPoint)randomPointAvoidingPanelAreas
+{
+    CGFloat topHeight = 30;
+    CGFloat bottomHeight = 25;
+    CGRect frameWithoutTopAndBottom = CGRectMake(0,
+                                                 topHeight,
+                                                 _screenFrame.size.width,
+                                                 _screenFrame.size.height - topHeight - bottomHeight);
+    return [self randomPointInRect:frameWithoutTopAndBottom];
+}
+
+-(CGRect)randomRect
+{
+    return [self rectAround:[self randomPoint] inRect:_screenFrame];
+}
+
+-(CGRect)randomRectWithSizeFraction:(CGFloat)sizeFraction
+{
+    return [self rectAround:[self randomPoint] sizeFraction:sizeFraction inRect:_screenFrame];
+}
+
+-(CGRect)rectAround:(CGPoint)point inRect:(CGRect)inRect
+{
+    return [self rectAround:point sizeFraction:3 inRect:inRect];
+}
+
+
+-(CGRect)rectAround:(CGPoint)point sizeFraction:(float)sizeFraction inRect:(CGRect)inRect
+{
+    CGFloat size = MIN(_screenFrame.size.width, _screenFrame.size.height) / sizeFraction;
+    CGFloat x0 = (point.x - _screenFrame.origin.x) * (_screenFrame.size.width - size) / _screenFrame.size.width + _screenFrame.origin.x;
+    CGFloat y0 = (point.y - _screenFrame.origin.y) * (_screenFrame.size.height - size) / _screenFrame.size.width  + _screenFrame.origin.y;
+    return CGRectMake(x0, y0, size, size);
+}
+
 
 @end

@@ -1,29 +1,72 @@
-# OCMonkey
-Monkey Testing for iOS
+# OCMonkey [![GitHub license](https://img.shields.io/badge/license-BSD-lightgrey.svg)](LICENSE)
 
-## Overview
-Inspired from [SwiftMonkey](https://github.com/zalando/SwiftMonkey), written in Objective-C, but most importantly, OCMonkey is totally irrelevant to your test target! In other words, you don't have to    modify your app's project.
+A powerful monkey testing tool for iOS. 
 
-## Installation
-Could not be more simple. No other requirement.
+## Features
+Inspired from [SwiftMonkey](https://github.com/zalando/SwiftMonkey), written in Objective-C, but most importantly, OCMonkey has these two advantages:
+* __OCMonkey is totally irrelevant to your test target__
+You don't need to embed it into your app's source. OCMonkey can launch any app with a given bundleID.
+* __Support element-based actions__
+Element-based actions are very important for a Monkey tool. Coordinated-based actions are likely trigger no action on app. For example, clicking on app's blank area is not a valid action. Also, these actions are implemented with private API and executed more faster than using the original APIs. 
 
 
 ## Requirements
 iOS version: >= 9.0
-Support both device and simulators.
-If you were to run monkey on real device rather than simulators, you must configure ```Code Signing``` and ```Mobile Provisioning Profiles``` settings by your self. You may also need to modify the ```bundleID``` of target ```MonkeyRunner```.
+Support both device and simulator.
+If you were to run OCMonkey on a real device rather than a simulator, you must configure ```Code Signing``` and ```Mobile Provisioning Profiles``` settings by your self. You may also need to modify the ```bundleID``` of target ```MonkeyRunner```.
 
-### Usage
-The first parameter is the bundleID of your tested app.
-The second parameter is the events count for the monkey.
-All done. Run the XCUITest via ```Command+Shift+U```. Enjoy yourselfQ
+## Usage
+Get an instance of  ```Monkey``` with ```bundleID```. Then configure types of actions you require the ```Monkey``` to perform. Finally starts the ```Monkey``` by ```run``` method.
+
 ```
 //  MonkeyRunner.m
-[[[Monkey alloc] initWithBundleID:@"com.apple.Health"] run:100];
+- (void)testRunner {
+NSString *bundleID = @"com.apple.Health";
+Monkey *monkey = [[Monkey alloc] initWithBundleID:bundleID];
+[monkey addDefaultXCTestPrivateActions];
+[monkey addXCTestTapAlertAction:100];
+[monkey run:100];
+}
+```
+All done. Run the XCUITest via ```Command+Shift+U```. Enjoy yourself.
+
+## Documentation
+There are two main categories action:
+* random
+* periodic
+
+Types of random actions:
+* ```XCTestTapAction```
+* ```XCTestLongPressAction```
+* ```XCTestDragAction```
+* ```XCTestPinchCloseAction```
+* ```XCTestPinchOpenAction```
+* ```XCTestRotateAction```
+* ```MonkeyLeafElementAction```
+
+Add an random action to monkey by: ```[monkey addTypeName:weight]```
+For example: 
+```
+[monkey addXCTestTapAction:25];
+[monkey addXCTestLongPressAction:1];
+[monkey addXCTestDragAction:1];
+[monkey addXCTestPinchCloseAction:1];
+[monkey addXCTestPinchOpenAction:1];
+[monkey addXCTestRotateAction:1];
+[monkey addMonkeyLeafElementAction:25];
 ```
 
-### TODO
-* Support more types of monkey action
-* Action bases on elements rather than random coordinates on screen
-* Traverse Algorithm to perform a quick coverage
-* Support callbacks
+Types of periodic actions:
+* ```XCTestTapAlertAction ```
+
+Add an random action to monkey by: ```[monkey addTypeName:interval]```
+For examle:
+```
+[monkey addXCTestTapAlertAction:100];
+```
+
+## TODO
+✔️ Support more types of monkey action
+✔️ Action bases on elements rather than random coordinates on screen
+□ Traverse Algorithm to perform a quick coverage
+□ Support callbacks

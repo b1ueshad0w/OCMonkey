@@ -8,6 +8,8 @@
 
 #import <XCTest/XCTest.h>
 #import "Monkey.h"
+#import "Monkey+XCUITestPrivate.h"
+#import "Monkey+XCUITest.h"
 
 @interface MonkeyRunner : XCTestCase
 
@@ -25,7 +27,10 @@
 
 - (void)testRunner {
     NSString *bundleID = @"com.apple.Health";
-    [[[Monkey alloc] initWithBundleID:bundleID] run:100];
+    Monkey *monkey = [[Monkey alloc] initWithBundleID:bundleID];
+    [monkey addDefaultXCTestPrivateActions];
+    [monkey addXCTestTapAlertAction:100];
+    [monkey run:100];
 }
 
 @end

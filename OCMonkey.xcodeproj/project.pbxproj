@@ -15,6 +15,18 @@
 		401AB0701EB0C7C200CC1046 /* ElementTypeTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 401AB06E1EB0C7C200CC1046 /* ElementTypeTransformer.m */; };
 		401AB0741EB0DDBE00CC1046 /* XCUIApplication+Monkey.h in Headers */ = {isa = PBXBuildFile; fileRef = 401AB0721EB0DDBE00CC1046 /* XCUIApplication+Monkey.h */; };
 		401AB0751EB0DDBE00CC1046 /* XCUIApplication+Monkey.m in Sources */ = {isa = PBXBuildFile; fileRef = 401AB0731EB0DDBE00CC1046 /* XCUIApplication+Monkey.m */; };
+		401AB09A1EB212CF00CC1046 /* RandomAction.h in Headers */ = {isa = PBXBuildFile; fileRef = 401AB0981EB212CF00CC1046 /* RandomAction.h */; };
+		401AB09B1EB212CF00CC1046 /* RandomAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 401AB0991EB212CF00CC1046 /* RandomAction.m */; };
+		401AB09E1EB2152700CC1046 /* RegularAction.h in Headers */ = {isa = PBXBuildFile; fileRef = 401AB09C1EB2152700CC1046 /* RegularAction.h */; };
+		401AB09F1EB2152700CC1046 /* RegularAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 401AB09D1EB2152700CC1046 /* RegularAction.m */; };
+		401AB0A21EB2188F00CC1046 /* Random.h in Headers */ = {isa = PBXBuildFile; fileRef = 401AB0A01EB2188F00CC1046 /* Random.h */; };
+		401AB0A31EB2188F00CC1046 /* Random.m in Sources */ = {isa = PBXBuildFile; fileRef = 401AB0A11EB2188F00CC1046 /* Random.m */; };
+		404F9E311EB24ED1009CA2A1 /* Monkey+XCUITest.h in Headers */ = {isa = PBXBuildFile; fileRef = 404F9E2F1EB24ED1009CA2A1 /* Monkey+XCUITest.h */; };
+		404F9E321EB24ED1009CA2A1 /* Monkey+XCUITest.m in Sources */ = {isa = PBXBuildFile; fileRef = 404F9E301EB24ED1009CA2A1 /* Monkey+XCUITest.m */; };
+		404F9E351EB2511C009CA2A1 /* Monkey+XCUITestPrivate.h in Headers */ = {isa = PBXBuildFile; fileRef = 404F9E331EB2511C009CA2A1 /* Monkey+XCUITestPrivate.h */; };
+		404F9E361EB2511C009CA2A1 /* Monkey+XCUITestPrivate.m in Sources */ = {isa = PBXBuildFile; fileRef = 404F9E341EB2511C009CA2A1 /* Monkey+XCUITestPrivate.m */; };
+		404F9E381EB25E0E009CA2A1 /* Macros.h in Headers */ = {isa = PBXBuildFile; fileRef = 404F9E371EB25D8B009CA2A1 /* Macros.h */; };
+		404F9E3B1EB262FF009CA2A1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 404F9E3A1EB262FF009CA2A1 /* CoreGraphics.framework */; };
 		4069E7301E67FC2800C1C832 /* Monkey.h in Headers */ = {isa = PBXBuildFile; fileRef = 4069E72E1E67FC2800C1C832 /* Monkey.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4069E7311E67FC2800C1C832 /* Monkey.m in Sources */ = {isa = PBXBuildFile; fileRef = 4069E72F1E67FC2800C1C832 /* Monkey.m */; };
 		4069E79C1E68042E00C1C832 /* _XCInternalTestRun.h in Headers */ = {isa = PBXBuildFile; fileRef = 4069E7361E68042E00C1C832 /* _XCInternalTestRun.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -146,6 +158,9 @@
 		40E1B8441EB10802000EBEAA /* ClassPathItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 40E1B8421EB10802000EBEAA /* ClassPathItem.m */; };
 		40E1B8471EB11473000EBEAA /* NSMutableArray+Reverse.h in Headers */ = {isa = PBXBuildFile; fileRef = 40E1B8451EB11473000EBEAA /* NSMutableArray+Reverse.h */; };
 		40E1B8481EB11473000EBEAA /* NSMutableArray+Reverse.m in Sources */ = {isa = PBXBuildFile; fileRef = 40E1B8461EB11473000EBEAA /* NSMutableArray+Reverse.m */; };
+		40E4B9EA1EB31D2800F8C230 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 40E4B9E91EB31D2800F8C230 /* README.md */; };
+		40E4B9EC1EB320B800F8C230 /* MathUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 40E4B9EB1EB320B800F8C230 /* MathUtils.h */; };
+		40E4B9EE1EB320D300F8C230 /* MathUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 40E4B9ED1EB320D300F8C230 /* MathUtils.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -182,6 +197,18 @@
 		401AB06E1EB0C7C200CC1046 /* ElementTypeTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ElementTypeTransformer.m; sourceTree = "<group>"; };
 		401AB0721EB0DDBE00CC1046 /* XCUIApplication+Monkey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "XCUIApplication+Monkey.h"; sourceTree = "<group>"; };
 		401AB0731EB0DDBE00CC1046 /* XCUIApplication+Monkey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "XCUIApplication+Monkey.m"; sourceTree = "<group>"; };
+		401AB0981EB212CF00CC1046 /* RandomAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RandomAction.h; sourceTree = "<group>"; };
+		401AB0991EB212CF00CC1046 /* RandomAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RandomAction.m; sourceTree = "<group>"; };
+		401AB09C1EB2152700CC1046 /* RegularAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegularAction.h; sourceTree = "<group>"; };
+		401AB09D1EB2152700CC1046 /* RegularAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegularAction.m; sourceTree = "<group>"; };
+		401AB0A01EB2188F00CC1046 /* Random.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Random.h; sourceTree = "<group>"; };
+		401AB0A11EB2188F00CC1046 /* Random.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Random.m; sourceTree = "<group>"; };
+		404F9E2F1EB24ED1009CA2A1 /* Monkey+XCUITest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Monkey+XCUITest.h"; path = "Categories/Monkey+XCUITest.h"; sourceTree = "<group>"; };
+		404F9E301EB24ED1009CA2A1 /* Monkey+XCUITest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Monkey+XCUITest.m"; path = "Categories/Monkey+XCUITest.m"; sourceTree = "<group>"; };
+		404F9E331EB2511C009CA2A1 /* Monkey+XCUITestPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Monkey+XCUITestPrivate.h"; path = "Categories/Monkey+XCUITestPrivate.h"; sourceTree = "<group>"; };
+		404F9E341EB2511C009CA2A1 /* Monkey+XCUITestPrivate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Monkey+XCUITestPrivate.m"; path = "Categories/Monkey+XCUITestPrivate.m"; sourceTree = "<group>"; };
+		404F9E371EB25D8B009CA2A1 /* Macros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Macros.h; sourceTree = "<group>"; };
+		404F9E3A1EB262FF009CA2A1 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
 		4069E7251E67FB2800C1C832 /* OCMonkeyLib.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = OCMonkeyLib.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4069E7291E67FB2800C1C832 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4069E72E1E67FC2800C1C832 /* Monkey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Monkey.h; sourceTree = "<group>"; };
@@ -319,6 +346,9 @@
 		40E1B8421EB10802000EBEAA /* ClassPathItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassPathItem.m; sourceTree = "<group>"; };
 		40E1B8451EB11473000EBEAA /* NSMutableArray+Reverse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+Reverse.h"; sourceTree = "<group>"; };
 		40E1B8461EB11473000EBEAA /* NSMutableArray+Reverse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+Reverse.m"; sourceTree = "<group>"; };
+		40E4B9E91EB31D2800F8C230 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		40E4B9EB1EB320B800F8C230 /* MathUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MathUtils.h; sourceTree = "<group>"; };
+		40E4B9ED1EB320D300F8C230 /* MathUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MathUtils.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -326,6 +356,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				404F9E3B1EB262FF009CA2A1 /* CoreGraphics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -366,15 +397,25 @@
 			path = Categories;
 			sourceTree = "<group>";
 		};
+		404F9E391EB262FF009CA2A1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				404F9E3A1EB262FF009CA2A1 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		4069E7191E67F77D00C1C832 = {
 			isa = PBXGroup;
 			children = (
+				40E4B9E91EB31D2800F8C230 /* README.md */,
 				4069E7341E6803CA00C1C832 /* PrivateHeaders */,
 				4069E7271E67FB2800C1C832 /* OCMonkeyLib */,
 				4069E8071E6806BB00C1C832 /* MonkeyRunner */,
 				407B10271E89390600C2E93D /* OCMonkeyPaws */,
 				407B10441E893B0E00C2E93D /* OCMonkeyExample */,
 				4069E7261E67FB2800C1C832 /* Products */,
+				404F9E391EB262FF009CA2A1 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -397,10 +438,18 @@
 				4069E7291E67FB2800C1C832 /* Info.plist */,
 				4069E72E1E67FC2800C1C832 /* Monkey.h */,
 				4069E72F1E67FC2800C1C832 /* Monkey.m */,
+				404F9E2F1EB24ED1009CA2A1 /* Monkey+XCUITest.h */,
+				404F9E301EB24ED1009CA2A1 /* Monkey+XCUITest.m */,
+				404F9E331EB2511C009CA2A1 /* Monkey+XCUITestPrivate.h */,
+				404F9E341EB2511C009CA2A1 /* Monkey+XCUITestPrivate.m */,
 				401AB0691EB0BB3400CC1046 /* ElementInfo.h */,
 				401AB06A1EB0BB3400CC1046 /* ElementInfo.m */,
 				40E1B8391EB105D1000EBEAA /* ElementTree.h */,
 				40E1B83A1EB105D1000EBEAA /* ElementTree.m */,
+				401AB0981EB212CF00CC1046 /* RandomAction.h */,
+				401AB0991EB212CF00CC1046 /* RandomAction.m */,
+				401AB09C1EB2152700CC1046 /* RegularAction.h */,
+				401AB09D1EB2152700CC1046 /* RegularAction.m */,
 			);
 			path = OCMonkeyLib;
 			sourceTree = "<group>";
@@ -582,8 +631,13 @@
 				40E1B83E1EB10783000EBEAA /* ClassPath.m */,
 				40E1B8411EB10802000EBEAA /* ClassPathItem.h */,
 				40E1B8421EB10802000EBEAA /* ClassPathItem.m */,
+				401AB0A01EB2188F00CC1046 /* Random.h */,
+				401AB0A11EB2188F00CC1046 /* Random.m */,
+				404F9E371EB25D8B009CA2A1 /* Macros.h */,
+				40E4B9EB1EB320B800F8C230 /* MathUtils.h */,
+				40E4B9ED1EB320D300F8C230 /* MathUtils.m */,
 			);
-			name = Utilities;
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -607,11 +661,13 @@
 				4069E7FE1E68042E00C1C832 /* XCUIRecorderNodeFinder.h in Headers */,
 				4069E7D81E68042E00C1C832 /* XCTestLog.h in Headers */,
 				4069E7E91E68042E00C1C832 /* XCTNSPredicateExpectationObject-Protocol.h in Headers */,
+				404F9E311EB24ED1009CA2A1 /* Monkey+XCUITest.h in Headers */,
 				4069E7BC1E68042E00C1C832 /* XCKeyboardKeyMap.h in Headers */,
 				4069E7A31E68042E00C1C832 /* _XCTestObservationCenterImplementation.h in Headers */,
 				4069E7EF1E68042E00C1C832 /* XCTUIApplicationMonitor-Protocol.h in Headers */,
 				4069E7EC1E68042E00C1C832 /* XCTRunnerIDESession.h in Headers */,
 				4069E7F31E68042E00C1C832 /* XCTWaiterManagement-Protocol.h in Headers */,
+				401AB09A1EB212CF00CC1046 /* RandomAction.h in Headers */,
 				4069E7C21E68042E00C1C832 /* XCSourceCodeTreeNode.h in Headers */,
 				4069E7E01E68042E00C1C832 /* XCTestProbe.h in Headers */,
 				4069E7D61E68042E00C1C832 /* XCTestExpectationDelegate-Protocol.h in Headers */,
@@ -619,6 +675,7 @@
 				401AB06F1EB0C7C200CC1046 /* ElementTypeTransformer.h in Headers */,
 				4069E7AF1E68042E00C1C832 /* UISwipeGestureRecognizer-RecordingAdditions.h in Headers */,
 				4069E7E71E68042E00C1C832 /* XCTNSNotificationExpectation.h in Headers */,
+				404F9E351EB2511C009CA2A1 /* Monkey+XCUITestPrivate.h in Headers */,
 				4069E79F1E68042E00C1C832 /* _XCTestCaseImplementation.h in Headers */,
 				4069E7C01E68042E00C1C832 /* XCPointerEventPath.h in Headers */,
 				4069E7A21E68042E00C1C832 /* _XCTestImplementation.h in Headers */,
@@ -638,6 +695,8 @@
 				4069E7ED1E68042E00C1C832 /* XCTTestRunSession.h in Headers */,
 				40E1B8431EB10802000EBEAA /* ClassPathItem.h in Headers */,
 				4069E7CE1E68042E00C1C832 /* XCTestCaseRun.h in Headers */,
+				40E4B9EC1EB320B800F8C230 /* MathUtils.h in Headers */,
+				404F9E381EB25E0E009CA2A1 /* Macros.h in Headers */,
 				4069E7301E67FC2800C1C832 /* Monkey.h in Headers */,
 				4069E7C11E68042E00C1C832 /* XCSourceCodeRecording.h in Headers */,
 				4069E7F91E68042E00C1C832 /* XCUIDevice.h in Headers */,
@@ -679,6 +738,7 @@
 				4069E7C51E68042E00C1C832 /* XCSymbolicatorHolder.h in Headers */,
 				4069E7B11E68042E00C1C832 /* XCAccessibilityElement.h in Headers */,
 				4069E7AB1E68042E00C1C832 /* UIGestureRecognizer-RecordingAdditions.h in Headers */,
+				401AB09E1EB2152700CC1046 /* RegularAction.h in Headers */,
 				4069E7B81E68042E00C1C832 /* XCDeviceEvent.h in Headers */,
 				4069E7D91E68042E00C1C832 /* XCTestManager_IDEInterface-Protocol.h in Headers */,
 				4069E7C71E68042E00C1C832 /* XCTAsyncActivity-Protocol.h in Headers */,
@@ -702,6 +762,7 @@
 				4069E7EB1E68042E00C1C832 /* XCTRunnerDaemonSession.h in Headers */,
 				4069E7D21E68042E00C1C832 /* XCTestContextScope.h in Headers */,
 				4069E7B31E68042E00C1C832 /* XCApplicationMonitor_iOS.h in Headers */,
+				401AB0A21EB2188F00CC1046 /* Random.h in Headers */,
 				4069E7DF1E68042E00C1C832 /* XCTestObserver.h in Headers */,
 				4069E7E61E68042E00C1C832 /* XCTMetric.h in Headers */,
 			);
@@ -880,12 +941,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				4069E7311E67FC2800C1C832 /* Monkey.m in Sources */,
+				40E4B9EE1EB320D300F8C230 /* MathUtils.m in Sources */,
+				404F9E361EB2511C009CA2A1 /* Monkey+XCUITestPrivate.m in Sources */,
+				404F9E321EB24ED1009CA2A1 /* Monkey+XCUITest.m in Sources */,
 				401AB0681EB0BADF00CC1046 /* Tree.m in Sources */,
+				401AB09B1EB212CF00CC1046 /* RandomAction.m in Sources */,
 				40E1B83C1EB105D1000EBEAA /* ElementTree.m in Sources */,
+				401AB0A31EB2188F00CC1046 /* Random.m in Sources */,
+				401AB09F1EB2152700CC1046 /* RegularAction.m in Sources */,
 				40E1B8481EB11473000EBEAA /* NSMutableArray+Reverse.m in Sources */,
 				401AB0701EB0C7C200CC1046 /* ElementTypeTransformer.m in Sources */,
 				40E1B8441EB10802000EBEAA /* ClassPathItem.m in Sources */,
 				401AB06C1EB0BB3400CC1046 /* ElementInfo.m in Sources */,
+				40E4B9EA1EB31D2800F8C230 /* README.md in Sources */,
 				40E1B8401EB10783000EBEAA /* ClassPath.m in Sources */,
 				401AB0751EB0DDBE00CC1046 /* XCUIApplication+Monkey.m in Sources */,
 			);
