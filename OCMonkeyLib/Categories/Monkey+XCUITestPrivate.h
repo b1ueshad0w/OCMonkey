@@ -11,5 +11,6 @@
 @interface Monkey (XCUITestPrivate)
 
 -(void)addDefaultXCTestPrivateActions;
+-(void)addMonkeyLeafElementAction:(int)weight;
 
 @end

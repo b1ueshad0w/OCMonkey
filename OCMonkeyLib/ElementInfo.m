@@ -8,6 +8,7 @@
 
 #import "ElementInfo.h"
 #import "ElementTypeTransformer.h"
+#import <XCTest/XCUIElementAttributes.h>
 
 @interface ElementInfo ()
 
@@ -20,7 +21,8 @@
 @property (nonatomic, readwrite, getter = isEnabled) BOOL enabled;
 @property (nonatomic, readwrite, nullable) NSString *placeholderValue;
 @property (nonatomic, readwrite, getter = isSelected) BOOL selected;
-
+@property (nonatomic, readwrite) XCUIUserInterfaceSizeClass horizontalSizeClass;
+@property (nonatomic, readwrite) XCUIUserInterfaceSizeClass verticalSizeClass;
 @end
 
 @implementation ElementInfo

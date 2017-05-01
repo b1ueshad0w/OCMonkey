@@ -158,9 +158,13 @@
 		40E1B8441EB10802000EBEAA /* ClassPathItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 40E1B8421EB10802000EBEAA /* ClassPathItem.m */; };
 		40E1B8471EB11473000EBEAA /* NSMutableArray+Reverse.h in Headers */ = {isa = PBXBuildFile; fileRef = 40E1B8451EB11473000EBEAA /* NSMutableArray+Reverse.h */; };
 		40E1B8481EB11473000EBEAA /* NSMutableArray+Reverse.m in Sources */ = {isa = PBXBuildFile; fileRef = 40E1B8461EB11473000EBEAA /* NSMutableArray+Reverse.m */; };
-		40E4B9EA1EB31D2800F8C230 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 40E4B9E91EB31D2800F8C230 /* README.md */; };
 		40E4B9EC1EB320B800F8C230 /* MathUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 40E4B9EB1EB320B800F8C230 /* MathUtils.h */; };
 		40E4B9EE1EB320D300F8C230 /* MathUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 40E4B9ED1EB320D300F8C230 /* MathUtils.m */; };
+		40EBD3C21EB39E7300CD5050 /* AgentForHost.h in Headers */ = {isa = PBXBuildFile; fileRef = 40EBD3C01EB39E7300CD5050 /* AgentForHost.h */; };
+		40EBD3C31EB39E7300CD5050 /* AgentForHost.m in Sources */ = {isa = PBXBuildFile; fileRef = 40EBD3C11EB39E7300CD5050 /* AgentForHost.m */; };
+		40EBD3C71EB3A33A00CD5050 /* Peertalk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40EBD3C61EB3A33A00CD5050 /* Peertalk.framework */; };
+		40EBD3C91EB3A9B100CD5050 /* Peertalk.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 40EBD3C61EB3A33A00CD5050 /* Peertalk.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		40EBD3EE1EB41E7400CD5050 /* OCMonkeyLib.h in Headers */ = {isa = PBXBuildFile; fileRef = 40EBD3ED1EB41E6800CD5050 /* OCMonkeyLib.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -182,6 +186,17 @@
 			dstSubfolderSpec = 10;
 			files = (
 				407B105C1E893CD000C2E93D /* OCMonkeyPaws.framework in Copy Frameworks */,
+			);
+			name = "Copy Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		40EBD3C81EB3A99200CD5050 /* Copy Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				40EBD3C91EB3A9B100CD5050 /* Peertalk.framework in Copy Frameworks */,
 			);
 			name = "Copy Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -349,6 +364,10 @@
 		40E4B9E91EB31D2800F8C230 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		40E4B9EB1EB320B800F8C230 /* MathUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MathUtils.h; sourceTree = "<group>"; };
 		40E4B9ED1EB320D300F8C230 /* MathUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MathUtils.m; sourceTree = "<group>"; };
+		40EBD3C01EB39E7300CD5050 /* AgentForHost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AgentForHost.h; sourceTree = "<group>"; };
+		40EBD3C11EB39E7300CD5050 /* AgentForHost.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AgentForHost.m; sourceTree = "<group>"; };
+		40EBD3C61EB3A33A00CD5050 /* Peertalk.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Peertalk.framework; path = Carthage/Build/iOS/Peertalk.framework; sourceTree = "<group>"; };
+		40EBD3ED1EB41E6800CD5050 /* OCMonkeyLib.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OCMonkeyLib.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -356,6 +375,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				40EBD3C71EB3A33A00CD5050 /* Peertalk.framework in Frameworks */,
 				404F9E3B1EB262FF009CA2A1 /* CoreGraphics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -400,6 +420,7 @@
 		404F9E391EB262FF009CA2A1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				40EBD3C61EB3A33A00CD5050 /* Peertalk.framework */,
 				404F9E3A1EB262FF009CA2A1 /* CoreGraphics.framework */,
 			);
 			name = Frameworks;
@@ -433,6 +454,8 @@
 		4069E7271E67FB2800C1C832 /* OCMonkeyLib */ = {
 			isa = PBXGroup;
 			children = (
+				40EBD3C01EB39E7300CD5050 /* AgentForHost.h */,
+				40EBD3C11EB39E7300CD5050 /* AgentForHost.m */,
 				40E1B8381EB10565000EBEAA /* Utilities */,
 				401AB0711EB0DD6C00CC1046 /* Categories */,
 				4069E7291E67FB2800C1C832 /* Info.plist */,
@@ -450,6 +473,7 @@
 				401AB0991EB212CF00CC1046 /* RandomAction.m */,
 				401AB09C1EB2152700CC1046 /* RegularAction.h */,
 				401AB09D1EB2152700CC1046 /* RegularAction.m */,
+				40EBD3ED1EB41E6800CD5050 /* OCMonkeyLib.h */,
 			);
 			path = OCMonkeyLib;
 			sourceTree = "<group>";
@@ -736,6 +760,7 @@
 				4069E7A01E68042E00C1C832 /* _XCTestCaseInterruptionException.h in Headers */,
 				4069E7E51E68042E00C1C832 /* XCTKVOExpectation.h in Headers */,
 				4069E7C51E68042E00C1C832 /* XCSymbolicatorHolder.h in Headers */,
+				40EBD3C21EB39E7300CD5050 /* AgentForHost.h in Headers */,
 				4069E7B11E68042E00C1C832 /* XCAccessibilityElement.h in Headers */,
 				4069E7AB1E68042E00C1C832 /* UIGestureRecognizer-RecordingAdditions.h in Headers */,
 				401AB09E1EB2152700CC1046 /* RegularAction.h in Headers */,
@@ -748,6 +773,7 @@
 				4069E7F11E68042E00C1C832 /* XCTWaiterDelegate-Protocol.h in Headers */,
 				4069E7CF1E68042E00C1C832 /* XCTestCaseSuite.h in Headers */,
 				4069E7A71E68042E00C1C832 /* _XCTWaiterImpl.h in Headers */,
+				40EBD3EE1EB41E7400CD5050 /* OCMonkeyLib.h in Headers */,
 				4069E7C91E68042E00C1C832 /* XCTAutomationTarget-Protocol.h in Headers */,
 				4069E7D71E68042E00C1C832 /* XCTestExpectationWaiter.h in Headers */,
 				4069E7BE1E68042E00C1C832 /* XCKeyMappingPath.h in Headers */,
@@ -790,6 +816,7 @@
 				4069E7211E67FB2800C1C832 /* Frameworks */,
 				4069E7221E67FB2800C1C832 /* Headers */,
 				4069E7231E67FB2800C1C832 /* Resources */,
+				40EBD3C81EB3A99200CD5050 /* Copy Frameworks */,
 			);
 			buildRules = (
 			);
@@ -946,6 +973,7 @@
 				404F9E321EB24ED1009CA2A1 /* Monkey+XCUITest.m in Sources */,
 				401AB0681EB0BADF00CC1046 /* Tree.m in Sources */,
 				401AB09B1EB212CF00CC1046 /* RandomAction.m in Sources */,
+				40EBD3C31EB39E7300CD5050 /* AgentForHost.m in Sources */,
 				40E1B83C1EB105D1000EBEAA /* ElementTree.m in Sources */,
 				401AB0A31EB2188F00CC1046 /* Random.m in Sources */,
 				401AB09F1EB2152700CC1046 /* RegularAction.m in Sources */,
@@ -953,7 +981,6 @@
 				401AB0701EB0C7C200CC1046 /* ElementTypeTransformer.m in Sources */,
 				40E1B8441EB10802000EBEAA /* ClassPathItem.m in Sources */,
 				401AB06C1EB0BB3400CC1046 /* ElementInfo.m in Sources */,
-				40E4B9EA1EB31D2800F8C230 /* README.md in Sources */,
 				40E1B8401EB10783000EBEAA /* ClassPath.m in Sources */,
 				401AB0751EB0DDBE00CC1046 /* XCUIApplication+Monkey.m in Sources */,
 			);
@@ -1055,7 +1082,10 @@
 				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				FRAMEWORK_SEARCH_PATHS = "$(PLATFORM_DIR)/Developer/Library/Frameworks";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -1119,7 +1149,10 @@
 				ENABLE_BITCODE = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				FRAMEWORK_SEARCH_PATHS = "$(PLATFORM_DIR)/Developer/Library/Frameworks";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -1385,6 +1418,10 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -1437,6 +1474,10 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;

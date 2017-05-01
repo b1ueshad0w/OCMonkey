@@ -13,6 +13,7 @@
 #import "RandomAction.h"
 #import "RegularAction.h"
 #import "Macros.h"
+#import "AgentForHost.h"
 
 
 @interface Monkey()
@@ -23,6 +24,7 @@
 @property double totalWeight;
 @property NSMutableArray<RandomAction *> *randomActions;
 @property NSMutableArray<RegularAction *> *regularActions;
+@property AgentForHost *appAgent;
 @end
 
 @implementation Monkey
@@ -32,9 +34,16 @@
     if (self = [super init]) {
         _testedAppBundleID = bundleID;
         _testedApp = [[XCUIApplication alloc] initPrivateWithPath:nil bundleID:self.testedAppBundleID];
-        _testedApp.launchEnvironment = @{@"maxGesturesShown": @45};
+        _testedApp.launchEnvironment = @{@"maxGesturesShown": @5};
         [_testedApp launch];
+        _appAgent = [[AgentForHost alloc] init];
+//        [_appAgent connectToLocalIPv4AtPort:2345];
+        
+        /* Use _testedApp.frame will cause strange issue:
+         * _testedApp.lastSnapshot will never change
+         */
         _screenFrame = CGRectMake(0, 0, 375, 667);
+        
         _actionCounter = 0;
         _regularActions = [[NSMutableArray alloc] init];
         _randomActions = [[NSMutableArray alloc] init];
@@ -52,6 +61,7 @@
 -(void)run:(int)steps
 {
     for (int i = 0; i < steps; i++) {
+//        [_appAgent sendJSON:@{@"path": @"/viewControllerStack"}];
         @autoreleasepool {
             [self actRandomly];
             [self actRegularly];
@@ -148,6 +158,5 @@
     CGFloat y0 = (point.y - _screenFrame.origin.y) * (_screenFrame.size.height - size) / _screenFrame.size.width  + _screenFrame.origin.y;
     return CGRectMake(x0, y0, size, size);
 }
-
 
 @end

@@ -20,7 +20,6 @@
 
 -(void)addXCTestTapAlertAction:(int)interval
 {
-    __typeof__(self) __weak weakSelf = self;
     [self addAction:^(void){
         XCUIApplication *app = nil;
         NSArray<XCUIElement *> *alerts = [app.alerts allElementsBoundByIndex];
