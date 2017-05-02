@@ -27,4 +27,8 @@
 - (void)monkey_setViewControllers:(NSArray<UIViewController *> *)viewControllers
                   animated:(BOOL)animated;
 
+- (void)monkey_showViewController:(UIViewController *)vc
+                           sender:(nullable id)sender NS_AVAILABLE_IOS(8_0); // Interpreted as pushViewController:animated:
+
+
 @end

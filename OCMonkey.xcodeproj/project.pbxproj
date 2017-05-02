@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		400DCFA91EB8C8C0009E41B9 /* NSMutableArray+FixedSizeQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = 400DCFA71EB8C8C0009E41B9 /* NSMutableArray+FixedSizeQueue.h */; };
+		400DCFAA1EB8C8C0009E41B9 /* NSMutableArray+FixedSizeQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 400DCFA81EB8C8C0009E41B9 /* NSMutableArray+FixedSizeQueue.m */; };
+		400DCFAD1EB8CA89009E41B9 /* UITabBarController+Monkey.h in Headers */ = {isa = PBXBuildFile; fileRef = 400DCFAB1EB8CA89009E41B9 /* UITabBarController+Monkey.h */; };
+		400DCFAE1EB8CA89009E41B9 /* UITabBarController+Monkey.m in Sources */ = {isa = PBXBuildFile; fileRef = 400DCFAC1EB8CA89009E41B9 /* UITabBarController+Monkey.m */; };
+		400DCFB01EB8E725009E41B9 /* Init.h in Headers */ = {isa = PBXBuildFile; fileRef = 400DCFAF1EB8E725009E41B9 /* Init.h */; };
+		400DCFB21EB8E73D009E41B9 /* Init.m in Sources */ = {isa = PBXBuildFile; fileRef = 400DCFB11EB8E73D009E41B9 /* Init.m */; };
 		401AB0671EB0BADF00CC1046 /* Tree.h in Headers */ = {isa = PBXBuildFile; fileRef = 401AB0651EB0BADF00CC1046 /* Tree.h */; };
 		401AB0681EB0BADF00CC1046 /* Tree.m in Sources */ = {isa = PBXBuildFile; fileRef = 401AB0661EB0BADF00CC1046 /* Tree.m */; };
 		401AB06B1EB0BB3400CC1046 /* ElementInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 401AB0691EB0BB3400CC1046 /* ElementInfo.h */; };
@@ -376,6 +382,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		400DCFA71EB8C8C0009E41B9 /* NSMutableArray+FixedSizeQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+FixedSizeQueue.h"; sourceTree = "<group>"; };
+		400DCFA81EB8C8C0009E41B9 /* NSMutableArray+FixedSizeQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+FixedSizeQueue.m"; sourceTree = "<group>"; };
+		400DCFAB1EB8CA89009E41B9 /* UITabBarController+Monkey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITabBarController+Monkey.h"; sourceTree = "<group>"; };
+		400DCFAC1EB8CA89009E41B9 /* UITabBarController+Monkey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITabBarController+Monkey.m"; sourceTree = "<group>"; };
+		400DCFAF1EB8E725009E41B9 /* Init.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Init.h; sourceTree = "<group>"; };
+		400DCFB11EB8E73D009E41B9 /* Init.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Init.m; sourceTree = "<group>"; };
 		401AB0651EB0BADF00CC1046 /* Tree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tree.h; sourceTree = "<group>"; };
 		401AB0661EB0BADF00CC1046 /* Tree.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tree.m; sourceTree = "<group>"; };
 		401AB0691EB0BB3400CC1046 /* ElementInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ElementInfo.h; sourceTree = "<group>"; };
@@ -868,12 +880,14 @@
 		40AE4F5D1EB8424C006A13C5 /* libmonkey */ = {
 			isa = PBXGroup;
 			children = (
+				40AE4FCE1EB84362006A13C5 /* Categories */,
 				40AE50101EB8990F006A13C5 /* Outlet.m */,
 				40AE50111EB8990F006A13C5 /* Outlet.h */,
-				40AE4FCE1EB84362006A13C5 /* Categories */,
 				40AE4FCC1EB842EC006A13C5 /* main.m */,
 				40AE4F5E1EB8424C006A13C5 /* libmonkey.h */,
 				40AE4F5F1EB8424C006A13C5 /* Info.plist */,
+				400DCFAF1EB8E725009E41B9 /* Init.h */,
+				400DCFB11EB8E73D009E41B9 /* Init.m */,
 			);
 			path = libmonkey;
 			sourceTree = "<group>";
@@ -882,10 +896,14 @@
 			isa = PBXGroup;
 			children = (
 				40AE4FCF1EB8436D006A13C5 /* XCTest */,
+				400DCFA71EB8C8C0009E41B9 /* NSMutableArray+FixedSizeQueue.h */,
+				400DCFA81EB8C8C0009E41B9 /* NSMutableArray+FixedSizeQueue.m */,
 				40AE4FD51EB8546F006A13C5 /* UINavigationController+Monkey.h */,
 				40AE4FD61EB8546F006A13C5 /* UINavigationController+Monkey.m */,
 				40AE50901EB8B1F1006A13C5 /* UIViewController+Monkey.h */,
 				40AE50911EB8B1F1006A13C5 /* UIViewController+Monkey.m */,
+				400DCFAB1EB8CA89009E41B9 /* UITabBarController+Monkey.h */,
+				400DCFAC1EB8CA89009E41B9 /* UITabBarController+Monkey.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -1100,6 +1118,7 @@
 				40AE4FA01EB842C4006A13C5 /* XCTestLog.h in Headers */,
 				40AE4F801EB842C4006A13C5 /* XCDeviceEvent.h in Headers */,
 				40AE4F681EB842C4006A13C5 /* _XCTestCaseInterruptionException.h in Headers */,
+				400DCFA91EB8C8C0009E41B9 /* NSMutableArray+FixedSizeQueue.h in Headers */,
 				40AE4F701EB842C4006A13C5 /* CDStructures.h in Headers */,
 				40AE4F741EB842C4006A13C5 /* UILongPressGestureRecognizer-RecordingAdditions.h in Headers */,
 				40AE4FC01EB842C4006A13C5 /* XCUICoordinate.h in Headers */,
@@ -1169,6 +1188,7 @@
 				40AE4F8A1EB842C4006A13C5 /* XCSourceCodeTreeNode.h in Headers */,
 				40AE4F841EB842C4006A13C5 /* XCKeyboardKeyMap.h in Headers */,
 				40AE50921EB8B1F1006A13C5 /* UIViewController+Monkey.h in Headers */,
+				400DCFB01EB8E725009E41B9 /* Init.h in Headers */,
 				40AE4F921EB842C4006A13C5 /* XCTAXClient-Protocol.h in Headers */,
 				40AE4F9F1EB842C4006A13C5 /* XCTestExpectationWaiter.h in Headers */,
 				40AE4F771EB842C4006A13C5 /* UISwipeGestureRecognizer-RecordingAdditions.h in Headers */,
@@ -1188,6 +1208,7 @@
 				40AE4F781EB842C4006A13C5 /* UITapGestureRecognizer-RecordingAdditions.h in Headers */,
 				40AE4F851EB842C4006A13C5 /* XCKeyboardLayout.h in Headers */,
 				40AE4F7B1EB842C4006A13C5 /* XCApplicationMonitor_iOS.h in Headers */,
+				400DCFAD1EB8CA89009E41B9 /* UITabBarController+Monkey.h in Headers */,
 				40AE4F6A1EB842C4006A13C5 /* _XCTestImplementation.h in Headers */,
 				40AE4F871EB842C4006A13C5 /* XCPointerEvent.h in Headers */,
 				40AE4F991EB842C4006A13C5 /* XCTestContext.h in Headers */,
@@ -1482,8 +1503,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				40AE50121EB8990F006A13C5 /* Outlet.m in Sources */,
+				400DCFAA1EB8C8C0009E41B9 /* NSMutableArray+FixedSizeQueue.m in Sources */,
 				40AE4FD41EB849EA006A13C5 /* swizzle.m in Sources */,
+				400DCFAE1EB8CA89009E41B9 /* UITabBarController+Monkey.m in Sources */,
 				40AE50931EB8B1F1006A13C5 /* UIViewController+Monkey.m in Sources */,
+				400DCFB21EB8E73D009E41B9 /* Init.m in Sources */,
 				40AE4FD81EB8546F006A13C5 /* UINavigationController+Monkey.m in Sources */,
 				40AE4FCD1EB842EC006A13C5 /* main.m in Sources */,
 			);
@@ -2310,6 +2334,7 @@
 				40AE50801EB89FB1006A13C5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

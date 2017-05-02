@@ -70,4 +70,15 @@
     NSLog(@"%@ [%@(%p) setViewControllers: %@ animated: %@]", prefix, NSStringFromClass([self class]), self, viewControllers, animated ? @"Yes" : @"No");
     return [self monkey_setViewControllers:viewControllers animated:animated];
 }
+
+- (void)monkey_showViewController:(UIViewController *)vc sender:(nullable id)sender
+{
+    NSLog(@"%@ [%@(%p) showViewController: %@ sender: %@]",
+          prefix,
+          NSStringFromClass([self class]), self,
+          NSStringFromClass([vc class]),
+          NSStringFromClass([sender class]));
+    return [self monkey_showViewController:vc sender:sender];
+}
+
 @end

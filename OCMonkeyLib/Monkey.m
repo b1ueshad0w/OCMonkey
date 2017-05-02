@@ -37,7 +37,7 @@
         _testedApp.launchEnvironment = @{@"maxGesturesShown": @5};
         [_testedApp launch];
         _appAgent = [[AgentForHost alloc] init];
-//        [_appAgent connectToLocalIPv4AtPort:2345];
+        [_appAgent connectToLocalIPv4AtPort:2345];
         
         /* Use _testedApp.frame will cause strange issue:
          * _testedApp.lastSnapshot will never change
@@ -61,7 +61,7 @@
 -(void)run:(int)steps
 {
     for (int i = 0; i < steps; i++) {
-//        [_appAgent sendJSON:@{@"path": @"/viewControllerStack"}];
+        [_appAgent sendJSON:@{@"path": @"/viewControllerStack"}];
         @autoreleasepool {
             [self actRandomly];
             [self actRegularly];
