@@ -13,4 +13,6 @@
 
 #define RandomZeroToOne arc4random() / (double)ARC4RANDOM_MAX
 
+#define prefix @"***************************** gogleyin"
+
 #endif /* Macros_h */

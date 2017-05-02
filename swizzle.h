@@ -9,5 +9,10 @@
 #ifndef swizzle_h
 #define swizzle_h
 
+#import <objc/runtime.h>
+
+void swizzleClassMethod(Class class, SEL original, SEL new);
+
+void swizzleInstanceMethod(Class class, SEL original, SEL new);
 
 #endif /* swizzle_h */

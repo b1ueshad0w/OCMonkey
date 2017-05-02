@@ -14,6 +14,7 @@
 -(void)monkey_start
 {
     NSLog(@"%@ [%@(%p) start]", prefix, NSStringFromClass([self class]), self);
+    NSLog(@"%@",[NSThread callStackSymbols]);
     [self monkey_start];
 }
 
