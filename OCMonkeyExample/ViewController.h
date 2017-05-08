@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AgentForHost.h"
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController <UIChangeDelegate>
 
+@property (strong, atomic) AgentForHost *agent;
 
 @end
 

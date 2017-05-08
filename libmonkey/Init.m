@@ -37,21 +37,23 @@ void swizzle_XCTest()
 
 void swizzle_UINavigationController()
 {
-    swizzleInstanceMethod([UINavigationController class], @selector(initWithRootViewController:), @selector(monkey_initWithRootViewController:));
-    swizzleInstanceMethod([UINavigationController class], @selector(initWithNavigationBarClass:toolbarClass:), @selector(monkey_initWithNavigationBarClass:toolbarClass:));
-    swizzleInstanceMethod([UINavigationController class], @selector(pushViewController:animated:), @selector(monkey_pushViewController:animated:));
-    swizzleInstanceMethod([UINavigationController class], @selector(popViewControllerAnimated:), @selector(monkey_popViewControllerAnimated:));
-    swizzleInstanceMethod([UINavigationController class], @selector(popToViewController:animated:), @selector(monkey_popToViewController:animated:));
-    swizzleInstanceMethod([UINavigationController class], @selector(popToRootViewControllerAnimated:), @selector(monkey_popToRootViewControllerAnimated:));
-    swizzleInstanceMethod([UINavigationController class], @selector(setViewControllers:animated:), @selector(monkey_setViewControllers:animated:));
+    Class UINaviCtl = [UINavigationController class];
+    swizzleInstanceMethod(UINaviCtl, @selector(initWithRootViewController:), @selector(monkey_initWithRootViewController:));
+    swizzleInstanceMethod(UINaviCtl, @selector(initWithNavigationBarClass:toolbarClass:), @selector(monkey_initWithNavigationBarClass:toolbarClass:));
+    swizzleInstanceMethod(UINaviCtl, @selector(pushViewController:animated:), @selector(monkey_pushViewController:animated:));
+    swizzleInstanceMethod(UINaviCtl, @selector(popViewControllerAnimated:), @selector(monkey_popViewControllerAnimated:));
+    swizzleInstanceMethod(UINaviCtl, @selector(popToViewController:animated:), @selector(monkey_popToViewController:animated:));
+    swizzleInstanceMethod(UINaviCtl, @selector(popToRootViewControllerAnimated:), @selector(monkey_popToRootViewControllerAnimated:));
+    swizzleInstanceMethod(UINaviCtl, @selector(setViewControllers:animated:), @selector(monkey_setViewControllers:animated:));
 }
 
 void swizzle_UIViewController()
 {
-    swizzleInstanceMethod([UIViewController class], @selector(viewDidAppear:), @selector(monkey_viewDidAppear:));
-    swizzleInstanceMethod([UIViewController class], @selector(showViewController:sender:), @selector(monkey_showViewController:sender:));
-    swizzleInstanceMethod([UIViewController class], @selector(showDetailViewController:sender:), @selector(monkey_showDetailViewController:sender:));
-    swizzleInstanceMethod([UIViewController class], @selector(presentViewController:animated:completion:), @selector(monkey_presentViewController:animated:completion:));
+    Class UIViewCtl = [UIViewController class];
+    swizzleInstanceMethod(UIViewCtl, @selector(viewDidAppear:), @selector(monkey_viewDidAppear:));
+    swizzleInstanceMethod(UIViewCtl, @selector(showViewController:sender:), @selector(monkey_showViewController:sender:));
+    swizzleInstanceMethod(UIViewCtl, @selector(showDetailViewController:sender:), @selector(monkey_showDetailViewController:sender:));
+    swizzleInstanceMethod(UIViewCtl, @selector(presentViewController:animated:completion:), @selector(monkey_presentViewController:animated:completion:));
 }
 
 void swizzle_UITabBarController()

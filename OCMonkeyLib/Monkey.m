@@ -36,7 +36,7 @@
         _testedApp = [[XCUIApplication alloc] initPrivateWithPath:nil bundleID:self.testedAppBundleID];
         _testedApp.launchEnvironment = @{@"maxGesturesShown": @5};
         [_testedApp launch];
-        _appAgent = [[AgentForHost alloc] init];
+        _appAgent = [[AgentForHost alloc] initWithDelegate:self];
         [_appAgent connectToLocalIPv4AtPort:2345];
         
         /* Use _testedApp.frame will cause strange issue:
@@ -61,7 +61,8 @@
 -(void)run:(int)steps
 {
     for (int i = 0; i < steps; i++) {
-        [_appAgent sendJSON:@{@"path": @"/viewControllerStack"}];
+//        [_appAgent sendJSON:@{@"path": @"/viewControllerStack"}];
+        [NSThread sleepForTimeInterval:0.5];
         @autoreleasepool {
             [self actRandomly];
             [self actRegularly];

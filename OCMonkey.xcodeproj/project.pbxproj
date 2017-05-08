@@ -281,6 +281,11 @@
 		40AE50861EB8A0E3006A13C5 /* Peertalk.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 40EBD3C61EB3A33A00CD5050 /* Peertalk.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		40AE50921EB8B1F1006A13C5 /* UIViewController+Monkey.h in Headers */ = {isa = PBXBuildFile; fileRef = 40AE50901EB8B1F1006A13C5 /* UIViewController+Monkey.h */; };
 		40AE50931EB8B1F1006A13C5 /* UIViewController+Monkey.m in Sources */ = {isa = PBXBuildFile; fileRef = 40AE50911EB8B1F1006A13C5 /* UIViewController+Monkey.m */; };
+		40AE50E31EBC295A006A13C5 /* Monkey+UIChangeDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 40AE50E11EBC295A006A13C5 /* Monkey+UIChangeDelegate.h */; };
+		40AE50E41EBC295A006A13C5 /* Monkey+UIChangeDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 40AE50E21EBC295A006A13C5 /* Monkey+UIChangeDelegate.m */; };
+		40AE50E51EBC3C22006A13C5 /* AgentForHost.m in Sources */ = {isa = PBXBuildFile; fileRef = 40EBD3C11EB39E7300CD5050 /* AgentForHost.m */; };
+		40AE50E71EBC3CD1006A13C5 /* Peertalk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40EBD3C61EB3A33A00CD5050 /* Peertalk.framework */; };
+		40AE50E81EBC3CE1006A13C5 /* Peertalk.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 40EBD3C61EB3A33A00CD5050 /* Peertalk.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		40E1B83B1EB105D1000EBEAA /* ElementTree.h in Headers */ = {isa = PBXBuildFile; fileRef = 40E1B8391EB105D1000EBEAA /* ElementTree.h */; };
 		40E1B83C1EB105D1000EBEAA /* ElementTree.m in Sources */ = {isa = PBXBuildFile; fileRef = 40E1B83A1EB105D1000EBEAA /* ElementTree.m */; };
 		40E1B83F1EB10783000EBEAA /* ClassPath.h in Headers */ = {isa = PBXBuildFile; fileRef = 40E1B83D1EB10783000EBEAA /* ClassPath.h */; };
@@ -340,6 +345,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				40AE50E81EBC3CE1006A13C5 /* Peertalk.framework in Copy Frameworks */,
 				407B105C1E893CD000C2E93D /* OCMonkeyPaws.framework in Copy Frameworks */,
 			);
 			name = "Copy Frameworks";
@@ -527,7 +533,7 @@
 		407B10331E89395000C2E93D /* MonkeyPaws.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MonkeyPaws.m; sourceTree = "<group>"; };
 		407B10341E89395000C2E93D /* UIApplication+Monkey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIApplication+Monkey.h"; sourceTree = "<group>"; };
 		407B10351E89395000C2E93D /* UIApplication+Monkey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIApplication+Monkey.m"; sourceTree = "<group>"; };
-		407B10431E893B0D00C2E93D /* OCMonkeyExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OCMonkeyExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		407B10431E893B0D00C2E93D /* OCMonkeyPawsExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OCMonkeyPawsExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		407B10461E893B0E00C2E93D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		407B10481E893B0E00C2E93D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		407B10491E893B0E00C2E93D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -563,6 +569,8 @@
 		40AE507D1EB89FB1006A13C5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		40AE50901EB8B1F1006A13C5 /* UIViewController+Monkey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Monkey.h"; sourceTree = "<group>"; };
 		40AE50911EB8B1F1006A13C5 /* UIViewController+Monkey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Monkey.m"; sourceTree = "<group>"; };
+		40AE50E11EBC295A006A13C5 /* Monkey+UIChangeDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Monkey+UIChangeDelegate.h"; sourceTree = "<group>"; };
+		40AE50E21EBC295A006A13C5 /* Monkey+UIChangeDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Monkey+UIChangeDelegate.m"; sourceTree = "<group>"; };
 		40E1B8391EB105D1000EBEAA /* ElementTree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ElementTree.h; sourceTree = "<group>"; };
 		40E1B83A1EB105D1000EBEAA /* ElementTree.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ElementTree.m; sourceTree = "<group>"; };
 		40E1B83D1EB10783000EBEAA /* ClassPath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassPath.h; sourceTree = "<group>"; };
@@ -609,6 +617,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				40AE50E71EBC3CD1006A13C5 /* Peertalk.framework in Frameworks */,
 				407B105A1E893B6300C2E93D /* OCMonkeyPaws.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -677,7 +686,7 @@
 				4069E7251E67FB2800C1C832 /* OCMonkeyLib.framework */,
 				4069E8061E6806BB00C1C832 /* MonkeyRunner.xctest */,
 				407B10261E89390600C2E93D /* OCMonkeyPaws.framework */,
-				407B10431E893B0D00C2E93D /* OCMonkeyExample.app */,
+				407B10431E893B0D00C2E93D /* OCMonkeyPawsExample.app */,
 				40AE4F5C1EB8424C006A13C5 /* libmonkey.framework */,
 				40AE50671EB89FB1006A13C5 /* LibMonkeyExample.app */,
 			);
@@ -687,10 +696,10 @@
 		4069E7271E67FB2800C1C832 /* OCMonkeyLib */ = {
 			isa = PBXGroup;
 			children = (
+				401AB0711EB0DD6C00CC1046 /* Categories */,
+				40E1B8381EB10565000EBEAA /* Utilities */,
 				40EBD3C01EB39E7300CD5050 /* AgentForHost.h */,
 				40EBD3C11EB39E7300CD5050 /* AgentForHost.m */,
-				40E1B8381EB10565000EBEAA /* Utilities */,
-				401AB0711EB0DD6C00CC1046 /* Categories */,
 				4069E7291E67FB2800C1C832 /* Info.plist */,
 				4069E72E1E67FC2800C1C832 /* Monkey.h */,
 				4069E72F1E67FC2800C1C832 /* Monkey.m */,
@@ -698,6 +707,8 @@
 				404F9E301EB24ED1009CA2A1 /* Monkey+XCUITest.m */,
 				404F9E331EB2511C009CA2A1 /* Monkey+XCUITestPrivate.h */,
 				404F9E341EB2511C009CA2A1 /* Monkey+XCUITestPrivate.m */,
+				40AE50E11EBC295A006A13C5 /* Monkey+UIChangeDelegate.h */,
+				40AE50E21EBC295A006A13C5 /* Monkey+UIChangeDelegate.m */,
 				401AB0691EB0BB3400CC1046 /* ElementInfo.h */,
 				401AB06A1EB0BB3400CC1046 /* ElementInfo.m */,
 				40E1B8391EB105D1000EBEAA /* ElementTree.h */,
@@ -971,6 +982,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4069E7A91E68042E00C1C832 /* NSString-XCTAdditions.h in Headers */,
+				40AE50E31EBC295A006A13C5 /* Monkey+UIChangeDelegate.h in Headers */,
 				4069E7C81E68042E00C1C832 /* XCTAsyncActivity.h in Headers */,
 				4069E7E81E68042E00C1C832 /* XCTNSPredicateExpectation.h in Headers */,
 				4069E7BD1E68042E00C1C832 /* XCKeyboardLayout.h in Headers */,
@@ -1279,9 +1291,9 @@
 			productReference = 407B10261E89390600C2E93D /* OCMonkeyPaws.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		407B10421E893B0D00C2E93D /* OCMonkeyExample */ = {
+		407B10421E893B0D00C2E93D /* OCMonkeyPawsExample */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 407B10571E893B0E00C2E93D /* Build configuration list for PBXNativeTarget "OCMonkeyExample" */;
+			buildConfigurationList = 407B10571E893B0E00C2E93D /* Build configuration list for PBXNativeTarget "OCMonkeyPawsExample" */;
 			buildPhases = (
 				407B103F1E893B0D00C2E93D /* Sources */,
 				407B10401E893B0D00C2E93D /* Frameworks */,
@@ -1293,9 +1305,9 @@
 			dependencies = (
 				40AE50161EB89CCD006A13C5 /* PBXTargetDependency */,
 			);
-			name = OCMonkeyExample;
+			name = OCMonkeyPawsExample;
 			productName = OCMonkeyExample;
-			productReference = 407B10431E893B0D00C2E93D /* OCMonkeyExample.app */;
+			productReference = 407B10431E893B0D00C2E93D /* OCMonkeyPawsExample.app */;
 			productType = "com.apple.product-type.application";
 		};
 		40AE4F5B1EB8424C006A13C5 /* libmonkey */ = {
@@ -1387,8 +1399,8 @@
 				4069E7241E67FB2800C1C832 /* OCMonkeyLib */,
 				4069E8051E6806BB00C1C832 /* MonkeyRunner */,
 				407B10251E89390600C2E93D /* OCMonkeyPaws */,
-				407B10421E893B0D00C2E93D /* OCMonkeyExample */,
 				40AE4F5B1EB8424C006A13C5 /* libmonkey */,
+				407B10421E893B0D00C2E93D /* OCMonkeyPawsExample */,
 				40AE50661EB89FB1006A13C5 /* LibMonkeyExample */,
 			);
 		};
@@ -1460,6 +1472,7 @@
 				40E1B83C1EB105D1000EBEAA /* ElementTree.m in Sources */,
 				401AB0A31EB2188F00CC1046 /* Random.m in Sources */,
 				401AB09F1EB2152700CC1046 /* RegularAction.m in Sources */,
+				40AE50E41EBC295A006A13C5 /* Monkey+UIChangeDelegate.m in Sources */,
 				40E1B8481EB11473000EBEAA /* NSMutableArray+Reverse.m in Sources */,
 				401AB0701EB0C7C200CC1046 /* ElementTypeTransformer.m in Sources */,
 				40E1B8441EB10802000EBEAA /* ClassPathItem.m in Sources */,
@@ -1492,6 +1505,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				40AE50E51EBC3C22006A13C5 /* AgentForHost.m in Sources */,
 				407B104D1E893B0E00C2E93D /* ViewController.m in Sources */,
 				407B104A1E893B0E00C2E93D /* AppDelegate.m in Sources */,
 				407B10471E893B0E00C2E93D /* main.m in Sources */,
@@ -2309,7 +2323,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		407B10571E893B0E00C2E93D /* Build configuration list for PBXNativeTarget "OCMonkeyExample" */ = {
+		407B10571E893B0E00C2E93D /* Build configuration list for PBXNativeTarget "OCMonkeyPawsExample" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				407B10581E893B0E00C2E93D /* Debug */,

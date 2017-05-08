@@ -1,32 +1,15 @@
 //
-//  ViewController.m
-//  OCMonkeyExample
+//  Monkey+UIChangeDelegate.m
+//  OCMonkey
 //
-//  Created by gogleyin on 27/03/2017.
+//  Created by gogleyin on 05/05/2017.
 //
 //
 
-#import "ViewController.h"
+#import "Monkey+UIChangeDelegate.h"
 #import "Macros.h"
 
-@interface ViewController ()
-
-@end
-
-@implementation ViewController
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
-    _agent = [[AgentForHost alloc] initWithDelegate:self];
-    [_agent connectToLocalIPv4AtPort:2345];
-}
-
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
+@implementation Monkey (UIChangeDelegate)
 
 - (void)viewController:(NSString *)vc didAppearAnimated:(BOOL)animated
 {
@@ -66,6 +49,5 @@
 {
     NSLog(@"%@ [%@ setViewControllers:%@]", prefix, naviCtrl, VCs);
 }
-
 
 @end

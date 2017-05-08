@@ -27,6 +27,9 @@ static const in_port_t GGUSBPort = 2345;
     __weak PTChannel *serverChannel_;
     __weak PTChannel *peerChannel_;
 }
+@property NSMutableDictionary *semaphores;  // {tagNo1: semaphore1, tagNo2: semaphore2}
+@property int nextFrameTag;
+
 
 @end
 
@@ -38,12 +41,33 @@ static const in_port_t GGUSBPort = 2345;
     dispatch_once(&onceToken, ^{
         sharedOutlet = [[self alloc] init];
         sharedOutlet.didAppearVCs = [[NSMutableArray alloc] init];
+        sharedOutlet.semaphores = [[NSMutableDictionary alloc] init];
+        sharedOutlet.nextFrameTag = 1;
     });
     return sharedOutlet;
 }
 
++(int)responseTimeout
+{
+    static int _responseTimeout = -1;
+    if (_responseTimeout < 0) {
+        _responseTimeout = [[[NSProcessInfo processInfo] environment][@"responseTimeout"] intValue];
+        if (_responseTimeout < 0)
+            _responseTimeout = RESPONSE_TIMEOUT;
+    }
+    return _responseTimeout;
+}
+
+-(int)newTag
+{
+    return ++_nextFrameTag;
+}
+
 -(void)start {
-    PTChannel *channel = [PTChannel channelWithDelegate:self];
+//    PTChannel *channel = [PTChannel channelWithDelegate:self];  // work in main thread
+    PTProtocol *protocol = [[PTProtocol alloc] initWithDispatchQueue:dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)];
+    PTChannel *channel = [[PTChannel alloc] initWithProtocol:protocol delegate:self];
+    
     NSDictionary *envi = [[NSProcessInfo processInfo] environment];
 //    NSLog(@"environment: %@", envi);
     in_port_t port = GGUSBPort;
@@ -133,20 +157,31 @@ static const in_port_t GGUSBPort = 2345;
 - (void)handleRequestData:(NSData *)data tag:(uint32_t)tag
 {
     NSError *error;
-    NSDictionary *requestDictionary = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error];
-    if (!requestDictionary) {
+    NSDictionary *receivedJson = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error];
+    if (!receivedJson) {
         [self respondWithErrorMessage:error.description];
         return;
     }
-    GGValidateObjectWithClass(requestDictionary, NSDictionary.class);
+    NSLog(@"%@ Receive json: %@ Tag: %u", prefix, receivedJson, tag);
+    
+    if (tag) {
+        NSNumber *keyForTag = [NSNumber numberWithInt:tag];
+        if ([_semaphores objectForKey:keyForTag]) {
+            dispatch_semaphore_signal([_semaphores objectForKey:keyForTag]);
+            [_semaphores setObject:receivedJson forKey:keyForTag];
+        }
+        return;
+    }
+
+    GGValidateObjectWithClass(receivedJson, NSDictionary.class);
 //    GGValidateObjectWithClass(requestDictionary[@"uuid"], NSString.class);
 //    GGValidateObjectWithClass(requestDictionary[@"method"], NSString.class);
-    GGValidateObjectWithClass(requestDictionary[@"path"], NSString.class);
+    GGValidateObjectWithClass(receivedJson[@"path"], NSString.class);
 //    GGValidateObjectWithClass(requestDictionary[@"parameters"], NSDictionary.class);
     
 //    NSString *uuid = requestDictionary[@"uuid"];
 //    NSString *method = requestDictionary[@"method"];
-    NSString *path = requestDictionary[@"path"];
+    NSString *path = receivedJson[@"path"];
 //    NSDictionary *parameters = requestDictionary[@"parameters"];
     
     if ([path isEqualToString:@"/viewControllerStack"]) {
@@ -160,7 +195,7 @@ static const in_port_t GGUSBPort = 2345;
          tag:tag];
         [self.didAppearVCs removeAllObjects];
     } else if ([path isEqualToString:@"/openURL"]) {
-        NSDictionary *paras = requestDictionary[@"parameters"];
+        NSDictionary *paras = receivedJson[@"parameters"];
         if (paras) {
             NSString *urlString = paras[@"url"];
             if (urlString) {
@@ -185,6 +220,32 @@ static const in_port_t GGUSBPort = 2345;
 
 #pragma mark - Communicating
 
+- (void)sendJSON:(NSDictionary *)info
+{
+    if (![self isConnected])
+        return;
+    [self sendJSON:info tag:PTFrameNoTag];
+}
+
+- (nullable NSDictionary *)jsonAction:(NSDictionary *)data timeout:(int64_t)nanoseconds
+{
+    int tag = [self newTag];
+    NSNumber *keyForTag = [NSNumber numberWithInt:tag];
+    [self sendJSON:data tag:tag];
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+    [_semaphores setObject:semaphore forKey:keyForTag];
+    dispatch_time_t waitTime = dispatch_time(DISPATCH_TIME_NOW, nanoseconds);
+    dispatch_semaphore_wait(semaphore, waitTime);
+    if ([_semaphores objectForKey:keyForTag] == semaphore) {
+        NSLog(@"%@ JSON action timeout.", prefix);
+        return nil;
+    }
+    NSDictionary *result = [[_semaphores objectForKey:keyForTag] copy];
+    [_semaphores removeObjectForKey:keyForTag];
+    return result;
+}
+
+
 - (void)sendJSON:(NSDictionary *)info tag:(uint32_t)tag
 {
 //    NSLog(@"%@ in sendJSON", prefix);
@@ -198,6 +259,7 @@ static const in_port_t GGUSBPort = 2345;
             NSLog(@"%@ Failed to send json: %@", prefix, error);
         }
     }];
+    NSLog(@"Sent JSON: %@ with tag: %u", info, tag);
 }
 
 - (void)sendDeviceInfo {

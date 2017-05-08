@@ -26,11 +26,15 @@
 }
 
 - (void)testRunner {
-    NSString *bundleID = @"com.apple.Health";
-    Monkey *monkey = [[Monkey alloc] initWithBundleID:bundleID];
-    [monkey addDefaultXCTestPrivateActions];
+    NSString *health = @"com.apple.Health";
+    NSString *qq = @"com.tencent.qq.dailybuild";
+    NSString *bundleID3 = @"com.tencent.rosentest";
+    NSString *bundleID4 = @"com.blueshadow.LibMonkeyExample";
+    Monkey *monkey = [[Monkey alloc] initWithBundleID:bundleID4];
+//    [monkey addDefaultXCTestPrivateActions];
+    [monkey addMonkeyLeafElementAction:100];
     [monkey addXCTestTapAlertAction:100];
-    [monkey run:100];
+    [monkey run:200];
 }
 
 @end

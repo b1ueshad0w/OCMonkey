@@ -24,9 +24,11 @@
     //    }
     [sharedOutlet.didAppearVCs enqueue:className];
     
-    //    if ([sharedOutlet isConnected]) {
-    //        [sharedOutlet sendMessage:className];
-    //    }
+
+    [sharedOutlet sendJSON:@{@"selector": @"viewDidAppear:",
+                             @"receiver": className,
+                             @"args": @[[NSNumber numberWithBool:animated]],
+                             @"returned": [NSNull null]}];
     
     //    if (![className hasPrefix:@"UI"]) {
     //        NSLog(@"%@ [%@(%p) viewDidAppear: %@]", prefix, className, self, animated ? @"Yes" : @"No");

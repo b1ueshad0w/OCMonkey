@@ -66,7 +66,8 @@ For examle:
 ```
 
 ## TODO
-✔️ Support more types of monkey action
-✔️ Action bases on elements rather than random coordinates on screen
-□ Traverse Algorithm to perform a quick coverage
-□ Support callbacks
+* Support more types of monkey action [done]
+* Action bases on elements rather than random coordinates on screen [done]
+* Traverse Algorithm to perform a quick coverage
+* Support callbacks
+* Control ViewControllers stack [done]
