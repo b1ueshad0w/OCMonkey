@@ -52,7 +52,7 @@ static const in_port_t GGUSBPort = 2345;
     static int _responseTimeout = -1;
     if (_responseTimeout < 0) {
         _responseTimeout = [[[NSProcessInfo processInfo] environment][@"responseTimeout"] intValue];
-        if (_responseTimeout < 0)
+        if (!_responseTimeout || _responseTimeout < 0)
             _responseTimeout = RESPONSE_TIMEOUT;
     }
     return _responseTimeout;
@@ -227,14 +227,14 @@ static const in_port_t GGUSBPort = 2345;
     [self sendJSON:info tag:PTFrameNoTag];
 }
 
-- (nullable NSDictionary *)jsonAction:(NSDictionary *)data timeout:(int64_t)nanoseconds
+- (nullable NSDictionary *)jsonAction:(NSDictionary *)data timeout:(int64_t)seconds
 {
     int tag = [self newTag];
     NSNumber *keyForTag = [NSNumber numberWithInt:tag];
     [self sendJSON:data tag:tag];
     dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
     [_semaphores setObject:semaphore forKey:keyForTag];
-    dispatch_time_t waitTime = dispatch_time(DISPATCH_TIME_NOW, nanoseconds);
+    dispatch_time_t waitTime = dispatch_time(DISPATCH_TIME_NOW, seconds * 1000000000);
     dispatch_semaphore_wait(semaphore, waitTime);
     if ([_semaphores objectForKey:keyForTag] == semaphore) {
         NSLog(@"%@ JSON action timeout.", prefix);

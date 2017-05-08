@@ -12,7 +12,7 @@
 #import <UIKit/UIWindow.h>
 #import "MonkeyPaws.h"
 
-#define RESPONSE_TIMEOUT 100000000
+#define RESPONSE_TIMEOUT 0.1
 
 @interface Outlet : NSObject
 
@@ -27,7 +27,7 @@
 
 -(BOOL)isConnected;
 - (void)sendJSON:(NSDictionary *)info;
-- (nullable NSDictionary *)jsonAction:(NSDictionary *)data timeout:(int64_t)timeout;
+- (nullable NSDictionary *)jsonAction:(NSDictionary *)data timeout:(int64_t)seconds;
 +(id)sharedOutlet;
 +(int)responseTimeout;
 

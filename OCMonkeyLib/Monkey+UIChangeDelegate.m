@@ -19,25 +19,25 @@
 - (BOOL)naviCtrl:(NSString *)naviCtrl shouldPushViewController:(NSString *)pushedVC animated:(BOOL)animated
 {
     NSLog(@"%@ [%@ pushViewController:%@ animated:%@]", prefix, naviCtrl, pushedVC, animated ? @"Yes" : @"No");
-    return NO; // The pushedVC will not get pushed into naviCtrl.
+    return YES; // If return NO, the pushedVC will not get pushed into naviCtrl.
 }
 
 - (BOOL)naviCtrl:(NSString *)naviCtrl shouldPopViewControllerAnimated:(BOOL)animated
 {
     NSLog(@"%@ [%@ popViewController:%@]", prefix, naviCtrl, animated ? @"Yes" : @"No");
-    return NO; // The pushedVC will not get pushed into naviCtrl.
+    return YES; // If return NO, the naviCtrl will not perform pop action.
 }
 
 - (BOOL)naviCtrl:(NSString *)naviCtrl shouldPopToRootViewControllerAnimated:(BOOL)animated
 {
     NSLog(@"%@ [%@ popToRootViewControllerAnimated:%@]", prefix, naviCtrl, animated ? @"Yes" : @"No");
-    return NO;
+    return YES;
 }
 
 - (BOOL)naviCtrl:(NSString *)naviCtrl shouldPopToViewController:(NSString *)toVC animated:(BOOL)animated
 {
     NSLog(@"%@ [%@ popToViewController:%@ animated: %@] ==> %@", prefix, naviCtrl, toVC, animated ? @"Yes" : @"No");
-    return NO;
+    return YES;
 }
 
 - (void)naviCtrl:(NSString *)naviCtrl initWithRootViewController:(NSString *)vc
