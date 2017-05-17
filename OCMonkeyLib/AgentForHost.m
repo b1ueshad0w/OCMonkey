@@ -93,6 +93,7 @@ static NSDictionary *SelectorMapping;
     if (error) {
       if (error.domain == NSPOSIXErrorDomain && (error.code == ECONNREFUSED || error.code == ETIMEDOUT)) {
         // this is an expected state
+          NSLog(@"No listening socket.");
       } else {
         NSLog(@"Failed to connect to 127.0.0.1:%d: %@", port, error);
       }
@@ -103,6 +104,38 @@ static NSDictionary *SelectorMapping;
       NSLog(@"%@ Connected to %@", prefix, address);
     }
     }];
+}
+
+- (void)connectToLocalIPv4AtPort:(in_port_t)port timeout:(uint32_t)seconds
+{
+    PTProtocol *protocol = [[PTProtocol alloc] initWithDispatchQueue:dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)];
+    __block BOOL keepWaiting = YES;
+    for (int i = 0; i < seconds; i++) {
+        if (!keepWaiting)
+            break;
+        NSLog(@"%@ Attemp to connect to 127.0.0.1:%d ... %d", prefix, port, i);
+        PTChannel *channel = [[PTChannel alloc] initWithProtocol:protocol delegate:self];
+        channel.userInfo = [NSString stringWithFormat:@"127.0.0.1:%d", port];
+        [channel connectToPort:port IPv4Address:INADDR_LOOPBACK callback:^(NSError *error, PTAddress *address) {
+            if (error) {
+                if (error.domain == NSPOSIXErrorDomain && (error.code == ECONNREFUSED || error.code == ETIMEDOUT)) {
+                    /* this is an expected state */
+                    NSLog(@"%@ No listening socket.", prefix);
+                    [NSThread sleepForTimeInterval:0.1];
+                } else {
+                    // keepWaiting = NO;
+                    NSLog(@"%@ Failed to connect to 127.0.0.1:%d: %@", prefix, port, error);
+                    [NSThread sleepForTimeInterval:0.1];
+                }
+            } else {
+                keepWaiting = NO;
+                [self disconnectFromCurrentChannel];
+                self.connectedChannel = channel;
+                channel.userInfo = address;
+                NSLog(@"%@ Connected to %@", prefix, address);
+            }
+        }];
+    }
 }
 
 /* I don' know why this will crash */

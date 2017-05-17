@@ -27,6 +27,7 @@ typedef struct _PTExampleTextFrame {
 - (id)initWithDelegate:(id<UIChangeDelegate>)delegate;
 
 - (void)connectToLocalIPv4AtPort:(in_port_t)port;
+- (void)connectToLocalIPv4AtPort:(in_port_t)port timeout:(uint32_t)seconds;
 - (void)sendJSON:(NSDictionary *)info;
 @end
 

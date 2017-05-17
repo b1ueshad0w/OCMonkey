@@ -35,9 +35,7 @@
         _testedAppBundleID = bundleID;
         _testedApp = [[XCUIApplication alloc] initPrivateWithPath:nil bundleID:self.testedAppBundleID];
         _testedApp.launchEnvironment = @{@"maxGesturesShown": @5};
-        [_testedApp launch];
-        _appAgent = [[AgentForHost alloc] initWithDelegate:self];
-        [_appAgent connectToLocalIPv4AtPort:2345];
+        
         
         /* Use _testedApp.frame will cause strange issue:
          * _testedApp.lastSnapshot will never change
@@ -58,10 +56,25 @@
     return _testedApp;
 }
 
+-(void)preRun
+{
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        _appAgent = [[AgentForHost alloc] initWithDelegate:self];
+        [_appAgent connectToLocalIPv4AtPort:2345 timeout:15];
+    });
+    [_testedApp launch];
+}
+
+-(void)postRun
+{
+    [_testedApp terminate];
+}
+
 -(void)run:(int)steps
 {
+    [self preRun];
+    
     for (int i = 0; i < steps; i++) {
-//        [_appAgent sendJSON:@{@"path": @"/viewControllerStack"}];
         [NSThread sleepForTimeInterval:0.5];
         @autoreleasepool {
             [self actRandomly];
@@ -69,17 +82,21 @@
         }
     }
     
-    [self.testedApp terminate];
+    [self postRun];
 }
 
 -(void)run
 {
+    [self preRun];
+    
     while (YES) {
         @autoreleasepool {
             [self actRandomly];
             [self actRegularly];
         }
     }
+    
+//    [self postRun];
 }
 
 -(void)actRandomly
