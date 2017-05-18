@@ -7,10 +7,15 @@
 //
 
 #import "Monkey.h"
+#import "Tree.h"
 
 @interface Monkey (XCUITestPrivate)
 
 -(void)addDefaultXCTestPrivateActions;
 -(void)addMonkeyLeafElementAction:(int)weight;
+-(void)tap:(CGPoint)location;
+-(void)tapElement:(Tree *)element;
+-(void)dragFrom:(CGPoint)start to:(CGPoint)end;
+-(void)goBackByDragFromScreenLeftEdgeToRight;
 
 @end

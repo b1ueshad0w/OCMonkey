@@ -115,20 +115,7 @@ UIInterfaceOrientation orientationValue = UIInterfaceOrientationPortrait;
     [self addAction:^(void){
         CGPoint start = [weakSelf randomPointAvoidingPanelAreas];
         CGPoint end = [weakSelf randomPoint];
-        dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
-        [[XCEventGenerator sharedGenerator] pressAtPoint:start
-                                             forDuration:0
-                                             liftAtPoint:end
-                                                velocity:1000
-                                             orientation:orientationValue
-                                                    name:@"Monkey drag"
-                                                 handler:^(XCSynthesizedEventRecord *record, NSError *commandError) {
-                                                     if (commandError) {
-                                                         NSLog(@"Failed to perform step: %@", commandError);
-                                                     }
-                                                     dispatch_semaphore_signal(semaphore);
-                                                 }];
-        dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
+        [weakSelf dragFrom:start to:end];
     } withWeight:weight];
 }
 
@@ -198,12 +185,20 @@ UIInterfaceOrientation orientationValue = UIInterfaceOrientationPortrait;
     } withWeight:weight];
 }
 
+
+
 -(void)addMonkeyLeafElementAction:(int)weight
 {
     __typeof__(self) __weak weakSelf = self;
     [self addAction:^(void){
         [weakSelf performActionRandomLeafElement];
     } withWeight:weight];
+}
+
+-(void)tapElement:(Tree *)element
+{
+    CGPoint center = getRectCenter(((ElementInfo*)element.data).frame);
+    [self tap:center];
 }
 
 -(void)tap:(CGPoint)location
@@ -232,6 +227,36 @@ UIInterfaceOrientation orientationValue = UIInterfaceOrientationPortrait;
     dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
 }
 
+#pragma mark high level actions
+
+-(void)goBackByDragFromScreenLeftEdgeToRight
+{
+    CGFloat halfHeight = self.screenFrame.size.height / 2;
+    CGPoint start = CGPointMake(0, halfHeight);
+    CGPoint end = CGPointMake(self.screenFrame.size.width - 10, halfHeight);
+    [self dragFrom:start to:end];
+}
+
+#pragma mark basic actions
+
+-(void)dragFrom:(CGPoint)start to:(CGPoint)end
+{
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+    [[XCEventGenerator sharedGenerator] pressAtPoint:start
+                                         forDuration:0
+                                         liftAtPoint:end
+                                            velocity:1000
+                                         orientation:orientationValue
+                                                name:@"Monkey drag"
+                                             handler:^(XCSynthesizedEventRecord *record, NSError *commandError) {
+                                                 if (commandError) {
+                                                     NSLog(@"Failed to perform drag: %@", commandError);
+                                                 }
+                                                 dispatch_semaphore_signal(semaphore);
+                                             }];
+    dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
+}
+
 -(void)performActionRandomLeafElement
 {
     Tree *tree = [self.testedApp tree];
@@ -244,8 +269,7 @@ UIInterfaceOrientation orientationValue = UIInterfaceOrientationPortrait;
     //        NSLog(@"leaf: %@ %@", leaf.identifier, leaf.data);
     //    }
     
-    CGPoint center = getRectCenter(((ElementInfo*)leafChosen.data).frame);
-    [self tap:center];
+    [self tapElement:leafChosen];
 }
 
 

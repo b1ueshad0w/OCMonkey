@@ -44,5 +44,18 @@
     [super postRun];
 }
 
+-(nullable NSString *)getCurrentVC
+{
+    for (NSString *vc in _appearedVCs) {
+        /* UIInputWindowController ...
+         * Most VC names start with "UI" is probably a system pre-defined vc name.
+         */
+        if ([vc hasPrefix:@"UI"])
+            continue;
+        return vc;
+    }
+    return nil;
+}
+
 @end
 

@@ -17,6 +17,7 @@
 -(instancetype)initWithBundleID:(NSString*)bundleID launchEnvironment:(NSDictionary *)launchEnv;
 -(void)run:(int)steps;
 -(void)run;
+-(void)runOneStep;
 -(void)preRun;
 -(void)postRun;
 -(void)addAction:(ActionBlock)action withWeight:(double)weight;
@@ -30,4 +31,6 @@
 @property (readonly) int actionCounter;
 @property (nonatomic, readonly) XCUIApplication *testedApp;
 @property (nonatomic, readwrite) NSMutableDictionary *launchEnvironment;
+@property CGRect screenFrame;
+
 @end

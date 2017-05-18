@@ -15,7 +15,7 @@
 
 - (void)viewController:(NSString *)vc didAppearAnimated:(BOOL)animated
 {
-    NSLog(@"%@ [%@ viewDidAppear:%@", prefix, vc, animated ? @"Yes" : @"No");
+    NSLog(@"%@ [%@ viewDidAppear:%@]", prefix, vc, animated ? @"Yes" : @"No");
     [self.appearedVCs enqueue:vc];
 }
 

@@ -18,7 +18,6 @@
 @interface Monkey()
 @property NSString *testedAppBundleID;
 @property (nonatomic) XCUIApplication *testedApp;
-@property CGRect screenFrame;
 @property (readwrite) int actionCounter;
 @property double totalWeight;
 @property NSMutableArray<RandomAction *> *randomActions;
@@ -72,6 +71,12 @@
     [_testedApp terminate];
 }
 
+-(void)runOneStep
+{
+    [self actRandomly];
+    [self actRegularly];
+}
+
 -(void)run:(int)steps
 {
     [self preRun];
@@ -79,8 +84,7 @@
     for (int i = 0; i < steps; i++) {
         [NSThread sleepForTimeInterval:0.5];
         @autoreleasepool {
-            [self actRandomly];
-            [self actRegularly];
+            [self runOneStep];
         }
     }
     
@@ -93,8 +97,7 @@
     
     while (YES) {
         @autoreleasepool {
-            [self actRandomly];
-            [self actRegularly];
+            [self runOneStep];
         }
     }
     

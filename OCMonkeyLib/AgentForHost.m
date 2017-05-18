@@ -81,7 +81,7 @@ static NSDictionary *SelectorMapping;
             NSLog(@"Failed to send json: %@", error);
         }
     }];
-    NSLog(@"%@ JSON sent: %@", prefix, info);
+//    NSLog(@"%@ JSON sent: %@", prefix, info);
 }
 
 - (void)connectToLocalIPv4AtPort:(in_port_t)port {

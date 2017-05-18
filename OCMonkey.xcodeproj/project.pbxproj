@@ -27,12 +27,24 @@
 		401AB09F1EB2152700CC1046 /* RegularAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 401AB09D1EB2152700CC1046 /* RegularAction.m */; };
 		401AB0A21EB2188F00CC1046 /* Random.h in Headers */ = {isa = PBXBuildFile; fileRef = 401AB0A01EB2188F00CC1046 /* Random.h */; };
 		401AB0A31EB2188F00CC1046 /* Random.m in Sources */ = {isa = PBXBuildFile; fileRef = 401AB0A11EB2188F00CC1046 /* Random.m */; };
+		404AF2A71ECD457200DFC6BF /* MonkeyAlgorithm.m in Sources */ = {isa = PBXBuildFile; fileRef = 404AF2A61ECD457200DFC6BF /* MonkeyAlgorithm.m */; };
+		404AF2AA1ECD819700DFC6BF /* WeightedMonkey.h in Headers */ = {isa = PBXBuildFile; fileRef = 404AF2A81ECD819700DFC6BF /* WeightedMonkey.h */; };
+		404AF2AB1ECD819700DFC6BF /* WeightedMonkey.m in Sources */ = {isa = PBXBuildFile; fileRef = 404AF2A91ECD819700DFC6BF /* WeightedMonkey.m */; };
 		404F9E311EB24ED1009CA2A1 /* Monkey+XCUITest.h in Headers */ = {isa = PBXBuildFile; fileRef = 404F9E2F1EB24ED1009CA2A1 /* Monkey+XCUITest.h */; };
 		404F9E321EB24ED1009CA2A1 /* Monkey+XCUITest.m in Sources */ = {isa = PBXBuildFile; fileRef = 404F9E301EB24ED1009CA2A1 /* Monkey+XCUITest.m */; };
 		404F9E351EB2511C009CA2A1 /* Monkey+XCUITestPrivate.h in Headers */ = {isa = PBXBuildFile; fileRef = 404F9E331EB2511C009CA2A1 /* Monkey+XCUITestPrivate.h */; };
 		404F9E361EB2511C009CA2A1 /* Monkey+XCUITestPrivate.m in Sources */ = {isa = PBXBuildFile; fileRef = 404F9E341EB2511C009CA2A1 /* Monkey+XCUITestPrivate.m */; };
 		404F9E381EB25E0E009CA2A1 /* Macros.h in Headers */ = {isa = PBXBuildFile; fileRef = 404F9E371EB25D8B009CA2A1 /* Macros.h */; };
 		404F9E3B1EB262FF009CA2A1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 404F9E3A1EB262FF009CA2A1 /* CoreGraphics.framework */; };
+		406477D31ECC3B1D006AB4AB /* NSMutableArray+Queue.h in Headers */ = {isa = PBXBuildFile; fileRef = 406477D11ECC3B1D006AB4AB /* NSMutableArray+Queue.h */; };
+		406477D41ECC3B1D006AB4AB /* NSMutableArray+Queue.m in Sources */ = {isa = PBXBuildFile; fileRef = 406477D21ECC3B1D006AB4AB /* NSMutableArray+Queue.m */; };
+		406477D71ECC490B006AB4AB /* NSMutableArray+Stack.h in Headers */ = {isa = PBXBuildFile; fileRef = 406477D51ECC490B006AB4AB /* NSMutableArray+Stack.h */; };
+		406477D81ECC490B006AB4AB /* NSMutableArray+Stack.m in Sources */ = {isa = PBXBuildFile; fileRef = 406477D61ECC490B006AB4AB /* NSMutableArray+Stack.m */; };
+		406477DB1ECD34F0006AB4AB /* SmartMonkey+UIChangeDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 406477D91ECD34F0006AB4AB /* SmartMonkey+UIChangeDelegate.h */; };
+		406477DC1ECD34F0006AB4AB /* SmartMonkey+UIChangeDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 406477DA1ECD34F0006AB4AB /* SmartMonkey+UIChangeDelegate.m */; };
+		406477DF1ECD3554006AB4AB /* SmartMonkey.h in Headers */ = {isa = PBXBuildFile; fileRef = 406477DD1ECD3554006AB4AB /* SmartMonkey.h */; };
+		406477E01ECD3554006AB4AB /* SmartMonkey.m in Sources */ = {isa = PBXBuildFile; fileRef = 406477DE1ECD3554006AB4AB /* SmartMonkey.m */; };
+		406477E21ECD42F0006AB4AB /* MonkeyAlgorithm.h in Headers */ = {isa = PBXBuildFile; fileRef = 406477E11ECD42F0006AB4AB /* MonkeyAlgorithm.h */; };
 		4069E7301E67FC2800C1C832 /* Monkey.h in Headers */ = {isa = PBXBuildFile; fileRef = 4069E72E1E67FC2800C1C832 /* Monkey.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4069E7311E67FC2800C1C832 /* Monkey.m in Sources */ = {isa = PBXBuildFile; fileRef = 4069E72F1E67FC2800C1C832 /* Monkey.m */; };
 		4069E79C1E68042E00C1C832 /* _XCInternalTestRun.h in Headers */ = {isa = PBXBuildFile; fileRef = 4069E7361E68042E00C1C832 /* _XCInternalTestRun.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -281,8 +293,6 @@
 		40AE50861EB8A0E3006A13C5 /* Peertalk.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 40EBD3C61EB3A33A00CD5050 /* Peertalk.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		40AE50921EB8B1F1006A13C5 /* UIViewController+Monkey.h in Headers */ = {isa = PBXBuildFile; fileRef = 40AE50901EB8B1F1006A13C5 /* UIViewController+Monkey.h */; };
 		40AE50931EB8B1F1006A13C5 /* UIViewController+Monkey.m in Sources */ = {isa = PBXBuildFile; fileRef = 40AE50911EB8B1F1006A13C5 /* UIViewController+Monkey.m */; };
-		40AE50E31EBC295A006A13C5 /* Monkey+UIChangeDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 40AE50E11EBC295A006A13C5 /* Monkey+UIChangeDelegate.h */; };
-		40AE50E41EBC295A006A13C5 /* Monkey+UIChangeDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 40AE50E21EBC295A006A13C5 /* Monkey+UIChangeDelegate.m */; };
 		40AE50E51EBC3C22006A13C5 /* AgentForHost.m in Sources */ = {isa = PBXBuildFile; fileRef = 40EBD3C11EB39E7300CD5050 /* AgentForHost.m */; };
 		40AE50E71EBC3CD1006A13C5 /* Peertalk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40EBD3C61EB3A33A00CD5050 /* Peertalk.framework */; };
 		40AE50E81EBC3CE1006A13C5 /* Peertalk.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 40EBD3C61EB3A33A00CD5050 /* Peertalk.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -408,12 +418,24 @@
 		401AB09D1EB2152700CC1046 /* RegularAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegularAction.m; sourceTree = "<group>"; };
 		401AB0A01EB2188F00CC1046 /* Random.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Random.h; sourceTree = "<group>"; };
 		401AB0A11EB2188F00CC1046 /* Random.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Random.m; sourceTree = "<group>"; };
+		404AF2A61ECD457200DFC6BF /* MonkeyAlgorithm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MonkeyAlgorithm.m; sourceTree = "<group>"; };
+		404AF2A81ECD819700DFC6BF /* WeightedMonkey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeightedMonkey.h; sourceTree = "<group>"; };
+		404AF2A91ECD819700DFC6BF /* WeightedMonkey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeightedMonkey.m; sourceTree = "<group>"; };
 		404F9E2F1EB24ED1009CA2A1 /* Monkey+XCUITest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Monkey+XCUITest.h"; path = "Categories/Monkey+XCUITest.h"; sourceTree = "<group>"; };
 		404F9E301EB24ED1009CA2A1 /* Monkey+XCUITest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Monkey+XCUITest.m"; path = "Categories/Monkey+XCUITest.m"; sourceTree = "<group>"; };
 		404F9E331EB2511C009CA2A1 /* Monkey+XCUITestPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Monkey+XCUITestPrivate.h"; path = "Categories/Monkey+XCUITestPrivate.h"; sourceTree = "<group>"; };
 		404F9E341EB2511C009CA2A1 /* Monkey+XCUITestPrivate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Monkey+XCUITestPrivate.m"; path = "Categories/Monkey+XCUITestPrivate.m"; sourceTree = "<group>"; };
 		404F9E371EB25D8B009CA2A1 /* Macros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Macros.h; sourceTree = "<group>"; };
 		404F9E3A1EB262FF009CA2A1 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
+		406477D11ECC3B1D006AB4AB /* NSMutableArray+Queue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+Queue.h"; sourceTree = "<group>"; };
+		406477D21ECC3B1D006AB4AB /* NSMutableArray+Queue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+Queue.m"; sourceTree = "<group>"; };
+		406477D51ECC490B006AB4AB /* NSMutableArray+Stack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+Stack.h"; sourceTree = "<group>"; };
+		406477D61ECC490B006AB4AB /* NSMutableArray+Stack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+Stack.m"; sourceTree = "<group>"; };
+		406477D91ECD34F0006AB4AB /* SmartMonkey+UIChangeDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SmartMonkey+UIChangeDelegate.h"; sourceTree = "<group>"; };
+		406477DA1ECD34F0006AB4AB /* SmartMonkey+UIChangeDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SmartMonkey+UIChangeDelegate.m"; sourceTree = "<group>"; };
+		406477DD1ECD3554006AB4AB /* SmartMonkey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmartMonkey.h; sourceTree = "<group>"; };
+		406477DE1ECD3554006AB4AB /* SmartMonkey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SmartMonkey.m; sourceTree = "<group>"; };
+		406477E11ECD42F0006AB4AB /* MonkeyAlgorithm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MonkeyAlgorithm.h; sourceTree = "<group>"; };
 		4069E7251E67FB2800C1C832 /* OCMonkeyLib.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = OCMonkeyLib.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4069E7291E67FB2800C1C832 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4069E72E1E67FC2800C1C832 /* Monkey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Monkey.h; sourceTree = "<group>"; };
@@ -569,8 +591,6 @@
 		40AE507D1EB89FB1006A13C5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		40AE50901EB8B1F1006A13C5 /* UIViewController+Monkey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Monkey.h"; sourceTree = "<group>"; };
 		40AE50911EB8B1F1006A13C5 /* UIViewController+Monkey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Monkey.m"; sourceTree = "<group>"; };
-		40AE50E11EBC295A006A13C5 /* Monkey+UIChangeDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Monkey+UIChangeDelegate.h"; sourceTree = "<group>"; };
-		40AE50E21EBC295A006A13C5 /* Monkey+UIChangeDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Monkey+UIChangeDelegate.m"; sourceTree = "<group>"; };
 		40E1B8391EB105D1000EBEAA /* ElementTree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ElementTree.h; sourceTree = "<group>"; };
 		40E1B83A1EB105D1000EBEAA /* ElementTree.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ElementTree.m; sourceTree = "<group>"; };
 		40E1B83D1EB10783000EBEAA /* ClassPath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassPath.h; sourceTree = "<group>"; };
@@ -649,6 +669,10 @@
 				401AB0731EB0DDBE00CC1046 /* XCUIApplication+Monkey.m */,
 				40E1B8451EB11473000EBEAA /* NSMutableArray+Reverse.h */,
 				40E1B8461EB11473000EBEAA /* NSMutableArray+Reverse.m */,
+				406477D11ECC3B1D006AB4AB /* NSMutableArray+Queue.h */,
+				406477D21ECC3B1D006AB4AB /* NSMutableArray+Queue.m */,
+				406477D51ECC490B006AB4AB /* NSMutableArray+Stack.h */,
+				406477D61ECC490B006AB4AB /* NSMutableArray+Stack.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -707,8 +731,12 @@
 				404F9E301EB24ED1009CA2A1 /* Monkey+XCUITest.m */,
 				404F9E331EB2511C009CA2A1 /* Monkey+XCUITestPrivate.h */,
 				404F9E341EB2511C009CA2A1 /* Monkey+XCUITestPrivate.m */,
-				40AE50E11EBC295A006A13C5 /* Monkey+UIChangeDelegate.h */,
-				40AE50E21EBC295A006A13C5 /* Monkey+UIChangeDelegate.m */,
+				406477D91ECD34F0006AB4AB /* SmartMonkey+UIChangeDelegate.h */,
+				406477DA1ECD34F0006AB4AB /* SmartMonkey+UIChangeDelegate.m */,
+				406477DD1ECD3554006AB4AB /* SmartMonkey.h */,
+				406477DE1ECD3554006AB4AB /* SmartMonkey.m */,
+				404AF2A81ECD819700DFC6BF /* WeightedMonkey.h */,
+				404AF2A91ECD819700DFC6BF /* WeightedMonkey.m */,
 				401AB0691EB0BB3400CC1046 /* ElementInfo.h */,
 				401AB06A1EB0BB3400CC1046 /* ElementInfo.m */,
 				40E1B8391EB105D1000EBEAA /* ElementTree.h */,
@@ -718,6 +746,8 @@
 				401AB09C1EB2152700CC1046 /* RegularAction.h */,
 				401AB09D1EB2152700CC1046 /* RegularAction.m */,
 				40EBD3ED1EB41E6800CD5050 /* OCMonkeyLib.h */,
+				406477E11ECD42F0006AB4AB /* MonkeyAlgorithm.h */,
+				404AF2A61ECD457200DFC6BF /* MonkeyAlgorithm.m */,
 			);
 			path = OCMonkeyLib;
 			sourceTree = "<group>";
@@ -982,7 +1012,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4069E7A91E68042E00C1C832 /* NSString-XCTAdditions.h in Headers */,
-				40AE50E31EBC295A006A13C5 /* Monkey+UIChangeDelegate.h in Headers */,
+				406477D31ECC3B1D006AB4AB /* NSMutableArray+Queue.h in Headers */,
 				4069E7C81E68042E00C1C832 /* XCTAsyncActivity.h in Headers */,
 				4069E7E81E68042E00C1C832 /* XCTNSPredicateExpectation.h in Headers */,
 				4069E7BD1E68042E00C1C832 /* XCKeyboardLayout.h in Headers */,
@@ -1006,10 +1036,12 @@
 				4069E7C21E68042E00C1C832 /* XCSourceCodeTreeNode.h in Headers */,
 				4069E7E01E68042E00C1C832 /* XCTestProbe.h in Headers */,
 				4069E7D61E68042E00C1C832 /* XCTestExpectationDelegate-Protocol.h in Headers */,
+				406477D71ECC490B006AB4AB /* NSMutableArray+Stack.h in Headers */,
 				4069E7B71E68042E00C1C832 /* XCDebugLogDelegate-Protocol.h in Headers */,
 				401AB06F1EB0C7C200CC1046 /* ElementTypeTransformer.h in Headers */,
 				4069E7AF1E68042E00C1C832 /* UISwipeGestureRecognizer-RecordingAdditions.h in Headers */,
 				4069E7E71E68042E00C1C832 /* XCTNSNotificationExpectation.h in Headers */,
+				404AF2AA1ECD819700DFC6BF /* WeightedMonkey.h in Headers */,
 				404F9E351EB2511C009CA2A1 /* Monkey+XCUITestPrivate.h in Headers */,
 				4069E79F1E68042E00C1C832 /* _XCTestCaseImplementation.h in Headers */,
 				4069E7C01E68042E00C1C832 /* XCPointerEventPath.h in Headers */,
@@ -1025,6 +1057,7 @@
 				4069E7CD1E68042E00C1C832 /* XCTestCase.h in Headers */,
 				4069E7F41E68042E00C1C832 /* XCTWaiterManager.h in Headers */,
 				4069E7DD1E68042E00C1C832 /* XCTestObservation-Protocol.h in Headers */,
+				406477DF1ECD3554006AB4AB /* SmartMonkey.h in Headers */,
 				4069E7D01E68042E00C1C832 /* XCTestConfiguration.h in Headers */,
 				401AB0741EB0DDBE00CC1046 /* XCUIApplication+Monkey.h in Headers */,
 				4069E7ED1E68042E00C1C832 /* XCTTestRunSession.h in Headers */,
@@ -1035,6 +1068,7 @@
 				4069E7301E67FC2800C1C832 /* Monkey.h in Headers */,
 				4069E7C11E68042E00C1C832 /* XCSourceCodeRecording.h in Headers */,
 				4069E7F91E68042E00C1C832 /* XCUIDevice.h in Headers */,
+				406477DB1ECD34F0006AB4AB /* SmartMonkey+UIChangeDelegate.h in Headers */,
 				4069E8001E68042E00C1C832 /* XCUIRecorderTimingMessage.h in Headers */,
 				4069E7A11E68042E00C1C832 /* _XCTestExpectationImplementation.h in Headers */,
 				4069E7F01E68042E00C1C832 /* XCTWaiter.h in Headers */,
@@ -1070,6 +1104,7 @@
 				4069E7B01E68042E00C1C832 /* UITapGestureRecognizer-RecordingAdditions.h in Headers */,
 				4069E7A01E68042E00C1C832 /* _XCTestCaseInterruptionException.h in Headers */,
 				4069E7E51E68042E00C1C832 /* XCTKVOExpectation.h in Headers */,
+				406477E21ECD42F0006AB4AB /* MonkeyAlgorithm.h in Headers */,
 				4069E7C51E68042E00C1C832 /* XCSymbolicatorHolder.h in Headers */,
 				40EBD3C21EB39E7300CD5050 /* AgentForHost.h in Headers */,
 				4069E7B11E68042E00C1C832 /* XCAccessibilityElement.h in Headers */,
@@ -1463,6 +1498,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				4069E7311E67FC2800C1C832 /* Monkey.m in Sources */,
+				406477DC1ECD34F0006AB4AB /* SmartMonkey+UIChangeDelegate.m in Sources */,
+				406477E01ECD3554006AB4AB /* SmartMonkey.m in Sources */,
+				404AF2AB1ECD819700DFC6BF /* WeightedMonkey.m in Sources */,
 				40E4B9EE1EB320D300F8C230 /* MathUtils.m in Sources */,
 				404F9E361EB2511C009CA2A1 /* Monkey+XCUITestPrivate.m in Sources */,
 				404F9E321EB24ED1009CA2A1 /* Monkey+XCUITest.m in Sources */,
@@ -1471,13 +1509,15 @@
 				40EBD3C31EB39E7300CD5050 /* AgentForHost.m in Sources */,
 				40E1B83C1EB105D1000EBEAA /* ElementTree.m in Sources */,
 				401AB0A31EB2188F00CC1046 /* Random.m in Sources */,
+				404AF2A71ECD457200DFC6BF /* MonkeyAlgorithm.m in Sources */,
 				401AB09F1EB2152700CC1046 /* RegularAction.m in Sources */,
-				40AE50E41EBC295A006A13C5 /* Monkey+UIChangeDelegate.m in Sources */,
+				406477D41ECC3B1D006AB4AB /* NSMutableArray+Queue.m in Sources */,
 				40E1B8481EB11473000EBEAA /* NSMutableArray+Reverse.m in Sources */,
 				401AB0701EB0C7C200CC1046 /* ElementTypeTransformer.m in Sources */,
 				40E1B8441EB10802000EBEAA /* ClassPathItem.m in Sources */,
 				401AB06C1EB0BB3400CC1046 /* ElementInfo.m in Sources */,
 				40E1B8401EB10783000EBEAA /* ClassPath.m in Sources */,
+				406477D81ECC490B006AB4AB /* NSMutableArray+Stack.m in Sources */,
 				401AB0751EB0DDBE00CC1046 /* XCUIApplication+Monkey.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
