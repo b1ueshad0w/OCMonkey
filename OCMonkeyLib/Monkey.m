@@ -13,7 +13,6 @@
 #import "RandomAction.h"
 #import "RegularAction.h"
 #import "Macros.h"
-#import "AgentForHost.h"
 
 
 @interface Monkey()
@@ -24,18 +23,24 @@
 @property double totalWeight;
 @property NSMutableArray<RandomAction *> *randomActions;
 @property NSMutableArray<RegularAction *> *regularActions;
-@property AgentForHost *appAgent;
 @end
 
 @implementation Monkey
 
 -(id)initWithBundleID:(NSString*)bundleID
 {
+    return [self initWithBundleID:bundleID launchEnvironment:@{}];
+}
+
+-(id)initWithBundleID:(NSString*)bundleID launchEnvironment:(NSDictionary *)launchEnv
+{
     if (self = [super init]) {
         _testedAppBundleID = bundleID;
         _testedApp = [[XCUIApplication alloc] initPrivateWithPath:nil bundleID:self.testedAppBundleID];
-        _testedApp.launchEnvironment = @{@"maxGesturesShown": @5};
-        
+        _launchEnvironment = [NSMutableDictionary dictionaryWithDictionary:launchEnv];
+        /* if test target embeds MonkeyPaws.framework */
+        if (![_launchEnvironment objectForKey:@"maxGesturesShown"])
+            _launchEnvironment[@"maxGesturesShown"] = @5;
         
         /* Use _testedApp.frame will cause strange issue:
          * _testedApp.lastSnapshot will never change
@@ -58,10 +63,7 @@
 
 -(void)preRun
 {
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        _appAgent = [[AgentForHost alloc] initWithDelegate:self];
-        [_appAgent connectToLocalIPv4AtPort:2345 timeout:15];
-    });
+    _testedApp.launchEnvironment = _launchEnvironment;
     [_testedApp launch];
 }
 

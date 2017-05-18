@@ -14,8 +14,11 @@
 @interface Monkey : NSObject
 
 -(instancetype)initWithBundleID:(NSString*)bundleID;
+-(instancetype)initWithBundleID:(NSString*)bundleID launchEnvironment:(NSDictionary *)launchEnv;
 -(void)run:(int)steps;
 -(void)run;
+-(void)preRun;
+-(void)postRun;
 -(void)addAction:(ActionBlock)action withWeight:(double)weight;
 -(void)addAction:(ActionBlock)action withInterval:(int)interval;
 -(CGPoint)randomPoint;
@@ -26,5 +29,5 @@
 
 @property (readonly) int actionCounter;
 @property (nonatomic, readonly) XCUIApplication *testedApp;
-
+@property (nonatomic, readwrite) NSMutableDictionary *launchEnvironment;
 @end

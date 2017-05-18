@@ -6,10 +6,9 @@
 //
 //
 
-#import <OCMonkeyLib/OCMonkeyLib.h>
 #import "AgentForHost.h"
-#import "Monkey.h"
+#import "SmartMonkey.h"
 
-@interface Monkey (UIChangeDelegate) <UIChangeDelegate>
+@interface SmartMonkey (UIChangeDelegate) <UIChangeDelegate>
 
 @end
