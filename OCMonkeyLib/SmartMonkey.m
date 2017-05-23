@@ -21,7 +21,7 @@
     self = [super initWithBundleID:bundleID];
     if (self) {
         _appearedVCs = [[NSMutableArray alloc] init];
-        _appearedVCs.maxSize = 20;
+        _appearedVCs.maxSize = 100;
         _vcStack = [[NSMutableArray alloc] init];
         _appAgent = [[AgentForHost alloc] initWithDelegate:self];
     }
@@ -46,13 +46,15 @@
 
 -(nullable NSString *)getCurrentVC
 {
-    for (NSString *vc in _appearedVCs) {
+    for (int i = (int)(_appearedVCs.count - 1); i >= 0; i--) {
         /* UIInputWindowController ...
          * Most VC names start with "UI" is probably a system pre-defined vc name.
+         * TODO - If UIInputWindowController keeps showing up, as the queue is fixed size, the queue will
+         * be full of UIInputWindowController
          */
-        if ([vc hasPrefix:@"UI"])
+        if ([_appearedVCs[i] hasPrefix:@"UI"])
             continue;
-        return vc;
+        return _appearedVCs[i];
     }
     return nil;
 }

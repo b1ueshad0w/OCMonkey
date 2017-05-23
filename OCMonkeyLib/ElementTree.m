@@ -15,6 +15,8 @@
 
 @implementation ElementTree
 
+@dynamic data;
+
 @end
 
 ClassPath* getClassPathForElement(Tree *element)
@@ -46,7 +48,7 @@ NSUInteger getIndexOfDescendantsMatchingType(Tree *element)
     __block NSMutableArray<Tree *> *elementsOfType = [[NSMutableArray alloc] init];
     XCUIElementType elementType = ((ElementInfo *)(element.data)).elementType;
     Tree *root = [element root];
-    [root traverseDown:^BOOL(Tree *node){
+    [root traverseDown:^BOOL(Tree *node, BOOL *stop){
         if (((ElementInfo *)(node.data)).elementType == elementType) {
             [elementsOfType addObject:node];
         }

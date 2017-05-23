@@ -18,9 +18,19 @@
 @property (nonatomic) int depth;
 
 -(id)initWithParent:(Tree *)parent withData:(id)data;
+
 -(id)initWithParent:(Tree *)parent withData:(id)data withID:(NSString *)identifier;
+
 -(id)appendChildWithData:(id)data;
--(void)traverseDown:(BOOL(^)(Tree *))callback;
+
+/**
+ Preoder-Traversal
+ 
+ @param callback Returning NO to ignore a node's descendants.
+                 Set the second argument to YES to stop the traversal.
+ */
+-(void)traverseDown:(BOOL(^)(Tree *, BOOL *))callback;
+
 -(NSArray<Tree *> *)leaves;
 
 @end

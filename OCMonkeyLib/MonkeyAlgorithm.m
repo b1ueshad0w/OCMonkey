@@ -64,9 +64,15 @@
         case XCUIElementTypeButton:
             return 200;
             
+        case XCUIElementTypeTable:
+            return 300;
+            
+        case XCUIElementTypeScrollView:
+            return 300;
+            
         case XCUIElementTypeCell:
             return 150;
-        
+            
         case XCUIElementTypeStaticText:
             return 100;
             
@@ -105,7 +111,7 @@
  pi = (1 + c1 + c2 + c3) * Pi / (P1 + P2 + P3) - ci
  If we also have Pi normalized, then we have:
  pi = 2 * Pi - ci
-
+ 
  @param elements elements
  @param treeHash to identify a tree
  @return chosen element
@@ -162,23 +168,42 @@
     return elements[chosenIndex];
 }
 
+/**
+ Choose an element from a given UI Tree.
+ TODO - We should separate container's children. Actually, we should treat a container as a leaf element.
+ 
+ @param tree UI Tree
+ @param elements elements to choose from
+ @param treeHash a unique id to identify a UITree
+ @return selected element
+ */
 - (Tree *)chooseAnElementFromTree:(Tree *)tree
                     AmongElements:(NSArray<Tree *> *)elements
                      withTreeHash:(TreeHashType *)treeHash
 {
+    NSMutableArray *news = [NSMutableArray new];
+    BOOL isNewTree;
     if (![_stat objectForKey:treeHash]) {
         NSLog(@"A new root added: %@", treeHash);
+        isNewTree = YES;
         [_stat setObject:[[TreeStat alloc] initWithElements:@{}
                                                 chosenCount:0
                                                  popularity:0
                                                        tree:tree]
                   forKey:treeHash];
+    } else {
+        isNewTree = NO;
     }
     _stat[treeHash].chosenCount++;
     
     for (Tree *element in elements) {
         if ([_stat[treeHash].elements objectForKey:element.identifier])
             continue;
+        if (!isNewTree) {
+            /* TODO - We should raise the weight of new ones */
+            //            NSLog(@"new element for tree: %@ ==> %@", element, treeHash);
+            [news addObject:element];
+        }
         int popularity = [self computeElementPopularity:element];
         [_stat[treeHash].elements setObject:[[ElementStat alloc] initWithPopularity:popularity
                                                                         chosenCount:0

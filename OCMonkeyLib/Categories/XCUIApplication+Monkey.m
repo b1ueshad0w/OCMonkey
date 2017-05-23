@@ -9,15 +9,14 @@
 #import "XCUIApplication+Monkey.h"
 #import "XCElementSnapshot.h"
 #import "XCUIApplication.h"
-#import "Tree.h"
 #import "ElementInfo.h"
 
 @implementation XCUIApplication (Monkey)
 
--(Tree *)tree
+-(ElementTree *)tree
 {
-    Tree *root = [[Tree alloc] initWithParent:nil
-                                     withData:[[ElementInfo alloc] initWithSnapshot:self.lastSnapshot]];
+    ElementTree *root = [[ElementTree alloc] initWithParent:nil
+                                                   withData:[[ElementInfo alloc] initWithSnapshot:self.lastSnapshot]];
     [self buildTree:root forElement:self.lastSnapshot];
     return root;
 }

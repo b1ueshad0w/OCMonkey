@@ -14,7 +14,7 @@
 @interface SmartMonkey : Monkey
 
 /**
- Queue data structure. The most recent appeared VC is at the beginning of the array.
+ Queue data structure. The most recent appeared VC is at the end of the array.
  */
 @property (atomic, readwrite) NSMutableArray *appearedVCs;
 

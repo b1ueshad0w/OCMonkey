@@ -62,15 +62,24 @@
 }
 
 // preorder traversal
--(void)traverseDown:(BOOL(^)(Tree *))callback
+-(void)traverseDown:(BOOL (^)(Tree *, BOOL *))callback
 {
-    if (!callback(self)) {
-        return;
+    BOOL no = NO;
+    BOOL *stop = &no;
+    [self _traverseDown:callback stop:stop];
+}
+
+-(void)_traverseDown:(BOOL(^)(Tree *, BOOL *))callback stop:(BOOL *)stop
+{
+    if (*stop)
+        return;  // exit the traversal
+    if (!callback(self, stop)) {
+        return;  // ignore this node's descendants
     };
     if (![self.children count])
         return;
     for (Tree *child in self.children) {
-        [child traverseDown:callback];
+        [child _traverseDown:callback stop:stop];
     }
 }
 
@@ -91,7 +100,7 @@
 -(NSArray<Tree *> *)leaves
 {
     __block NSMutableArray<Tree *> *leaves = [[NSMutableArray alloc] init];
-    [self traverseDown:^BOOL(Tree *node) {
+    [self traverseDown:^BOOL(Tree *node, BOOL *stop) {
         if (node.children.count == 0)
             [leaves addObject:node];
         return YES;
@@ -103,7 +112,7 @@
 {
     __block NSMutableArray *lines = [NSMutableArray new];
     [lines addObject:@"\n"];
-    [self traverseDown:^BOOL(Tree *node){
+    [self traverseDown:^BOOL(Tree *node, BOOL *stop){
         NSString *sep = @"|-";
         NSString *indentation = @"";
         if (node.depth == 0) {

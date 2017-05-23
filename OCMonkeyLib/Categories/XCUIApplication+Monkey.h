@@ -7,9 +7,9 @@
 //
 
 #import <XCTest/XCTest.h>
-#import "Tree.h"
+#import "ElementTree.h"
 
 @interface XCUIApplication (Monkey)
 
--(Tree *)tree;
+-(ElementTree *)tree;
 @end

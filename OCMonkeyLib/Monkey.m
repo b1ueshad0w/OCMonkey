@@ -80,10 +80,14 @@
 -(void)run:(int)steps
 {
     [self preRun];
-    
+    static dispatch_once_t onceToken;
     for (int i = 0; i < steps; i++) {
         [NSThread sleepForTimeInterval:0.5];
         @autoreleasepool {
+            dispatch_once(&onceToken, ^{
+//                _screenFrame = self.testedApp.lastSnapshot.frame;
+                _screenFrame = self.testedApp.frame;
+            });
             [self runOneStep];
         }
     }

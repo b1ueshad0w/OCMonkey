@@ -12,6 +12,8 @@
 
 @interface ElementTree : Tree
 
+@property (nonatomic, strong) ElementInfo *data;
+
 @end
 
 ClassPath* getClassPathForElement(Tree *element);
