@@ -9,6 +9,60 @@
 #import "SmartMonkey.h"
 #import "AgentForHost.h"
 #import "NSMutableArray+Queue.h"
+#import "NSMutableArray+Stack.h"
+
+@implementation TabBarCtrl
+
+-(VCType *)getSelectedVC
+{
+    return _tabs[_selectedIndex];
+}
+
+@end
+
+@implementation NaviCtrl
+
+-(id)initWithRootVC:(VCType *)rootVC
+{
+    self = [super init];
+    if (self) {
+        _rootVC = rootVC;
+        _vcStack = [NSMutableArray arrayWithObjects:rootVC, nil];
+    }
+    return self;
+}
+
+-(void)pushVC:(VCType *)vc
+{
+    [_vcStack push:vc];
+}
+
+-(VCType *)pop
+{
+    return [self.vcStack pop];
+}
+
+-(NSArray<VCType *> *)popToRootVC
+{
+    return [_vcStack popToRoot];
+}
+
+-(NSArray<VCType *> *)popToVC:(VCType *)vc
+{
+    return [_vcStack popToNSString:vc];
+}
+
+-(void)setVCs:(NSArray<VCType *> *)vcs
+{
+    _vcStack = [NSMutableArray arrayWithArray:vcs];
+}
+
+-(NSUInteger)vcCount
+{
+    return _vcStack.count;
+}
+
+@end
 
 @interface SmartMonkey()
 @property AgentForHost *appAgent;
@@ -22,7 +76,8 @@
     if (self) {
         _appearedVCs = [[NSMutableArray alloc] init];
         _appearedVCs.maxSize = 100;
-        _vcStack = [[NSMutableArray alloc] init];
+        _naviCtrls = [[NSMutableDictionary alloc] init];
+        _tabCtrls = [[NSMutableDictionary alloc] init];
         _appAgent = [[AgentForHost alloc] initWithDelegate:self];
     }
     return self;
@@ -44,7 +99,7 @@
     [super postRun];
 }
 
--(nullable NSString *)getCurrentVC
+-(nullable VCType *)getCurrentVC
 {
     for (int i = (int)(_appearedVCs.count - 1); i >= 0; i--) {
         /* UIInputWindowController ...
@@ -57,6 +112,20 @@
         return _appearedVCs[i];
     }
     return nil;
+}
+
+-(NSUInteger)stackDepth
+{
+    if (self.activeTabCtrl) {
+        VCType *vcFromTab = [self.activeTabCtrl getSelectedVC];
+        if ([self.naviCtrls objectForKey:vcFromTab]) {
+            return self.naviCtrls[vcFromTab].vcCount;
+        }
+    } else {
+        // If app not use TabBarController, it should have only one UINavigationContrller.
+        return self.naviCtrls.allValues[0].vcCount;
+    }
+    return 1;
 }
 
 @end

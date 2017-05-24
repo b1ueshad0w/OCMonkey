@@ -11,10 +11,16 @@
 #import "Outlet.h"
 #import "Macros.h"
 
+#define UIVC @"UIViewController"
+
 @implementation UIViewController (Monkey)
 
 - (void)monkey_viewDidAppear:(BOOL)animated
 {
+//    NSString *selStr = NSStringFromSelector(_cmd);
+    NSString *selStr = @"viewDidAppear:";
+    NSArray<NSString *> *args = @[self.description, [NSNumber numberWithBool:animated]];
+    
     NSString *className = NSStringFromClass([self class]);
     Outlet *sharedOutlet = [Outlet sharedOutlet];
     // Uncomment following lines to make the injected app crash
@@ -25,15 +31,14 @@
     [sharedOutlet.didAppearVCs enqueue:className];
     
 
-    [sharedOutlet sendJSON:@{@"selector": @"viewDidAppear:",
-                             @"receiver": className,
-                             @"args": @[[NSNumber numberWithBool:animated]],
-                             @"returned": [NSNull null]}];
+    [sharedOutlet sendJSON:@{@"selector": selStr,
+                             @"args": args,
+                             @"class": UIVC}];
     
     //    if (![className hasPrefix:@"UI"]) {
     //        NSLog(@"%@ [%@(%p) viewDidAppear: %@]", prefix, className, self, animated ? @"Yes" : @"No");
     //    }
-    NSLog(@"%@ [%@(%p) viewDidAppear: %@]", prefix, className, self, animated ? @"Yes" : @"No");
+    NSLog(@"%@ [%@ (did)%@] %@", prefix, UIVC, selStr, [args componentsJoinedByString:@" "]);
     
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{

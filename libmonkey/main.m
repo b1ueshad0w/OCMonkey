@@ -18,6 +18,7 @@ static __attribute__((constructor)) void onLoad(){
     swizzle_UINavigationController();
     swizzle_UIViewController();
     swizzle_UITabBarController();
+    swizzle_UIWindow();
     start_socket_communication();
 }
 

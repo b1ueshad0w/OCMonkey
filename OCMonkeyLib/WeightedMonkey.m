@@ -174,7 +174,7 @@ static NSArray * containers;
 
 -(void)performGoBackIfNeeded
 {
-    if (RandomZeroToOne < (float)self.vcStack.count / 10) {
+    if (RandomZeroToOne < (float)self.stackDepth / 10) {
         NSLog(@"Perform GoBack.");
         [self goBack];
     }
@@ -182,15 +182,15 @@ static NSArray * containers;
 
 -(void)goBack
 {
-    NSUInteger stackLength = self.vcStack.count;
+    NSUInteger stackLength = self.stackDepth;
     [self goBackByDragFromScreenLeftEdgeToRight];
-    if (self.vcStack.count < stackLength)
+    if (self.stackDepth < stackLength)
         return;
     
     XCUIElement *backButton = [self.testedApp.navigationBars.buttons allElementsBoundByIndex][0];
     if (backButton.exists) {
         [backButton tap];
-        if (self.vcStack.count < stackLength)
+        if (self.stackDepth < stackLength)
             return;
     }
     

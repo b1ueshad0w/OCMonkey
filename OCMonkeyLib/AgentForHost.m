@@ -169,44 +169,61 @@ static NSDictionary *SelectorMapping;
 - (void)handleDataSelector:(NSDictionary *)data tag:(uint32_t)tag
 {
     NSString *selector = data[@"selector"];
+    NSString *clas = data[@"class"];
+    NSArray *args = data[@"args"];
     if ([selector isEqualToString:@"viewDidAppear:"]) {
         if ([_delegate respondsToSelector:@selector(viewController:didAppearAnimated:)]) {
-            [_delegate viewController:data[@"receiver"]
-                    didAppearAnimated:[[data objectForKey:@"args"][0] boolValue]];
+            [_delegate viewController:args[0]
+                    didAppearAnimated:[args[1] boolValue]];
         }
     } else if ([selector isEqualToString:@"pushViewController:animated:"]) {
         if ([_delegate respondsToSelector:@selector(naviCtrl:shouldPushViewController:animated:)]) {
-            BOOL shouldDo = [_delegate naviCtrl:data[@"receiver"]
-                       shouldPushViewController:data[@"args"][0]
-                                       animated:[data[@"args"][1] boolValue]];
+            BOOL shouldDo = [_delegate naviCtrl:args[0]
+                       shouldPushViewController:args[1]
+                                       animated:[args[2] boolValue]];
             [self sendJSON:@{@"shouldDo": [NSNumber numberWithBool:shouldDo]} tag:tag];
         }
     } else if ([selector isEqualToString:@"popViewControllerAnimated:"]) {
         if ([_delegate respondsToSelector:@selector(naviCtrl:shouldPopViewControllerAnimated:)]) {
-            BOOL shouldDo = [_delegate naviCtrl:data[@"receiver"]
-                shouldPopViewControllerAnimated:[data[@"args"][0] boolValue]];
+            BOOL shouldDo = [_delegate naviCtrl:args[0]
+                shouldPopViewControllerAnimated:[args[1] boolValue]];
             [self sendJSON:@{@"shouldDo": [NSNumber numberWithBool:shouldDo]} tag:tag];
         }
     } else if ([selector isEqualToString:@"popToRootViewControllerAnimated:"]) {
         if ([_delegate respondsToSelector:@selector(naviCtrl:shouldPopToRootViewControllerAnimated:)]) {
-            BOOL shouldDo = [_delegate naviCtrl:data[@"receiver"]
-               shouldPopToRootViewControllerAnimated:[data[@"args"][0] boolValue]];
+            BOOL shouldDo = [_delegate naviCtrl:args[0]
+               shouldPopToRootViewControllerAnimated:[args[1] boolValue]];
             [self sendJSON:@{@"shouldDo": [NSNumber numberWithBool:shouldDo]} tag:tag];
         }
     } else if ([selector isEqualToString:@"popToViewController:animated:"]) {
         if ([_delegate respondsToSelector:@selector(naviCtrl:shouldPopToViewController:animated:)]) {
-            BOOL shouldDo = [_delegate naviCtrl:data[@"receiver"]
-                      shouldPopToViewController:data[@"args"][0]
-                                    animated:[data[@"args"][1] boolValue]];
+            BOOL shouldDo = [_delegate naviCtrl:args[0]
+                      shouldPopToViewController:args[1]
+                                    animated:[args[2] boolValue]];
             [self sendJSON:@{@"shouldDo": [NSNumber numberWithBool:shouldDo]} tag:tag];
         }
     } else if ([selector isEqualToString:@"initWithRootViewController:"]) {
         if ([_delegate respondsToSelector:@selector(naviCtrl:initWithRootViewController:)]) {
-            [_delegate naviCtrl:data[@"receiver"] initWithRootViewController:data[@"args"][0]];
+            [_delegate naviCtrl:args[0] initWithRootViewController:args[1]];
         }
     } else if ([selector isEqualToString:@"setViewControllers:animated:"]) {
-        if ([_delegate respondsToSelector:@selector(naviCtrl:setViewControllers:animated:)]) {
-            [_delegate naviCtrl:data[@"receiver"] setViewControllers:data[@"args"][0] animated:data[@"args"][1]];
+        if ([clas isEqualToString:@"UINavigationController"]) {
+            if ([_delegate respondsToSelector:@selector(naviCtrl:setViewControllers:animated:)]) {
+                [_delegate naviCtrl:args[0] setViewControllers:args[1] animated:args[2]];
+            }
+        }
+        else if ([clas isEqualToString:@"UITabBarController"]) {
+            if ([_delegate respondsToSelector:@selector(tabCtrl:setViewControllers:animated:)]) {
+                [_delegate tabCtrl:args[0] setViewControllers:args[1] animated:args[2]];
+            }
+        }
+    } else if ([selector isEqualToString:@"init"] && [clas isEqualToString:@"UITabBarController"]) {
+        if ([_delegate respondsToSelector:@selector(tabCtrlInit:)]) {
+            [_delegate tabCtrlInit:args[0]];
+        }
+    } else if ([clas isEqualToString:@"UITabBarController"] && [selector isEqualToString:@"setSelectedIndex:"]) {
+        if ([_delegate respondsToSelector:@selector(tabCtrl:setSelectedIndex:)]) {
+            [_delegate tabCtrl:args[0] setSelectedIndex:[args[1] unsignedIntegerValue]];
         }
     }
 

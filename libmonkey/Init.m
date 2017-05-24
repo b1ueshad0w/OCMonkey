@@ -12,6 +12,7 @@
 #import "UINavigationController+Monkey.h"
 #import "UIViewController+Monkey.h"
 #import "UITabBarController+Monkey.h"
+#import "UIWindow+Monkey.h"
 #import "Macros.h"
 #import "XCUIApplication.h"
 #import "swizzle.h"
@@ -59,7 +60,19 @@ void swizzle_UIViewController()
 void swizzle_UITabBarController()
 {
     Class UITabBar = [UITabBarController class];
+    swizzleInstanceMethod(UITabBar, @selector(init), @selector(monkey_init));
     swizzleInstanceMethod(UITabBar, @selector(setViewControllers:animated:), @selector(monkey_setViewControllers:animated:));
+    swizzleInstanceMethod(UITabBar, @selector(setSelectedIndex:), @selector(monkey_setSelectedIndex:));
+}
+
+void swizzle_UIWindow()
+{
+    Class UIWin = [UIWindow class];
+    swizzleInstanceMethod(UIWin, @selector(setRootViewController:), @selector(monkey_setRootViewController:));
+//    swizzleInstanceMethod(UIWin, @selector(rootViewController), @selector(monkey_rootViewController));
+    swizzleInstanceMethod(UIWin, @selector(makeKeyWindow), @selector(monkey_makeKeyWindow));
+    swizzleInstanceMethod(UIWin, @selector(makeKeyAndVisible), @selector(monkey_makeKeyAndVisible));
+    swizzleInstanceMethod(UIWin, @selector(becomeKeyWindow), @selector(monkey_becomeKeyWindow));
 }
 
 void start_socket_communication()

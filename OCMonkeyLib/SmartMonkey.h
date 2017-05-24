@@ -7,6 +7,37 @@
 //
 
 #import "Monkey.h"
+#import "AgentForHost.h"
+
+@interface TabBarCtrl : NSObject
+
+/**
+ Each tab will be an NSString like: @"<XXXController: 0x107f014A>"
+ */
+@property NSMutableArray<VCType *> *tabs;
+@property NSUInteger selectedIndex;
+
+-(VCType *)getSelectedVC;
+
+@end
+
+@interface NaviCtrl : NSObject
+
+-(id)initWithRootVC:(VCType *)rootVC;
+-(void)pushVC:(VCType *)vc;
+-(VCType *)pop;
+-(NSArray<VCType *> *)popToRootVC;
+-(NSArray<VCType *> *)popToVC:(VCType *)vc;
+-(void)setVCs:(NSArray<VCType *> *)vcs;
+
+@property VCType *rootVC;
+@property (nonatomic, readonly) NSUInteger vcCount;
+/**
+ Stack data structure. The most recent pushed VC is at the end of the array.
+ */
+@property NSMutableArray<VCType *> *vcStack;
+
+@end
 
 /**
  SmartMonkey has the ability to inspect test target's ViewController structure.
@@ -18,11 +49,14 @@
  */
 @property (atomic, readwrite) NSMutableArray *appearedVCs;
 
-/**
- Stack data structure. The most recent pushed VC is at the end of the array.
- */
-@property (atomic, readwrite) NSMutableArray *vcStack;
+@property (atomic, readwrite) NSMutableDictionary<VCType *, NaviCtrl *> *naviCtrls;
 
--(NSString *)getCurrentVC;
+@property (atomic, readwrite) NSMutableDictionary<VCType *, TabBarCtrl *> *tabCtrls;
+
+@property (atomic, readwrite) TabBarCtrl *activeTabCtrl;
+
+@property (nonatomic, readonly) NSUInteger stackDepth;
+
+-(VCType *)getCurrentVC;
 
 @end

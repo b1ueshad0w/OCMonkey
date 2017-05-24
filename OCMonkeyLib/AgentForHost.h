@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
+typedef NSString VCType;
+
 @protocol UIChangeDelegate;
 
 enum {
@@ -36,7 +38,7 @@ typedef struct _PTExampleTextFrame {
 @optional
 
 // should we also pass the address info?
-- (void)viewController:(NSString *)vc didAppearAnimated:(BOOL)animated;
+- (void)viewController:(VCType *)vc didAppearAnimated:(BOOL)animated;
 
 /**
  Determine whether a UINavigationController should push a vc into its stack.
@@ -46,16 +48,22 @@ typedef struct _PTExampleTextFrame {
  @param naviCtrl classname of the UINavigationController to push
  @return YES if allow the push action, otherwise NO.
  */
-- (BOOL)naviCtrl:(NSString *)naviCtrl shouldPushViewController:(NSString *)pushedVC animated:(BOOL)animated;
+- (BOOL)naviCtrl:(VCType *)naviCtrl shouldPushViewController:(VCType *)pushedVC animated:(BOOL)animated;
 
-- (BOOL)naviCtrl:(NSString *)naviCtrl shouldPopViewControllerAnimated:(BOOL)animated;
+- (BOOL)naviCtrl:(VCType *)naviCtrl shouldPopViewControllerAnimated:(BOOL)animated;
 
-- (BOOL)naviCtrl:(NSString *)naviCtrl shouldPopToRootViewControllerAnimated:(BOOL)animated;
+- (BOOL)naviCtrl:(VCType *)naviCtrl shouldPopToRootViewControllerAnimated:(BOOL)animated;
 
-- (BOOL)naviCtrl:(NSString *)naviCtrl shouldPopToViewController:(NSString *)toVC animated:(BOOL)animated;
+- (BOOL)naviCtrl:(VCType *)naviCtrl shouldPopToViewController:(VCType *)toVC animated:(BOOL)animated;
 
-- (void)naviCtrl:(NSString *)naviCtrl initWithRootViewController:(NSString *)vc;
+- (void)naviCtrl:(VCType *)naviCtrl initWithRootViewController:(VCType *)vc;
 
-- (void)naviCtrl:(NSString *)naviCtrl setViewControllers:(NSArray<NSString *>*)vc animated:(BOOL)animted;
+- (void)naviCtrl:(VCType *)naviCtrl setViewControllers:(NSArray<VCType *>*)vc animated:(BOOL)animted;
+
+- (void)tabCtrl:(VCType *)tabCtrl setViewControllers:(NSArray<VCType *>*)vc animated:(BOOL)animted;
+
+- (void)tabCtrlInit:(VCType *)tabCtrl;
+
+- (void)tabCtrl:(VCType *)tabCtrl setSelectedIndex:(NSUInteger)index;
 
 @end

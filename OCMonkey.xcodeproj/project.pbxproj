@@ -168,6 +168,8 @@
 		407B10551E893B0E00C2E93D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 407B10531E893B0E00C2E93D /* LaunchScreen.storyboard */; };
 		407B105A1E893B6300C2E93D /* OCMonkeyPaws.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 407B10261E89390600C2E93D /* OCMonkeyPaws.framework */; };
 		407B105C1E893CD000C2E93D /* OCMonkeyPaws.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 407B10261E89390600C2E93D /* OCMonkeyPaws.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		40AC9F821ED5302500CF6860 /* UIWindow+Monkey.h in Headers */ = {isa = PBXBuildFile; fileRef = 40AC9F801ED5302500CF6860 /* UIWindow+Monkey.h */; };
+		40AC9F831ED5302500CF6860 /* UIWindow+Monkey.m in Sources */ = {isa = PBXBuildFile; fileRef = 40AC9F811ED5302500CF6860 /* UIWindow+Monkey.m */; };
 		40AE4F601EB8424C006A13C5 /* libmonkey.h in Headers */ = {isa = PBXBuildFile; fileRef = 40AE4F5E1EB8424C006A13C5 /* libmonkey.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		40AE4F641EB842C4006A13C5 /* _XCInternalTestRun.h in Headers */ = {isa = PBXBuildFile; fileRef = 4069E7361E68042E00C1C832 /* _XCInternalTestRun.h */; };
 		40AE4F651EB842C4006A13C5 /* _XCKVOExpectationImplementation.h in Headers */ = {isa = PBXBuildFile; fileRef = 4069E7371E68042E00C1C832 /* _XCKVOExpectationImplementation.h */; };
@@ -565,6 +567,8 @@
 		407B10511E893B0E00C2E93D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		407B10541E893B0E00C2E93D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		407B10561E893B0E00C2E93D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		40AC9F801ED5302500CF6860 /* UIWindow+Monkey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWindow+Monkey.h"; sourceTree = "<group>"; };
+		40AC9F811ED5302500CF6860 /* UIWindow+Monkey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWindow+Monkey.m"; sourceTree = "<group>"; };
 		40AE4DFC1EB826DF006A13C5 /* swizzle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = swizzle.m; sourceTree = "<group>"; };
 		40AE4DFE1EB82C8E006A13C5 /* swizzle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = swizzle.h; sourceTree = "<group>"; };
 		40AE4F5C1EB8424C006A13C5 /* libmonkey.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = libmonkey.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -945,6 +949,8 @@
 				40AE50911EB8B1F1006A13C5 /* UIViewController+Monkey.m */,
 				400DCFAB1EB8CA89009E41B9 /* UITabBarController+Monkey.h */,
 				400DCFAC1EB8CA89009E41B9 /* UITabBarController+Monkey.m */,
+				40AC9F801ED5302500CF6860 /* UIWindow+Monkey.h */,
+				40AC9F811ED5302500CF6860 /* UIWindow+Monkey.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -1187,6 +1193,7 @@
 				40AE4FA81EB842C4006A13C5 /* XCTestProbe.h in Headers */,
 				40AE4FA91EB842C4006A13C5 /* XCTestRun.h in Headers */,
 				40AE4FB91EB842C4006A13C5 /* XCTWaiterDelegate-Protocol.h in Headers */,
+				40AC9F821ED5302500CF6860 /* UIWindow+Monkey.h in Headers */,
 				40AE4FBE1EB842C4006A13C5 /* XCUIApplicationImpl.h in Headers */,
 				40AE4FA11EB842C4006A13C5 /* XCTestManager_IDEInterface-Protocol.h in Headers */,
 				40AE4F8C1EB842C4006A13C5 /* XCSymbolicationRecord.h in Headers */,
@@ -1561,6 +1568,7 @@
 				40AE4FD41EB849EA006A13C5 /* swizzle.m in Sources */,
 				400DCFAE1EB8CA89009E41B9 /* UITabBarController+Monkey.m in Sources */,
 				40AE50931EB8B1F1006A13C5 /* UIViewController+Monkey.m in Sources */,
+				40AC9F831ED5302500CF6860 /* UIWindow+Monkey.m in Sources */,
 				400DCFB21EB8E73D009E41B9 /* Init.m in Sources */,
 				40AE4FD81EB8546F006A13C5 /* UINavigationController+Monkey.m in Sources */,
 				40AE4FCD1EB842EC006A13C5 /* main.m in Sources */,

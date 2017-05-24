@@ -10,7 +10,11 @@
 
 @interface UITabBarController (Monkey)
 
+- (id)monkey_init;
+
 - (void)monkey_setViewControllers:(NSArray<__kindof UIViewController *> * __nullable)viewControllers
                          animated:(BOOL)animated;
+
+- (void)monkey_setSelectedIndex:(NSUInteger)index;
 
 @end

@@ -12,6 +12,7 @@
 void swizzle_UINavigationController();
 void swizzle_UIViewController();
 void swizzle_UITabBarController();
+void swizzle_UIWindow();
 void swizzle_XCTest();
 void start_socket_communication();
 
