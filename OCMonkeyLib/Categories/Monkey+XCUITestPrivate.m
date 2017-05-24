@@ -234,7 +234,37 @@ UIInterfaceOrientation orientationValue = UIInterfaceOrientationPortrait;
     CGFloat halfHeight = self.screenFrame.size.height / 2;
     CGPoint start = CGPointMake(0, halfHeight);
     CGPoint end = CGPointMake(self.screenFrame.size.width - 10, halfHeight);
-    [self dragFrom:start to:end];
+    [self dragFrom:start to:end duration:0 velocity:2000];
+}
+
+-(void)goBackByDragFromScreenLeftEdgeToRightForduration:(double)duration velocity:(double)velocity
+{
+    CGFloat halfHeight = self.screenFrame.size.height / 2;
+    CGPoint start = CGPointMake(0, halfHeight);
+    CGPoint end = CGPointMake(self.screenFrame.size.width - 10, halfHeight);
+    [self dragFrom:start to:end duration:duration velocity:velocity];
+}
+
+-(void)swipeVertically
+{
+    [self swipeVertically:NO];
+}
+
+-(void)swipeVerticallyReversed
+{
+    [self swipeVertically:YES];
+}
+
+-(void)swipeVertically:(BOOL)reversed
+{
+    CGFloat halfWidth = self.screenFrame.size.width /2;
+    CGPoint start = CGPointMake(halfWidth, self.screenFrame.size.height / 5);
+    CGPoint end = CGPointMake(halfWidth, self.screenFrame.size.height / 5 * 4);
+    if (reversed) {
+        [self swipeFrom:end to:start];
+    } else {
+        [self swipeFrom:start to:end];
+    }
 }
 
 #pragma mark basic actions
@@ -256,6 +286,39 @@ UIInterfaceOrientation orientationValue = UIInterfaceOrientationPortrait;
                                              }];
     dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
 }
+
+-(void)swipeFrom:(CGPoint)start to:(CGPoint)end
+{
+    [self dragFrom:start to:end duration:0 velocity:4000];
+}
+
+
+/**
+ Drag action.
+
+ @param start start location
+ @param end end location
+ @param duration duration for pressing start point
+ @param velocity drag speed (normal value: 1000, for swipe usage: 2000)
+ */
+-(void)dragFrom:(CGPoint)start to:(CGPoint)end duration:(double)duration velocity:(double)velocity
+{
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+    [[XCEventGenerator sharedGenerator] pressAtPoint:start
+                                         forDuration:duration
+                                         liftAtPoint:end
+                                            velocity:velocity
+                                         orientation:orientationValue
+                                                name:@"Monkey drag"
+                                             handler:^(XCSynthesizedEventRecord *record, NSError *commandError) {
+                                                 if (commandError) {
+                                                     NSLog(@"Failed to perform drag: %@", commandError);
+                                                 }
+                                                 dispatch_semaphore_signal(semaphore);
+                                             }];
+    dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
+}
+
 
 -(void)performActionRandomLeafElement
 {

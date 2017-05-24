@@ -56,6 +56,16 @@ static NSArray * containers;
     return self;
 }
 
+
+/**
+ Principals:
+ weight of the following kinds of elements should be raised:
+    1. Label has value > Label is blank (or nil)
+ 
+ Shortages:
+ 1. Because all action is based on tapping elements' coordinates, if a selected element is invisible, we will tap another element instead.
+ So such info ButtonA ==> xxxVC is not relieable.
+ */
 -(void)runOneStep
 {
     [self performGoBackIfNeeded];
@@ -76,7 +86,10 @@ static NSArray * containers;
         }
         if (isTooBigElement)
             return YES;
-        [elements addObject:(ElementTree*)element];
+        if (element.children.count == 0) {
+            [elements addObject:(ElementTree*)element];
+            return NO;
+        }
         return YES;
     }];
     
@@ -104,10 +117,10 @@ static NSArray * containers;
 //            NSLog(@"Failed");
 //    }
     
-//    ElementTree *selected = (ElementTree *)[_algorithm chooseAnElementFromTree:uiTree
-//                                                                 AmongElements:elements
-//                                                                  withTreeHash:treeHash];
-    ElementTree *selected = elements[4];
+    ElementTree *selected = (ElementTree *)[_algorithm chooseAnElementFromTree:uiTree
+                                                                 AmongElements:elements
+                                                                  withTreeHash:treeHash];
+//    ElementTree *selected = elements[4];
     NSLog(@"selected: %@ %@", selected.identifier, selected.data);
     
     if (![WeightedMonkey isContainer:selected.data.elementType])
@@ -166,9 +179,9 @@ static NSArray * containers;
     }
     
     if (RandomZeroToOne < 0.3) {
-        [self dragFrom:start to:end];  // fetch new data
+        [self dragFrom:start to:end duration:0 velocity:2000];  // fetch new data
     } else {
-        [self dragFrom:end to:start];  // show more cells
+        [self dragFrom:end to:start duration:0 velocity:2000];  // show more cells
     }
 }
 

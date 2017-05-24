@@ -39,7 +39,12 @@
 
 -(VCType *)pop
 {
-    return [self.vcStack pop];
+    if (_vcStack.count > 1) {
+        return [self.vcStack pop];
+    } else {
+        NSLog(@"Error: Trying to pop the root vc.");
+        return nil;
+    }
 }
 
 -(NSArray<VCType *> *)popToRootVC

@@ -16,6 +16,11 @@
 -(void)tap:(CGPoint)location;
 -(void)tapElement:(Tree *)element;
 -(void)dragFrom:(CGPoint)start to:(CGPoint)end;
+-(void)dragFrom:(CGPoint)start to:(CGPoint)end duration:(double)duration velocity:(double)velocity;
 -(void)goBackByDragFromScreenLeftEdgeToRight;
+-(void)goBackByDragFromScreenLeftEdgeToRightForduration:(double)duration velocity:(double)velocity;
+-(void)swipeVertically:(BOOL)reversed;
+-(void)swipeVertically;
+-(void)swipeVerticallyReversed;
 
 @end
