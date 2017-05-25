@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "Macros.h"
+#import "Tree.h"
 
 @interface ViewController ()
 
@@ -20,6 +21,8 @@
     // Do any additional setup after loading the view, typically from a nib.
     _agent = [[AgentForHost alloc] initWithDelegate:self];
     [_agent connectToLocalIPv4AtPort:2345];
+    NSDictionary *ui = [_agent jsonAction:@{@"path": @"tree"} timeout:2];
+    Tree *tree = [_agent getViewHierarchy];
 }
 
 

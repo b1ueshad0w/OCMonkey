@@ -60,7 +60,8 @@ static const in_port_t GGUSBPort = 2345;
 
 -(int)newTag
 {
-    return ++_nextFrameTag;
+    _nextFrameTag += 2;
+    return _nextFrameTag;
 }
 
 -(void)start {
@@ -164,7 +165,7 @@ static const in_port_t GGUSBPort = 2345;
     }
     NSLog(@"%@ Receive json: %@ Tag: %u", prefix, receivedJson, tag);
     
-    if (tag) {
+    if (tag && (tag % 2 == 1)) {
         NSNumber *keyForTag = [NSNumber numberWithInt:tag];
         if ([_semaphores objectForKey:keyForTag]) {
             dispatch_semaphore_signal([_semaphores objectForKey:keyForTag]);
@@ -215,6 +216,9 @@ static const in_port_t GGUSBPort = 2345;
             NSLog(@"parameters is nil");
         }
 
+    } else if ([path isEqualToString:@"tree"]) {
+        NSDictionary *tree = [self appViewHierachy];
+        [self sendJSON:tree tag:tag];
     }
 }
 
@@ -234,7 +238,7 @@ static const in_port_t GGUSBPort = 2345;
     [self sendJSON:data tag:tag];
     dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
     [_semaphores setObject:semaphore forKey:keyForTag];
-    dispatch_time_t waitTime = dispatch_time(DISPATCH_TIME_NOW, seconds * 1000000000);
+    dispatch_time_t waitTime = dispatch_time(DISPATCH_TIME_NOW, seconds * NSEC_PER_SEC);
     dispatch_semaphore_wait(semaphore, waitTime);
     if ([_semaphores objectForKey:keyForTag] == semaphore) {
         NSLog(@"%@ JSON action timeout.", prefix);
@@ -289,6 +293,31 @@ static const in_port_t GGUSBPort = 2345;
             NSLog(@"Failed to send PTExampleFrameTypeDeviceInfo: %@", error);
         }
     }];
+}
+
+
+-(NSDictionary *)appViewHierachy
+{
+    return [self dictionaryForUIView:[[UIApplication sharedApplication] keyWindow]];
+}
+
+-(NSDictionary *)dictionaryForUIView:(UIView *)view
+{
+    NSMutableDictionary *info = [[NSMutableDictionary alloc] init];
+    info[@"type"] = NSStringFromClass(view.class);
+//    info[@"address"] = [NSString stringWithFormat:@"%p", view];
+    info[@"frame"] = NSStringFromCGRect(view.frame);
+//    info[@"gestureRecognizers"] = view.gestureRecognizers.debugDescription;
+//    info[@"layer"] = view.layer.debugDescription;
+    
+    NSArray *subviews = view.subviews;
+    if (subviews.count) {
+        info[@"children"] = [[NSMutableArray alloc] init];
+        for (UIView *view in subviews) {
+            [info[@"children"] addObject:[self dictionaryForUIView:view]];
+        }
+    }
+    return info;
 }
 
 

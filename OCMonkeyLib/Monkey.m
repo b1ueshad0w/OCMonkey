@@ -88,7 +88,12 @@
 //                _screenFrame = self.testedApp.lastSnapshot.frame;
                 _screenFrame = self.testedApp.frame;
             });
-            [self runOneStep];
+            @try {
+                [self runOneStep];
+            } @catch (NSException *exception) {
+                NSLog(@"Exception: %@", exception);
+            } @finally {
+            }
         }
     }
     

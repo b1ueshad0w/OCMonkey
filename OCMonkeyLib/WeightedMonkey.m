@@ -68,7 +68,10 @@ static NSArray * containers;
  */
 -(void)runOneStep
 {
-    [self performGoBackIfNeeded];
+    if ([self shouldGoBack]) {
+        NSLog(@"Perform GoBack.");
+        [self goBack];
+    }
     
     ElementTree *uiTree = [self.testedApp tree];
     NSLog(@"leaves count: %ld", [uiTree leaves].count);
@@ -185,12 +188,9 @@ static NSArray * containers;
     }
 }
 
--(void)performGoBackIfNeeded
+-(BOOL)shouldGoBack
 {
-    if (RandomZeroToOne < (float)self.stackDepth / 10) {
-        NSLog(@"Perform GoBack.");
-        [self goBack];
-    }
+    return RandomZeroToOne < (float)self.stackDepth / 20;
 }
 
 -(void)goBack

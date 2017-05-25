@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import "Tree.h"
 
 typedef NSString VCType;
 
@@ -31,6 +32,8 @@ typedef struct _PTExampleTextFrame {
 - (void)connectToLocalIPv4AtPort:(in_port_t)port;
 - (void)connectToLocalIPv4AtPort:(in_port_t)port timeout:(uint32_t)seconds;
 - (void)sendJSON:(NSDictionary *)info;
+- (nullable NSDictionary *)jsonAction:(NSDictionary *)data timeout:(double)seconds;
+-(Tree *)getViewHierarchy;
 @end
 
 @protocol UIChangeDelegate <NSObject>

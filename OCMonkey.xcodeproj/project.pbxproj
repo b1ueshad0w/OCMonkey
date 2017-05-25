@@ -152,6 +152,7 @@
 		4069E8091E6806BB00C1C832 /* MonkeyRunner.m in Sources */ = {isa = PBXBuildFile; fileRef = 4069E8081E6806BB00C1C832 /* MonkeyRunner.m */; };
 		4069E80E1E680C3C00C1C832 /* OCMonkeyLib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4069E7251E67FB2800C1C832 /* OCMonkeyLib.framework */; };
 		4069E8101E680C7400C1C832 /* OCMonkeyLib.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 4069E7251E67FB2800C1C832 /* OCMonkeyLib.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		407329D61ED6EDEC00857AFC /* Tree.m in Sources */ = {isa = PBXBuildFile; fileRef = 401AB0661EB0BADF00CC1046 /* Tree.m */; };
 		407B10361E89395000C2E93D /* Gesture.h in Headers */ = {isa = PBXBuildFile; fileRef = 407B102E1E89395000C2E93D /* Gesture.h */; };
 		407B10371E89395000C2E93D /* Gesture.m in Sources */ = {isa = PBXBuildFile; fileRef = 407B102F1E89395000C2E93D /* Gesture.m */; };
 		407B10381E89395000C2E93D /* GestureHash.h in Headers */ = {isa = PBXBuildFile; fileRef = 407B10301E89395000C2E93D /* GestureHash.h */; };
@@ -1552,6 +1553,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				407329D61ED6EDEC00857AFC /* Tree.m in Sources */,
 				40AE50E51EBC3C22006A13C5 /* AgentForHost.m in Sources */,
 				407B104D1E893B0E00C2E93D /* ViewController.m in Sources */,
 				407B104A1E893B0E00C2E93D /* AppDelegate.m in Sources */,

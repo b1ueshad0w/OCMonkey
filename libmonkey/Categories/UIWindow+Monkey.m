@@ -63,7 +63,7 @@
     [[Outlet sharedOutlet] sendJSON:@{@"class": @"UIWindow",
                                       @"selector": NSStringFromSelector(_cmd),
                                       @"args": args}];
-    [self monkey_makeKeyWindow];
+    [self monkey_makeKeyAndVisible];
     NSLog(@"%@ [%@ (did)%@]", prefix, @"UIWindow", selStr);
 }
 

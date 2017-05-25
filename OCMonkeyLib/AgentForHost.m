@@ -19,6 +19,20 @@ static const uint32_t GGUSBFrameType = 104;
 @property (atomic, strong) PTChannel *peerChannel;
 @property (atomic, strong) PTChannel *connectedChannel;
 @property (atomic, strong) NSDictionary *frameCache;
+
+/* FrameTag will always be even. Odd tag is for the other side.
+ * JsonAction will use a tag (assuming X) to send data, and
+ * expect response with the corresponding tag x. 
+ * We use semaphore for waiting for the response. As socket communication
+ * is concurrent, we need to hold a semaphore dict, whose key is the tag number
+ * and the corresponding value is the semaphore to be signaled when the response
+ * arrived.
+ * After the response did received, we update the value in the dict with the response
+ * data. Hence the blocking context will be able to access the response data.
+ */
+@property NSMutableDictionary *semaphores;  // {tagNo1: semaphore1, tagNo2: semaphore2}
+
+@property int nextFrameTag;
 @end
 
 @implementation AgentForHost
@@ -52,6 +66,8 @@ static NSDictionary *SelectorMapping;
 {
     if (!(self = [super init])) return nil;
     _delegate = delegate;
+    _nextFrameTag = 0;
+    _semaphores = [[NSMutableDictionary alloc] init];
     return self;
 }
 
@@ -61,6 +77,30 @@ static NSDictionary *SelectorMapping;
     [self.connectedChannel close];
     self.connectedChannel = nil;
   }
+}
+
+-(int)newTag
+{
+    _nextFrameTag += 2;
+    return _nextFrameTag;
+}
+
+- (nullable NSDictionary *)jsonAction:(NSDictionary *)data timeout:(double)seconds
+{
+    int tag = [self newTag];
+    NSNumber *keyForTag = [NSNumber numberWithInt:tag];
+    [self sendJSON:data tag:tag];
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+    [_semaphores setObject:semaphore forKey:keyForTag];
+    dispatch_time_t waitTime = dispatch_time(DISPATCH_TIME_NOW, seconds * NSEC_PER_SEC);
+    dispatch_semaphore_wait(semaphore, waitTime);
+    if ([_semaphores objectForKey:keyForTag] == semaphore) {
+        NSLog(@"%@ JSON action timeout.", prefix);
+        return nil;
+    }
+    NSDictionary *result = [[_semaphores objectForKey:keyForTag] copy];
+    [_semaphores removeObjectForKey:keyForTag];
+    return result;
 }
 
 - (void)sendJSON:(NSDictionary *)info
@@ -232,6 +272,17 @@ static NSDictionary *SelectorMapping;
 - (void)handleData:(NSData *)data tag:(uint32_t)tag
 {
     NSDictionary *parsed = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+    
+    // Only the response for a JsonAction will bring a tag. For other usage, please do not expecting a tag.
+    if (tag) { 
+        NSNumber *keyForTag = [NSNumber numberWithInt:tag];
+        if ([_semaphores objectForKey:keyForTag]) {
+            dispatch_semaphore_signal([_semaphores objectForKey:keyForTag]);
+            [_semaphores setObject:parsed forKey:keyForTag];
+        }
+        return;
+    }
+    
 //    NSLog(@"Received a json from tested app: %@", parsed);
     if ([parsed objectForKey:@"selector"]) {
         [self handleDataSelector:parsed tag:tag];
@@ -255,6 +306,31 @@ static NSDictionary *SelectorMapping;
 - (BOOL)ioFrameChannel:(PTChannel *)channel shouldAcceptFrameOfType:(uint32_t)type tag:(uint32_t)tag payloadSize:(uint32_t)payloadSize
 {
   return (type == TCFrameTypeTextMessage || type == GGUSBFrameType);
+}
+
+-(Tree *)getViewHierarchy
+{
+    return [self buildTree:[self jsonAction:@{@"path": @"tree"} timeout:2]];
+}
+
+-(Tree *)buildTree:(NSDictionary *)info
+{
+    Tree *tree = [[Tree alloc] initWithParent:nil withData:nil];
+    [self _buildTree:tree withInfo:info];
+    return tree;
+}
+
+-(void)_buildTree:(Tree *)tree withInfo:(NSDictionary *)info
+{
+    tree.data = info[@"type"];
+    if (![info objectForKey:@"children"])
+        return;
+    NSUInteger count = [info[@"children"] count];
+    for (int i = 0; i < count; i++) {
+        [tree appendChildWithData:nil];
+        [self _buildTree:tree.children[i] withInfo:info[@"children"][i]];
+    }
+    
 }
 
 @end

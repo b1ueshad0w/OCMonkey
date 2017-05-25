@@ -59,4 +59,6 @@
 
 -(VCType *)getCurrentVC;
 
+-(Tree *)getViewHierarchy;
+
 @end

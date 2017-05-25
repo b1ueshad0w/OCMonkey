@@ -119,6 +119,11 @@
     return nil;
 }
 
+-(Tree *)getViewHierarchy
+{
+    return [_appAgent getViewHierarchy];
+}
+
 -(NSUInteger)stackDepth
 {
     if (self.activeTabCtrl) {
