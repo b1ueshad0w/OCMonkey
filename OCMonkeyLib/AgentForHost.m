@@ -11,6 +11,7 @@
 #import <Foundation/Foundation.h>
 #import "Macros.h"
 #import <objc/runtime.h>
+#import "ElementInfo.h"
 
 static const uint32_t GGUSBFrameType = 104;
 
@@ -308,27 +309,28 @@ static NSDictionary *SelectorMapping;
   return (type == TCFrameTypeTextMessage || type == GGUSBFrameType);
 }
 
--(Tree *)getViewHierarchy
+-(UIViewTree *)getViewHierarchy
 {
-    return [self buildTree:[self jsonAction:@{@"path": @"tree"} timeout:2]];
+    return [self buildUIViewTree:[self jsonAction:@{@"path": @"tree"} timeout:2]];
 }
 
--(Tree *)buildTree:(NSDictionary *)info
+-(UIViewTree *)buildUIViewTree:(NSDictionary *)info
 {
-    Tree *tree = [[Tree alloc] initWithParent:nil withData:nil];
-    [self _buildTree:tree withInfo:info];
+    UIViewTree *tree = [[UIViewTree alloc] initWithParent:nil withData:nil];
+    [self _buildUIViewTree:tree withInfo:info];
     return tree;
 }
 
--(void)_buildTree:(Tree *)tree withInfo:(NSDictionary *)info
+-(void)_buildUIViewTree:(UIViewTree *)tree withInfo:(NSDictionary *)info
 {
-    tree.data = info[@"type"];
+//    tree.data = info[@"type"];
+    tree.data = [[UIViewInfo alloc] initWithClassName:info[@"type"] frame:CGRectFromString(info[@"frame"])];
     if (![info objectForKey:@"children"])
         return;
     NSUInteger count = [info[@"children"] count];
     for (int i = 0; i < count; i++) {
         [tree appendChildWithData:nil];
-        [self _buildTree:tree.children[i] withInfo:info[@"children"][i]];
+        [self _buildUIViewTree:(UIViewTree *)tree.children[i] withInfo:info[@"children"][i]];
     }
     
 }

@@ -19,6 +19,13 @@
 
 @end
 
+
+@implementation UIViewTree
+
+@dynamic data;
+
+@end
+
 ClassPath* getClassPathForElement(Tree *element)
 {
     NSMutableArray<ClassPathItem *> *pathItems = [[NSMutableArray alloc] init];

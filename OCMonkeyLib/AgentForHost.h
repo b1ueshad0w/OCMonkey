@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 #import "Tree.h"
+#import "ElementTree.h"
 
 typedef NSString VCType;
 
@@ -32,8 +33,8 @@ typedef struct _PTExampleTextFrame {
 - (void)connectToLocalIPv4AtPort:(in_port_t)port;
 - (void)connectToLocalIPv4AtPort:(in_port_t)port timeout:(uint32_t)seconds;
 - (void)sendJSON:(NSDictionary *)info;
-- (nullable NSDictionary *)jsonAction:(NSDictionary *)data timeout:(double)seconds;
--(Tree *)getViewHierarchy;
+- (nullable NSDictionary *)jsonAction:(NSDictionary *_Nonnull)data timeout:(double)seconds;
+-(UIViewTree *_Nonnull)getViewHierarchy;
 @end
 
 @protocol UIChangeDelegate <NSObject>
@@ -41,7 +42,7 @@ typedef struct _PTExampleTextFrame {
 @optional
 
 // should we also pass the address info?
-- (void)viewController:(VCType *)vc didAppearAnimated:(BOOL)animated;
+- (void)viewController:(VCType *_Nonnull)vc didAppearAnimated:(BOOL)animated;
 
 /**
  Determine whether a UINavigationController should push a vc into its stack.
@@ -51,22 +52,22 @@ typedef struct _PTExampleTextFrame {
  @param naviCtrl classname of the UINavigationController to push
  @return YES if allow the push action, otherwise NO.
  */
-- (BOOL)naviCtrl:(VCType *)naviCtrl shouldPushViewController:(VCType *)pushedVC animated:(BOOL)animated;
+- (BOOL)naviCtrl:(VCType *_Nonnull)naviCtrl shouldPushViewController:(VCType *_Nonnull)pushedVC animated:(BOOL)animated;
 
-- (BOOL)naviCtrl:(VCType *)naviCtrl shouldPopViewControllerAnimated:(BOOL)animated;
+- (BOOL)naviCtrl:(VCType *_Nonnull)naviCtrl shouldPopViewControllerAnimated:(BOOL)animated;
 
-- (BOOL)naviCtrl:(VCType *)naviCtrl shouldPopToRootViewControllerAnimated:(BOOL)animated;
+- (BOOL)naviCtrl:(VCType *_Nonnull)naviCtrl shouldPopToRootViewControllerAnimated:(BOOL)animated;
 
-- (BOOL)naviCtrl:(VCType *)naviCtrl shouldPopToViewController:(VCType *)toVC animated:(BOOL)animated;
+- (BOOL)naviCtrl:(VCType *_Nonnull)naviCtrl shouldPopToViewController:(VCType *_Nonnull)toVC animated:(BOOL)animated;
 
-- (void)naviCtrl:(VCType *)naviCtrl initWithRootViewController:(VCType *)vc;
+- (void)naviCtrl:(VCType *_Nonnull)naviCtrl initWithRootViewController:(VCType *_Nonnull)vc;
 
-- (void)naviCtrl:(VCType *)naviCtrl setViewControllers:(NSArray<VCType *>*)vc animated:(BOOL)animted;
+- (void)naviCtrl:(VCType *_Nonnull)naviCtrl setViewControllers:(NSArray<VCType *>*_Nonnull)vc animated:(BOOL)animted;
 
-- (void)tabCtrl:(VCType *)tabCtrl setViewControllers:(NSArray<VCType *>*)vc animated:(BOOL)animted;
+- (void)tabCtrl:(VCType *_Nonnull)tabCtrl setViewControllers:(NSArray<VCType *>*_Nonnull)vc animated:(BOOL)animted;
 
-- (void)tabCtrlInit:(VCType *)tabCtrl;
+- (void)tabCtrlInit:(VCType *_Nonnull)tabCtrl;
 
-- (void)tabCtrl:(VCType *)tabCtrl setSelectedIndex:(NSUInteger)index;
+- (void)tabCtrl:(VCType *_Nonnull)tabCtrl setSelectedIndex:(NSUInteger)index;
 
 @end

@@ -19,3 +19,10 @@
 ClassPath* getClassPathForElement(Tree *element);
 
 NSUInteger getIndexOfDescendantsMatchingType(Tree *element);
+
+
+@interface UIViewTree : Tree
+
+@property (nonatomic, strong) UIViewInfo *data;
+
+@end
