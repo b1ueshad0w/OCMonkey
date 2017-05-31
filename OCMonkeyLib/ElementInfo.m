@@ -23,6 +23,7 @@
 @property (nonatomic, readwrite, getter = isSelected) BOOL selected;
 @property (nonatomic, readwrite) XCUIUserInterfaceSizeClass horizontalSizeClass;
 @property (nonatomic, readwrite) XCUIUserInterfaceSizeClass verticalSizeClass;
+@property (nonatomic, readwrite) BOOL isMainWindow;
 @end
 
 @implementation ElementInfo
@@ -40,6 +41,7 @@
         _enabled = snapshot.enabled;
         _selected = snapshot.selected;
         _placeholderValue = snapshot.placeholderValue;
+        _isMainWindow = snapshot.isMainWindow;
     }
     return self;
 }
@@ -47,7 +49,8 @@
 -(NSString *)description
 {
     NSString *elementType = [ElementTypeTransformer shortStringWithElementType:_elementType];
-    return [NSString stringWithFormat:@"type: %@ | frame: {{%.1f, %.1f},{%.1f, %.1f}} | label: %@", elementType, _frame.origin.x, _frame.origin.y, _frame.size.width, _frame.size.height, _label];
+    NSString *isMainWin = _isMainWindow ? @"Main Window" : @"";
+    return [NSString stringWithFormat:@"type: %@ %@ | frame: {{%.1f, %.1f},{%.1f, %.1f}} | label: %@", elementType, isMainWin, _frame.origin.x, _frame.origin.y, _frame.size.width, _frame.size.height, _label];
 }
 
 @end

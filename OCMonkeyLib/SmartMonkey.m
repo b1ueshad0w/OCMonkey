@@ -92,7 +92,7 @@
 {
     in_port_t port = 2349;
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        [_appAgent connectToLocalIPv4AtPort:port timeout:15];
+        [_appAgent connectToLocalIPv4AtPort:port timeout:25];
     });
     self.launchEnvironment[@"STUB_PORT"] = @(port);
     [super preRun];
@@ -112,9 +112,10 @@
          * TODO - If UIInputWindowController keeps showing up, as the queue is fixed size, the queue will
          * be full of UIInputWindowController
          */
-        if ([_appearedVCs[i] hasPrefix:@"UI"])
+        if ([_appearedVCs[i] hasPrefix:@"<UI"])
             continue;
-        return _appearedVCs[i];
+//        return _appearedVCs[i];
+        return [self strippedVCName:_appearedVCs[i]];
     }
     return nil;
 }
@@ -136,6 +137,18 @@
         return self.naviCtrls.allValues[0].vcCount;
     }
     return 1;
+}
+
+/**
+ <XXXViewController: 0x12345678> ==> XXXViewController
+
+ @param vc NSString of format: @"<XXXViewController: 0x12345678>"
+ @return @"XXXViewController"
+ */
+-(NSString *)strippedVCName:(NSString *)vc
+{
+    NSRange midStr = [vc rangeOfString:@":"];
+    return [vc substringWithRange:NSMakeRange(1, midStr.location - 1)];
 }
 
 @end

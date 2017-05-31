@@ -92,6 +92,7 @@
                 [self runOneStep];
             } @catch (NSException *exception) {
                 NSLog(@"Exception: %@", exception);
+                break;
             } @finally {
             }
         }

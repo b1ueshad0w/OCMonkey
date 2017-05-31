@@ -19,6 +19,10 @@
 
 #define ContainerScrollWeight 0.2
 
+@interface WeightedMonkey()
+@property (nonatomic, readwrite) NSMutableDictionary<TreeHashType *, VCCallback> *vcCallbacks;
+@end
+
 @implementation WeightedMonkey
 
 static NSArray * containers;
@@ -52,10 +56,41 @@ static NSArray * containers;
     self = [super initWithBundleID:bundleID];
     if (self) {
         _algorithm = algorithm;
+        _vcCallbacks = [[NSMutableDictionary alloc] init];
     }
     return self;
 }
 
+-(void)registerAction:(id)callback forVC:(NSString *)vc
+{
+    [_vcCallbacks setObject:callback forKey:vc];
+}
+
+-(NSMutableArray<ElementTree *> *)getValidElementsFromTree:(ElementTree *)uiTree
+{
+    NSMutableArray<ElementTree *> *elements = [[NSMutableArray alloc] init];
+    [uiTree traverseDown:^BOOL(Tree *element, BOOL *stop) {
+        ElementInfo *data = ((ElementTree*)element).data;
+        if (data.elementType == XCUIElementTypeWindow && !data.isMainWindow)
+            return NO;  // discard non-mainWindows' descendants
+        if (data.elementType == XCUIElementTypeStatusBar)
+            return NO;
+        BOOL isTooBigElement = (data.frame.size.width > (self.screenFrame.size.width - 1) &&
+                                data.frame.size.height > self.screenFrame.size.height - 1);
+        if ([WeightedMonkey isContainer:data.elementType]) {
+            [elements addObject:(ElementTree*)element];
+            return NO;
+        }
+        if (isTooBigElement)
+            return YES;
+        if (element.children.count == 0) {
+            [elements addObject:(ElementTree*)element];
+            return NO;
+        }
+        return YES;
+    }];
+    return elements;
+}
 
 /**
  Principals:
@@ -75,31 +110,9 @@ static NSArray * containers;
     
     ElementTree *uiTree = [self.testedApp tree];
     NSLog(@"leaves count: %ld", [uiTree leaves].count);
-    
-    NSMutableArray<ElementTree *> *elements = [[NSMutableArray alloc] init];
-    [uiTree traverseDown:^BOOL(Tree *element, BOOL *stop) {
-        ElementInfo *data = ((ElementTree*)element).data;
-        if (data.elementType == XCUIElementTypeStatusBar)
-            return NO;
-        BOOL isTooBigElement = (data.frame.size.width > (self.screenFrame.size.width - 1) &&
-                                data.frame.size.height > self.screenFrame.size.height - 1);
-        if ([WeightedMonkey isContainer:data.elementType]) {
-            [elements addObject:(ElementTree*)element];
-            return NO;
-        }
-        if (isTooBigElement)
-            return YES;
-        if (element.children.count == 0) {
-            [elements addObject:(ElementTree*)element];
-            return NO;
-        }
-        return YES;
-    }];
-    
 //    NSArray<ElementTree *> *elements = [uiTree leaves];
-    
+    NSArray<ElementTree *> *elements = [self getValidElementsFromTree:uiTree];
     NSLog(@"valid leaves count: %ld", elements.count);
-    
     
     NSMutableArray *desc = NSMutableArray.new;
     for (Tree *element in elements) {
@@ -108,9 +121,13 @@ static NSArray * containers;
     NSLog(@"Leaves: %@", [desc componentsJoinedByString:@"\n"]);
     
     TreeHashType *treeHash = [self getCurrentVC];
-    
     if ([treeHash hasSuffix:@"WebViewController"])
         [self goBack];
+    if ([_vcCallbacks objectForKey:treeHash]) {
+        if (!_vcCallbacks[treeHash](uiTree))
+            return;
+    }
+    
 //    if ([treeHash isEqualToString:@"REInfoCodeController"]) {
 //        NSUInteger stackLength = self.vcStack.count;
 //        [self goBackByDragFromScreenLeftEdgeToRight];
@@ -200,11 +217,15 @@ static NSArray * containers;
     if (self.stackDepth < stackLength)
         return;
     
-    XCUIElement *backButton = [self.testedApp.navigationBars.buttons allElementsBoundByIndex][0];
-    if (backButton.exists) {
-        [backButton tap];
-        if (self.stackDepth < stackLength)
-            return;
+    if ([self.testedApp.navigationBars count]) {
+        if ([self.testedApp.navigationBars.buttons count]) {
+            XCUIElement *backButton = [self.testedApp.navigationBars.buttons allElementsBoundByIndex][0];
+            if (backButton.exists) {
+                [backButton tap];
+                if (self.stackDepth < stackLength)
+                    return;
+            }
+        }
     }
     
     NSLog(@"Failed to go back.");

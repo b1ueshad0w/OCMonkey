@@ -14,6 +14,8 @@
 
 -(id)initWithSnapshot:(XCElementSnapshot *)snapshot;
 
+@property (nonatomic, readonly) BOOL isMainWindow;
+
 @end
 
 

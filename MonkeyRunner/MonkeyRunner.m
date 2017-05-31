@@ -12,6 +12,7 @@
 #import "Monkey+XCUITest.h"
 #import "SmartMonkey.h"
 #import "WeightedMonkey.h"
+#import "Monkey+XCUITestPrivate.h"
 
 @interface MonkeyRunner : XCTestCase
 
@@ -46,9 +47,18 @@
 
 - (void)testWeightedMonkey {
     NSString *testApp = @"com.blueshadow.LibMonkeyExample";
+    NSString *qq = @"com.tencent.qq.dailybuild";
     WeightedAlgorithm *algorithm = [[WeightedAlgorithm alloc] init];
-    WeightedMonkey *monkey = [[WeightedMonkey alloc] initWithBundleID:testApp algorithm:algorithm];
-    [monkey run:30];
+    WeightedMonkey *monkey = [[WeightedMonkey alloc] initWithBundleID:qq algorithm:algorithm];
+    [monkey registerAction:^BOOL(ElementTree *tree){
+        [monkey tapElement:[monkey getValidElementsFromTree:tree][0]];
+        return NO;
+    } forVC:@"QQRecentController"];
+    [monkey registerAction:^BOOL(ElementTree *tree){
+        [monkey tapElement:[monkey getValidElementsFromTree:tree][0]];
+        return NO;
+    } forVC:@"DrawerContentsViewController"];
+    [monkey run:500];
 }
 
 @end

@@ -27,7 +27,10 @@ static char maxSizeKey;
 - (id)dequeue {
     id headObject = [self objectAtIndex:0];
     if (headObject != nil) {
+        NSLock *arrayLock = [[NSLock alloc] init];
+        [arrayLock lock];
         [self removeObjectAtIndex:0];
+        [arrayLock unlock];
     }
     return headObject;
 }
@@ -36,7 +39,10 @@ static char maxSizeKey;
     while ([self count] >= self.maxSize) {
         [self dequeue];
     }
+    NSLock *arrayLock = [[NSLock alloc] init];
+    [arrayLock lock];
     [self addObject:anObject];
+    [arrayLock unlock];
     NSLog(@"Queue enqueued: %@", anObject);
 }
 
