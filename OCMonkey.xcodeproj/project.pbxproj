@@ -27,6 +27,9 @@
 		401AB09F1EB2152700CC1046 /* RegularAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 401AB09D1EB2152700CC1046 /* RegularAction.m */; };
 		401AB0A21EB2188F00CC1046 /* Random.h in Headers */ = {isa = PBXBuildFile; fileRef = 401AB0A01EB2188F00CC1046 /* Random.h */; };
 		401AB0A31EB2188F00CC1046 /* Random.m in Sources */ = {isa = PBXBuildFile; fileRef = 401AB0A11EB2188F00CC1046 /* Random.m */; };
+		4034E9631EDFEF800061AD95 /* UIViewTree.h in Headers */ = {isa = PBXBuildFile; fileRef = 4034E9611EDFEF800061AD95 /* UIViewTree.h */; };
+		4034E9641EDFEF800061AD95 /* UIViewTree.m in Sources */ = {isa = PBXBuildFile; fileRef = 4034E9621EDFEF800061AD95 /* UIViewTree.m */; };
+		4034E9651EDFF2F20061AD95 /* UIViewTree.m in Sources */ = {isa = PBXBuildFile; fileRef = 4034E9621EDFEF800061AD95 /* UIViewTree.m */; };
 		404AF2A71ECD457200DFC6BF /* MonkeyAlgorithm.m in Sources */ = {isa = PBXBuildFile; fileRef = 404AF2A61ECD457200DFC6BF /* MonkeyAlgorithm.m */; };
 		404AF2AA1ECD819700DFC6BF /* WeightedMonkey.h in Headers */ = {isa = PBXBuildFile; fileRef = 404AF2A81ECD819700DFC6BF /* WeightedMonkey.h */; };
 		404AF2AB1ECD819700DFC6BF /* WeightedMonkey.m in Sources */ = {isa = PBXBuildFile; fileRef = 404AF2A91ECD819700DFC6BF /* WeightedMonkey.m */; };
@@ -421,6 +424,8 @@
 		401AB09D1EB2152700CC1046 /* RegularAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegularAction.m; sourceTree = "<group>"; };
 		401AB0A01EB2188F00CC1046 /* Random.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Random.h; sourceTree = "<group>"; };
 		401AB0A11EB2188F00CC1046 /* Random.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Random.m; sourceTree = "<group>"; };
+		4034E9611EDFEF800061AD95 /* UIViewTree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIViewTree.h; sourceTree = "<group>"; };
+		4034E9621EDFEF800061AD95 /* UIViewTree.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIViewTree.m; sourceTree = "<group>"; };
 		404AF2A61ECD457200DFC6BF /* MonkeyAlgorithm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MonkeyAlgorithm.m; sourceTree = "<group>"; };
 		404AF2A81ECD819700DFC6BF /* WeightedMonkey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeightedMonkey.h; sourceTree = "<group>"; };
 		404AF2A91ECD819700DFC6BF /* WeightedMonkey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeightedMonkey.m; sourceTree = "<group>"; };
@@ -753,6 +758,8 @@
 				40EBD3ED1EB41E6800CD5050 /* OCMonkeyLib.h */,
 				406477E11ECD42F0006AB4AB /* MonkeyAlgorithm.h */,
 				404AF2A61ECD457200DFC6BF /* MonkeyAlgorithm.m */,
+				4034E9611EDFEF800061AD95 /* UIViewTree.h */,
+				4034E9621EDFEF800061AD95 /* UIViewTree.m */,
 			);
 			path = OCMonkeyLib;
 			sourceTree = "<group>";
@@ -1093,6 +1100,7 @@
 				4069E7FB1E68042E00C1C832 /* XCUIElementAsynchronousHandlerWrapper.h in Headers */,
 				4069E7DB1E68042E00C1C832 /* XCTestManager_TestsInterface-Protocol.h in Headers */,
 				4069E7A61E68042E00C1C832 /* _XCTNSPredicateExpectationImplementation.h in Headers */,
+				4034E9631EDFEF800061AD95 /* UIViewTree.h in Headers */,
 				4069E7B51E68042E00C1C832 /* XCApplicationQuery.h in Headers */,
 				4069E7FC1E68042E00C1C832 /* XCUIElementHitPointCoordinate.h in Headers */,
 				4069E7A51E68042E00C1C832 /* _XCTNSNotificationExpectationImplementation.h in Headers */,
@@ -1512,6 +1520,7 @@
 				40E4B9EE1EB320D300F8C230 /* MathUtils.m in Sources */,
 				404F9E361EB2511C009CA2A1 /* Monkey+XCUITestPrivate.m in Sources */,
 				404F9E321EB24ED1009CA2A1 /* Monkey+XCUITest.m in Sources */,
+				4034E9641EDFEF800061AD95 /* UIViewTree.m in Sources */,
 				401AB0681EB0BADF00CC1046 /* Tree.m in Sources */,
 				401AB09B1EB212CF00CC1046 /* RandomAction.m in Sources */,
 				40EBD3C31EB39E7300CD5050 /* AgentForHost.m in Sources */,
@@ -1553,6 +1562,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4034E9651EDFF2F20061AD95 /* UIViewTree.m in Sources */,
 				407329D61ED6EDEC00857AFC /* Tree.m in Sources */,
 				40AE50E51EBC3C22006A13C5 /* AgentForHost.m in Sources */,
 				407B104D1E893B0E00C2E93D /* ViewController.m in Sources */,

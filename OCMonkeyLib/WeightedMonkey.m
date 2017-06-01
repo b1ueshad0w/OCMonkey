@@ -121,8 +121,10 @@ static NSArray * containers;
     NSLog(@"Leaves: %@", [desc componentsJoinedByString:@"\n"]);
     
     TreeHashType *treeHash = [self getCurrentVC];
-    if ([treeHash hasSuffix:@"WebViewController"])
+    if ([treeHash hasSuffix:@"WebViewController"]) {
         [self goBack];
+        return;
+    }
     if ([_vcCallbacks objectForKey:treeHash]) {
         if (!_vcCallbacks[treeHash](uiTree))
             return;

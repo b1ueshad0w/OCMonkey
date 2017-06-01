@@ -91,7 +91,7 @@
             @try {
                 [self runOneStep];
             } @catch (NSException *exception) {
-                NSLog(@"Exception: %@", exception);
+                NSLog(@"Exception: %@ %@", exception, [exception.callStackSymbols componentsJoinedByString:@"\n"]);
                 break;
             } @finally {
             }

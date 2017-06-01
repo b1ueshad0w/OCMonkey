@@ -17,13 +17,3 @@
 @property (nonatomic, readonly) BOOL isMainWindow;
 
 @end
-
-
-@interface UIViewInfo : NSObject
-
-@property (nonatomic, strong) NSString *className;
-@property (nonatomic) CGRect frame;
-
--(id)initWithClassName:(NSString *)className frame:(CGRect)frame;
-
-@end

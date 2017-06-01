@@ -8,6 +8,8 @@
 
 #import "Monkey.h"
 #import "AgentForHost.h"
+#import "Tree.h"
+#import "ElementTree.h"
 
 @interface TabBarCtrl : NSObject
 

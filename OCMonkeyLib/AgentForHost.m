@@ -11,7 +11,6 @@
 #import <Foundation/Foundation.h>
 #import "Macros.h"
 #import <objc/runtime.h>
-#import "ElementInfo.h"
 
 static const uint32_t GGUSBFrameType = 104;
 
@@ -275,7 +274,7 @@ static NSDictionary *SelectorMapping;
     NSDictionary *parsed = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
     
     // Only the response for a JsonAction will bring a tag. For other usage, please do not expecting a tag.
-    if (tag) { 
+    if (tag && tag % 2 == 0) {
         NSNumber *keyForTag = [NSNumber numberWithInt:tag];
         if ([_semaphores objectForKey:keyForTag]) {
             dispatch_semaphore_signal([_semaphores objectForKey:keyForTag]);
