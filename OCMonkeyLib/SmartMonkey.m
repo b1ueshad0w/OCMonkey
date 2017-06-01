@@ -132,7 +132,7 @@
         if ([self.naviCtrls objectForKey:vcFromTab]) {
             return self.naviCtrls[vcFromTab].vcCount;
         }
-    } else {
+    } else if (self.naviCtrls.count) {
         // If app not use TabBarController, it should have only one UINavigationContrller.
         return self.naviCtrls.allValues[0].vcCount;
     }

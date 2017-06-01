@@ -103,7 +103,7 @@ static NSArray * containers;
  */
 -(void)runOneStep
 {
-    if ([self shouldGoBack]) {
+    if (RandomZeroToOne < 0.1 && [self shouldGoBack]) {
         NSLog(@"Perform GoBack.");
         [self goBack];
     }
@@ -138,6 +138,11 @@ static NSArray * containers;
 //        else
 //            NSLog(@"Failed");
 //    }
+    
+    if (![elements count]) {
+        [self tap:[self randomPoint]];
+        return;
+    }
     
     ElementTree *selected = (ElementTree *)[_algorithm chooseAnElementFromTree:uiTree
                                                                  AmongElements:elements
@@ -222,13 +227,18 @@ static NSArray * containers;
     if ([self.testedApp.navigationBars count]) {
         if ([self.testedApp.navigationBars.buttons count]) {
             XCUIElement *backButton = [self.testedApp.navigationBars.buttons allElementsBoundByIndex][0];
-            if (backButton.exists) {
+            if (backButton.exists && backButton.isEnabled && backButton.isHittable) {
                 [backButton tap];
                 if (self.stackDepth < stackLength)
                     return;
             }
         }
     }
+    
+    CGPoint backButton = CGPointMake(40, 42);
+    [self tap:backButton];
+    if (self.stackDepth < stackLength)
+        return;
     
     NSLog(@"Failed to go back.");
 }
