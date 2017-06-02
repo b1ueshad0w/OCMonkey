@@ -16,6 +16,9 @@
 #import "Macros.h"
 #import <math.h>
 #import "MathUtils.h"
+#import "Keyboard.h"
+#import "MonkeyLogger.h"
+#import "Random.h"
 
 #define ContainerScrollWeight 0.2
 
@@ -151,7 +154,7 @@ static NSArray * containers;
     NSLog(@"selected: %@ %@", selected.identifier, selected.data);
     
     if (![WeightedMonkey isContainer:selected.data.elementType])
-        [self tapElement:selected];
+        [self processElement:selected];
     else {
         if (RandomZeroToOne < ContainerScrollWeight) {
             [self scrollContainer:selected];
@@ -174,8 +177,19 @@ static NSArray * containers;
                                                     AmongElements:tableElements
                                                      withTreeHash:treeHash];
         NSLog(@"selected from container: %@ %@", finalSelected.identifier, finalSelected.data);
-        [self tapElement:finalSelected];
+        [self processElement:finalSelected];
     }
+}
+
+-(void)processElement:(ElementTree *)element
+{
+    XCUIElementType elementType = element.data.elementType;
+    if (elementType == XCUIElementTypeTextField || elementType == XCUIElementTypeSearchField || elementType == XCUIElementTypeTextView) {
+        [self tapElement:element];
+        [Keyboard typeText:[Random randomString] error:nil];
+        return;
+    }
+    [self tapElement:element];
 }
 
 -(void)scrollContainer:(ElementTree *)container

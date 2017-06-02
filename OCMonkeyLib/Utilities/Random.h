@@ -10,4 +10,8 @@
 
 @interface Random : NSObject
 
++ (NSString *)randomString;
+
++ (NSString *)randomStringWithLength:(NSUInteger)len;
+
 @end

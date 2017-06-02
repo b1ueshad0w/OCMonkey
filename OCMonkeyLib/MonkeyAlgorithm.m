@@ -65,7 +65,10 @@
             return 200;
             
         case XCUIElementTypeTable:
-            return 300;
+            return 400;
+            
+        case XCUIElementTypeCollectionView:
+            return 400;
             
         case XCUIElementTypeScrollView:
             return 300;
