@@ -17,8 +17,8 @@
 #import <math.h>
 #import "MathUtils.h"
 #import "Keyboard.h"
-#import "MonkeyLogger.h"
 #import "Random.h"
+#import "GGLogger.h"
 
 #define ContainerScrollWeight 0.2
 
@@ -107,21 +107,21 @@ static NSArray * containers;
 -(void)runOneStep
 {
     if (RandomZeroToOne < 0.1 && [self shouldGoBack]) {
-        NSLog(@"Perform GoBack.");
+        [GGLogger log:@"Perform GoBack."];
         [self goBack];
     }
     
     ElementTree *uiTree = [self.testedApp tree];
-    NSLog(@"leaves count: %ld", [uiTree leaves].count);
+    [GGLogger logFmt:@"leaves count: %ld", [uiTree leaves].count];
 //    NSArray<ElementTree *> *elements = [uiTree leaves];
     NSArray<ElementTree *> *elements = [self getValidElementsFromTree:uiTree];
-    NSLog(@"valid leaves count: %ld", elements.count);
+    [GGLogger logFmt:@"valid leaves count: %ld", elements.count];
     
     NSMutableArray *desc = NSMutableArray.new;
     for (Tree *element in elements) {
         [desc addObject:[NSString stringWithFormat:@"%@ %@", element.identifier, element.data]];
     }
-    NSLog(@"Leaves: %@", [desc componentsJoinedByString:@"\n"]);
+    [GGLogger logFmt:@"Leaves: %@", [desc componentsJoinedByString:@"\n"]];
     
     TreeHashType *treeHash = [self getCurrentVC];
     if ([treeHash hasSuffix:@"WebViewController"]) {
@@ -137,9 +137,9 @@ static NSArray * containers;
 //        NSUInteger stackLength = self.vcStack.count;
 //        [self goBackByDragFromScreenLeftEdgeToRight];
 //        if (self.vcStack.count < stackLength)
-//            NSLog(@"Success");
+//            [GGLogger log:@"Success"];
 //        else
-//            NSLog(@"Failed");
+//            [GGLogger log:@"Failed"];
 //    }
     
     if (![elements count]) {
@@ -151,7 +151,7 @@ static NSArray * containers;
                                                                  AmongElements:elements
                                                                   withTreeHash:treeHash];
 //    ElementTree *selected = elements[4];
-    NSLog(@"selected: %@ %@", selected.identifier, selected.data);
+    [GGLogger logFmt:@"selected: %@ %@", selected.identifier, selected.data];
     
     if (![WeightedMonkey isContainer:selected.data.elementType])
         [self processElement:selected];
@@ -176,7 +176,7 @@ static NSArray * containers;
         Tree *finalSelected = [_algorithm chooseAnElementFromTree:uiTree
                                                     AmongElements:tableElements
                                                      withTreeHash:treeHash];
-        NSLog(@"selected from container: %@ %@", finalSelected.identifier, finalSelected.data);
+        [GGLogger logFmt:@"selected from container: %@ %@", finalSelected.identifier, finalSelected.data];
         [self processElement:finalSelected];
     }
 }
@@ -207,7 +207,7 @@ static NSArray * containers;
         break;
     }
     if (!firstCell) {
-        NSLog(@"Scroll container error: Not found first cell!");
+        [GGLogger log:@"Scroll container error: Not found first cell!"];
         return;
     }
     start = getRectCenter(firstCell.data.frame);*/
@@ -254,12 +254,12 @@ static NSArray * containers;
     if (self.stackDepth < stackLength)
         return;
     
-    NSLog(@"Failed to go back.");
+    [GGLogger log:@"Failed to go back."];
 }
 
 -(void)postRun
 {
     [super postRun];
-    NSLog(@"%@", [_algorithm statDescription]);
+    [GGLogger log:[_algorithm statDescription]];
 }
 @end

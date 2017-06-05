@@ -11,6 +11,7 @@
 #import <Foundation/Foundation.h>
 #import "Macros.h"
 #import <objc/runtime.h>
+#import "GGLogger.h"
 
 static const uint32_t GGUSBFrameType = 104;
 
@@ -95,7 +96,7 @@ static NSDictionary *SelectorMapping;
     dispatch_time_t waitTime = dispatch_time(DISPATCH_TIME_NOW, seconds * NSEC_PER_SEC);
     dispatch_semaphore_wait(semaphore, waitTime);
     if ([_semaphores objectForKey:keyForTag] == semaphore) {
-        NSLog(@"%@ JSON action timeout.", prefix);
+        [GGLogger log:@"JSON action timeout."];
         return nil;
     }
     NSDictionary *result = [[_semaphores objectForKey:keyForTag] copy];
@@ -110,7 +111,7 @@ static NSDictionary *SelectorMapping;
 
 - (void)sendJSON:(NSDictionary *)info tag:(uint32_t)tag
 {
-    //    NSLog(@"%@ in sendJSON", prefix);
+    //    [GGLogger log:@"in sendJSON"];
     if (!self.connectedChannel) {
         return;
     }
@@ -118,10 +119,10 @@ static NSDictionary *SelectorMapping;
     dispatch_data_t payload = [data createReferencingDispatchData];
     [self.connectedChannel sendFrameOfType:GGUSBFrameType tag:tag withPayload:payload callback:^(NSError *error) {
         if (error) {
-            NSLog(@"Failed to send json: %@", error);
+            [GGLogger logFmt:@"Failed to send json: %@", error];
         }
     }];
-//    NSLog(@"%@ JSON sent: %@", prefix, info);
+//    [GGLogger logFmt:@"JSON sent: %@", info];
 }
 
 - (void)connectToLocalIPv4AtPort:(in_port_t)port {
@@ -133,15 +134,15 @@ static NSDictionary *SelectorMapping;
     if (error) {
       if (error.domain == NSPOSIXErrorDomain && (error.code == ECONNREFUSED || error.code == ETIMEDOUT)) {
         // this is an expected state
-          NSLog(@"No listening socket.");
+          [GGLogger logFmt:@"No listening socket."];
       } else {
-        NSLog(@"Failed to connect to 127.0.0.1:%d: %@", port, error);
+        [GGLogger logFmt:@"Failed to connect to 127.0.0.1:%d: %@", port, error];
       }
     } else {
       [self disconnectFromCurrentChannel];
       self.connectedChannel = channel;
       channel.userInfo = address;
-      NSLog(@"%@ Connected to %@", prefix, address);
+      [GGLogger logFmt:@"Connected to %@", address];
     }
     }];
 }
@@ -153,18 +154,18 @@ static NSDictionary *SelectorMapping;
     for (int i = 0; i < seconds; i++) {
         if (!keepWaiting)
             break;
-        NSLog(@"%@ Attemp to connect to 127.0.0.1:%d ... %d", prefix, port, i);
+        [GGLogger logFmt:@"Attemp to connect to 127.0.0.1:%d ... %d", port, i];
         PTChannel *channel = [[PTChannel alloc] initWithProtocol:protocol delegate:self];
         channel.userInfo = [NSString stringWithFormat:@"127.0.0.1:%d", port];
         [channel connectToPort:port IPv4Address:INADDR_LOOPBACK callback:^(NSError *error, PTAddress *address) {
             if (error) {
                 if (error.domain == NSPOSIXErrorDomain && (error.code == ECONNREFUSED || error.code == ETIMEDOUT)) {
                     /* this is an expected state */
-                    NSLog(@"%@ No listening socket.", prefix);
+                    [GGLogger log:@"No listening socket."];
                     [NSThread sleepForTimeInterval:0.1];
                 } else {
                     // keepWaiting = NO;
-                    NSLog(@"%@ Failed to connect to 127.0.0.1:%d: %@", prefix, port, error);
+                    [GGLogger logFmt:@"Failed to connect to 127.0.0.1:%d: %@", port, error];
                     [NSThread sleepForTimeInterval:0.1];
                 }
             } else {
@@ -172,7 +173,7 @@ static NSDictionary *SelectorMapping;
                 [self disconnectFromCurrentChannel];
                 self.connectedChannel = channel;
                 channel.userInfo = address;
-                NSLog(@"%@ Connected to %@", prefix, address);
+                [GGLogger logFmt:@"Connected to %@", address];
             }
         }];
     }
@@ -193,7 +194,7 @@ static NSDictionary *SelectorMapping;
     struct objc_method_description description = protocol_getMethodDescription(@protocol(UIChangeDelegate), selector, NO, YES);
     NSMethodSignature *signature = [NSMethodSignature signatureWithObjCTypes:description.types];
     if (!signature) {
-        NSLog(@"%@ signature for selector %@ is nil.", prefix, selectorStr);
+        [GGLogger logFmt:@"signature for selector %@ is nil.", selectorStr];
         return;
     }
     NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:signature];
@@ -203,7 +204,7 @@ static NSDictionary *SelectorMapping;
     }];
     [invocation invoke];
     [invocation getReturnValue:&returned];
-    NSLog(@"Return Value:%@", returned);
+    [GGLogger logFmt:@"Return Value:%@", returned];
 }
 
 - (void)handleDataSelector:(NSDictionary *)data tag:(uint32_t)tag
@@ -283,7 +284,7 @@ static NSDictionary *SelectorMapping;
         return;
     }
     
-//    NSLog(@"Received a json from tested app: %@", parsed);
+//    [GGLogger logFmt:@"Received a json from tested app: %@", parsed);
     if ([parsed objectForKey:@"selector"]) {
         [self handleDataSelector:parsed tag:tag];
     }
@@ -295,7 +296,7 @@ static NSDictionary *SelectorMapping;
     PTExampleTextFrame *textFrame = (PTExampleTextFrame*)payload.data;
     textFrame->length = ntohl(textFrame->length);
     NSString *message = [[NSString alloc] initWithBytes:textFrame->utf8text length:textFrame->length encoding:NSUTF8StringEncoding];
-    NSLog(@"Receive a text from test app: %@", message);
+    [GGLogger logFmt:@"Receive a text from test app: %@", message];
   } else if (type == GGUSBFrameType) {
       dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
           [self handleData:[NSData dataWithContentsOfDispatchData:payload.dispatchData] tag:tag];

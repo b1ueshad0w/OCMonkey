@@ -10,6 +10,7 @@
 #import "AgentForHost.h"
 #import "NSMutableArray+Queue.h"
 #import "NSMutableArray+Stack.h"
+#import "GGLogger.h"
 
 @implementation TabBarCtrl
 
@@ -42,7 +43,7 @@
     if (_vcStack.count > 1) {
         return [self.vcStack pop];
     } else {
-        NSLog(@"Error: Trying to pop the root vc.");
+        [GGLogger log:@"Error: Trying to pop the root vc."];
         return nil;
     }
 }

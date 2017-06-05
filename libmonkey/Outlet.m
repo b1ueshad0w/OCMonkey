@@ -12,6 +12,7 @@
 #import <peertalk/PTProtocol.h>
 #import "Macros.h"
 #import "Outlet.h"
+#import "GGLogger.h"
 
 #define GGValidateObjectWithClass(object, aClass) \
     if (object && ![object isKindOfClass:aClass]) { \
@@ -70,16 +71,15 @@ static const in_port_t GGUSBPort = 2345;
     PTChannel *channel = [[PTChannel alloc] initWithProtocol:protocol delegate:self];
     
     NSDictionary *envi = [[NSProcessInfo processInfo] environment];
-//    NSLog(@"environment: %@", envi);
     in_port_t port = GGUSBPort;
     if (envi[@"STUB_PORT"]) {
         port = [envi[@"STUB_PORT"] intValue];
     }
     [channel listenOnPort:port IPv4Address:INADDR_LOOPBACK callback:^(NSError *error) {
         if (error) {
-            NSLog(@"%@ Failed to listen on 127.0.0.1:%d: %@", prefix, port, error);
+            [GGLogger logFmt:@"Failed to listen on 127.0.0.1:%d: %@", port, error];
         } else {
-            NSLog(@"%@ Listening on 127.0.0.1:%d", prefix, port);
+            [GGLogger logFmt:@"Listening on 127.0.0.1:%d", port];
             serverChannel_ = channel;
         }
     }];
@@ -91,7 +91,7 @@ static const in_port_t GGUSBPort = 2345;
 
 -(NSString *)obtainCurrentVC{
     if (!self.tabBarController) {
-        NSLog(@"TabBarController of dylib is nil.");
+        [GGLogger log:@"TabBarController of dylib is nil."];
         return nil;
     }
     UINavigationController *navi = [self.tabBarController selectedViewController];
@@ -135,7 +135,6 @@ static const in_port_t GGUSBPort = 2345;
 
 - (void)respondWithErrorMessage:(NSString *)errorMessage
 {
-    NSLog(@"%@ in respondWithErrorMessage", prefix);
     [self respondWithData:[NSJSONSerialization dataWithJSONObject:@{@"error" : errorMessage ?: @"FBHTTPOverUSBServer failed with no error."}
                                                           options:NSJSONWritingPrettyPrinted
                                                             error:nil]];
@@ -143,10 +142,9 @@ static const in_port_t GGUSBPort = 2345;
 
 - (void)respondWithData:(NSData *)data
 {
-    NSLog(@"%@ in respondWithErrorMessage", prefix);
     void (^completionBlock)(NSError *) = ^(NSError *innerError){
         if (innerError) {
-            NSLog(@"%@ Failed to send USB message. %@", prefix, innerError);
+            [GGLogger logFmt:@"Failed to send USB message. %@", innerError];
         }
     };
     [peerChannel_ sendFrameOfType:GGUSBFrameType
@@ -163,7 +161,7 @@ static const in_port_t GGUSBPort = 2345;
         [self respondWithErrorMessage:error.description];
         return;
     }
-    NSLog(@"%@ Receive json: %@ Tag: %u", prefix, receivedJson, tag);
+    [GGLogger logFmt:@"Receive json: %@ Tag: %u", receivedJson, tag];
     
     if (tag && (tag % 2 == 1)) {
         NSNumber *keyForTag = [NSNumber numberWithInt:tag];
@@ -200,20 +198,20 @@ static const in_port_t GGUSBPort = 2345;
         if (paras) {
             NSString *urlString = paras[@"url"];
             if (urlString) {
-                NSLog(@"Opening URL: %@", urlString);
+                [GGLogger logFmt:@"Opening URL: %@", urlString];
                 UIApplication *app = [UIApplication sharedApplication];
                 if ([app respondsToSelector:@selector(openURL:options:completionHandler:)]) {
                     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:urlString] options:@{} completionHandler:^(BOOL success) {
-                        NSLog(@"Open %@: %d", urlString, success);
+                        [GGLogger logFmt:@"Open %@: %d", urlString, success];
                     }];
                 } else {
                     [app openURL:urlString];
                 }
             } else {
-                NSLog(@"Could not get url from parameters.");
+                [GGLogger log:@"Could not get url from parameters."];
             }
         } else {
-            NSLog(@"parameters is nil");
+            [GGLogger log:@"parameters is nil"];
         }
 
     } else if ([path isEqualToString:@"tree"]) {
@@ -241,7 +239,7 @@ static const in_port_t GGUSBPort = 2345;
     dispatch_time_t waitTime = dispatch_time(DISPATCH_TIME_NOW, seconds * NSEC_PER_SEC);
     dispatch_semaphore_wait(semaphore, waitTime);
     if ([_semaphores objectForKey:keyForTag] == semaphore) {
-        NSLog(@"%@ JSON action timeout.", prefix);
+        [GGLogger log:@"JSON action timeout."];
         return nil;
     }
     NSDictionary *result = [[_semaphores objectForKey:keyForTag] copy];
@@ -252,7 +250,7 @@ static const in_port_t GGUSBPort = 2345;
 
 - (void)sendJSON:(NSDictionary *)info tag:(uint32_t)tag
 {
-//    NSLog(@"%@ in sendJSON", prefix);
+//    [GGLogger logFmt:@"in sendJSON",);
     if (!peerChannel_) {
         return;
     }
@@ -260,10 +258,10 @@ static const in_port_t GGUSBPort = 2345;
     dispatch_data_t payload = [data createReferencingDispatchData];
     [peerChannel_ sendFrameOfType:GGUSBFrameType tag:tag withPayload:payload callback:^(NSError *error) {
         if (error) {
-            NSLog(@"%@ Failed to send json: %@", prefix, error);
+            [GGLogger logFmt:@"Failed to send json: %@", error];
         }
     }];
-    NSLog(@"Sent JSON: %@ with tag: %u", info, tag);
+    [GGLogger logFmt:@"Sent JSON: %@ with tag: %u", info, tag];
 }
 
 - (void)sendDeviceInfo {
@@ -271,7 +269,7 @@ static const in_port_t GGUSBPort = 2345;
         return;
     }
     
-    NSLog(@"Sending device info over %@", peerChannel_);
+    [GGLogger logFmt:@"Sending device info over %@", peerChannel_];
     
     UIScreen *screen = [UIScreen mainScreen];
     CGSize screenSize = screen.bounds.size;
@@ -290,7 +288,7 @@ static const in_port_t GGUSBPort = 2345;
     dispatch_data_t payload = [info createReferencingDispatchData];
     [peerChannel_ sendFrameOfType:GGUSBFrameType tag:PTFrameNoTag withPayload:payload callback:^(NSError *error) {
         if (error) {
-            NSLog(@"Failed to send PTExampleFrameTypeDeviceInfo: %@", error);
+            [GGLogger logFmt:@"Failed to send PTExampleFrameTypeDeviceInfo: %@", error];
         }
     }];
 }
@@ -339,9 +337,9 @@ static const in_port_t GGUSBPort = 2345;
 
 - (void)ioFrameChannel:(PTChannel*)channel didEndWithError:(NSError*)error {
     if (error) {
-        NSLog(@"%@ %@ ended with error: %@", prefix, channel, error);
+        [GGLogger logFmt:@"%@ ended with error: %@", channel, error];
     } else {
-        NSLog(@"%@ Disconnected from %@", prefix, channel.userInfo);
+        [GGLogger logFmt:@"Disconnected from %@", channel.userInfo];
     }
 }
 
@@ -352,7 +350,7 @@ static const in_port_t GGUSBPort = 2345;
 
     peerChannel_ = otherChannel;
     peerChannel_.userInfo = address;
-    NSLog(@"%@ Connected to %@", prefix, address);
+    [GGLogger logFmt:@"Connected to %@", address];
     
 }
 

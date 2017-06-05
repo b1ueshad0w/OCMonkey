@@ -8,7 +8,7 @@
 
 #import "Keyboard.h"
 #import "MonkeyConfiguration.h"
-#import "MonkeyLogger.h"
+#import "GGLogger.h"
 #import "RunLoopSpinner.h"
 #import "XCTestDaemonsProxy.h"
 #import "XCTestManager_ManagerInterface-Protocol.h"
@@ -24,7 +24,7 @@
     }
     
     NSUInteger maxTypingFrequency = [MonkeyConfiguration maxTypingFrequency];
-    [MonkeyLogger logFmt:@"Typing with maximum frequency %lu", (unsigned long)maxTypingFrequency];
+    [GGLogger logFmt:@"Typing with maximum frequency %lu", (unsigned long)maxTypingFrequency];
     
     __block BOOL didSucceed = NO;
     __block NSError *innerError;

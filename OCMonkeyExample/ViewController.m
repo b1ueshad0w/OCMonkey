@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "Macros.h"
 #import "Tree.h"
+#import "GGLogger.h"
 
 @interface ViewController ()
 
@@ -28,13 +29,13 @@
 
 - (void)viewController:(NSString *)vc didAppearAnimated:(BOOL)animated
 {
-    NSLog(@"%@ [%@ viewDidAppear:%@]", prefix, vc, animated ? @"Yes" : @"No");
+    [GGLogger logFmt:@"[%@ viewDidAppear:%@]", vc, animated ? @"Yes" : @"No"];
 //    [self.appearedVCs enqueue:vc];
 }
 
 - (BOOL)naviCtrl:(NSString *)naviCtrl shouldPushViewController:(NSString *)pushedVC animated:(BOOL)animated
 {
-    NSLog(@"%@ [%@ pushViewController:%@ animated:%@]", prefix, naviCtrl, pushedVC, animated ? @"Yes" : @"No");
+    [GGLogger logFmt:@"[%@ pushViewController:%@ animated:%@]", naviCtrl, pushedVC, animated ? @"Yes" : @"No"];
     BOOL ret = YES;
 //    if (ret)
 //        [self.vcStack push:pushedVC];
@@ -43,7 +44,7 @@
 
 - (BOOL)naviCtrl:(NSString *)naviCtrl shouldPopViewControllerAnimated:(BOOL)animated
 {
-    NSLog(@"%@ [%@ popViewController:%@]", prefix, naviCtrl, animated ? @"Yes" : @"No");
+    [GGLogger logFmt:@"[%@ popViewController:%@]", naviCtrl, animated ? @"Yes" : @"No"];
     BOOL ret = YES;
 //    if (ret)
 //        [self.vcStack pop];
@@ -52,7 +53,7 @@
 
 - (BOOL)naviCtrl:(NSString *)naviCtrl shouldPopToRootViewControllerAnimated:(BOOL)animated
 {
-    NSLog(@"%@ [%@ popToRootViewControllerAnimated:%@]", prefix, naviCtrl, animated ? @"Yes" : @"No");
+    [GGLogger logFmt:@"[%@ popToRootViewControllerAnimated:%@]", naviCtrl, animated ? @"Yes" : @"No"];
     BOOL ret = YES;
 //    if (ret)
 //        [self.vcStack popToRoot];
@@ -61,7 +62,7 @@
 
 - (BOOL)naviCtrl:(NSString *)naviCtrl shouldPopToViewController:(NSString *)toVC animated:(BOOL)animated
 {
-    NSLog(@"%@ [%@ popToViewController:%@ animated: %@]", prefix, naviCtrl, toVC, animated ? @"Yes" : @"No");
+    [GGLogger logFmt:@"[%@ popToViewController:%@ animated: %@]", naviCtrl, toVC, animated ? @"Yes" : @"No"];
     BOOL ret = YES;
 //    if (ret)
 //        [self.vcStack popToNSString:toVC];
@@ -70,17 +71,17 @@
 
 - (void)naviCtrl:(NSString *)naviCtrl initWithRootViewController:(NSString *)vc
 {
-    NSLog(@"%@ [%@ initWithRootViewController:%@]", prefix, naviCtrl, vc);
+    [GGLogger logFmt:@"[%@ initWithRootViewController:%@]", naviCtrl, vc];
 }
 
 - (void)naviCtrl:(NSString *)naviCtrl setViewControllers:(NSArray<NSString *> *)vcs animated:(BOOL)animted
 {
-    NSLog(@"%@ [%@ setViewControllers:%@ animted:%@]", prefix, naviCtrl, [vcs componentsJoinedByString:@" "], [NSNumber numberWithBool:animted]);
+    [GGLogger logFmt:@"[%@ setViewControllers:%@ animted:%@]", naviCtrl, [vcs componentsJoinedByString:@" "], [NSNumber numberWithBool:animted]];
 }
 
 - (void)tabCtrl:(NSString *)tabCtrl setViewControllers:(NSArray<NSString *> *)vcs animated:(BOOL)animted
 {
-    NSLog(@"%@ [%@ setViewControllers:%@ animted:%@]", prefix, tabCtrl, [vcs componentsJoinedByString:@" "], [NSNumber numberWithBool:animted]);
+    [GGLogger logFmt:@"[%@ setViewControllers:%@ animted:%@]", tabCtrl, [vcs componentsJoinedByString:@" "], [NSNumber numberWithBool:animted]];
 }
 
 

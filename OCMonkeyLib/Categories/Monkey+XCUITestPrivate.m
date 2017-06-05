@@ -15,6 +15,7 @@
 #import "Monkey.h"
 #import "Tree.h"
 #import "ElementInfo.h"
+#import "GGLogger.h"
 
 UIInterfaceOrientation orientationValue = UIInterfaceOrientationPortrait;
 
@@ -79,12 +80,12 @@ UIInterfaceOrientation orientationValue = UIInterfaceOrientationPortrait;
             for (int i = 1; i < numberOfTouches; i++) {
                 CGPoint point = [weakSelf randomPointInRect:rect];
                 [locations addObject:[NSValue valueWithCGPoint:point]];
-                // NSLog(@"point %d: {%.1f, %.1f}", i, point.x, point.y);
+                // [GGLogger logFmt:@"point %d: {%.1f, %.1f}", i, point.x, point.y);
             }
         } else {
             CGPoint point = [weakSelf randomPoint];
             [locations addObject:[NSValue valueWithCGPoint:point]];
-            // NSLog(@"point: {%.1f, %.1f}", point.x, point.y);
+            // [GGLogger logFmt:@"point: {%.1f, %.1f}", point.x, point.y);
         }
         [weakSelf tapAtTouchLocations:locations numberOfTaps:numberOfTaps orientation:orientationValue];
     }    withWeight:weight];
@@ -101,7 +102,7 @@ UIInterfaceOrientation orientationValue = UIInterfaceOrientationPortrait;
                                              orientation:orientationValue
                                                  handler:^(XCSynthesizedEventRecord *record, NSError *commandError) {
                                                      if (commandError) {
-                                                         NSLog(@"Failed to perform step: %@", commandError);
+                                                         [GGLogger logFmt:@"Failed to perform step: %@", commandError];
                                                      }
                                                      dispatch_semaphore_signal(semaphore);
                                                  }];
@@ -133,7 +134,7 @@ UIInterfaceOrientation orientationValue = UIInterfaceOrientationPortrait;
                                              orientation:orientationValue
                                                  handler:^(XCSynthesizedEventRecord *record, NSError *commandError) {
                                                      if (commandError) {
-                                                         NSLog(@"Failed to perform step: %@", commandError);
+                                                         [GGLogger logFmt:@"Failed to perform step: %@", commandError];
                                                      }
                                                      dispatch_semaphore_signal(semaphore);
                                                  }];
@@ -155,7 +156,7 @@ UIInterfaceOrientation orientationValue = UIInterfaceOrientationPortrait;
                                             orientation:orientationValue
                                                 handler:^(XCSynthesizedEventRecord *record, NSError *commandError) {
                                                     if (commandError) {
-                                                        NSLog(@"Failed to perform step: %@", commandError);
+                                                        [GGLogger logFmt:@"Failed to perform step: %@", commandError];
                                                     }
                                                     dispatch_semaphore_signal(semaphore);
                                                 }];
@@ -177,7 +178,7 @@ UIInterfaceOrientation orientationValue = UIInterfaceOrientationPortrait;
                                             orientation:orientationValue
                                                 handler:^(XCSynthesizedEventRecord *record, NSError *commandError) {
                                                     if (commandError) {
-                                                        NSLog(@"Failed to perform step: %@", commandError);
+                                                        [GGLogger logFmt:@"Failed to perform step: %@", commandError];
                                                     }
                                                     dispatch_semaphore_signal(semaphore);
                                                 }];
@@ -215,7 +216,7 @@ UIInterfaceOrientation orientationValue = UIInterfaceOrientationPortrait;
     dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
     XCEventGeneratorHandler handlerBlock = ^(XCSynthesizedEventRecord *record, NSError *commandError) {
         if (commandError) {
-            NSLog(@"Failed to perform step: %@", commandError);
+            [GGLogger logFmt:@"Failed to perform step: %@", commandError];
         }
         dispatch_semaphore_signal(semaphore);
     };
@@ -280,7 +281,7 @@ UIInterfaceOrientation orientationValue = UIInterfaceOrientationPortrait;
                                                 name:@"Monkey drag"
                                              handler:^(XCSynthesizedEventRecord *record, NSError *commandError) {
                                                  if (commandError) {
-                                                     NSLog(@"Failed to perform drag: %@", commandError);
+                                                     [GGLogger logFmt:@"Failed to perform drag: %@", commandError];
                                                  }
                                                  dispatch_semaphore_signal(semaphore);
                                              }];
@@ -312,7 +313,7 @@ UIInterfaceOrientation orientationValue = UIInterfaceOrientationPortrait;
                                                 name:@"Monkey drag"
                                              handler:^(XCSynthesizedEventRecord *record, NSError *commandError) {
                                                  if (commandError) {
-                                                     NSLog(@"Failed to perform drag: %@", commandError);
+                                                     [GGLogger logFmt:@"Failed to perform drag: %@", commandError];
                                                  }
                                                  dispatch_semaphore_signal(semaphore);
                                              }];
@@ -326,10 +327,10 @@ UIInterfaceOrientation orientationValue = UIInterfaceOrientationPortrait;
     NSArray<Tree *> *leaves = [tree leaves];
     Tree *leafChosen = leaves[arc4random() % leaves.count];
     //    Tree *leafChosen = leaves[0];
-    NSLog(@"Chosen element: id: %@ data: %@", leafChosen.identifier, leafChosen.data);
-    //    NSLog(@"tree: %@", tree);
+    [GGLogger logFmt:@"Chosen element: id: %@ data: %@", leafChosen.identifier, leafChosen.data];
+    //    [GGLogger logFmt:@"tree: %@", tree);
     //    for (Tree *leaf in leaves) {
-    //        NSLog(@"leaf: %@ %@", leaf.identifier, leaf.data);
+    //        [GGLogger logFmt:@"leaf: %@ %@", leaf.identifier, leaf.data);
     //    }
     
     [self tapElement:leafChosen];

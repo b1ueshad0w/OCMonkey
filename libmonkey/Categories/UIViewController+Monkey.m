@@ -10,6 +10,7 @@
 #import "NSMutableArray+FixedSizeQueue.h"
 #import "Outlet.h"
 #import "Macros.h"
+#import "GGLogger.h"
 
 #define UIVC @"UIViewController"
 
@@ -38,7 +39,7 @@
     //    if (![className hasPrefix:@"UI"]) {
     //        NSLog(@"%@ [%@(%p) viewDidAppear: %@]", prefix, className, self, animated ? @"Yes" : @"No");
     //    }
-    NSLog(@"%@ [%@ (did)%@] %@", prefix, UIVC, selStr, [args componentsJoinedByString:@" "]);
+    [GGLogger logFmt:@"[%@ (did)%@] %@", UIVC, selStr, [args componentsJoinedByString:@" "]];
     
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
@@ -48,12 +49,12 @@
             if ([delegate respondsToSelector:@selector(window)]) {
                 window = [delegate window];
             } else {
-                NSLog(@"Delegate does not respond to selector (window).");
+                [GGLogger log:@"Delegate does not respond to selector (window)."];
                 window = [[UIApplication sharedApplication] windows][0];
             }
             sharedOutlet.paws = [[MonkeyPaws alloc] initWithView:window tapUIApplication:YES];
         } else {
-            NSLog(@"Delegate is nil.");
+            [GGLogger log:@"Delegate is nil."];
         }
     });
     
@@ -64,11 +65,7 @@
 {
     NSString *className = NSStringFromClass([self class]);
     NSString *vcName = NSStringFromClass([vc class]);
-    NSLog(@"%@ [%@ showViewController: %@ sender: %@",
-          prefix,
-          className,
-          vcName,
-          NSStringFromClass([sender class]));
+    [GGLogger logFmt:@"[%@ showViewController: %@ sender: %@", className, vcName, NSStringFromClass([sender class])];
     return [self monkey_showViewController:vc sender:sender];
 }
 
@@ -76,11 +73,7 @@
 {
     NSString *className = NSStringFromClass([self class]);
     NSString *vcName = NSStringFromClass([vc class]);
-    NSLog(@"%@ [%@ showDetailViewController: %@ sender: %@",
-          prefix,
-          className,
-          vcName,
-          NSStringFromClass([sender class]));
+    [GGLogger logFmt:@"[%@ showDetailViewController: %@ sender: %@", className, vcName, NSStringFromClass([sender class])];
     return [self monkey_showDetailViewController:vc sender:sender];
 }
 
@@ -89,13 +82,12 @@
                           completion:(void (^ __nullable)(void))completion
 {
     //  always displays the view controller modally
-    NSLog(@"%@ [%@(%p) presentViewController: %@(%p) animated: %@ completion: %@]",
-          prefix,
+    [GGLogger logFmt:@"[%@(%p) presentViewController: %@(%p) animated: %@ completion: %@]",
           NSStringFromClass([self class]),
           self,
           NSStringFromClass([viewControllerToPresent class]),
           viewControllerToPresent,
-          flag ? @"Yes" : @"No", completion);
+          flag ? @"Yes" : @"No", completion];
     return [self monkey_presentViewController:viewControllerToPresent animated:flag completion:completion];
 }
 

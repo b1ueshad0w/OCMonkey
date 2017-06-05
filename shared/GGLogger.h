@@ -1,5 +1,5 @@
 //
-//  MonkeyLogger.h
+//  GGLogger.h
 //  OCMonkey
 //
 //  Created by gogleyin on 02/06/2017.
@@ -8,7 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
-@interface MonkeyLogger : NSObject
+
+@interface GGLogger : NSObject
 
 + (void)log:(NSString *)message;
 + (void)logFmt:(NSString *)format, ... NS_FORMAT_FUNCTION(1,2);

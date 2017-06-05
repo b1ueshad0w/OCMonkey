@@ -10,12 +10,13 @@
 #import "Macros.h"
 #import "NSMutableArray+Queue.h"
 #import "NSMutableArray+Stack.h"
+#import "GGLogger.h"
 
 @implementation SmartMonkey (UIChangeDelegate)
 
 - (void)viewController:(VCType *)vc didAppearAnimated:(BOOL)animated
 {
-    NSLog(@"%@ [%@ viewDidAppear:%@]", prefix, vc, animated ? @"Yes" : @"No");
+    [GGLogger logFmt:@"[%@ viewDidAppear:%@]", vc, animated ? @"Yes" : @"No"];
     [self.appearedVCs enqueue:vc];
     if ([self.tabCtrls objectForKey:vc]) {
         self.activeTabCtrl = self.tabCtrls[vc];
@@ -24,7 +25,7 @@
 
 - (BOOL)naviCtrl:(VCType *)naviCtrl shouldPushViewController:(VCType *)pushedVC animated:(BOOL)animated
 {
-    NSLog(@"%@ [%@ pushViewController:%@ animated:%@]", prefix, naviCtrl, pushedVC, animated ? @"Yes" : @"No");
+    [GGLogger logFmt:@"[%@ pushViewController:%@ animated:%@]", naviCtrl, pushedVC, animated ? @"Yes" : @"No"];
     BOOL ret = YES;
     if (ret) {
         if ([self.naviCtrls objectForKey:naviCtrl]) {
@@ -36,7 +37,7 @@
 
 - (BOOL)naviCtrl:(VCType *)naviCtrl shouldPopViewControllerAnimated:(BOOL)animated
 {
-    NSLog(@"%@ [%@ popViewController:%@]", prefix, naviCtrl, animated ? @"Yes" : @"No");
+    [GGLogger logFmt:@"[%@ popViewController:%@]", naviCtrl, animated ? @"Yes" : @"No"];
     BOOL ret = YES;
     if (ret) {
         if ([self.naviCtrls objectForKey:naviCtrl]) {
@@ -48,7 +49,7 @@
 
 - (BOOL)naviCtrl:(VCType *)naviCtrl shouldPopToRootViewControllerAnimated:(BOOL)animated
 {
-    NSLog(@"%@ [%@ popToRootViewControllerAnimated:%@]", prefix, naviCtrl, animated ? @"Yes" : @"No");
+    [GGLogger logFmt:@"[%@ popToRootViewControllerAnimated:%@]", naviCtrl, animated ? @"Yes" : @"No"];
     BOOL ret = YES;
     if (ret && [self.naviCtrls objectForKey:naviCtrl])
         [self.naviCtrls[naviCtrl] popToRootVC];
@@ -57,7 +58,7 @@
 
 - (BOOL)naviCtrl:(VCType *)naviCtrl shouldPopToViewController:(VCType *)toVC animated:(BOOL)animated
 {
-    NSLog(@"%@ [%@ popToViewController:%@ animated: %@]", prefix, naviCtrl, toVC, animated ? @"Yes" : @"No");
+    [GGLogger logFmt:@"[%@ popToViewController:%@ animated: %@]", naviCtrl, toVC, animated ? @"Yes" : @"No"];
     BOOL ret = YES;
     if (ret && [self.naviCtrls objectForKey:naviCtrl])
         [self.naviCtrls[naviCtrl] popToVC:toVC];
@@ -66,7 +67,7 @@
 
 - (void)naviCtrl:(VCType *)naviCtrl initWithRootViewController:(VCType *)vc
 {
-    NSLog(@"%@ [%@ initWithRootViewController:%@]", prefix, naviCtrl, vc);
+    [GGLogger logFmt:@"[%@ initWithRootViewController:%@]", naviCtrl, vc];
     if (![self.naviCtrls objectForKey:naviCtrl]) {
         [self.naviCtrls setObject:[[NaviCtrl alloc] initWithRootVC:vc] forKey:naviCtrl];
     }
@@ -74,7 +75,7 @@
 
 - (void)naviCtrl:(VCType *)naviCtrl setViewControllers:(NSArray<VCType *> *)vcs animated:(BOOL)animted
 {
-    NSLog(@"%@ [%@ setViewControllers:%@ animted:%@]", prefix, naviCtrl, [vcs componentsJoinedByString:@" "], [NSNumber numberWithBool:animted]);
+    [GGLogger logFmt:@"[%@ setViewControllers:%@ animted:%@]", naviCtrl, [vcs componentsJoinedByString:@" "], [NSNumber numberWithBool:animted]];
     if ([self.naviCtrls objectForKey:naviCtrl]) {
         [self.naviCtrls[naviCtrl] setVCs:vcs];
     }
@@ -83,18 +84,18 @@
 
 - (void)tabCtrl:(VCType *)tabCtrl setViewControllers:(NSArray<VCType *> *)vcs animated:(BOOL)animted
 {
-    NSLog(@"%@ [%@ setViewControllers:%@ animted:%@]", prefix, tabCtrl, [vcs componentsJoinedByString:@" "], [NSNumber numberWithBool:animted]);
+    [GGLogger logFmt:@"[%@ setViewControllers:%@ animted:%@]", tabCtrl, [vcs componentsJoinedByString:@" "], [NSNumber numberWithBool:animted]];
     if ([self.tabCtrls objectForKey:tabCtrl]) {
         self.tabCtrls[tabCtrl].tabs = [[NSMutableArray alloc] initWithArray:vcs copyItems:YES];
     } else {
-        NSLog(@"%@ [TabBarCtrl setViewControllers:animated:] callback failed. TabBarController not found: %@", prefix, tabCtrl);
+        [GGLogger logFmt:@"[TabBarCtrl setViewControllers:animated:] callback failed. TabBarController not found: %@", tabCtrl];
     }
     
 }
 
 - (void)tabCtrlInit:(VCType *)tabCtrl
 {
-    NSLog(@"%@ [%@ init]", prefix, tabCtrl);
+    [GGLogger logFmt:@"[%@ init]", tabCtrl];
     if (![self.tabCtrls objectForKey:tabCtrl]) {
         [self.tabCtrls setObject:[[TabBarCtrl alloc] init] forKey:tabCtrl];
     }
@@ -102,11 +103,11 @@
 
 - (void)tabCtrl:(VCType *)tabCtrl setSelectedIndex:(NSUInteger)index
 {
-    NSLog(@"%@ [%@ setSelectedIndex: %lu]", prefix, tabCtrl, (unsigned long)index);
+    [GGLogger logFmt:@"[%@ setSelectedIndex: %lu]", tabCtrl, (unsigned long)index];
     if ([self.tabCtrls objectForKey:tabCtrl]) {
         self.tabCtrls[tabCtrl].selectedIndex = index;
     } else {
-        NSLog(@"%@ TabBarController not found: %@", prefix, tabCtrl);
+        [GGLogger logFmt:@"TabBarController not found: %@", tabCtrl];
     }
 }
 

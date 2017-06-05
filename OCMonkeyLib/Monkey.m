@@ -13,6 +13,7 @@
 #import "RandomAction.h"
 #import "RegularAction.h"
 #import "Macros.h"
+#import "GGLogger.h"
 
 
 @interface Monkey()
@@ -91,7 +92,7 @@
             @try {
                 [self runOneStep];
             } @catch (NSException *exception) {
-                NSLog(@"Exception: %@ %@", exception, [exception.callStackSymbols componentsJoinedByString:@"\n"]);
+                [GGLogger logFmt:@"Exception: %@ %@", exception, [exception.callStackSymbols componentsJoinedByString:@"\n"]];
                 break;
             } @finally {
             }

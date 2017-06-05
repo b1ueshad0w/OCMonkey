@@ -9,6 +9,7 @@
 #import "UINavigationController+Monkey.h"
 #import "Macros.h"
 #import "Outlet.h"
+#import "GGLogger.h"
 
 #define UINaviCtrl @"UINavigationController"
 
@@ -26,7 +27,7 @@
     NSString *selStr = @"initWithRootViewController:";
     UINavigationController *nc = [self monkey_initWithRootViewController:vc];
     NSArray<NSString *> *args = @[self.description, vc.description, nc.description];
-    NSLog(@"%@ [UINavigationController (did)%@] %@", prefix, selStr, [args componentsJoinedByString:@" "]);
+    [GGLogger logFmt:@"[UINavigationController (did)%@] %@", selStr, [args componentsJoinedByString:@" "]];
     [[Outlet sharedOutlet] sendJSON:@{@"class": UINaviCtrl,
                                       @"selector": selStr,
                                       @"args": args,}];
@@ -40,7 +41,7 @@
     NSString *selStr = @"initWithNavigationBarClass:toolbarClass:";
     UINavigationController *nc = [self monkey_initWithNavigationBarClass:navigationBarClass toolbarClass:toolbarClass];
     NSArray<NSString *> *args = @[self.description, navigationBarClass, toolbarClass, nc.description];
-    NSLog(@"%@ [UINavigationController (did)%@] %@", prefix, selStr, [args componentsJoinedByString:@" "]);
+    [GGLogger logFmt:@"[UINavigationController (did)%@] %@", selStr, [args componentsJoinedByString:@" "]];
     [[Outlet sharedOutlet] sendJSON:@{@"class": UINaviCtrl,
                                       @"selector": selStr,
                                       @"args": args,}];
@@ -52,7 +53,7 @@
 {
     NSString *selStr = @"pushViewController:animated:";
     NSArray<NSString *> *args = @[self.description, vc.description, [NSNumber numberWithBool:animated], [NSNull null]];
-    NSLog(@"%@ [UINavigationController (will)%@] %@", prefix, selStr, [args componentsJoinedByString:@" "]);
+    [GGLogger logFmt:@"[UINavigationController (will)%@] %@", selStr, [args componentsJoinedByString:@" "]];
     NSDictionary *toSend = @{@"class": UINaviCtrl,
                              @"selector": selStr,
                              @"args": args};
@@ -67,7 +68,7 @@
     if (shouldDo) {
         [self monkey_pushViewController:vc animated:animated];
     } else {
-        NSLog(@"%@ I am told not to do: %@", prefix, selStr);
+        [GGLogger logFmt:@"I am told not to do: %@", selStr];
     }
     return;
 }
@@ -77,7 +78,7 @@
     NSString *selStr = @"popViewControllerAnimated:";
 //    NSString *selStr = NSStringFromSelector(_cmd);
     NSArray<NSString *> *args = @[self.description, [NSNumber numberWithBool:animated], [NSNull null]];
-    NSLog(@"%@ [UINavigationController (will)%@] %@", prefix, selStr, [args componentsJoinedByString:@" "]);
+    [GGLogger logFmt:@"[UINavigationController (will)%@] %@", selStr, [args componentsJoinedByString:@" "]];
     NSDictionary *toSend = @{@"class": UINaviCtrl,
                              @"selector": selStr,
                              @"args": args};
@@ -91,7 +92,7 @@
     if (shouldDo) {
         return [self monkey_popViewControllerAnimated:animated];
     } else {
-        NSLog(@"%@ I am told not to do: %@", prefix, selStr);
+        [GGLogger logFmt:@"I am told not to do: %@", selStr];
     }
     return nil;
 }
@@ -102,7 +103,7 @@
 //    NSString *selStr = NSStringFromSelector(_cmd);
     NSString *selStr = @"popToRootViewControllerAnimated:";
     NSArray<NSString *> *args = @[self.description, [NSNumber numberWithBool:animated], [NSNull null]];
-    NSLog(@"%@ [UINavigationController (will)%@] %@", prefix, selStr, [args componentsJoinedByString:@" "]);
+    [GGLogger logFmt:@"[UINavigationController (will)%@] %@", selStr, [args componentsJoinedByString:@" "]];
     NSDictionary *toSend = @{@"class": UINaviCtrl,
                              @"selector": selStr,
                              @"args": args};
@@ -116,7 +117,7 @@
     if (shouldDo) {
         return [self monkey_popToRootViewControllerAnimated:animated];
     } else {
-        NSLog(@"%@ I am told not to do: %@", prefix, selStr);
+        [GGLogger logFmt:@"I am told not to do: %@", selStr];
     }
     return nil;
 }
@@ -127,7 +128,7 @@
 //    NSString *selStr = NSStringFromSelector(_cmd);
     NSString *selStr = @"popToViewController:animated:";
     NSArray<NSString *> *args = @[self.description, vc.description, [NSNumber numberWithBool:animated], [NSNull null]];
-    NSLog(@"%@ [UINavigationController (will)%@] %@", prefix, selStr, [args componentsJoinedByString:@" "]);
+    [GGLogger logFmt:@"[UINavigationController (will)%@] %@", selStr, [args componentsJoinedByString:@" "]];
     NSDictionary *toSend = @{@"class": UINaviCtrl,
                              @"selector": selStr,
                              @"args": args};
@@ -141,7 +142,7 @@
     if (shouldDo) {
         return [self monkey_popToViewController:vc animated:animated];
     } else {
-        NSLog(@"%@ I am told not to do: %@", prefix, selStr);
+        [GGLogger logFmt:@"I am told not to do: %@", selStr];
     }
     return nil;
 }
@@ -162,7 +163,7 @@
     
     [[Outlet sharedOutlet] sendJSON:toSend];
     [self monkey_setViewControllers:viewControllers animated:animated];
-    NSLog(@"%@ [UINavigationController (did)%@] %@ %@", prefix, selStr, [vcStrs componentsJoinedByString:@" "], args[2]);
+    [GGLogger logFmt:@"[UINavigationController (did)%@] %@ %@", selStr, [vcStrs componentsJoinedByString:@" "], args[2]];
 }
 
 - (void)monkey_showViewController:(UIViewController *)vc sender:(nullable id)sender
@@ -170,7 +171,7 @@
 //    NSString *selStr = NSStringFromSelector(_cmd);
     NSString *selStr = @"showViewController:sender:";
     NSArray<NSString *> *args = @[self.description, vc.description, sender, [NSNull null]];
-    NSLog(@"%@ [UINavigationController (will)%@] %@", prefix, selStr, [args componentsJoinedByString:@" "]);
+    [GGLogger logFmt:@"[UINavigationController (will)%@] %@", selStr, [args componentsJoinedByString:@" "]];
     NSDictionary *toSend = @{@"class": UINaviCtrl,
                              @"selector": selStr,
                              @"args": args};
@@ -184,7 +185,7 @@
     if (shouldDo) {
         return [self monkey_showViewController:vc sender:sender];
     } else {
-        NSLog(@"%@ I am told not to do: %@", prefix, selStr);
+        [GGLogger logFmt:@"I am told not to do: %@", selStr];
     }
 }
 

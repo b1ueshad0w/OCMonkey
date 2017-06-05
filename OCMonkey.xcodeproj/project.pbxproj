@@ -34,12 +34,14 @@
 		4034E96F1EE105570061AD95 /* Keyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 4034E9671EE105570061AD95 /* Keyboard.m */; };
 		4034E9701EE105570061AD95 /* MonkeyConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = 4034E9681EE105570061AD95 /* MonkeyConfiguration.h */; };
 		4034E9711EE105570061AD95 /* MonkeyConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 4034E9691EE105570061AD95 /* MonkeyConfiguration.m */; };
-		4034E9721EE105570061AD95 /* MonkeyLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 4034E96A1EE105570061AD95 /* MonkeyLogger.h */; };
-		4034E9731EE105570061AD95 /* MonkeyLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 4034E96B1EE105570061AD95 /* MonkeyLogger.m */; };
 		4034E9741EE105570061AD95 /* XCTestDaemonsProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = 4034E96C1EE105570061AD95 /* XCTestDaemonsProxy.h */; };
 		4034E9751EE105570061AD95 /* XCTestDaemonsProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4034E96D1EE105570061AD95 /* XCTestDaemonsProxy.m */; };
 		4034E9781EE10EB80061AD95 /* RunLoopSpinner.h in Headers */ = {isa = PBXBuildFile; fileRef = 4034E9761EE10EB80061AD95 /* RunLoopSpinner.h */; };
 		4034E9791EE10EB80061AD95 /* RunLoopSpinner.m in Sources */ = {isa = PBXBuildFile; fileRef = 4034E9771EE10EB80061AD95 /* RunLoopSpinner.m */; };
+		4034E9821EE53ADF0061AD95 /* GGLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 4034E9801EE53ADF0061AD95 /* GGLogger.h */; };
+		4034E9831EE53ADF0061AD95 /* GGLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 4034E9811EE53ADF0061AD95 /* GGLogger.m */; };
+		4034E9851EE53DAF0061AD95 /* GGLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 4034E9811EE53ADF0061AD95 /* GGLogger.m */; };
+		4034E9861EE53DC00061AD95 /* GGLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 4034E9801EE53ADF0061AD95 /* GGLogger.h */; };
 		404AF2A71ECD457200DFC6BF /* MonkeyAlgorithm.m in Sources */ = {isa = PBXBuildFile; fileRef = 404AF2A61ECD457200DFC6BF /* MonkeyAlgorithm.m */; };
 		404AF2AA1ECD819700DFC6BF /* WeightedMonkey.h in Headers */ = {isa = PBXBuildFile; fileRef = 404AF2A81ECD819700DFC6BF /* WeightedMonkey.h */; };
 		404AF2AB1ECD819700DFC6BF /* WeightedMonkey.m in Sources */ = {isa = PBXBuildFile; fileRef = 404AF2A91ECD819700DFC6BF /* WeightedMonkey.m */; };
@@ -440,12 +442,12 @@
 		4034E9671EE105570061AD95 /* Keyboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Keyboard.m; sourceTree = "<group>"; };
 		4034E9681EE105570061AD95 /* MonkeyConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MonkeyConfiguration.h; sourceTree = "<group>"; };
 		4034E9691EE105570061AD95 /* MonkeyConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MonkeyConfiguration.m; sourceTree = "<group>"; };
-		4034E96A1EE105570061AD95 /* MonkeyLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MonkeyLogger.h; sourceTree = "<group>"; };
-		4034E96B1EE105570061AD95 /* MonkeyLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MonkeyLogger.m; sourceTree = "<group>"; };
 		4034E96C1EE105570061AD95 /* XCTestDaemonsProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCTestDaemonsProxy.h; sourceTree = "<group>"; };
 		4034E96D1EE105570061AD95 /* XCTestDaemonsProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XCTestDaemonsProxy.m; sourceTree = "<group>"; };
 		4034E9761EE10EB80061AD95 /* RunLoopSpinner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RunLoopSpinner.h; sourceTree = "<group>"; };
 		4034E9771EE10EB80061AD95 /* RunLoopSpinner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RunLoopSpinner.m; sourceTree = "<group>"; };
+		4034E9801EE53ADF0061AD95 /* GGLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGLogger.h; sourceTree = "<group>"; };
+		4034E9811EE53ADF0061AD95 /* GGLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGLogger.m; sourceTree = "<group>"; };
 		404AF2A61ECD457200DFC6BF /* MonkeyAlgorithm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MonkeyAlgorithm.m; sourceTree = "<group>"; };
 		404AF2A81ECD819700DFC6BF /* WeightedMonkey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeightedMonkey.h; sourceTree = "<group>"; };
 		404AF2A91ECD819700DFC6BF /* WeightedMonkey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeightedMonkey.m; sourceTree = "<group>"; };
@@ -707,6 +709,15 @@
 			path = Categories;
 			sourceTree = "<group>";
 		};
+		4034E97F1EE539340061AD95 /* shared */ = {
+			isa = PBXGroup;
+			children = (
+				4034E9801EE53ADF0061AD95 /* GGLogger.h */,
+				4034E9811EE53ADF0061AD95 /* GGLogger.m */,
+			);
+			path = shared;
+			sourceTree = "<group>";
+		};
 		404F9E391EB262FF009CA2A1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -719,6 +730,7 @@
 		4069E7191E67F77D00C1C832 = {
 			isa = PBXGroup;
 			children = (
+				4034E97F1EE539340061AD95 /* shared */,
 				40AE4DFE1EB82C8E006A13C5 /* swizzle.h */,
 				40AE4DFC1EB826DF006A13C5 /* swizzle.m */,
 				40E4B9E91EB31D2800F8C230 /* README.md */,
@@ -1025,8 +1037,6 @@
 				4034E9671EE105570061AD95 /* Keyboard.m */,
 				4034E9681EE105570061AD95 /* MonkeyConfiguration.h */,
 				4034E9691EE105570061AD95 /* MonkeyConfiguration.m */,
-				4034E96A1EE105570061AD95 /* MonkeyLogger.h */,
-				4034E96B1EE105570061AD95 /* MonkeyLogger.m */,
 				4034E96C1EE105570061AD95 /* XCTestDaemonsProxy.h */,
 				4034E96D1EE105570061AD95 /* XCTestDaemonsProxy.m */,
 				401AB0651EB0BADF00CC1046 /* Tree.h */,
@@ -1066,6 +1076,7 @@
 				4069E7BF1E68042E00C1C832 /* XCPointerEvent.h in Headers */,
 				4069E7AE1E68042E00C1C832 /* UIPinchGestureRecognizer-RecordingAdditions.h in Headers */,
 				4069E7FA1E68042E00C1C832 /* XCUIElement.h in Headers */,
+				4034E9821EE53ADF0061AD95 /* GGLogger.h in Headers */,
 				4069E7CA1E68042E00C1C832 /* XCTAXClient-Protocol.h in Headers */,
 				4069E7FE1E68042E00C1C832 /* XCUIRecorderNodeFinder.h in Headers */,
 				4069E7D81E68042E00C1C832 /* XCTestLog.h in Headers */,
@@ -1086,7 +1097,6 @@
 				4069E7AF1E68042E00C1C832 /* UISwipeGestureRecognizer-RecordingAdditions.h in Headers */,
 				4069E7E71E68042E00C1C832 /* XCTNSNotificationExpectation.h in Headers */,
 				404AF2AA1ECD819700DFC6BF /* WeightedMonkey.h in Headers */,
-				4034E9721EE105570061AD95 /* MonkeyLogger.h in Headers */,
 				404F9E351EB2511C009CA2A1 /* Monkey+XCUITestPrivate.h in Headers */,
 				4069E79F1E68042E00C1C832 /* _XCTestCaseImplementation.h in Headers */,
 				4069E7C01E68042E00C1C832 /* XCPointerEventPath.h in Headers */,
@@ -1251,6 +1261,7 @@
 				40AE4F821EB842C4006A13C5 /* XCEventGenerator.h in Headers */,
 				40AE4FB01EB842C4006A13C5 /* XCTNSPredicateExpectation.h in Headers */,
 				40AE50131EB8990F006A13C5 /* Outlet.h in Headers */,
+				4034E9861EE53DC00061AD95 /* GGLogger.h in Headers */,
 				40AE4F6F1EB842C4006A13C5 /* _XCTWaiterImpl.h in Headers */,
 				40AE4FC21EB842C4006A13C5 /* XCUIElement.h in Headers */,
 				40AE4FBA1EB842C4006A13C5 /* XCTWaiterDelegatePrivate-Protocol.h in Headers */,
@@ -1553,7 +1564,6 @@
 				406477DC1ECD34F0006AB4AB /* SmartMonkey+UIChangeDelegate.m in Sources */,
 				406477E01ECD3554006AB4AB /* SmartMonkey.m in Sources */,
 				404AF2AB1ECD819700DFC6BF /* WeightedMonkey.m in Sources */,
-				4034E9731EE105570061AD95 /* MonkeyLogger.m in Sources */,
 				40E4B9EE1EB320D300F8C230 /* MathUtils.m in Sources */,
 				404F9E361EB2511C009CA2A1 /* Monkey+XCUITestPrivate.m in Sources */,
 				404F9E321EB24ED1009CA2A1 /* Monkey+XCUITest.m in Sources */,
@@ -1562,6 +1572,7 @@
 				401AB09B1EB212CF00CC1046 /* RandomAction.m in Sources */,
 				40EBD3C31EB39E7300CD5050 /* AgentForHost.m in Sources */,
 				40E1B83C1EB105D1000EBEAA /* ElementTree.m in Sources */,
+				4034E9831EE53ADF0061AD95 /* GGLogger.m in Sources */,
 				401AB0A31EB2188F00CC1046 /* Random.m in Sources */,
 				404AF2A71ECD457200DFC6BF /* MonkeyAlgorithm.m in Sources */,
 				4034E9751EE105570061AD95 /* XCTestDaemonsProxy.m in Sources */,
@@ -1615,6 +1626,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4034E9851EE53DAF0061AD95 /* GGLogger.m in Sources */,
 				40AE50121EB8990F006A13C5 /* Outlet.m in Sources */,
 				400DCFAA1EB8C8C0009E41B9 /* NSMutableArray+FixedSizeQueue.m in Sources */,
 				40AE4FD41EB849EA006A13C5 /* swizzle.m in Sources */,

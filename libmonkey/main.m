@@ -9,11 +9,12 @@
 #import <Foundation/Foundation.h>
 #import "Init.h"
 #import "Macros.h"
+#import "GGLogger.h"
 
 
 
 static __attribute__((constructor)) void onLoad(){
-    NSLog(@"%@ monkey dylib is loaded", prefix);
+    [GGLogger log:@"monkey dylib is loaded"];
     swizzle_XCTest();
     swizzle_UINavigationController();
     swizzle_UIViewController();
@@ -23,5 +24,5 @@ static __attribute__((constructor)) void onLoad(){
 }
 
 static __attribute__((destructor)) void onUnload(){
-    NSLog(@"%@ monkey dylib is unloaded", prefix);
+    [GGLogger log:@"monkey dylib is unloaded"];
 }

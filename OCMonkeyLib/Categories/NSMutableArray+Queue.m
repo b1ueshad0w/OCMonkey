@@ -8,6 +8,7 @@
 
 #import "NSMutableArray+Queue.h"
 #import <objc/runtime.h>
+#import "GGLogger.h"
 
 @implementation NSMutableArray (Queue)
 
@@ -43,7 +44,7 @@ static char maxSizeKey;
     [arrayLock lock];
     [self addObject:anObject];
     [arrayLock unlock];
-    NSLog(@"Queue enqueued: %@", anObject);
+    [GGLogger logFmt:@"Queue enqueued: %@", anObject];
 }
 
 @end

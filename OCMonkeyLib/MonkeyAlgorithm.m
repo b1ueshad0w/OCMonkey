@@ -11,6 +11,7 @@
 #import <XCTest/XCUIElementTypes.h>
 #import "ElementInfo.h"
 #import "Macros.h"
+#import "GGLogger.h"
 
 @implementation ElementStat
 
@@ -187,7 +188,7 @@
     NSMutableArray *news = [NSMutableArray new];
     BOOL isNewTree;
     if (![_stat objectForKey:treeHash]) {
-        NSLog(@"A new root added: %@", treeHash);
+        [GGLogger logFmt:@"A new root added: %@", treeHash];
         isNewTree = YES;
         [_stat setObject:[[TreeStat alloc] initWithElements:@{}
                                                 chosenCount:0

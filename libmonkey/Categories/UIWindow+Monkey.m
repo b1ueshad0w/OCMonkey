@@ -9,6 +9,7 @@
 #import "UIWindow+Monkey.h"
 #import "Macros.h"
 #import "Outlet.h"
+#import "GGLogger.h"
 
 
 @implementation UIWindow (Monkey)
@@ -27,7 +28,7 @@
     [[Outlet sharedOutlet] sendJSON:@{@"class": @"UIWindow",
                                       @"selector": NSStringFromSelector(_cmd),
                                       @"args": args}];
-    NSLog(@"%@ [%@ (did)%@] %@", prefix, @"UIWindow", selStr, [args componentsJoinedByString:@" "]);
+    [GGLogger logFmt:@"[%@ (did)%@] %@", @"UIWindow", selStr, [args componentsJoinedByString:@" "]];
     return rootVC;
 }
 
@@ -39,7 +40,7 @@
     [[Outlet sharedOutlet] sendJSON:@{@"class": @"UIWindow",
                                       @"selector": NSStringFromSelector(_cmd),
                                       @"args": args}];
-    NSLog(@"%@ [%@ (did)%@] %@", prefix, @"UIWindow", selStr, [args componentsJoinedByString:@" "]);
+    [GGLogger logFmt:@"[%@ (did)%@] %@", @"UIWindow", selStr, [args componentsJoinedByString:@" "]];
     [self monkey_setRootViewController:vc];
 }
 
@@ -52,7 +53,7 @@
                                       @"selector": NSStringFromSelector(_cmd),
                                       @"args": args}];
     [self monkey_makeKeyWindow];
-    NSLog(@"%@ [%@ (did)%@]", prefix, @"UIWindow", selStr);
+    [GGLogger logFmt:@"[%@ (did)%@]", @"UIWindow", selStr];
 }
 
 -(void)monkey_makeKeyAndVisible
@@ -64,7 +65,7 @@
                                       @"selector": NSStringFromSelector(_cmd),
                                       @"args": args}];
     [self monkey_makeKeyAndVisible];
-    NSLog(@"%@ [%@ (did)%@]", prefix, @"UIWindow", selStr);
+    [GGLogger logFmt:@"[%@ (did)%@]", @"UIWindow", selStr];
 }
 
 -(void)monkey_becomeKeyWindow
@@ -76,7 +77,7 @@
                                       @"selector": NSStringFromSelector(_cmd),
                                       @"args": args}];
     [self monkey_becomeKeyWindow];
-    NSLog(@"%@ [%@ (did)%@]", prefix, @"UIWindow", selStr);
+    [GGLogger logFmt:@"[%@ (did)%@]", @"UIWindow", selStr];
     
 }
 

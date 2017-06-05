@@ -9,6 +9,7 @@
 #import "UITabBarController+Monkey.h"
 #import "Macros.h"
 #import "Outlet.h"
+#import "GGLogger.h"
 
 #define UITabCtrl @"UITabBarController"
 
@@ -25,7 +26,7 @@
                              @"args": args};
     
     [[Outlet sharedOutlet] sendJSON:toSend];
-    NSLog(@"%@ [%@ (did)%@] %@", prefix, UITabCtrl, selStr, [args componentsJoinedByString:@" "]);
+    [GGLogger logFmt:@"[%@ (did)%@] %@", UITabCtrl, selStr, [args componentsJoinedByString:@" "]];
     return tabCtrl;
 }
 
@@ -45,7 +46,7 @@
     
     [[Outlet sharedOutlet] sendJSON:toSend];
     [self monkey_setViewControllers:viewControllers animated:animated];
-    NSLog(@"%@ [%@ (did)%@] %@", prefix, UITabCtrl, selStr, [args componentsJoinedByString:@" "]);
+    [GGLogger logFmt:@"[%@ (did)%@] %@", UITabCtrl, selStr, [args componentsJoinedByString:@" "]];
 }
 
 
@@ -54,7 +55,7 @@
 //    NSString *selStr = NSStringFromSelector(_cmd);
     NSString *selStr = @"setSelectedIndex:";
     NSArray<NSString *> *args = @[self.description, [NSNumber numberWithUnsignedInteger:index], [NSNull null]];
-    NSLog(@"%@ [%@ (will)%@] %@", prefix, UITabCtrl, selStr, [args componentsJoinedByString:@" "]);
+    [GGLogger logFmt:@"[%@ (will)%@] %@", UITabCtrl, selStr, [args componentsJoinedByString:@" "]];
     
     NSDictionary *toSend = @{@"class": UITabCtrl,
                              @"selector": selStr,
@@ -69,7 +70,7 @@
     if (shouldDo) {
         [self monkey_setSelectedIndex:index];
     } else {
-        NSLog(@"%@ I am told not to do: %@", prefix, selStr);
+        [GGLogger logFmt:@"I am told not to do: %@", selStr];
     }
     return;
 }
