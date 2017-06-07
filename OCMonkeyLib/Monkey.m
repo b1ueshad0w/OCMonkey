@@ -83,19 +83,23 @@
     [self preRun];
     static dispatch_once_t onceToken;
     for (int i = 0; i < steps; i++) {
+        if (i % 100 == 0) {
+            [GGLogger logFmt:@"Monkey step count: %d", i];
+        }
         [NSThread sleepForTimeInterval:0.5];
         @autoreleasepool {
             dispatch_once(&onceToken, ^{
 //                _screenFrame = self.testedApp.lastSnapshot.frame;
                 _screenFrame = self.testedApp.frame;
             });
-            @try {
-                [self runOneStep];
-            } @catch (NSException *exception) {
-                [GGLogger logFmt:@"Exception: %@ %@", exception, [exception.callStackSymbols componentsJoinedByString:@"\n"]];
-                break;
-            } @finally {
-            }
+            [self runOneStep];
+//            @try {
+//                [self runOneStep];
+//            } @catch (NSException *exception) {
+//                [GGLogger logFmt:@"Exception: %@ %@", exception, [exception.callStackSymbols componentsJoinedByString:@"\n"]];
+//                break;
+//            } @finally {
+//            }
         }
     }
     

@@ -115,7 +115,9 @@
          */
         if ([_appearedVCs[i] hasPrefix:@"<UI"])
             continue;
-//        return _appearedVCs[i];
+//        return _appearedVCs[i]
+        if ([_appearedVCs[i] isEqualToString:@"<QUIToastViewController"])
+            continue;
         return [self strippedVCName:_appearedVCs[i]];
     }
     return nil;

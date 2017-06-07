@@ -27,6 +27,8 @@
 		401AB09F1EB2152700CC1046 /* RegularAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 401AB09D1EB2152700CC1046 /* RegularAction.m */; };
 		401AB0A21EB2188F00CC1046 /* Random.h in Headers */ = {isa = PBXBuildFile; fileRef = 401AB0A01EB2188F00CC1046 /* Random.h */; };
 		401AB0A31EB2188F00CC1046 /* Random.m in Sources */ = {isa = PBXBuildFile; fileRef = 401AB0A11EB2188F00CC1046 /* Random.m */; };
+		402496401EE7A68000014AA6 /* XCUIElement+GGTyping.h in Headers */ = {isa = PBXBuildFile; fileRef = 4024963E1EE7A68000014AA6 /* XCUIElement+GGTyping.h */; };
+		402496411EE7A68000014AA6 /* XCUIElement+GGTyping.m in Sources */ = {isa = PBXBuildFile; fileRef = 4024963F1EE7A68000014AA6 /* XCUIElement+GGTyping.m */; };
 		4034E9631EDFEF800061AD95 /* UIViewTree.h in Headers */ = {isa = PBXBuildFile; fileRef = 4034E9611EDFEF800061AD95 /* UIViewTree.h */; };
 		4034E9641EDFEF800061AD95 /* UIViewTree.m in Sources */ = {isa = PBXBuildFile; fileRef = 4034E9621EDFEF800061AD95 /* UIViewTree.m */; };
 		4034E9651EDFF2F20061AD95 /* UIViewTree.m in Sources */ = {isa = PBXBuildFile; fileRef = 4034E9621EDFEF800061AD95 /* UIViewTree.m */; };
@@ -436,6 +438,8 @@
 		401AB09D1EB2152700CC1046 /* RegularAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegularAction.m; sourceTree = "<group>"; };
 		401AB0A01EB2188F00CC1046 /* Random.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Random.h; sourceTree = "<group>"; };
 		401AB0A11EB2188F00CC1046 /* Random.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Random.m; sourceTree = "<group>"; };
+		4024963E1EE7A68000014AA6 /* XCUIElement+GGTyping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "XCUIElement+GGTyping.h"; sourceTree = "<group>"; };
+		4024963F1EE7A68000014AA6 /* XCUIElement+GGTyping.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "XCUIElement+GGTyping.m"; sourceTree = "<group>"; };
 		4034E9611EDFEF800061AD95 /* UIViewTree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIViewTree.h; sourceTree = "<group>"; };
 		4034E9621EDFEF800061AD95 /* UIViewTree.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIViewTree.m; sourceTree = "<group>"; };
 		4034E9661EE105570061AD95 /* Keyboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Keyboard.h; sourceTree = "<group>"; };
@@ -697,6 +701,8 @@
 		401AB0711EB0DD6C00CC1046 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				4024963E1EE7A68000014AA6 /* XCUIElement+GGTyping.h */,
+				4024963F1EE7A68000014AA6 /* XCUIElement+GGTyping.m */,
 				401AB0721EB0DDBE00CC1046 /* XCUIApplication+Monkey.h */,
 				401AB0731EB0DDBE00CC1046 /* XCUIApplication+Monkey.m */,
 				40E1B8451EB11473000EBEAA /* NSMutableArray+Reverse.h */,
@@ -1106,6 +1112,7 @@
 				4069E7E41E68042E00C1C832 /* XCTestWaiter.h in Headers */,
 				4069E7B41E68042E00C1C832 /* XCApplicationMonitor.h in Headers */,
 				4034E9741EE105570061AD95 /* XCTestDaemonsProxy.h in Headers */,
+				402496401EE7A68000014AA6 /* XCUIElement+GGTyping.h in Headers */,
 				4069E7F61E68042E00C1C832 /* XCUIApplicationImpl.h in Headers */,
 				4069E7AA1E68042E00C1C832 /* NSValue-XCTestAdditions.h in Headers */,
 				4069E7C41E68042E00C1C832 /* XCSymbolicationRecord.h in Headers */,
@@ -1562,6 +1569,7 @@
 				4069E7311E67FC2800C1C832 /* Monkey.m in Sources */,
 				4034E9791EE10EB80061AD95 /* RunLoopSpinner.m in Sources */,
 				406477DC1ECD34F0006AB4AB /* SmartMonkey+UIChangeDelegate.m in Sources */,
+				402496411EE7A68000014AA6 /* XCUIElement+GGTyping.m in Sources */,
 				406477E01ECD3554006AB4AB /* SmartMonkey.m in Sources */,
 				404AF2AB1ECD819700DFC6BF /* WeightedMonkey.m in Sources */,
 				40E4B9EE1EB320D300F8C230 /* MathUtils.m in Sources */,
