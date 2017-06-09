@@ -234,4 +234,9 @@
     return [lines componentsJoinedByString:@"\n"];
 }
 
+-(NSArray<NSString *> *)viewControllers
+{
+    return _stat.allKeys;
+}
+
 @end

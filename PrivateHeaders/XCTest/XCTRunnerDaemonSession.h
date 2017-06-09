@@ -5,6 +5,7 @@
 //
 
 #import "XCTestManager_TestsInterface-Protocol.h"
+#import "XCTestManager_ManagerInterface-Protocol.h"
 #import "CDStructures.h"
 #import <UIKit/UIKit.h>
 

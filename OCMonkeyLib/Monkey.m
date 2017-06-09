@@ -14,15 +14,17 @@
 #import "RegularAction.h"
 #import "Macros.h"
 #import "GGLogger.h"
+#import "XCAXClient_iOS.h"
+#import "XCAccessibilityElement.h"
 
 
 @interface Monkey()
-@property NSString *testedAppBundleID;
 @property (nonatomic) XCUIApplication *testedApp;
 @property (readwrite) int actionCounter;
 @property double totalWeight;
 @property NSMutableArray<RandomAction *> *randomActions;
 @property NSMutableArray<RegularAction *> *regularActions;
+@property (nonatomic, readwrite) NSDate *endTime;
 @end
 
 @implementation Monkey
@@ -50,6 +52,7 @@
         _actionCounter = 0;
         _regularActions = [[NSMutableArray alloc] init];
         _randomActions = [[NSMutableArray alloc] init];
+        _startTime = [NSDate date];
     }
     return self;
 }
@@ -69,7 +72,14 @@
 
 -(void)postRun
 {
-    [_testedApp terminate];
+    @try {
+        [_testedApp terminate];
+    } @catch (NSException *exception) {
+        ;
+    } @finally {
+        ;
+    }
+    [GGLogger log:@"Monkey will exit."];
 }
 
 -(void)runOneStep
@@ -92,17 +102,18 @@
 //                _screenFrame = self.testedApp.lastSnapshot.frame;
                 _screenFrame = self.testedApp.frame;
             });
-            [self runOneStep];
-//            @try {
-//                [self runOneStep];
-//            } @catch (NSException *exception) {
-//                [GGLogger logFmt:@"Exception: %@ %@", exception, [exception.callStackSymbols componentsJoinedByString:@"\n"]];
-//                break;
-//            } @finally {
+//            [self runOneStep];
+            @try {
+                [self runOneStep];
+            } @catch (NSException *exception) {
+                [GGLogger logFmt:@"Exception: %@ %@", exception, [exception.callStackSymbols componentsJoinedByString:@"\n"]];
+                break;
+            }
+//            @finally {
 //            }
         }
     }
-    
+    _endTime = [NSDate date];
     [self postRun];
 }
 
@@ -195,6 +206,16 @@
     CGFloat x0 = (point.x - _screenFrame.origin.x) * (_screenFrame.size.width - size) / _screenFrame.size.width + _screenFrame.origin.x;
     CGFloat y0 = (point.y - _screenFrame.origin.y) * (_screenFrame.size.height - size) / _screenFrame.size.width  + _screenFrame.origin.y;
     return CGRectMake(x0, y0, size, size);
+}
+
+-(XCUIApplication *)activeApplication
+{
+    XCAccessibilityElement *activeApplicationElement = [[[XCAXClient_iOS sharedClient] activeApplications] firstObject];
+    if (!activeApplicationElement) {
+        return nil;
+    }
+    XCUIApplication *application = [XCUIApplication appWithPID:activeApplicationElement.processIdentifier];
+    return application;
 }
 
 @end

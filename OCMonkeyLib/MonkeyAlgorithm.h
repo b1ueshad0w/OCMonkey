@@ -48,6 +48,8 @@ typedef NSString ElementHashType;
  */
 - (NSString *)statDescription;
 
+-(NSArray<NSString *> *)viewControllers;
+
 @end
 
 

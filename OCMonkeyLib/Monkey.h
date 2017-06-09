@@ -29,8 +29,11 @@
 -(CGRect)randomRectWithSizeFraction:(CGFloat)sizeFraction;
 
 @property (readonly) int actionCounter;
+@property (readonly, nonatomic) NSString *testedAppBundleID;
 @property (nonatomic, readonly) XCUIApplication *testedApp;
 @property (nonatomic, readwrite) NSMutableDictionary *launchEnvironment;
+@property (nonatomic, readonly) NSDate *startTime;
+@property (nonatomic, readonly) NSDate *endTime;
 @property CGRect screenFrame;
 
 @end

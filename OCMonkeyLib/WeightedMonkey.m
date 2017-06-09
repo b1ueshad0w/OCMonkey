@@ -117,11 +117,11 @@ static NSArray * containers;
     NSArray<ElementTree *> *elements = [self getValidElementsFromTree:uiTree];
     [GGLogger logFmt:@"valid leaves count: %ld", elements.count];
     
-    NSMutableArray *desc = NSMutableArray.new;
-    for (Tree *element in elements) {
-        [desc addObject:[NSString stringWithFormat:@"%@ %@", element.identifier, element.data]];
-    }
-    [GGLogger logFmt:@"Leaves: %@", [desc componentsJoinedByString:@"\n"]];
+//    NSMutableArray *desc = NSMutableArray.new;
+//    for (Tree *element in elements) {
+//        [desc addObject:[NSString stringWithFormat:@"%@ %@", element.identifier, element.data]];
+//    }
+//    [GGLogger logFmt:@"Leaves: %@", [desc componentsJoinedByString:@"\n"]];
     
     TreeHashType *treeHash = [self getCurrentVC];
     if ([treeHash hasSuffix:@"WebViewController"]) {
@@ -132,15 +132,6 @@ static NSArray * containers;
         if (!_vcCallbacks[treeHash](uiTree))
             return;
     }
-    
-//    if ([treeHash isEqualToString:@"REInfoCodeController"]) {
-//        NSUInteger stackLength = self.vcStack.count;
-//        [self goBackByDragFromScreenLeftEdgeToRight];
-//        if (self.vcStack.count < stackLength)
-//            [GGLogger log:@"Success"];
-//        else
-//            [GGLogger log:@"Failed"];
-//    }
     
     if (![elements count]) {
         [self tap:[self randomPoint]];
@@ -260,6 +251,50 @@ static NSArray * containers;
 -(void)postRun
 {
     [super postRun];
-    [GGLogger log:[_algorithm statDescription]];
+//    [GGLogger log:[_algorithm statDescription]];
+    NSArray<NSString *> *vcs = [_algorithm viewControllers];
+    [GGLogger logFmt:@"visited vc count: %lu", (unsigned long)vcs.count];
+    
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateStyle:@"yyyy-MM-dd hh:mm:ss"];
+    [dateFormatter setTimeStyle:@"hh:mm:ss"];
+    NSDictionary *testResult = @{
+        @"ExitStatus": @"app_crash",
+        @"StartTime": [dateFormatter stringFromDate:self.startTime],
+        @"Duration": @((int)[self.endTime timeIntervalSinceDate:self.startTime]),
+        @"ElementsCount": @0,
+        @"MonkeyAlgorithm": NSStringFromClass([self.algorithm class]),
+        @"ViewControllers": vcs,
+        @"ViewControllersCount": @(vcs.count)
+       };
+    
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *fileName = [[NSProcessInfo processInfo] environment][@"TestResultFileName"];
+    if (!fileName)
+        fileName = @"test_result.json";
+    
+    NSString *filePath = [documentsDirectory stringByAppendingPathComponent:fileName];
+    
+    BOOL isDir;
+    if ([[NSFileManager defaultManager] fileExistsAtPath:filePath isDirectory:&isDir] && !isDir) {
+        [GGLogger logFmt:@"Removing existing file: %@", fileName];
+        NSError *error;
+        [[NSFileManager defaultManager] removeItemAtPath:filePath error:&error];
+        if (error) {
+            [GGLogger logFmt:@"Delete file failed."];
+        } else {
+            [GGLogger logFmt:@"Delete success"];
+        }
+    }
+    
+    NSError *error;
+    NSData* jsonData = [NSJSONSerialization dataWithJSONObject:testResult
+                                                       options:kNilOptions
+                                                         error:&error];
+    if (error) {
+        [GGLogger logFmt:@"NSJSONSerialization failed: %@", error];
+    }
+    [jsonData writeToFile:filePath atomically:YES];
 }
 @end

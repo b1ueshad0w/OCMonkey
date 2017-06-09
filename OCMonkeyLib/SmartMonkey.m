@@ -11,6 +11,7 @@
 #import "NSMutableArray+Queue.h"
 #import "NSMutableArray+Stack.h"
 #import "GGLogger.h"
+#import "XCTRunnerDaemonSession.h"
 
 @implementation TabBarCtrl
 
@@ -91,7 +92,9 @@
 
 -(void)preRun
 {
-    in_port_t port = 2349;
+    
+//    [[XCTRunnerDaemonSession sharedSession] terminateApplicationWithBundleID:self.testedAppBundleID completion:^(){}];
+    in_port_t port = 2000 + arc4random() % 5000;
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         [_appAgent connectToLocalIPv4AtPort:port timeout:25];
     });
