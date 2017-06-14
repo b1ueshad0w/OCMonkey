@@ -6,7 +6,7 @@
 
 @class NSArray, NSInvocation, NSMutableArray, NSMutableDictionary, NSMutableSet, NSString, XCTestCaseRun, XCTestContext, XCTestExpectationWaiter, XCTWaiter;
 
-#import <WebDriverAgentLib/CDStructures.h>
+#import "CDStructures.h"
 
 @interface _XCTestCaseImplementation : NSObject
 {

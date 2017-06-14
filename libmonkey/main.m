@@ -21,6 +21,7 @@ static __attribute__((constructor)) void onLoad(){
     swizzle_UITabBarController();
     swizzle_UIWindow();
     start_socket_communication();
+    hookBusinees();
     
     NSString *crashDelay = [[NSProcessInfo processInfo] environment][@"MakeAppCrashAfterSeconds"];
     if (crashDelay) {

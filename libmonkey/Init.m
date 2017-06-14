@@ -17,6 +17,8 @@
 #import "XCUIApplication.h"
 #import "swizzle.h"
 #import "Outlet.h"
+#import "MSHook.h"
+#import "GGLogger.h"
 
 void swizzle_XCTest()
 {
@@ -79,4 +81,16 @@ void start_socket_communication()
 {
     Outlet *outlet = [Outlet sharedOutlet];
     [outlet start];
+}
+
+/* [MemoryUploadCenter initMemoryWindow] */
+void (*origin_initMemoryWindow_MemoryUploadCenter)(id, SEL);
+void new_initMemoryWindow_MemoryUploadCenter(id self, SEL _cmd)
+{
+    [GGLogger logFmt:@"[MemoryUploadCenter(%p) initMemoryWindow]", self];
+}
+
+void hookBusinees()
+{
+    MSHookFunction(objc_getClass("MemoryUploadCenter"), @selector(initMemoryWindow), (IMP)new_initMemoryWindow_MemoryUploadCenter, (IMP)&origin_initMemoryWindow_MemoryUploadCenter);
 }

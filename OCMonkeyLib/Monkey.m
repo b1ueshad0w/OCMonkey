@@ -16,6 +16,7 @@
 #import "GGLogger.h"
 #import "XCAXClient_iOS.h"
 #import "XCAccessibilityElement.h"
+#import "GGExceptionHandler.h"
 
 
 @interface Monkey()
@@ -25,6 +26,7 @@
 @property NSMutableArray<RandomAction *> *randomActions;
 @property NSMutableArray<RegularAction *> *regularActions;
 @property (nonatomic, readwrite) NSDate *endTime;
+@property (nonatomic, readwrite) NSString *exitReason;
 @end
 
 @implementation Monkey
@@ -111,7 +113,14 @@
             @try {
                 [self runOneStep];
             } @catch (NSException *exception) {
-                [GGLogger logFmt:@"Exception: %@ %@", exception, [exception.callStackSymbols componentsJoinedByString:@"\n"]];
+                if ([exception.name isEqualToString:GGApplicationCrashedException] ||
+                    [exception.name isEqualToString:GGApplicationDeadlockDetectedException]) {
+                    _exitReason = exception.name;
+                }
+                else {
+                    [GGLogger logFmt:@"Exception: %@ %@", exception, [exception.callStackSymbols componentsJoinedByString:@"\n"]];
+                    _exitReason = @"Monkey internal crash.";
+                }
                 break;
             }
 //            @finally {

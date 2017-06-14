@@ -15,8 +15,9 @@
 #import "Monkey+XCUITestPrivate.h"
 #import "GGLogger.h"
 #import "XCUIElement+GGTyping.h"
+#import "GGTestCase.h"
 
-@interface MonkeyRunner : XCTestCase
+@interface MonkeyRunner : GGTestCase
 
 @end
 

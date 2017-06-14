@@ -34,6 +34,7 @@
 @property (nonatomic, readwrite) NSMutableDictionary *launchEnvironment;
 @property (nonatomic, readonly) NSDate *startTime;
 @property (nonatomic, readonly) NSDate *endTime;
+@property (nonatomic, readonly) NSString *exitReason;
 @property CGRect screenFrame;
 
 @end

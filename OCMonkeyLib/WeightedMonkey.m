@@ -259,7 +259,7 @@ static NSArray * containers;
     [dateFormatter setDateStyle:@"yyyy-MM-dd hh:mm:ss"];
     [dateFormatter setTimeStyle:@"hh:mm:ss"];
     NSDictionary *testResult = @{
-        @"ExitStatus": @"app_crash",
+        @"ExitStatus": self.exitReason,
         @"StartTime": [dateFormatter stringFromDate:self.startTime],
         @"Duration": @((int)[self.endTime timeIntervalSinceDate:self.startTime]),
         @"ElementsCount": @0,

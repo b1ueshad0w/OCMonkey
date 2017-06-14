@@ -29,6 +29,14 @@
 		401AB0A31EB2188F00CC1046 /* Random.m in Sources */ = {isa = PBXBuildFile; fileRef = 401AB0A11EB2188F00CC1046 /* Random.m */; };
 		402496401EE7A68000014AA6 /* XCUIElement+GGTyping.h in Headers */ = {isa = PBXBuildFile; fileRef = 4024963E1EE7A68000014AA6 /* XCUIElement+GGTyping.h */; };
 		402496411EE7A68000014AA6 /* XCUIElement+GGTyping.m in Sources */ = {isa = PBXBuildFile; fileRef = 4024963F1EE7A68000014AA6 /* XCUIElement+GGTyping.m */; };
+		402AA1921EF0D1B700BAA800 /* XCTestCaseImplementationFailureHoldingProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = 402AA1901EF0D1B700BAA800 /* XCTestCaseImplementationFailureHoldingProxy.h */; };
+		402AA1931EF0D1B700BAA800 /* XCTestCaseImplementationFailureHoldingProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 402AA1911EF0D1B700BAA800 /* XCTestCaseImplementationFailureHoldingProxy.m */; };
+		402AA1961EF0D44900BAA800 /* GGTestCase.h in Headers */ = {isa = PBXBuildFile; fileRef = 402AA1941EF0D44900BAA800 /* GGTestCase.h */; };
+		402AA1971EF0D44900BAA800 /* GGTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 402AA1951EF0D44900BAA800 /* GGTestCase.m */; };
+		402AA19A1EF0D68800BAA800 /* GGExceptionHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = 402AA1981EF0D68800BAA800 /* GGExceptionHandler.h */; };
+		402AA19B1EF0D68800BAA800 /* GGExceptionHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 402AA1991EF0D68800BAA800 /* GGExceptionHandler.m */; };
+		402AA1A21EF0EB2700BAA800 /* MSHook.h in Headers */ = {isa = PBXBuildFile; fileRef = 402AA1A01EF0EB2700BAA800 /* MSHook.h */; };
+		402AA1A31EF0EB2700BAA800 /* MSHook.m in Sources */ = {isa = PBXBuildFile; fileRef = 402AA1A11EF0EB2700BAA800 /* MSHook.m */; };
 		4034E9631EDFEF800061AD95 /* UIViewTree.h in Headers */ = {isa = PBXBuildFile; fileRef = 4034E9611EDFEF800061AD95 /* UIViewTree.h */; };
 		4034E9641EDFEF800061AD95 /* UIViewTree.m in Sources */ = {isa = PBXBuildFile; fileRef = 4034E9621EDFEF800061AD95 /* UIViewTree.m */; };
 		4034E9651EDFF2F20061AD95 /* UIViewTree.m in Sources */ = {isa = PBXBuildFile; fileRef = 4034E9621EDFEF800061AD95 /* UIViewTree.m */; };
@@ -447,6 +455,14 @@
 		401AB0A11EB2188F00CC1046 /* Random.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Random.m; sourceTree = "<group>"; };
 		4024963E1EE7A68000014AA6 /* XCUIElement+GGTyping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "XCUIElement+GGTyping.h"; sourceTree = "<group>"; };
 		4024963F1EE7A68000014AA6 /* XCUIElement+GGTyping.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "XCUIElement+GGTyping.m"; sourceTree = "<group>"; };
+		402AA1901EF0D1B700BAA800 /* XCTestCaseImplementationFailureHoldingProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCTestCaseImplementationFailureHoldingProxy.h; sourceTree = "<group>"; };
+		402AA1911EF0D1B700BAA800 /* XCTestCaseImplementationFailureHoldingProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XCTestCaseImplementationFailureHoldingProxy.m; sourceTree = "<group>"; };
+		402AA1941EF0D44900BAA800 /* GGTestCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGTestCase.h; sourceTree = "<group>"; };
+		402AA1951EF0D44900BAA800 /* GGTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGTestCase.m; sourceTree = "<group>"; };
+		402AA1981EF0D68800BAA800 /* GGExceptionHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGExceptionHandler.h; sourceTree = "<group>"; };
+		402AA1991EF0D68800BAA800 /* GGExceptionHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGExceptionHandler.m; sourceTree = "<group>"; };
+		402AA1A01EF0EB2700BAA800 /* MSHook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSHook.h; sourceTree = "<group>"; };
+		402AA1A11EF0EB2700BAA800 /* MSHook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSHook.m; sourceTree = "<group>"; };
 		4034E9611EDFEF800061AD95 /* UIViewTree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIViewTree.h; sourceTree = "<group>"; };
 		4034E9621EDFEF800061AD95 /* UIViewTree.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIViewTree.m; sourceTree = "<group>"; };
 		4034E9661EE105570061AD95 /* Keyboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Keyboard.h; sourceTree = "<group>"; };
@@ -744,6 +760,8 @@
 			children = (
 				4034E9801EE53ADF0061AD95 /* GGLogger.h */,
 				4034E9811EE53ADF0061AD95 /* GGLogger.m */,
+				402AA1A01EF0EB2700BAA800 /* MSHook.h */,
+				402AA1A11EF0EB2700BAA800 /* MSHook.m */,
 			);
 			path = shared;
 			sourceTree = "<group>";
@@ -1085,6 +1103,12 @@
 				40E4B9ED1EB320D300F8C230 /* MathUtils.m */,
 				4034E9761EE10EB80061AD95 /* RunLoopSpinner.h */,
 				4034E9771EE10EB80061AD95 /* RunLoopSpinner.m */,
+				402AA1901EF0D1B700BAA800 /* XCTestCaseImplementationFailureHoldingProxy.h */,
+				402AA1911EF0D1B700BAA800 /* XCTestCaseImplementationFailureHoldingProxy.m */,
+				402AA1941EF0D44900BAA800 /* GGTestCase.h */,
+				402AA1951EF0D44900BAA800 /* GGTestCase.m */,
+				402AA1981EF0D68800BAA800 /* GGExceptionHandler.h */,
+				402AA1991EF0D68800BAA800 /* GGExceptionHandler.m */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -1154,9 +1178,11 @@
 				4069E7E41E68042E00C1C832 /* XCTestWaiter.h in Headers */,
 				4069E7B41E68042E00C1C832 /* XCApplicationMonitor.h in Headers */,
 				4034E9741EE105570061AD95 /* XCTestDaemonsProxy.h in Headers */,
+				402AA1921EF0D1B700BAA800 /* XCTestCaseImplementationFailureHoldingProxy.h in Headers */,
 				402496401EE7A68000014AA6 /* XCUIElement+GGTyping.h in Headers */,
 				4069E7F61E68042E00C1C832 /* XCUIApplicationImpl.h in Headers */,
 				4069E7AA1E68042E00C1C832 /* NSValue-XCTestAdditions.h in Headers */,
+				402AA19A1EF0D68800BAA800 /* GGExceptionHandler.h in Headers */,
 				4069E7C41E68042E00C1C832 /* XCSymbolicationRecord.h in Headers */,
 				4069E79D1E68042E00C1C832 /* _XCKVOExpectationImplementation.h in Headers */,
 				4069E7CD1E68042E00C1C832 /* XCTestCase.h in Headers */,
@@ -1235,6 +1261,7 @@
 				40E1B83F1EB10783000EBEAA /* ClassPath.h in Headers */,
 				4069E7BB1E68042E00C1C832 /* XCKeyboardInputSolver.h in Headers */,
 				4069E7DA1E68042E00C1C832 /* XCTestManager_ManagerInterface-Protocol.h in Headers */,
+				402AA1961EF0D44900BAA800 /* GGTestCase.h in Headers */,
 				4069E7A41E68042E00C1C832 /* _XCTestSuiteImplementation.h in Headers */,
 				4069E7DC1E68042E00C1C832 /* XCTestMisuseObserver.h in Headers */,
 				4069E7D41E68042E00C1C832 /* XCTestDriverInterface-Protocol.h in Headers */,
@@ -1275,6 +1302,7 @@
 				40AE4F801EB842C4006A13C5 /* XCDeviceEvent.h in Headers */,
 				40AE4F681EB842C4006A13C5 /* _XCTestCaseInterruptionException.h in Headers */,
 				400DCFA91EB8C8C0009E41B9 /* NSMutableArray+FixedSizeQueue.h in Headers */,
+				402AA1A21EF0EB2700BAA800 /* MSHook.h in Headers */,
 				40AE4F701EB842C4006A13C5 /* CDStructures.h in Headers */,
 				40AE4F741EB842C4006A13C5 /* UILongPressGestureRecognizer-RecordingAdditions.h in Headers */,
 				40AE4FC01EB842C4006A13C5 /* XCUICoordinate.h in Headers */,
@@ -1655,9 +1683,11 @@
 				402496411EE7A68000014AA6 /* XCUIElement+GGTyping.m in Sources */,
 				406477E01ECD3554006AB4AB /* SmartMonkey.m in Sources */,
 				404AF2AB1ECD819700DFC6BF /* WeightedMonkey.m in Sources */,
+				402AA1931EF0D1B700BAA800 /* XCTestCaseImplementationFailureHoldingProxy.m in Sources */,
 				40E4B9EE1EB320D300F8C230 /* MathUtils.m in Sources */,
 				404F9E361EB2511C009CA2A1 /* Monkey+XCUITestPrivate.m in Sources */,
 				404F9E321EB24ED1009CA2A1 /* Monkey+XCUITest.m in Sources */,
+				402AA19B1EF0D68800BAA800 /* GGExceptionHandler.m in Sources */,
 				4034E9641EDFEF800061AD95 /* UIViewTree.m in Sources */,
 				401AB0681EB0BADF00CC1046 /* Tree.m in Sources */,
 				401AB09B1EB212CF00CC1046 /* RandomAction.m in Sources */,
@@ -1677,6 +1707,7 @@
 				401AB06C1EB0BB3400CC1046 /* ElementInfo.m in Sources */,
 				40E1B8401EB10783000EBEAA /* ClassPath.m in Sources */,
 				406477D81ECC490B006AB4AB /* NSMutableArray+Stack.m in Sources */,
+				402AA1971EF0D44900BAA800 /* GGTestCase.m in Sources */,
 				401AB0751EB0DDBE00CC1046 /* XCUIApplication+Monkey.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1717,6 +1748,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				402AA1A31EF0EB2700BAA800 /* MSHook.m in Sources */,
 				4034E9851EE53DAF0061AD95 /* GGLogger.m in Sources */,
 				40AE50121EB8990F006A13C5 /* Outlet.m in Sources */,
 				400DCFAA1EB8C8C0009E41B9 /* NSMutableArray+FixedSizeQueue.m in Sources */,
