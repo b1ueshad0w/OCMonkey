@@ -203,10 +203,14 @@ static NSArray * containers;
     }
     start = getRectCenter(firstCell.data.frame);*/
     if (isVertical) {
-        start = CGPointMake(origin.x + size.width * 0.5, origin.y + size.height * 0.2);
+        CGFloat startY = origin.y + size.height * 0.2;
+        startY = startY < 20 ? 25 : startY;
+        start = CGPointMake(origin.x + size.width * 0.5, startY);
         end = CGPointMake(start.x, origin.y + size.height * 0.8);
     } else {
-        start = CGPointMake(origin.x + size.width * 0.2, origin.y + size.height * 0.5);
+        CGFloat startY = origin.y + size.height * 0.5;
+        startY = startY > size.height - 20 ? size.height - 25 : startY;
+        start = CGPointMake(origin.x + size.width * 0.2, startY);
         end = CGPointMake(origin.x + size.width * 0.8, start.y);
     }
     
