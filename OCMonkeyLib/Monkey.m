@@ -44,6 +44,11 @@
         if (![_launchEnvironment objectForKey:@"maxGesturesShown"])
             _launchEnvironment[@"maxGesturesShown"] = @5;
         
+        NSString *crashDelay = [[NSProcessInfo processInfo] environment][@"MakeAppCrashAfterSeconds"];
+        if (crashDelay) {
+            _launchEnvironment[@"MakeAppCrashAfterSeconds"] = crashDelay;
+        }
+        
         /* Use _testedApp.frame will cause strange issue:
          * _testedApp.lastSnapshot will never change
          */
