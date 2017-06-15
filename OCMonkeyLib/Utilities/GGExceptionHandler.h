@@ -10,6 +10,7 @@
 
 extern NSString *const GGApplicationDeadlockDetectedException;
 extern NSString *const GGApplicationCrashedException;
+extern NSString *const GGApplicationNotInstalled;
 
 @interface GGExceptionHandler : NSObject
 

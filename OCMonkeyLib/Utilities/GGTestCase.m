@@ -42,6 +42,11 @@
         raise];
     }
     
+    const BOOL isNotInstalled = ([description rangeOfString:@"is unknown to FrontBoard"].location != NSNotFound);
+    if (isNotInstalled) {
+        [[NSException exceptionWithName:GGApplicationNotInstalled reason:description userInfo:nil] raise];
+    }
+    
     const BOOL isPossibleCrashAtStartUp = ([description rangeOfString:@"Application is not running"].location != NSNotFound);
     const BOOL errorGetMainWindow = ([description rangeOfString:@"Error getting main window"].location != NSNotFound);
     const BOOL isPossibleCrashDuringTest = ([description rangeOfString:@"Failed to copy attributes after 30 retries"].location != NSNotFound);

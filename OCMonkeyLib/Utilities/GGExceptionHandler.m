@@ -10,6 +10,7 @@
 
 NSString *const GGApplicationDeadlockDetectedException = @"GGApplicationDeadlockDetectedException";
 NSString *const GGApplicationCrashedException = @"GGApplicationCrashedException";
+NSString *const GGApplicationNotInstalled = @"GGApplicationNotInstalled";
 
 @implementation GGExceptionHandler
 
