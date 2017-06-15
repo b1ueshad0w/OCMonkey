@@ -13,6 +13,7 @@
 #import "UIViewController+Monkey.h"
 #import "UITabBarController+Monkey.h"
 #import "UIWindow+Monkey.h"
+#import "UIApplication+libmonkey.h"
 #import "Macros.h"
 #import "XCUIApplication.h"
 #import "swizzle.h"
@@ -75,6 +76,13 @@ void swizzle_UIWindow()
     swizzleInstanceMethod(UIWin, @selector(makeKeyWindow), @selector(monkey_makeKeyWindow));
     swizzleInstanceMethod(UIWin, @selector(makeKeyAndVisible), @selector(monkey_makeKeyAndVisible));
     swizzleInstanceMethod(UIWin, @selector(becomeKeyWindow), @selector(monkey_becomeKeyWindow));
+}
+
+void swizzle_UIApplication()
+{
+    Class UIApp = [UIApplication class];
+    swizzleInstanceMethod(UIApp, @selector(openURL:options:completionHandler:), @selector(monkey_openURL:options:completionHandler:));
+    swizzleInstanceMethod(UIApp, @selector(openURL:), @selector(monkey_openURL:));
 }
 
 void start_socket_communication()

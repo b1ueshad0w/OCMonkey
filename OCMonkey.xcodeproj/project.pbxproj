@@ -13,6 +13,8 @@
 		400DCFAE1EB8CA89009E41B9 /* UITabBarController+Monkey.m in Sources */ = {isa = PBXBuildFile; fileRef = 400DCFAC1EB8CA89009E41B9 /* UITabBarController+Monkey.m */; };
 		400DCFB01EB8E725009E41B9 /* Init.h in Headers */ = {isa = PBXBuildFile; fileRef = 400DCFAF1EB8E725009E41B9 /* Init.h */; };
 		400DCFB21EB8E73D009E41B9 /* Init.m in Sources */ = {isa = PBXBuildFile; fileRef = 400DCFB11EB8E73D009E41B9 /* Init.m */; };
+		4013E2E21EF2223C00CF89CC /* UIApplication+libmonkey.h in Headers */ = {isa = PBXBuildFile; fileRef = 4013E2E01EF2223C00CF89CC /* UIApplication+libmonkey.h */; };
+		4013E2E31EF2223C00CF89CC /* UIApplication+libmonkey.m in Sources */ = {isa = PBXBuildFile; fileRef = 4013E2E11EF2223C00CF89CC /* UIApplication+libmonkey.m */; };
 		401AB0671EB0BADF00CC1046 /* Tree.h in Headers */ = {isa = PBXBuildFile; fileRef = 401AB0651EB0BADF00CC1046 /* Tree.h */; };
 		401AB0681EB0BADF00CC1046 /* Tree.m in Sources */ = {isa = PBXBuildFile; fileRef = 401AB0661EB0BADF00CC1046 /* Tree.m */; };
 		401AB06B1EB0BB3400CC1046 /* ElementInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 401AB0691EB0BB3400CC1046 /* ElementInfo.h */; };
@@ -439,6 +441,8 @@
 		400DCFAC1EB8CA89009E41B9 /* UITabBarController+Monkey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITabBarController+Monkey.m"; sourceTree = "<group>"; };
 		400DCFAF1EB8E725009E41B9 /* Init.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Init.h; sourceTree = "<group>"; };
 		400DCFB11EB8E73D009E41B9 /* Init.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Init.m; sourceTree = "<group>"; };
+		4013E2E01EF2223C00CF89CC /* UIApplication+libmonkey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIApplication+libmonkey.h"; sourceTree = "<group>"; };
+		4013E2E11EF2223C00CF89CC /* UIApplication+libmonkey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIApplication+libmonkey.m"; sourceTree = "<group>"; };
 		401AB0651EB0BADF00CC1046 /* Tree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tree.h; sourceTree = "<group>"; };
 		401AB0661EB0BADF00CC1046 /* Tree.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tree.m; sourceTree = "<group>"; };
 		401AB0691EB0BB3400CC1046 /* ElementInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ElementInfo.h; sourceTree = "<group>"; };
@@ -1040,6 +1044,8 @@
 				400DCFAC1EB8CA89009E41B9 /* UITabBarController+Monkey.m */,
 				40AC9F801ED5302500CF6860 /* UIWindow+Monkey.h */,
 				40AC9F811ED5302500CF6860 /* UIWindow+Monkey.m */,
+				4013E2E01EF2223C00CF89CC /* UIApplication+libmonkey.h */,
+				4013E2E11EF2223C00CF89CC /* UIApplication+libmonkey.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -1385,6 +1391,7 @@
 				40AE4F951EB842C4006A13C5 /* XCTestCase.h in Headers */,
 				40AE4FBF1EB842C4006A13C5 /* XCUIApplicationProcess.h in Headers */,
 				40AE4F981EB842C4006A13C5 /* XCTestConfiguration.h in Headers */,
+				4013E2E21EF2223C00CF89CC /* UIApplication+libmonkey.h in Headers */,
 				40AE4F7D1EB842C4006A13C5 /* XCApplicationQuery.h in Headers */,
 				40AE4FA31EB842C4006A13C5 /* XCTestManager_TestsInterface-Protocol.h in Headers */,
 				40AE4FB31EB842C4006A13C5 /* XCTRunnerDaemonSession.h in Headers */,
@@ -1755,6 +1762,7 @@
 				40AE4FD41EB849EA006A13C5 /* swizzle.m in Sources */,
 				400DCFAE1EB8CA89009E41B9 /* UITabBarController+Monkey.m in Sources */,
 				40AE50931EB8B1F1006A13C5 /* UIViewController+Monkey.m in Sources */,
+				4013E2E31EF2223C00CF89CC /* UIApplication+libmonkey.m in Sources */,
 				40AC9F831ED5302500CF6860 /* UIWindow+Monkey.m in Sources */,
 				400DCFB21EB8E73D009E41B9 /* Init.m in Sources */,
 				40AE4FD81EB8546F006A13C5 /* UINavigationController+Monkey.m in Sources */,

@@ -30,7 +30,7 @@
                               expected:(BOOL)expected
 {
     [GGLogger logFmt:@"Enqueue failure: %@", description];
-    const BOOL isPossibleDeadlock = ([description rangeOfString:@"Failed to get refreshed snapshot"].location != NSNotFound);
+    const BOOL isPossibleDeadlock = ([description rangeOfString:@"Failed to get refreshed snapshot"].location != NSNotFound) || ([description rangeOfString:@"Failed to get snapshot within"].location != NSNotFound);
     if (!isPossibleDeadlock) {
         self.didRegisterAXTestFailure = YES;
     }
