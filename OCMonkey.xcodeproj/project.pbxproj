@@ -15,63 +15,63 @@
 		400DCFB21EB8E73D009E41B9 /* Init.m in Sources */ = {isa = PBXBuildFile; fileRef = 400DCFB11EB8E73D009E41B9 /* Init.m */; };
 		4013E2E21EF2223C00CF89CC /* UIApplication+libmonkey.h in Headers */ = {isa = PBXBuildFile; fileRef = 4013E2E01EF2223C00CF89CC /* UIApplication+libmonkey.h */; };
 		4013E2E31EF2223C00CF89CC /* UIApplication+libmonkey.m in Sources */ = {isa = PBXBuildFile; fileRef = 4013E2E11EF2223C00CF89CC /* UIApplication+libmonkey.m */; };
-		401AB0671EB0BADF00CC1046 /* Tree.h in Headers */ = {isa = PBXBuildFile; fileRef = 401AB0651EB0BADF00CC1046 /* Tree.h */; };
+		401AB0671EB0BADF00CC1046 /* Tree.h in Headers */ = {isa = PBXBuildFile; fileRef = 401AB0651EB0BADF00CC1046 /* Tree.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		401AB0681EB0BADF00CC1046 /* Tree.m in Sources */ = {isa = PBXBuildFile; fileRef = 401AB0661EB0BADF00CC1046 /* Tree.m */; };
-		401AB06B1EB0BB3400CC1046 /* ElementInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 401AB0691EB0BB3400CC1046 /* ElementInfo.h */; };
+		401AB06B1EB0BB3400CC1046 /* ElementInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 401AB0691EB0BB3400CC1046 /* ElementInfo.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		401AB06C1EB0BB3400CC1046 /* ElementInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 401AB06A1EB0BB3400CC1046 /* ElementInfo.m */; };
-		401AB06F1EB0C7C200CC1046 /* ElementTypeTransformer.h in Headers */ = {isa = PBXBuildFile; fileRef = 401AB06D1EB0C7C200CC1046 /* ElementTypeTransformer.h */; };
+		401AB06F1EB0C7C200CC1046 /* ElementTypeTransformer.h in Headers */ = {isa = PBXBuildFile; fileRef = 401AB06D1EB0C7C200CC1046 /* ElementTypeTransformer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		401AB0701EB0C7C200CC1046 /* ElementTypeTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 401AB06E1EB0C7C200CC1046 /* ElementTypeTransformer.m */; };
-		401AB0741EB0DDBE00CC1046 /* XCUIApplication+Monkey.h in Headers */ = {isa = PBXBuildFile; fileRef = 401AB0721EB0DDBE00CC1046 /* XCUIApplication+Monkey.h */; };
+		401AB0741EB0DDBE00CC1046 /* XCUIApplication+Monkey.h in Headers */ = {isa = PBXBuildFile; fileRef = 401AB0721EB0DDBE00CC1046 /* XCUIApplication+Monkey.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		401AB0751EB0DDBE00CC1046 /* XCUIApplication+Monkey.m in Sources */ = {isa = PBXBuildFile; fileRef = 401AB0731EB0DDBE00CC1046 /* XCUIApplication+Monkey.m */; };
-		401AB09A1EB212CF00CC1046 /* RandomAction.h in Headers */ = {isa = PBXBuildFile; fileRef = 401AB0981EB212CF00CC1046 /* RandomAction.h */; };
+		401AB09A1EB212CF00CC1046 /* RandomAction.h in Headers */ = {isa = PBXBuildFile; fileRef = 401AB0981EB212CF00CC1046 /* RandomAction.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		401AB09B1EB212CF00CC1046 /* RandomAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 401AB0991EB212CF00CC1046 /* RandomAction.m */; };
-		401AB09E1EB2152700CC1046 /* RegularAction.h in Headers */ = {isa = PBXBuildFile; fileRef = 401AB09C1EB2152700CC1046 /* RegularAction.h */; };
+		401AB09E1EB2152700CC1046 /* RegularAction.h in Headers */ = {isa = PBXBuildFile; fileRef = 401AB09C1EB2152700CC1046 /* RegularAction.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		401AB09F1EB2152700CC1046 /* RegularAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 401AB09D1EB2152700CC1046 /* RegularAction.m */; };
-		401AB0A21EB2188F00CC1046 /* Random.h in Headers */ = {isa = PBXBuildFile; fileRef = 401AB0A01EB2188F00CC1046 /* Random.h */; };
+		401AB0A21EB2188F00CC1046 /* Random.h in Headers */ = {isa = PBXBuildFile; fileRef = 401AB0A01EB2188F00CC1046 /* Random.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		401AB0A31EB2188F00CC1046 /* Random.m in Sources */ = {isa = PBXBuildFile; fileRef = 401AB0A11EB2188F00CC1046 /* Random.m */; };
-		402496401EE7A68000014AA6 /* XCUIElement+GGTyping.h in Headers */ = {isa = PBXBuildFile; fileRef = 4024963E1EE7A68000014AA6 /* XCUIElement+GGTyping.h */; };
+		402496401EE7A68000014AA6 /* XCUIElement+GGTyping.h in Headers */ = {isa = PBXBuildFile; fileRef = 4024963E1EE7A68000014AA6 /* XCUIElement+GGTyping.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		402496411EE7A68000014AA6 /* XCUIElement+GGTyping.m in Sources */ = {isa = PBXBuildFile; fileRef = 4024963F1EE7A68000014AA6 /* XCUIElement+GGTyping.m */; };
-		402AA1921EF0D1B700BAA800 /* XCTestCaseImplementationFailureHoldingProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = 402AA1901EF0D1B700BAA800 /* XCTestCaseImplementationFailureHoldingProxy.h */; };
+		402AA1921EF0D1B700BAA800 /* XCTestCaseImplementationFailureHoldingProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = 402AA1901EF0D1B700BAA800 /* XCTestCaseImplementationFailureHoldingProxy.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		402AA1931EF0D1B700BAA800 /* XCTestCaseImplementationFailureHoldingProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 402AA1911EF0D1B700BAA800 /* XCTestCaseImplementationFailureHoldingProxy.m */; };
-		402AA1961EF0D44900BAA800 /* GGTestCase.h in Headers */ = {isa = PBXBuildFile; fileRef = 402AA1941EF0D44900BAA800 /* GGTestCase.h */; };
+		402AA1961EF0D44900BAA800 /* GGTestCase.h in Headers */ = {isa = PBXBuildFile; fileRef = 402AA1941EF0D44900BAA800 /* GGTestCase.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		402AA1971EF0D44900BAA800 /* GGTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 402AA1951EF0D44900BAA800 /* GGTestCase.m */; };
-		402AA19A1EF0D68800BAA800 /* GGExceptionHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = 402AA1981EF0D68800BAA800 /* GGExceptionHandler.h */; };
+		402AA19A1EF0D68800BAA800 /* GGExceptionHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = 402AA1981EF0D68800BAA800 /* GGExceptionHandler.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		402AA19B1EF0D68800BAA800 /* GGExceptionHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 402AA1991EF0D68800BAA800 /* GGExceptionHandler.m */; };
 		402AA1A21EF0EB2700BAA800 /* MSHook.h in Headers */ = {isa = PBXBuildFile; fileRef = 402AA1A01EF0EB2700BAA800 /* MSHook.h */; };
 		402AA1A31EF0EB2700BAA800 /* MSHook.m in Sources */ = {isa = PBXBuildFile; fileRef = 402AA1A11EF0EB2700BAA800 /* MSHook.m */; };
-		4034E9631EDFEF800061AD95 /* UIViewTree.h in Headers */ = {isa = PBXBuildFile; fileRef = 4034E9611EDFEF800061AD95 /* UIViewTree.h */; };
+		4034E9631EDFEF800061AD95 /* UIViewTree.h in Headers */ = {isa = PBXBuildFile; fileRef = 4034E9611EDFEF800061AD95 /* UIViewTree.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4034E9641EDFEF800061AD95 /* UIViewTree.m in Sources */ = {isa = PBXBuildFile; fileRef = 4034E9621EDFEF800061AD95 /* UIViewTree.m */; };
 		4034E9651EDFF2F20061AD95 /* UIViewTree.m in Sources */ = {isa = PBXBuildFile; fileRef = 4034E9621EDFEF800061AD95 /* UIViewTree.m */; };
-		4034E96E1EE105570061AD95 /* Keyboard.h in Headers */ = {isa = PBXBuildFile; fileRef = 4034E9661EE105570061AD95 /* Keyboard.h */; };
+		4034E96E1EE105570061AD95 /* Keyboard.h in Headers */ = {isa = PBXBuildFile; fileRef = 4034E9661EE105570061AD95 /* Keyboard.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4034E96F1EE105570061AD95 /* Keyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 4034E9671EE105570061AD95 /* Keyboard.m */; };
-		4034E9701EE105570061AD95 /* MonkeyConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = 4034E9681EE105570061AD95 /* MonkeyConfiguration.h */; };
+		4034E9701EE105570061AD95 /* MonkeyConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = 4034E9681EE105570061AD95 /* MonkeyConfiguration.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4034E9711EE105570061AD95 /* MonkeyConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 4034E9691EE105570061AD95 /* MonkeyConfiguration.m */; };
-		4034E9741EE105570061AD95 /* XCTestDaemonsProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = 4034E96C1EE105570061AD95 /* XCTestDaemonsProxy.h */; };
+		4034E9741EE105570061AD95 /* XCTestDaemonsProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = 4034E96C1EE105570061AD95 /* XCTestDaemonsProxy.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4034E9751EE105570061AD95 /* XCTestDaemonsProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4034E96D1EE105570061AD95 /* XCTestDaemonsProxy.m */; };
-		4034E9781EE10EB80061AD95 /* RunLoopSpinner.h in Headers */ = {isa = PBXBuildFile; fileRef = 4034E9761EE10EB80061AD95 /* RunLoopSpinner.h */; };
+		4034E9781EE10EB80061AD95 /* RunLoopSpinner.h in Headers */ = {isa = PBXBuildFile; fileRef = 4034E9761EE10EB80061AD95 /* RunLoopSpinner.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4034E9791EE10EB80061AD95 /* RunLoopSpinner.m in Sources */ = {isa = PBXBuildFile; fileRef = 4034E9771EE10EB80061AD95 /* RunLoopSpinner.m */; };
-		4034E9821EE53ADF0061AD95 /* GGLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 4034E9801EE53ADF0061AD95 /* GGLogger.h */; };
+		4034E9821EE53ADF0061AD95 /* GGLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 4034E9801EE53ADF0061AD95 /* GGLogger.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4034E9831EE53ADF0061AD95 /* GGLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 4034E9811EE53ADF0061AD95 /* GGLogger.m */; };
 		4034E9851EE53DAF0061AD95 /* GGLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 4034E9811EE53ADF0061AD95 /* GGLogger.m */; };
 		4034E9861EE53DC00061AD95 /* GGLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 4034E9801EE53ADF0061AD95 /* GGLogger.h */; };
 		404AF2A71ECD457200DFC6BF /* MonkeyAlgorithm.m in Sources */ = {isa = PBXBuildFile; fileRef = 404AF2A61ECD457200DFC6BF /* MonkeyAlgorithm.m */; };
-		404AF2AA1ECD819700DFC6BF /* WeightedMonkey.h in Headers */ = {isa = PBXBuildFile; fileRef = 404AF2A81ECD819700DFC6BF /* WeightedMonkey.h */; };
+		404AF2AA1ECD819700DFC6BF /* WeightedMonkey.h in Headers */ = {isa = PBXBuildFile; fileRef = 404AF2A81ECD819700DFC6BF /* WeightedMonkey.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		404AF2AB1ECD819700DFC6BF /* WeightedMonkey.m in Sources */ = {isa = PBXBuildFile; fileRef = 404AF2A91ECD819700DFC6BF /* WeightedMonkey.m */; };
-		404F9E311EB24ED1009CA2A1 /* Monkey+XCUITest.h in Headers */ = {isa = PBXBuildFile; fileRef = 404F9E2F1EB24ED1009CA2A1 /* Monkey+XCUITest.h */; };
+		404F9E311EB24ED1009CA2A1 /* Monkey+XCUITest.h in Headers */ = {isa = PBXBuildFile; fileRef = 404F9E2F1EB24ED1009CA2A1 /* Monkey+XCUITest.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		404F9E321EB24ED1009CA2A1 /* Monkey+XCUITest.m in Sources */ = {isa = PBXBuildFile; fileRef = 404F9E301EB24ED1009CA2A1 /* Monkey+XCUITest.m */; };
-		404F9E351EB2511C009CA2A1 /* Monkey+XCUITestPrivate.h in Headers */ = {isa = PBXBuildFile; fileRef = 404F9E331EB2511C009CA2A1 /* Monkey+XCUITestPrivate.h */; };
+		404F9E351EB2511C009CA2A1 /* Monkey+XCUITestPrivate.h in Headers */ = {isa = PBXBuildFile; fileRef = 404F9E331EB2511C009CA2A1 /* Monkey+XCUITestPrivate.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		404F9E361EB2511C009CA2A1 /* Monkey+XCUITestPrivate.m in Sources */ = {isa = PBXBuildFile; fileRef = 404F9E341EB2511C009CA2A1 /* Monkey+XCUITestPrivate.m */; };
-		404F9E381EB25E0E009CA2A1 /* Macros.h in Headers */ = {isa = PBXBuildFile; fileRef = 404F9E371EB25D8B009CA2A1 /* Macros.h */; };
+		404F9E381EB25E0E009CA2A1 /* Macros.h in Headers */ = {isa = PBXBuildFile; fileRef = 404F9E371EB25D8B009CA2A1 /* Macros.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		404F9E3B1EB262FF009CA2A1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 404F9E3A1EB262FF009CA2A1 /* CoreGraphics.framework */; };
-		406477D31ECC3B1D006AB4AB /* NSMutableArray+Queue.h in Headers */ = {isa = PBXBuildFile; fileRef = 406477D11ECC3B1D006AB4AB /* NSMutableArray+Queue.h */; };
+		406477D31ECC3B1D006AB4AB /* NSMutableArray+Queue.h in Headers */ = {isa = PBXBuildFile; fileRef = 406477D11ECC3B1D006AB4AB /* NSMutableArray+Queue.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		406477D41ECC3B1D006AB4AB /* NSMutableArray+Queue.m in Sources */ = {isa = PBXBuildFile; fileRef = 406477D21ECC3B1D006AB4AB /* NSMutableArray+Queue.m */; };
-		406477D71ECC490B006AB4AB /* NSMutableArray+Stack.h in Headers */ = {isa = PBXBuildFile; fileRef = 406477D51ECC490B006AB4AB /* NSMutableArray+Stack.h */; };
+		406477D71ECC490B006AB4AB /* NSMutableArray+Stack.h in Headers */ = {isa = PBXBuildFile; fileRef = 406477D51ECC490B006AB4AB /* NSMutableArray+Stack.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		406477D81ECC490B006AB4AB /* NSMutableArray+Stack.m in Sources */ = {isa = PBXBuildFile; fileRef = 406477D61ECC490B006AB4AB /* NSMutableArray+Stack.m */; };
-		406477DB1ECD34F0006AB4AB /* SmartMonkey+UIChangeDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 406477D91ECD34F0006AB4AB /* SmartMonkey+UIChangeDelegate.h */; };
+		406477DB1ECD34F0006AB4AB /* SmartMonkey+UIChangeDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 406477D91ECD34F0006AB4AB /* SmartMonkey+UIChangeDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		406477DC1ECD34F0006AB4AB /* SmartMonkey+UIChangeDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 406477DA1ECD34F0006AB4AB /* SmartMonkey+UIChangeDelegate.m */; };
-		406477DF1ECD3554006AB4AB /* SmartMonkey.h in Headers */ = {isa = PBXBuildFile; fileRef = 406477DD1ECD3554006AB4AB /* SmartMonkey.h */; };
+		406477DF1ECD3554006AB4AB /* SmartMonkey.h in Headers */ = {isa = PBXBuildFile; fileRef = 406477DD1ECD3554006AB4AB /* SmartMonkey.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		406477E01ECD3554006AB4AB /* SmartMonkey.m in Sources */ = {isa = PBXBuildFile; fileRef = 406477DE1ECD3554006AB4AB /* SmartMonkey.m */; };
-		406477E21ECD42F0006AB4AB /* MonkeyAlgorithm.h in Headers */ = {isa = PBXBuildFile; fileRef = 406477E11ECD42F0006AB4AB /* MonkeyAlgorithm.h */; };
+		406477E21ECD42F0006AB4AB /* MonkeyAlgorithm.h in Headers */ = {isa = PBXBuildFile; fileRef = 406477E11ECD42F0006AB4AB /* MonkeyAlgorithm.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4069E7301E67FC2800C1C832 /* Monkey.h in Headers */ = {isa = PBXBuildFile; fileRef = 4069E72E1E67FC2800C1C832 /* Monkey.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4069E7311E67FC2800C1C832 /* Monkey.m in Sources */ = {isa = PBXBuildFile; fileRef = 4069E72F1E67FC2800C1C832 /* Monkey.m */; };
 		4069E79C1E68042E00C1C832 /* _XCInternalTestRun.h in Headers */ = {isa = PBXBuildFile; fileRef = 4069E7361E68042E00C1C832 /* _XCInternalTestRun.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -327,17 +327,17 @@
 		40AE50921EB8B1F1006A13C5 /* UIViewController+Monkey.h in Headers */ = {isa = PBXBuildFile; fileRef = 40AE50901EB8B1F1006A13C5 /* UIViewController+Monkey.h */; };
 		40AE50931EB8B1F1006A13C5 /* UIViewController+Monkey.m in Sources */ = {isa = PBXBuildFile; fileRef = 40AE50911EB8B1F1006A13C5 /* UIViewController+Monkey.m */; };
 		40AE50E51EBC3C22006A13C5 /* AgentForHost.m in Sources */ = {isa = PBXBuildFile; fileRef = 40EBD3C11EB39E7300CD5050 /* AgentForHost.m */; };
-		40E1B83B1EB105D1000EBEAA /* ElementTree.h in Headers */ = {isa = PBXBuildFile; fileRef = 40E1B8391EB105D1000EBEAA /* ElementTree.h */; };
+		40E1B83B1EB105D1000EBEAA /* ElementTree.h in Headers */ = {isa = PBXBuildFile; fileRef = 40E1B8391EB105D1000EBEAA /* ElementTree.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		40E1B83C1EB105D1000EBEAA /* ElementTree.m in Sources */ = {isa = PBXBuildFile; fileRef = 40E1B83A1EB105D1000EBEAA /* ElementTree.m */; };
-		40E1B83F1EB10783000EBEAA /* ClassPath.h in Headers */ = {isa = PBXBuildFile; fileRef = 40E1B83D1EB10783000EBEAA /* ClassPath.h */; };
+		40E1B83F1EB10783000EBEAA /* ClassPath.h in Headers */ = {isa = PBXBuildFile; fileRef = 40E1B83D1EB10783000EBEAA /* ClassPath.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		40E1B8401EB10783000EBEAA /* ClassPath.m in Sources */ = {isa = PBXBuildFile; fileRef = 40E1B83E1EB10783000EBEAA /* ClassPath.m */; };
-		40E1B8431EB10802000EBEAA /* ClassPathItem.h in Headers */ = {isa = PBXBuildFile; fileRef = 40E1B8411EB10802000EBEAA /* ClassPathItem.h */; };
+		40E1B8431EB10802000EBEAA /* ClassPathItem.h in Headers */ = {isa = PBXBuildFile; fileRef = 40E1B8411EB10802000EBEAA /* ClassPathItem.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		40E1B8441EB10802000EBEAA /* ClassPathItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 40E1B8421EB10802000EBEAA /* ClassPathItem.m */; };
-		40E1B8471EB11473000EBEAA /* NSMutableArray+Reverse.h in Headers */ = {isa = PBXBuildFile; fileRef = 40E1B8451EB11473000EBEAA /* NSMutableArray+Reverse.h */; };
+		40E1B8471EB11473000EBEAA /* NSMutableArray+Reverse.h in Headers */ = {isa = PBXBuildFile; fileRef = 40E1B8451EB11473000EBEAA /* NSMutableArray+Reverse.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		40E1B8481EB11473000EBEAA /* NSMutableArray+Reverse.m in Sources */ = {isa = PBXBuildFile; fileRef = 40E1B8461EB11473000EBEAA /* NSMutableArray+Reverse.m */; };
-		40E4B9EC1EB320B800F8C230 /* MathUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 40E4B9EB1EB320B800F8C230 /* MathUtils.h */; };
+		40E4B9EC1EB320B800F8C230 /* MathUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 40E4B9EB1EB320B800F8C230 /* MathUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		40E4B9EE1EB320D300F8C230 /* MathUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 40E4B9ED1EB320D300F8C230 /* MathUtils.m */; };
-		40EBD3C21EB39E7300CD5050 /* AgentForHost.h in Headers */ = {isa = PBXBuildFile; fileRef = 40EBD3C01EB39E7300CD5050 /* AgentForHost.h */; };
+		40EBD3C21EB39E7300CD5050 /* AgentForHost.h in Headers */ = {isa = PBXBuildFile; fileRef = 40EBD3C01EB39E7300CD5050 /* AgentForHost.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		40EBD3C31EB39E7300CD5050 /* AgentForHost.m in Sources */ = {isa = PBXBuildFile; fileRef = 40EBD3C11EB39E7300CD5050 /* AgentForHost.m */; };
 		40EBD3EE1EB41E7400CD5050 /* OCMonkeyLib.h in Headers */ = {isa = PBXBuildFile; fileRef = 40EBD3ED1EB41E6800CD5050 /* OCMonkeyLib.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		40F0E5901EEE762100A82E4E /* Peertalk.h in Headers */ = {isa = PBXBuildFile; fileRef = 40F0E58E1EEE762100A82E4E /* Peertalk.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -1143,8 +1143,41 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4069E7A91E68042E00C1C832 /* NSString-XCTAdditions.h in Headers */,
 				406477D31ECC3B1D006AB4AB /* NSMutableArray+Queue.h in Headers */,
+				4034E9821EE53ADF0061AD95 /* GGLogger.h in Headers */,
+				401AB09A1EB212CF00CC1046 /* RandomAction.h in Headers */,
+				406477D71ECC490B006AB4AB /* NSMutableArray+Stack.h in Headers */,
+				401AB06F1EB0C7C200CC1046 /* ElementTypeTransformer.h in Headers */,
+				4034E9741EE105570061AD95 /* XCTestDaemonsProxy.h in Headers */,
+				402AA1921EF0D1B700BAA800 /* XCTestCaseImplementationFailureHoldingProxy.h in Headers */,
+				402496401EE7A68000014AA6 /* XCUIElement+GGTyping.h in Headers */,
+				402AA19A1EF0D68800BAA800 /* GGExceptionHandler.h in Headers */,
+				406477DF1ECD3554006AB4AB /* SmartMonkey.h in Headers */,
+				401AB0741EB0DDBE00CC1046 /* XCUIApplication+Monkey.h in Headers */,
+				40E1B8431EB10802000EBEAA /* ClassPathItem.h in Headers */,
+				40E4B9EC1EB320B800F8C230 /* MathUtils.h in Headers */,
+				404F9E381EB25E0E009CA2A1 /* Macros.h in Headers */,
+				406477DB1ECD34F0006AB4AB /* SmartMonkey+UIChangeDelegate.h in Headers */,
+				401AB0671EB0BADF00CC1046 /* Tree.h in Headers */,
+				40E1B8471EB11473000EBEAA /* NSMutableArray+Reverse.h in Headers */,
+				4034E9631EDFEF800061AD95 /* UIViewTree.h in Headers */,
+				4034E96E1EE105570061AD95 /* Keyboard.h in Headers */,
+				4034E9781EE10EB80061AD95 /* RunLoopSpinner.h in Headers */,
+				401AB06B1EB0BB3400CC1046 /* ElementInfo.h in Headers */,
+				406477E21ECD42F0006AB4AB /* MonkeyAlgorithm.h in Headers */,
+				40EBD3C21EB39E7300CD5050 /* AgentForHost.h in Headers */,
+				401AB09E1EB2152700CC1046 /* RegularAction.h in Headers */,
+				4034E9701EE105570061AD95 /* MonkeyConfiguration.h in Headers */,
+				40E1B83F1EB10783000EBEAA /* ClassPath.h in Headers */,
+				40E1B83B1EB105D1000EBEAA /* ElementTree.h in Headers */,
+				401AB0A21EB2188F00CC1046 /* Random.h in Headers */,
+				404F9E311EB24ED1009CA2A1 /* Monkey+XCUITest.h in Headers */,
+				404F9E351EB2511C009CA2A1 /* Monkey+XCUITestPrivate.h in Headers */,
+				402AA1961EF0D44900BAA800 /* GGTestCase.h in Headers */,
+				404AF2AA1ECD819700DFC6BF /* WeightedMonkey.h in Headers */,
+				4069E7301E67FC2800C1C832 /* Monkey.h in Headers */,
+				40EBD3EE1EB41E7400CD5050 /* OCMonkeyLib.h in Headers */,
+				4069E7A91E68042E00C1C832 /* NSString-XCTAdditions.h in Headers */,
 				4069E7C81E68042E00C1C832 /* XCTAsyncActivity.h in Headers */,
 				4069E7E81E68042E00C1C832 /* XCTNSPredicateExpectation.h in Headers */,
 				4069E7BD1E68042E00C1C832 /* XCKeyboardLayout.h in Headers */,
@@ -1154,28 +1187,21 @@
 				4069E7BF1E68042E00C1C832 /* XCPointerEvent.h in Headers */,
 				4069E7AE1E68042E00C1C832 /* UIPinchGestureRecognizer-RecordingAdditions.h in Headers */,
 				4069E7FA1E68042E00C1C832 /* XCUIElement.h in Headers */,
-				4034E9821EE53ADF0061AD95 /* GGLogger.h in Headers */,
 				4069E7CA1E68042E00C1C832 /* XCTAXClient-Protocol.h in Headers */,
 				4069E7FE1E68042E00C1C832 /* XCUIRecorderNodeFinder.h in Headers */,
 				4069E7D81E68042E00C1C832 /* XCTestLog.h in Headers */,
 				4069E7E91E68042E00C1C832 /* XCTNSPredicateExpectationObject-Protocol.h in Headers */,
-				404F9E311EB24ED1009CA2A1 /* Monkey+XCUITest.h in Headers */,
 				4069E7BC1E68042E00C1C832 /* XCKeyboardKeyMap.h in Headers */,
 				4069E7A31E68042E00C1C832 /* _XCTestObservationCenterImplementation.h in Headers */,
 				4069E7EF1E68042E00C1C832 /* XCTUIApplicationMonitor-Protocol.h in Headers */,
 				4069E7EC1E68042E00C1C832 /* XCTRunnerIDESession.h in Headers */,
 				4069E7F31E68042E00C1C832 /* XCTWaiterManagement-Protocol.h in Headers */,
-				401AB09A1EB212CF00CC1046 /* RandomAction.h in Headers */,
 				4069E7C21E68042E00C1C832 /* XCSourceCodeTreeNode.h in Headers */,
 				4069E7E01E68042E00C1C832 /* XCTestProbe.h in Headers */,
 				4069E7D61E68042E00C1C832 /* XCTestExpectationDelegate-Protocol.h in Headers */,
-				406477D71ECC490B006AB4AB /* NSMutableArray+Stack.h in Headers */,
 				4069E7B71E68042E00C1C832 /* XCDebugLogDelegate-Protocol.h in Headers */,
-				401AB06F1EB0C7C200CC1046 /* ElementTypeTransformer.h in Headers */,
 				4069E7AF1E68042E00C1C832 /* UISwipeGestureRecognizer-RecordingAdditions.h in Headers */,
 				4069E7E71E68042E00C1C832 /* XCTNSNotificationExpectation.h in Headers */,
-				404AF2AA1ECD819700DFC6BF /* WeightedMonkey.h in Headers */,
-				404F9E351EB2511C009CA2A1 /* Monkey+XCUITestPrivate.h in Headers */,
 				4069E79F1E68042E00C1C832 /* _XCTestCaseImplementation.h in Headers */,
 				4069E7C01E68042E00C1C832 /* XCPointerEventPath.h in Headers */,
 				4069E7A21E68042E00C1C832 /* _XCTestImplementation.h in Headers */,
@@ -1183,29 +1209,18 @@
 				4069E7C31E68042E00C1C832 /* XCSourceCodeTreeNodeEnumerator.h in Headers */,
 				4069E7E41E68042E00C1C832 /* XCTestWaiter.h in Headers */,
 				4069E7B41E68042E00C1C832 /* XCApplicationMonitor.h in Headers */,
-				4034E9741EE105570061AD95 /* XCTestDaemonsProxy.h in Headers */,
-				402AA1921EF0D1B700BAA800 /* XCTestCaseImplementationFailureHoldingProxy.h in Headers */,
-				402496401EE7A68000014AA6 /* XCUIElement+GGTyping.h in Headers */,
 				4069E7F61E68042E00C1C832 /* XCUIApplicationImpl.h in Headers */,
 				4069E7AA1E68042E00C1C832 /* NSValue-XCTestAdditions.h in Headers */,
-				402AA19A1EF0D68800BAA800 /* GGExceptionHandler.h in Headers */,
 				4069E7C41E68042E00C1C832 /* XCSymbolicationRecord.h in Headers */,
 				4069E79D1E68042E00C1C832 /* _XCKVOExpectationImplementation.h in Headers */,
 				4069E7CD1E68042E00C1C832 /* XCTestCase.h in Headers */,
 				4069E7F41E68042E00C1C832 /* XCTWaiterManager.h in Headers */,
 				4069E7DD1E68042E00C1C832 /* XCTestObservation-Protocol.h in Headers */,
-				406477DF1ECD3554006AB4AB /* SmartMonkey.h in Headers */,
 				4069E7D01E68042E00C1C832 /* XCTestConfiguration.h in Headers */,
-				401AB0741EB0DDBE00CC1046 /* XCUIApplication+Monkey.h in Headers */,
 				4069E7ED1E68042E00C1C832 /* XCTTestRunSession.h in Headers */,
-				40E1B8431EB10802000EBEAA /* ClassPathItem.h in Headers */,
 				4069E7CE1E68042E00C1C832 /* XCTestCaseRun.h in Headers */,
-				40E4B9EC1EB320B800F8C230 /* MathUtils.h in Headers */,
-				404F9E381EB25E0E009CA2A1 /* Macros.h in Headers */,
-				4069E7301E67FC2800C1C832 /* Monkey.h in Headers */,
 				4069E7C11E68042E00C1C832 /* XCSourceCodeRecording.h in Headers */,
 				4069E7F91E68042E00C1C832 /* XCUIDevice.h in Headers */,
-				406477DB1ECD34F0006AB4AB /* SmartMonkey+UIChangeDelegate.h in Headers */,
 				4069E8001E68042E00C1C832 /* XCUIRecorderTimingMessage.h in Headers */,
 				4069E7A11E68042E00C1C832 /* _XCTestExpectationImplementation.h in Headers */,
 				4069E7F01E68042E00C1C832 /* XCTWaiter.h in Headers */,
@@ -1213,8 +1228,6 @@
 				4069E7BA1E68042E00C1C832 /* XCEventGenerator.h in Headers */,
 				4069E7D11E68042E00C1C832 /* XCTestContext.h in Headers */,
 				4069E7B61E68042E00C1C832 /* XCAXClient_iOS.h in Headers */,
-				401AB0671EB0BADF00CC1046 /* Tree.h in Headers */,
-				40E1B8471EB11473000EBEAA /* NSMutableArray+Reverse.h in Headers */,
 				4069E7F51E68042E00C1C832 /* XCUIApplication.h in Headers */,
 				4069E7CC1E68042E00C1C832 /* XCTest.h in Headers */,
 				4069E7FD1E68042E00C1C832 /* XCUIElementQuery.h in Headers */,
@@ -1223,20 +1236,16 @@
 				4069E7FB1E68042E00C1C832 /* XCUIElementAsynchronousHandlerWrapper.h in Headers */,
 				4069E7DB1E68042E00C1C832 /* XCTestManager_TestsInterface-Protocol.h in Headers */,
 				4069E7A61E68042E00C1C832 /* _XCTNSPredicateExpectationImplementation.h in Headers */,
-				4034E9631EDFEF800061AD95 /* UIViewTree.h in Headers */,
 				4069E7B51E68042E00C1C832 /* XCApplicationQuery.h in Headers */,
 				4069E7FC1E68042E00C1C832 /* XCUIElementHitPointCoordinate.h in Headers */,
 				4069E7A51E68042E00C1C832 /* _XCTNSNotificationExpectationImplementation.h in Headers */,
 				4069E7E11E68042E00C1C832 /* XCTestRun.h in Headers */,
 				4069E7C61E68042E00C1C832 /* XCSynthesizedEventRecord.h in Headers */,
-				4034E96E1EE105570061AD95 /* Keyboard.h in Headers */,
 				4069E7CB1E68042E00C1C832 /* XCTDarwinNotificationExpectation.h in Headers */,
 				4069E7F81E68042E00C1C832 /* XCUICoordinate.h in Headers */,
 				4069E7AC1E68042E00C1C832 /* UILongPressGestureRecognizer-RecordingAdditions.h in Headers */,
 				4069E79E1E68042E00C1C832 /* _XCTDarwinNotificationExpectationImplementation.h in Headers */,
-				4034E9781EE10EB80061AD95 /* RunLoopSpinner.h in Headers */,
 				4069E7FF1E68042E00C1C832 /* XCUIRecorderNodeFinderMatch.h in Headers */,
-				401AB06B1EB0BB3400CC1046 /* ElementInfo.h in Headers */,
 				4069E7F71E68042E00C1C832 /* XCUIApplicationProcess.h in Headers */,
 				4069E8011E68042E00C1C832 /* XCUIRecorderUtilities.h in Headers */,
 				4069E7D31E68042E00C1C832 /* XCTestDriver.h in Headers */,
@@ -1244,39 +1253,30 @@
 				4069E7B01E68042E00C1C832 /* UITapGestureRecognizer-RecordingAdditions.h in Headers */,
 				4069E7A01E68042E00C1C832 /* _XCTestCaseInterruptionException.h in Headers */,
 				4069E7E51E68042E00C1C832 /* XCTKVOExpectation.h in Headers */,
-				406477E21ECD42F0006AB4AB /* MonkeyAlgorithm.h in Headers */,
 				4069E7C51E68042E00C1C832 /* XCSymbolicatorHolder.h in Headers */,
-				40EBD3C21EB39E7300CD5050 /* AgentForHost.h in Headers */,
 				4069E7B11E68042E00C1C832 /* XCAccessibilityElement.h in Headers */,
 				4069E7AB1E68042E00C1C832 /* UIGestureRecognizer-RecordingAdditions.h in Headers */,
-				401AB09E1EB2152700CC1046 /* RegularAction.h in Headers */,
 				4069E7B81E68042E00C1C832 /* XCDeviceEvent.h in Headers */,
 				4069E7D91E68042E00C1C832 /* XCTestManager_IDEInterface-Protocol.h in Headers */,
 				4069E7C71E68042E00C1C832 /* XCTAsyncActivity-Protocol.h in Headers */,
 				4069E79C1E68042E00C1C832 /* _XCInternalTestRun.h in Headers */,
 				4069E7E31E68042E00C1C832 /* XCTestSuiteRun.h in Headers */,
-				4034E9701EE105570061AD95 /* MonkeyConfiguration.h in Headers */,
 				4069E7DE1E68042E00C1C832 /* XCTestObservationCenter.h in Headers */,
 				4069E7F11E68042E00C1C832 /* XCTWaiterDelegate-Protocol.h in Headers */,
 				4069E7CF1E68042E00C1C832 /* XCTestCaseSuite.h in Headers */,
 				4069E7A71E68042E00C1C832 /* _XCTWaiterImpl.h in Headers */,
-				40EBD3EE1EB41E7400CD5050 /* OCMonkeyLib.h in Headers */,
 				4069E7C91E68042E00C1C832 /* XCTAutomationTarget-Protocol.h in Headers */,
 				4069E7D71E68042E00C1C832 /* XCTestExpectationWaiter.h in Headers */,
 				4069E7BE1E68042E00C1C832 /* XCKeyMappingPath.h in Headers */,
-				40E1B83F1EB10783000EBEAA /* ClassPath.h in Headers */,
 				4069E7BB1E68042E00C1C832 /* XCKeyboardInputSolver.h in Headers */,
 				4069E7DA1E68042E00C1C832 /* XCTestManager_ManagerInterface-Protocol.h in Headers */,
-				402AA1961EF0D44900BAA800 /* GGTestCase.h in Headers */,
 				4069E7A41E68042E00C1C832 /* _XCTestSuiteImplementation.h in Headers */,
 				4069E7DC1E68042E00C1C832 /* XCTestMisuseObserver.h in Headers */,
 				4069E7D41E68042E00C1C832 /* XCTestDriverInterface-Protocol.h in Headers */,
-				40E1B83B1EB105D1000EBEAA /* ElementTree.h in Headers */,
 				4069E7B91E68042E00C1C832 /* XCElementSnapshot.h in Headers */,
 				4069E7EB1E68042E00C1C832 /* XCTRunnerDaemonSession.h in Headers */,
 				4069E7D21E68042E00C1C832 /* XCTestContextScope.h in Headers */,
 				4069E7B31E68042E00C1C832 /* XCApplicationMonitor_iOS.h in Headers */,
-				401AB0A21EB2188F00CC1046 /* Random.h in Headers */,
 				4069E7DF1E68042E00C1C832 /* XCTestObserver.h in Headers */,
 				4069E7E61E68042E00C1C832 /* XCTMetric.h in Headers */,
 			);
@@ -2065,7 +2065,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = MonkeyRunner/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -2370,7 +2370,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
