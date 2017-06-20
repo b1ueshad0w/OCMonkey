@@ -215,9 +215,9 @@ static NSArray * containers;
     }
     
     if (RandomZeroToOne < 0.3) {
-        [self dragFrom:start to:end duration:0 velocity:2000];  // fetch new data
+        [Monkey dragFrom:start to:end duration:0 velocity:2000];  // fetch new data
     } else {
-        [self dragFrom:end to:start duration:0 velocity:2000];  // show more cells
+        [Monkey dragFrom:end to:start duration:0 velocity:2000];  // show more cells
     }
 }
 

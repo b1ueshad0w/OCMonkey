@@ -15,8 +15,11 @@
 -(void)addMonkeyLeafElementAction:(int)weight;
 -(void)tap:(CGPoint)location;
 -(void)tapElement:(Tree *)element;
--(void)dragFrom:(CGPoint)start to:(CGPoint)end;
--(void)dragFrom:(CGPoint)start to:(CGPoint)end duration:(double)duration velocity:(double)velocity;
++(void)dragFrom:(CGPoint)start to:(CGPoint)end;
++(void)dragFrom:(CGPoint)start to:(CGPoint)end duration:(double)duration velocity:(double)velocity;
++(void)swipeUpFrame:(CGRect)frame;
++(void)swipeDownFrame:(CGRect)frame;
++(void)swipeFrom:(CGPoint)start to:(CGPoint)end;
 -(void)goBackByDragFromScreenLeftEdgeToRight;
 -(void)goBackByDragFromScreenLeftEdgeToRightForduration:(double)duration velocity:(double)velocity;
 -(void)swipeVertically:(BOOL)reversed;

@@ -116,7 +116,7 @@ UIInterfaceOrientation orientationValue = UIInterfaceOrientationPortrait;
     [self addAction:^(void){
         CGPoint start = [weakSelf randomPointAvoidingPanelAreas];
         CGPoint end = [weakSelf randomPoint];
-        [weakSelf dragFrom:start to:end];
+        [Monkey dragFrom:start to:end];
     } withWeight:weight];
 }
 
@@ -235,7 +235,7 @@ UIInterfaceOrientation orientationValue = UIInterfaceOrientationPortrait;
     CGFloat halfHeight = self.screenFrame.size.height / 2;
     CGPoint start = CGPointMake(0, halfHeight);
     CGPoint end = CGPointMake(self.screenFrame.size.width - 10, halfHeight);
-    [self dragFrom:start to:end duration:0 velocity:2000];
+    [Monkey dragFrom:start to:end duration:0 velocity:2000];
 }
 
 -(void)goBackByDragFromScreenLeftEdgeToRightForduration:(double)duration velocity:(double)velocity
@@ -243,34 +243,44 @@ UIInterfaceOrientation orientationValue = UIInterfaceOrientationPortrait;
     CGFloat halfHeight = self.screenFrame.size.height / 2;
     CGPoint start = CGPointMake(0, halfHeight);
     CGPoint end = CGPointMake(self.screenFrame.size.width - 10, halfHeight);
-    [self dragFrom:start to:end duration:duration velocity:velocity];
+    [Monkey dragFrom:start to:end duration:duration velocity:velocity];
 }
 
--(void)swipeVertically
+-(void)swipeDown
 {
-    [self swipeVertically:NO];
+    [Monkey swipeDownFrame:self.screenFrame];
 }
 
--(void)swipeVerticallyReversed
+-(void)swipeUp
 {
-    [self swipeVertically:YES];
-}
-
--(void)swipeVertically:(BOOL)reversed
-{
-    CGFloat halfWidth = self.screenFrame.size.width /2;
-    CGPoint start = CGPointMake(halfWidth, self.screenFrame.size.height / 5);
-    CGPoint end = CGPointMake(halfWidth, self.screenFrame.size.height / 5 * 4);
-    if (reversed) {
-        [self swipeFrom:end to:start];
-    } else {
-        [self swipeFrom:start to:end];
-    }
+    [Monkey swipeUpFrame:self.screenFrame];
 }
 
 #pragma mark basic actions
 
--(void)dragFrom:(CGPoint)start to:(CGPoint)end
++(void)swipeUpFrame:(CGRect)frame
+{
+    [Monkey swipeFrame:frame vertically:NO];
+}
+
++(void)swipeDownFrame:(CGRect)frame
+{
+    [Monkey swipeFrame:frame vertically:YES];
+}
+
++(void)swipeFrame:(CGRect)frame vertically:(BOOL)reversed
+{
+    CGFloat halfWidth = frame.size.width /2;
+    CGPoint start = CGPointMake(halfWidth, frame.size.height / 5);
+    CGPoint end = CGPointMake(halfWidth, frame.size.height / 5 * 4);
+    if (reversed) {
+        [Monkey swipeFrom:start to:end];
+    } else {
+        [Monkey swipeFrom:end to:start];
+    }
+}
+
++(void)dragFrom:(CGPoint)start to:(CGPoint)end
 {
     dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
     [[XCEventGenerator sharedGenerator] pressAtPoint:start
@@ -288,9 +298,9 @@ UIInterfaceOrientation orientationValue = UIInterfaceOrientationPortrait;
     dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
 }
 
--(void)swipeFrom:(CGPoint)start to:(CGPoint)end
++(void)swipeFrom:(CGPoint)start to:(CGPoint)end
 {
-    [self dragFrom:start to:end duration:0 velocity:4000];
+    [Monkey dragFrom:start to:end duration:0 velocity:4000];
 }
 
 
@@ -302,7 +312,7 @@ UIInterfaceOrientation orientationValue = UIInterfaceOrientationPortrait;
  @param duration duration for pressing start point
  @param velocity drag speed (normal value: 1000, for swipe usage: 2000)
  */
--(void)dragFrom:(CGPoint)start to:(CGPoint)end duration:(double)duration velocity:(double)velocity
++(void)dragFrom:(CGPoint)start to:(CGPoint)end duration:(double)duration velocity:(double)velocity
 {
     dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
     [[XCEventGenerator sharedGenerator] pressAtPoint:start
