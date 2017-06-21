@@ -64,7 +64,7 @@ static NSArray * containers;
     return self;
 }
 
--(void)registerAction:(id)callback forVC:(NSString *)vc
+-(void)registerAction:(VCCallback)callback forVC:(NSString *)vc
 {
     [_vcCallbacks setObject:callback forKey:vc];
 }

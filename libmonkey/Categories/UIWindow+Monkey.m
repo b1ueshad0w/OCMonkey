@@ -36,7 +36,7 @@
 {
 //    NSString *selStr = NSStringFromSelector(_cmd);
     NSString *selStr = @"setRootViewController:";
-    NSArray<NSString *> *args = @[self.shortDescription, vc.description];
+    NSArray<NSString *> *args = @[self.shortDescription, vc ? vc.description : [NSNull null]];
     [[Outlet sharedOutlet] sendJSON:@{@"class": @"UIWindow",
                                       @"selector": NSStringFromSelector(_cmd),
                                       @"args": args}];
