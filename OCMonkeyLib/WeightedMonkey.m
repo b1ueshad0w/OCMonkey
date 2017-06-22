@@ -134,7 +134,7 @@ static NSArray * containers;
     }
     
     if (![elements count]) {
-        [self tap:[self randomPoint]];
+        [Monkey tapAtLocation:[self randomPoint]];
         return;
     }
     
@@ -176,11 +176,11 @@ static NSArray * containers;
 {
     XCUIElementType elementType = element.data.elementType;
     if (elementType == XCUIElementTypeTextField || elementType == XCUIElementTypeSearchField || elementType == XCUIElementTypeTextView) {
-        [self tapElement:element];
+        [Monkey tapElement:element];
         [Keyboard typeText:[Random randomString] error:nil];
         return;
     }
-    [self tapElement:element];
+    [Monkey tapElement:element];
 }
 
 -(void)scrollContainer:(ElementTree *)container
@@ -229,7 +229,7 @@ static NSArray * containers;
 -(void)goBack
 {
     NSUInteger stackLength = self.stackDepth;
-    [self goBackByDragFromScreenLeftEdgeToRight];
+    [Monkey swipeRightThroughFrame:self.screenFrame];
     if (self.stackDepth < stackLength)
         return;
     
@@ -245,7 +245,7 @@ static NSArray * containers;
     }
     
     CGPoint backButton = CGPointMake(40, 42);
-    [self tap:backButton];
+    [Monkey tapAtLocation:backButton];
     if (self.stackDepth < stackLength)
         return;
     

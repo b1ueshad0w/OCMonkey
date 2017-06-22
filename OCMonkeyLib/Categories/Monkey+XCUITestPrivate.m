@@ -26,6 +26,8 @@ UIInterfaceOrientation orientationValue = UIInterfaceOrientationPortrait;
 
 @implementation Monkey (XCUITestPrivate)
 
+#pragma mark Configure Monkey Event Types and Weights
+
 -(void)addDefaultXCTestPrivateActions
 {
     [self addXCTestTapAction:25];
@@ -37,12 +39,14 @@ UIInterfaceOrientation orientationValue = UIInterfaceOrientationPortrait;
     [self addMonkeyLeafElementAction:25];
 }
 
+
 -(void)addXCTestTapAction:(double)weight
 {
     [self addXCTestTapAction:weight
       multipleTapProbability:0.05
     multipleTouchProbability:0.05];
 }
+
 
 /**
  For testing Monkey methods:
@@ -55,10 +59,11 @@ UIInterfaceOrientation orientationValue = UIInterfaceOrientationPortrait;
     [self addAction:^(void){
         CGPoint point = [weakSelf randomPointInRect:rect];
         NSArray *locations = @[[NSValue valueWithCGPoint:point]];
-        [weakSelf tapAtTouchLocations:locations numberOfTaps:1 orientation:orientationValue];
+        [Monkey tapAtTouchLocations:locations numberOfTaps:1 orientation:orientationValue];
     }    withWeight:weight];
 
 }
+
 
 -(void)addXCTestTapAction:(double)weight
    multipleTapProbability:(double)multiTap
@@ -87,9 +92,10 @@ UIInterfaceOrientation orientationValue = UIInterfaceOrientationPortrait;
             [locations addObject:[NSValue valueWithCGPoint:point]];
             // [GGLogger logFmt:@"point: {%.1f, %.1f}", point.x, point.y);
         }
-        [weakSelf tapAtTouchLocations:locations numberOfTaps:numberOfTaps orientation:orientationValue];
+        [Monkey tapAtTouchLocations:locations numberOfTaps:numberOfTaps orientation:orientationValue];
     }    withWeight:weight];
 }
+
 
 -(void)addXCTestLongPressAction:(int)weight
 {
@@ -110,6 +116,7 @@ UIInterfaceOrientation orientationValue = UIInterfaceOrientationPortrait;
     } withWeight:weight];
 }
 
+
 -(void)addXCTestDragAction:(int)weight
 {
     __typeof__(self) __weak weakSelf = self;
@@ -119,6 +126,7 @@ UIInterfaceOrientation orientationValue = UIInterfaceOrientationPortrait;
         [Monkey dragFrom:start to:end];
     } withWeight:weight];
 }
+
 
 -(void)addXCTestPinchCloseAction:(int)weight
 {
@@ -142,6 +150,7 @@ UIInterfaceOrientation orientationValue = UIInterfaceOrientationPortrait;
     } withWeight:weight];
 }
 
+
 -(void)addXCTestPinchOpenAction:(int)weight
 {
     __typeof__(self) __weak weakSelf = self;
@@ -163,6 +172,7 @@ UIInterfaceOrientation orientationValue = UIInterfaceOrientationPortrait;
         dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
     } withWeight:weight];
 }
+
 
 -(void)addXCTestRotateAction:(int)weight
 {
@@ -187,7 +197,6 @@ UIInterfaceOrientation orientationValue = UIInterfaceOrientationPortrait;
 }
 
 
-
 -(void)addMonkeyLeafElementAction:(int)weight
 {
     __typeof__(self) __weak weakSelf = self;
@@ -196,20 +205,41 @@ UIInterfaceOrientation orientationValue = UIInterfaceOrientationPortrait;
     } withWeight:weight];
 }
 
--(void)tapElement:(Tree *)element
+
+-(void)performActionRandomLeafElement
+{
+    Tree *tree = [self.testedApp tree];
+    NSArray<Tree *> *leaves = [tree leaves];
+    Tree *leafChosen = leaves[arc4random() % leaves.count];
+    //    Tree *leafChosen = leaves[0];
+    [GGLogger logFmt:@"Chosen element: id: %@ data: %@", leafChosen.identifier, leafChosen.data];
+    //    [GGLogger logFmt:@"tree: %@", tree);
+    //    for (Tree *leaf in leaves) {
+    //        [GGLogger logFmt:@"leaf: %@ %@", leaf.identifier, leaf.data);
+    //    }
+    
+    [Monkey tapElement:leafChosen];
+}
+
+
+#pragma mark Tap
+
++(void)tapElement:(Tree *)element
 {
     CGPoint center = getRectCenter(((ElementInfo*)element.data).frame);
-    [self tap:center];
+    [Monkey tapAtLocation:center];
 }
 
--(void)tap:(CGPoint)location
+
++(void)tapAtLocation:(CGPoint)location
 {
-    [self tapAtTouchLocations:@[[NSValue valueWithCGPoint:location]]
-                 numberOfTaps:1
-                  orientation:orientationValue];
+    [Monkey tapAtTouchLocations:@[[NSValue valueWithCGPoint:location]]
+                   numberOfTaps:1
+                    orientation:orientationValue];
 }
 
--(void)tapAtTouchLocations:(NSArray *)locations
+
++(void)tapAtTouchLocations:(NSArray *)locations
               numberOfTaps:(int)taps
                orientation:(UIInterfaceOrientation)orientationValue
 {
@@ -228,40 +258,31 @@ UIInterfaceOrientation orientationValue = UIInterfaceOrientationPortrait;
     dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
 }
 
-#pragma mark high level actions
+#pragma mark Swipe
 
--(void)goBackByDragFromScreenLeftEdgeToRight
++(void)swipeRightThroughFrame:(CGRect)frame
 {
-    CGFloat halfHeight = self.screenFrame.size.height / 2;
+    CGFloat halfHeight = frame.size.height / 2;
     CGPoint start = CGPointMake(0, halfHeight);
-    CGPoint end = CGPointMake(self.screenFrame.size.width - 10, halfHeight);
+    CGPoint end = CGPointMake(frame.size.width - 10, halfHeight);
     [Monkey dragFrom:start to:end duration:0 velocity:2000];
 }
 
--(void)goBackByDragFromScreenLeftEdgeToRightForduration:(double)duration velocity:(double)velocity
+
++(void)swipeRightThroughFrame:(CGRect)frame forDuration:(double)duration velocity:(double)velocity
 {
-    CGFloat halfHeight = self.screenFrame.size.height / 2;
+    CGFloat halfHeight = frame.size.height / 2;
     CGPoint start = CGPointMake(0, halfHeight);
-    CGPoint end = CGPointMake(self.screenFrame.size.width - 10, halfHeight);
+    CGPoint end = CGPointMake(frame.size.width - 10, halfHeight);
     [Monkey dragFrom:start to:end duration:duration velocity:velocity];
 }
 
--(void)swipeDown
-{
-    [Monkey swipeDownFrame:self.screenFrame];
-}
-
--(void)swipeUp
-{
-    [Monkey swipeUpFrame:self.screenFrame];
-}
-
-#pragma mark basic actions
 
 +(void)swipeUpFrame:(CGRect)frame
 {
     [Monkey swipeFrame:frame vertically:NO];
 }
+
 
 +(void)swipeDownFrame:(CGRect)frame
 {
@@ -279,6 +300,15 @@ UIInterfaceOrientation orientationValue = UIInterfaceOrientationPortrait;
         [Monkey swipeFrom:end to:start];
     }
 }
+
+
++(void)swipeFrom:(CGPoint)start to:(CGPoint)end
+{
+    [Monkey dragFrom:start to:end duration:0 velocity:4000];
+}
+
+
+#pragma mark Drag
 
 +(void)dragFrom:(CGPoint)start to:(CGPoint)end
 {
@@ -298,20 +328,7 @@ UIInterfaceOrientation orientationValue = UIInterfaceOrientationPortrait;
     dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
 }
 
-+(void)swipeFrom:(CGPoint)start to:(CGPoint)end
-{
-    [Monkey dragFrom:start to:end duration:0 velocity:4000];
-}
 
-
-/**
- Drag action.
-
- @param start start location
- @param end end location
- @param duration duration for pressing start point
- @param velocity drag speed (normal value: 1000, for swipe usage: 2000)
- */
 +(void)dragFrom:(CGPoint)start to:(CGPoint)end duration:(double)duration velocity:(double)velocity
 {
     dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
@@ -329,23 +346,6 @@ UIInterfaceOrientation orientationValue = UIInterfaceOrientationPortrait;
                                              }];
     dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
 }
-
-
--(void)performActionRandomLeafElement
-{
-    Tree *tree = [self.testedApp tree];
-    NSArray<Tree *> *leaves = [tree leaves];
-    Tree *leafChosen = leaves[arc4random() % leaves.count];
-    //    Tree *leafChosen = leaves[0];
-    [GGLogger logFmt:@"Chosen element: id: %@ data: %@", leafChosen.identifier, leafChosen.data];
-    //    [GGLogger logFmt:@"tree: %@", tree);
-    //    for (Tree *leaf in leaves) {
-    //        [GGLogger logFmt:@"leaf: %@ %@", leaf.identifier, leaf.data);
-    //    }
-    
-    [self tapElement:leafChosen];
-}
-
 
 
 @end
