@@ -9,6 +9,7 @@
 #import "MonkeyConfiguration.h"
 
 static NSUInteger MonkeyMaxTypingFrequency = 60;
+static BOOL MonkeyShouldUseTestManagerForVisibilityDetection = NO;
 
 @implementation MonkeyConfiguration
 
@@ -25,6 +26,11 @@ static NSUInteger MonkeyMaxTypingFrequency = 60;
 + (BOOL)verboseLoggingEnabled
 {
   return [NSProcessInfo.processInfo.environment[@"VERBOSE_LOGGING"] boolValue];
+}
+
++ (BOOL)shouldUseTestManagerForVisibilityDetection
+{
+    return MonkeyShouldUseTestManagerForVisibilityDetection;
 }
 
 @end

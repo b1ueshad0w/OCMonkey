@@ -196,6 +196,10 @@
 		407B10551E893B0E00C2E93D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 407B10531E893B0E00C2E93D /* LaunchScreen.storyboard */; };
 		407B105A1E893B6300C2E93D /* OCMonkeyPaws.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 407B10261E89390600C2E93D /* OCMonkeyPaws.framework */; };
 		407B105C1E893CD000C2E93D /* OCMonkeyPaws.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 407B10261E89390600C2E93D /* OCMonkeyPaws.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		408422441EFB882400FD6283 /* GGSpringboardApplication.h in Headers */ = {isa = PBXBuildFile; fileRef = 408422421EFB882400FD6283 /* GGSpringboardApplication.h */; };
+		408422451EFB882400FD6283 /* GGSpringboardApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = 408422431EFB882400FD6283 /* GGSpringboardApplication.m */; };
+		408422481EFB8F9C00FD6283 /* XCUIElement+GGIsVisible.h in Headers */ = {isa = PBXBuildFile; fileRef = 408422461EFB8F9C00FD6283 /* XCUIElement+GGIsVisible.h */; };
+		408422491EFB8F9C00FD6283 /* XCUIElement+GGIsVisible.m in Sources */ = {isa = PBXBuildFile; fileRef = 408422471EFB8F9C00FD6283 /* XCUIElement+GGIsVisible.m */; };
 		40A3F5601EEE7C4200D03FC3 /* Peertalk.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 40F0E58C1EEE762100A82E4E /* Peertalk.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		40A3F5841EEFDA6C00D03FC3 /* Peertalk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40F0E58C1EEE762100A82E4E /* Peertalk.framework */; };
 		40A3F5851EEFDA7E00D03FC3 /* Peertalk.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 40F0E58C1EEE762100A82E4E /* Peertalk.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -626,6 +630,10 @@
 		407B10511E893B0E00C2E93D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		407B10541E893B0E00C2E93D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		407B10561E893B0E00C2E93D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		408422421EFB882400FD6283 /* GGSpringboardApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGSpringboardApplication.h; sourceTree = "<group>"; };
+		408422431EFB882400FD6283 /* GGSpringboardApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGSpringboardApplication.m; sourceTree = "<group>"; };
+		408422461EFB8F9C00FD6283 /* XCUIElement+GGIsVisible.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "XCUIElement+GGIsVisible.h"; sourceTree = "<group>"; };
+		408422471EFB8F9C00FD6283 /* XCUIElement+GGIsVisible.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "XCUIElement+GGIsVisible.m"; sourceTree = "<group>"; };
 		40AC9F801ED5302500CF6860 /* UIWindow+Monkey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWindow+Monkey.h"; sourceTree = "<group>"; };
 		40AC9F811ED5302500CF6860 /* UIWindow+Monkey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWindow+Monkey.m"; sourceTree = "<group>"; };
 		40AE4DFC1EB826DF006A13C5 /* swizzle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = swizzle.m; sourceTree = "<group>"; };
@@ -755,6 +763,8 @@
 				406477D21ECC3B1D006AB4AB /* NSMutableArray+Queue.m */,
 				406477D51ECC490B006AB4AB /* NSMutableArray+Stack.h */,
 				406477D61ECC490B006AB4AB /* NSMutableArray+Stack.m */,
+				408422461EFB8F9C00FD6283 /* XCUIElement+GGIsVisible.h */,
+				408422471EFB8F9C00FD6283 /* XCUIElement+GGIsVisible.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -845,6 +855,8 @@
 				404AF2A61ECD457200DFC6BF /* MonkeyAlgorithm.m */,
 				4034E9611EDFEF800061AD95 /* UIViewTree.h */,
 				4034E9621EDFEF800061AD95 /* UIViewTree.m */,
+				408422421EFB882400FD6283 /* GGSpringboardApplication.h */,
+				408422431EFB882400FD6283 /* GGSpringboardApplication.m */,
 			);
 			path = OCMonkeyLib;
 			sourceTree = "<group>";
@@ -1170,6 +1182,7 @@
 				4034E9701EE105570061AD95 /* MonkeyConfiguration.h in Headers */,
 				40E1B83F1EB10783000EBEAA /* ClassPath.h in Headers */,
 				40E1B83B1EB105D1000EBEAA /* ElementTree.h in Headers */,
+				408422481EFB8F9C00FD6283 /* XCUIElement+GGIsVisible.h in Headers */,
 				401AB0A21EB2188F00CC1046 /* Random.h in Headers */,
 				404F9E311EB24ED1009CA2A1 /* Monkey+XCUITest.h in Headers */,
 				404F9E351EB2511C009CA2A1 /* Monkey+XCUITestPrivate.h in Headers */,
@@ -1213,6 +1226,7 @@
 				4069E7AA1E68042E00C1C832 /* NSValue-XCTestAdditions.h in Headers */,
 				4069E7C41E68042E00C1C832 /* XCSymbolicationRecord.h in Headers */,
 				4069E79D1E68042E00C1C832 /* _XCKVOExpectationImplementation.h in Headers */,
+				408422441EFB882400FD6283 /* GGSpringboardApplication.h in Headers */,
 				4069E7CD1E68042E00C1C832 /* XCTestCase.h in Headers */,
 				4069E7F41E68042E00C1C832 /* XCTWaiterManager.h in Headers */,
 				4069E7DD1E68042E00C1C832 /* XCTestObservation-Protocol.h in Headers */,
@@ -1694,6 +1708,7 @@
 				40E4B9EE1EB320D300F8C230 /* MathUtils.m in Sources */,
 				404F9E361EB2511C009CA2A1 /* Monkey+XCUITestPrivate.m in Sources */,
 				404F9E321EB24ED1009CA2A1 /* Monkey+XCUITest.m in Sources */,
+				408422491EFB8F9C00FD6283 /* XCUIElement+GGIsVisible.m in Sources */,
 				402AA19B1EF0D68800BAA800 /* GGExceptionHandler.m in Sources */,
 				4034E9641EDFEF800061AD95 /* UIViewTree.m in Sources */,
 				401AB0681EB0BADF00CC1046 /* Tree.m in Sources */,
@@ -1709,6 +1724,7 @@
 				406477D41ECC3B1D006AB4AB /* NSMutableArray+Queue.m in Sources */,
 				40E1B8481EB11473000EBEAA /* NSMutableArray+Reverse.m in Sources */,
 				401AB0701EB0C7C200CC1046 /* ElementTypeTransformer.m in Sources */,
+				408422451EFB882400FD6283 /* GGSpringboardApplication.m in Sources */,
 				40E1B8441EB10802000EBEAA /* ClassPathItem.m in Sources */,
 				4034E9711EE105570061AD95 /* MonkeyConfiguration.m in Sources */,
 				401AB06C1EB0BB3400CC1046 /* ElementInfo.m in Sources */,

@@ -14,4 +14,6 @@
 
 + (BOOL)verboseLoggingEnabled;
 
++ (BOOL)shouldUseTestManagerForVisibilityDetection;
+
 @end
