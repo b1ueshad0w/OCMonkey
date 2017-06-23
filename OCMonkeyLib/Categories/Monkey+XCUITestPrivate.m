@@ -17,6 +17,12 @@
 #import "ElementInfo.h"
 #import "GGLogger.h"
 
+#import "XCPointerEventPath.h"
+#import "XCSynthesizedEventRecord.h"
+#import "XCTestDaemonsProxy.h"
+#import "XCTestManager_ManagerInterface-Protocol.h"
+#import "RunLoopSpinner.h"
+
 UIInterfaceOrientation orientationValue = UIInterfaceOrientationPortrait;
 
 @interface Monkey ()
@@ -347,5 +353,25 @@ UIInterfaceOrientation orientationValue = UIInterfaceOrientationPortrait;
     dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
 }
 
+
+#pragma mark low level
+
+-(void)dragFrom:(CGPoint)start AtOffset:(double)a to:(CGPoint)end AtOffset:(double)b liftUpAtOffset3:(double)c
+{
+    XCPointerEventPath *path = [[XCPointerEventPath alloc] initForTouchAtPoint:start offset:a];
+    [path moveToPoint:end atOffset:b];
+    [path liftUpAtOffset:c];
+    XCSynthesizedEventRecord *record = [[XCSynthesizedEventRecord alloc] initWithName:@"gogle swipe" interfaceOrientation:UIInterfaceOrientationPortrait];
+    [record addPointerEventPath:path];
+    [RunLoopSpinner spinUntilCompletion:^(void(^completion)()){
+        [[XCTestDaemonsProxy testRunnerProxy] _XCT_synthesizeEvent:record completion:^(NSError *error) {
+            NSLog(@"error: %@", error);
+            if (error) {
+                [GGLogger logFmt:@"Operation failed: %@", error];
+            }
+            completion();
+        }];
+    }];
+}
 
 @end
