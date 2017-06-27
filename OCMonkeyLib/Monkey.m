@@ -222,13 +222,15 @@
     return CGRectMake(x0, y0, size, size);
 }
 
--(XCUIApplication *)activeApplication
++(XCUIApplication *)activeApplication
 {
     XCAccessibilityElement *activeApplicationElement = [[[XCAXClient_iOS sharedClient] activeApplications] firstObject];
     if (!activeApplicationElement) {
         return nil;
     }
     XCUIApplication *application = [XCUIApplication appWithPID:activeApplicationElement.processIdentifier];
+    [application query];
+    [application resolve];
     return application;
 }
 

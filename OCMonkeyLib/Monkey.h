@@ -27,6 +27,7 @@
 -(CGPoint)randomPointAvoidingPanelAreas;
 -(CGRect)randomRect;
 -(CGRect)randomRectWithSizeFraction:(CGFloat)sizeFraction;
++(XCUIApplication *)activeApplication;
 
 @property (readonly) int actionCounter;
 @property (readonly, nonatomic) NSString *testedAppBundleID;
