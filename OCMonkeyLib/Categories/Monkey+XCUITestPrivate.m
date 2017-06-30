@@ -9,7 +9,7 @@
 #import "Monkey+XCUITestPrivate.h"
 #import "XCEventGenerator.h"
 #import "XCUIApplication.h"
-#import "XCUIApplication+Monkey.h"
+#import "XCUIElement+Tree.h"
 #import "Macros.h"
 #import "MathUtils.h"
 #import "Monkey.h"
@@ -214,9 +214,9 @@ UIInterfaceOrientation orientationValue = UIInterfaceOrientationPortrait;
 
 -(void)performActionRandomLeafElement
 {
-    Tree *tree = [self.testedApp tree];
-    NSArray<Tree *> *leaves = [tree leaves];
-    Tree *leafChosen = leaves[arc4random() % leaves.count];
+    ElementTree *tree = [self.testedApp tree];
+    ElementTreeArray *leaves = [tree leaves];
+    ElementTree *leafChosen = leaves[arc4random() % leaves.count];
     //    Tree *leafChosen = leaves[0];
     [GGLogger logFmt:@"Chosen element: id: %@ data: %@", leafChosen.identifier, leafChosen.data];
     //    [GGLogger logFmt:@"tree: %@", tree);
@@ -224,18 +224,11 @@ UIInterfaceOrientation orientationValue = UIInterfaceOrientationPortrait;
     //        [GGLogger logFmt:@"leaf: %@ %@", leaf.identifier, leaf.data);
     //    }
     
-    [Monkey tapElement:leafChosen];
+    [leafChosen tap];
 }
 
 
 #pragma mark Tap
-
-+(void)tapElement:(Tree *)element
-{
-    CGPoint center = getRectCenter(((ElementInfo*)element.data).frame);
-    [Monkey tapAtLocation:center];
-}
-
 
 +(void)tapAtLocation:(CGPoint)location
 {

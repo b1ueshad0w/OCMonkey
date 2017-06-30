@@ -1,17 +1,17 @@
 //
-//  XCUIApplication+Monkey.m
+//  XCUIElement+Tree.h
 //  OCMonkey
 //
 //  Created by gogleyin on 26/04/2017.
 //
 //
 
-#import "XCUIApplication+Monkey.h"
+#import "XCUIElement+Tree.h"
 #import "XCElementSnapshot.h"
-#import "XCUIApplication.h"
+#import "XCUIElement.h"
 #import "ElementInfo.h"
 
-@implementation XCUIApplication (Monkey)
+@implementation XCUIElement (Monkey)
 
 -(ElementTree *)tree
 {
@@ -21,7 +21,7 @@
     return root;
 }
 
--(void)buildTree:(Tree *)root forElement:(XCElementSnapshot *)snapshot
+-(void)buildTree:(ElementTree *)root forElement:(XCElementSnapshot *)snapshot
 {
     for (XCElementSnapshot *childSnapshot in snapshot.children) {
         [root appendChildWithData:[[ElementInfo alloc] initWithSnapshot:childSnapshot]];

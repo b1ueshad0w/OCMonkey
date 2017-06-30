@@ -21,8 +21,6 @@
 		401AB06C1EB0BB3400CC1046 /* ElementInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 401AB06A1EB0BB3400CC1046 /* ElementInfo.m */; };
 		401AB06F1EB0C7C200CC1046 /* ElementTypeTransformer.h in Headers */ = {isa = PBXBuildFile; fileRef = 401AB06D1EB0C7C200CC1046 /* ElementTypeTransformer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		401AB0701EB0C7C200CC1046 /* ElementTypeTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 401AB06E1EB0C7C200CC1046 /* ElementTypeTransformer.m */; };
-		401AB0741EB0DDBE00CC1046 /* XCUIApplication+Monkey.h in Headers */ = {isa = PBXBuildFile; fileRef = 401AB0721EB0DDBE00CC1046 /* XCUIApplication+Monkey.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		401AB0751EB0DDBE00CC1046 /* XCUIApplication+Monkey.m in Sources */ = {isa = PBXBuildFile; fileRef = 401AB0731EB0DDBE00CC1046 /* XCUIApplication+Monkey.m */; };
 		401AB09A1EB212CF00CC1046 /* RandomAction.h in Headers */ = {isa = PBXBuildFile; fileRef = 401AB0981EB212CF00CC1046 /* RandomAction.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		401AB09B1EB212CF00CC1046 /* RandomAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 401AB0991EB212CF00CC1046 /* RandomAction.m */; };
 		401AB09E1EB2152700CC1046 /* RegularAction.h in Headers */ = {isa = PBXBuildFile; fileRef = 401AB09C1EB2152700CC1046 /* RegularAction.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -201,6 +199,12 @@
 		408422451EFB882400FD6283 /* GGSpringboardApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = 408422431EFB882400FD6283 /* GGSpringboardApplication.m */; };
 		408422481EFB8F9C00FD6283 /* XCUIElement+GGIsVisible.h in Headers */ = {isa = PBXBuildFile; fileRef = 408422461EFB8F9C00FD6283 /* XCUIElement+GGIsVisible.h */; };
 		408422491EFB8F9C00FD6283 /* XCUIElement+GGIsVisible.m in Sources */ = {isa = PBXBuildFile; fileRef = 408422471EFB8F9C00FD6283 /* XCUIElement+GGIsVisible.m */; };
+		40895E1E1F0386A200C00E82 /* XCUIElement+Tree.m in Sources */ = {isa = PBXBuildFile; fileRef = 40895E1C1F0386A200C00E82 /* XCUIElement+Tree.m */; };
+		40895E1F1F0386A200C00E82 /* XCUIElement+Tree.h in Headers */ = {isa = PBXBuildFile; fileRef = 40895E1D1F0386A200C00E82 /* XCUIElement+Tree.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		40895E221F0388B800C00E82 /* GGApplication.h in Headers */ = {isa = PBXBuildFile; fileRef = 40895E201F0388B800C00E82 /* GGApplication.h */; };
+		40895E231F0388B800C00E82 /* GGApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = 40895E211F0388B800C00E82 /* GGApplication.m */; };
+		40895E261F051DA900C00E82 /* XCUIDevice+Monkey.h in Headers */ = {isa = PBXBuildFile; fileRef = 40895E241F051DA900C00E82 /* XCUIDevice+Monkey.h */; };
+		40895E271F051DA900C00E82 /* XCUIDevice+Monkey.m in Sources */ = {isa = PBXBuildFile; fileRef = 40895E251F051DA900C00E82 /* XCUIDevice+Monkey.m */; };
 		40A3F5601EEE7C4200D03FC3 /* Peertalk.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 40F0E58C1EEE762100A82E4E /* Peertalk.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		40A3F5841EEFDA6C00D03FC3 /* Peertalk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40F0E58C1EEE762100A82E4E /* Peertalk.framework */; };
 		40A3F5851EEFDA7E00D03FC3 /* Peertalk.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 40F0E58C1EEE762100A82E4E /* Peertalk.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -455,8 +459,6 @@
 		401AB06A1EB0BB3400CC1046 /* ElementInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ElementInfo.m; sourceTree = "<group>"; };
 		401AB06D1EB0C7C200CC1046 /* ElementTypeTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ElementTypeTransformer.h; sourceTree = "<group>"; };
 		401AB06E1EB0C7C200CC1046 /* ElementTypeTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ElementTypeTransformer.m; sourceTree = "<group>"; };
-		401AB0721EB0DDBE00CC1046 /* XCUIApplication+Monkey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "XCUIApplication+Monkey.h"; sourceTree = "<group>"; };
-		401AB0731EB0DDBE00CC1046 /* XCUIApplication+Monkey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "XCUIApplication+Monkey.m"; sourceTree = "<group>"; };
 		401AB0981EB212CF00CC1046 /* RandomAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RandomAction.h; sourceTree = "<group>"; };
 		401AB0991EB212CF00CC1046 /* RandomAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RandomAction.m; sourceTree = "<group>"; };
 		401AB09C1EB2152700CC1046 /* RegularAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegularAction.h; sourceTree = "<group>"; };
@@ -636,6 +638,12 @@
 		408422431EFB882400FD6283 /* GGSpringboardApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGSpringboardApplication.m; sourceTree = "<group>"; };
 		408422461EFB8F9C00FD6283 /* XCUIElement+GGIsVisible.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "XCUIElement+GGIsVisible.h"; sourceTree = "<group>"; };
 		408422471EFB8F9C00FD6283 /* XCUIElement+GGIsVisible.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "XCUIElement+GGIsVisible.m"; sourceTree = "<group>"; };
+		40895E1C1F0386A200C00E82 /* XCUIElement+Tree.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "XCUIElement+Tree.m"; sourceTree = "<group>"; };
+		40895E1D1F0386A200C00E82 /* XCUIElement+Tree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "XCUIElement+Tree.h"; sourceTree = "<group>"; };
+		40895E201F0388B800C00E82 /* GGApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGApplication.h; sourceTree = "<group>"; };
+		40895E211F0388B800C00E82 /* GGApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGApplication.m; sourceTree = "<group>"; };
+		40895E241F051DA900C00E82 /* XCUIDevice+Monkey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "XCUIDevice+Monkey.h"; sourceTree = "<group>"; };
+		40895E251F051DA900C00E82 /* XCUIDevice+Monkey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "XCUIDevice+Monkey.m"; sourceTree = "<group>"; };
 		40AC9F801ED5302500CF6860 /* UIWindow+Monkey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWindow+Monkey.h"; sourceTree = "<group>"; };
 		40AC9F811ED5302500CF6860 /* UIWindow+Monkey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWindow+Monkey.m"; sourceTree = "<group>"; };
 		40AE4DFC1EB826DF006A13C5 /* swizzle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = swizzle.m; sourceTree = "<group>"; };
@@ -755,10 +763,10 @@
 		401AB0711EB0DD6C00CC1046 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				40895E1C1F0386A200C00E82 /* XCUIElement+Tree.m */,
+				40895E1D1F0386A200C00E82 /* XCUIElement+Tree.h */,
 				4024963E1EE7A68000014AA6 /* XCUIElement+GGTyping.h */,
 				4024963F1EE7A68000014AA6 /* XCUIElement+GGTyping.m */,
-				401AB0721EB0DDBE00CC1046 /* XCUIApplication+Monkey.h */,
-				401AB0731EB0DDBE00CC1046 /* XCUIApplication+Monkey.m */,
 				40E1B8451EB11473000EBEAA /* NSMutableArray+Reverse.h */,
 				40E1B8461EB11473000EBEAA /* NSMutableArray+Reverse.m */,
 				406477D11ECC3B1D006AB4AB /* NSMutableArray+Queue.h */,
@@ -767,6 +775,8 @@
 				406477D61ECC490B006AB4AB /* NSMutableArray+Stack.m */,
 				408422461EFB8F9C00FD6283 /* XCUIElement+GGIsVisible.h */,
 				408422471EFB8F9C00FD6283 /* XCUIElement+GGIsVisible.m */,
+				40895E241F051DA900C00E82 /* XCUIDevice+Monkey.h */,
+				40895E251F051DA900C00E82 /* XCUIDevice+Monkey.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -859,6 +869,8 @@
 				4034E9621EDFEF800061AD95 /* UIViewTree.m */,
 				408422421EFB882400FD6283 /* GGSpringboardApplication.h */,
 				408422431EFB882400FD6283 /* GGSpringboardApplication.m */,
+				40895E201F0388B800C00E82 /* GGApplication.h */,
+				40895E211F0388B800C00E82 /* GGApplication.m */,
 			);
 			path = OCMonkeyLib;
 			sourceTree = "<group>";
@@ -1167,7 +1179,6 @@
 				402496401EE7A68000014AA6 /* XCUIElement+GGTyping.h in Headers */,
 				402AA19A1EF0D68800BAA800 /* GGExceptionHandler.h in Headers */,
 				406477DF1ECD3554006AB4AB /* SmartMonkey.h in Headers */,
-				401AB0741EB0DDBE00CC1046 /* XCUIApplication+Monkey.h in Headers */,
 				40E1B8431EB10802000EBEAA /* ClassPathItem.h in Headers */,
 				40E4B9EC1EB320B800F8C230 /* MathUtils.h in Headers */,
 				404F9E381EB25E0E009CA2A1 /* Macros.h in Headers */,
@@ -1198,6 +1209,7 @@
 				4069E7BD1E68042E00C1C832 /* XCKeyboardLayout.h in Headers */,
 				4069E7E21E68042E00C1C832 /* XCTestSuite.h in Headers */,
 				4069E7AD1E68042E00C1C832 /* UIPanGestureRecognizer-RecordingAdditions.h in Headers */,
+				40895E261F051DA900C00E82 /* XCUIDevice+Monkey.h in Headers */,
 				4069E7F21E68042E00C1C832 /* XCTWaiterDelegatePrivate-Protocol.h in Headers */,
 				4069E7BF1E68042E00C1C832 /* XCPointerEvent.h in Headers */,
 				4069E7AE1E68042E00C1C832 /* UIPinchGestureRecognizer-RecordingAdditions.h in Headers */,
@@ -1223,6 +1235,7 @@
 				4069E7EE1E68042E00C1C832 /* XCTTestRunSessionDelegate-Protocol.h in Headers */,
 				4069E7C31E68042E00C1C832 /* XCSourceCodeTreeNodeEnumerator.h in Headers */,
 				4069E7E41E68042E00C1C832 /* XCTestWaiter.h in Headers */,
+				40895E221F0388B800C00E82 /* GGApplication.h in Headers */,
 				4069E7B41E68042E00C1C832 /* XCApplicationMonitor.h in Headers */,
 				4069E7F61E68042E00C1C832 /* XCUIApplicationImpl.h in Headers */,
 				4069E7AA1E68042E00C1C832 /* NSValue-XCTestAdditions.h in Headers */,
@@ -1292,6 +1305,7 @@
 				4069E7B91E68042E00C1C832 /* XCElementSnapshot.h in Headers */,
 				4069E7EB1E68042E00C1C832 /* XCTRunnerDaemonSession.h in Headers */,
 				4069E7D21E68042E00C1C832 /* XCTestContextScope.h in Headers */,
+				40895E1F1F0386A200C00E82 /* XCUIElement+Tree.h in Headers */,
 				4069E7B31E68042E00C1C832 /* XCApplicationMonitor_iOS.h in Headers */,
 				4069E7DF1E68042E00C1C832 /* XCTestObserver.h in Headers */,
 				4069E7E61E68042E00C1C832 /* XCTMetric.h in Headers */,
@@ -1701,6 +1715,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4069E7311E67FC2800C1C832 /* Monkey.m in Sources */,
+				40895E271F051DA900C00E82 /* XCUIDevice+Monkey.m in Sources */,
 				4034E9791EE10EB80061AD95 /* RunLoopSpinner.m in Sources */,
 				406477DC1ECD34F0006AB4AB /* SmartMonkey+UIChangeDelegate.m in Sources */,
 				402496411EE7A68000014AA6 /* XCUIElement+GGTyping.m in Sources */,
@@ -1726,14 +1741,15 @@
 				406477D41ECC3B1D006AB4AB /* NSMutableArray+Queue.m in Sources */,
 				40E1B8481EB11473000EBEAA /* NSMutableArray+Reverse.m in Sources */,
 				401AB0701EB0C7C200CC1046 /* ElementTypeTransformer.m in Sources */,
+				40895E1E1F0386A200C00E82 /* XCUIElement+Tree.m in Sources */,
 				408422451EFB882400FD6283 /* GGSpringboardApplication.m in Sources */,
 				40E1B8441EB10802000EBEAA /* ClassPathItem.m in Sources */,
 				4034E9711EE105570061AD95 /* MonkeyConfiguration.m in Sources */,
 				401AB06C1EB0BB3400CC1046 /* ElementInfo.m in Sources */,
 				40E1B8401EB10783000EBEAA /* ClassPath.m in Sources */,
 				406477D81ECC490B006AB4AB /* NSMutableArray+Stack.m in Sources */,
+				40895E231F0388B800C00E82 /* GGApplication.m in Sources */,
 				402AA1971EF0D44900BAA800 /* GGTestCase.m in Sources */,
-				401AB0751EB0DDBE00CC1046 /* XCUIApplication+Monkey.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -6,10 +6,10 @@
 //
 //
 
-#import "XCUIApplication.h"
+#import "GGApplication.h"
 
 
-@interface GGSpringboardApplication : XCUIApplication
+@interface GGSpringboardApplication : GGApplication
 
 /**
  Get the shared SpringBoard XCUIApplication
@@ -26,5 +26,12 @@
  @return Indicates whether the operation succeeds (YES) or not (NO).
  */
 - (BOOL)tapApplicationWithIdentifier:(NSString *)identifier error:(NSError **)error;
+
+/**
+ Get the process ID of the Springboard.
+
+ @return the process ID of the Springboard
+ */
++(pid_t)springboardProcessID;
 
 @end

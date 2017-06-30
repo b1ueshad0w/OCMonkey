@@ -13,6 +13,8 @@
 #import "RunLoopSpinner.h"
 #import "MathUtils.h"
 
+static pid_t _springboardPid = 0;
+
 @implementation GGSpringboardApplication
 
 + (instancetype)springboard
@@ -20,12 +22,24 @@
     static GGSpringboardApplication *_springboardApp;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        _springboardApp = [[GGSpringboardApplication alloc] initPrivateWithPath:nil bundleID:@"com.apple.springboard"];
+        _springboardApp = [[GGSpringboardApplication alloc] initWithBundleID:@"com.apple.springboard"];
     });
     [_springboardApp query];
     [_springboardApp resolve];
     return _springboardApp;
 }
+
++(pid_t)springboardProcessID
+{
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        if (0 == _springboardPid) {
+            _springboardPid = [GGSpringboardApplication springboard].processID;
+        }
+    });
+    return _springboardPid;
+}
+
 
 - (BOOL)tapApplicationWithIdentifier:(NSString *)identifier error:(NSError **)error
 {

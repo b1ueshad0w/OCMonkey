@@ -12,10 +12,50 @@
 #import "ElementTypeTransformer.h"
 #import "ElementInfo.h"
 #import "NSMutableArray+Reverse.h"
+#import "Monkey+XCUITestPrivate.h"
+#import "MathUtils.h"
 
 @implementation ElementTree
 
 @dynamic data;
+
+-(id)appendChildWithData:(id)data identifier:(NSString *)identifier
+{
+    ElementTree *child = [[ElementTree alloc] initWithParent:self withData:data withID:identifier];
+    [self.children addObject:child];
+    return self;
+}
+
+-(NSArray<ElementTree *> *)descendantsMatchingType:(XCUIElementType)elementType
+{
+    __block NSMutableArray<ElementTree *> *matches = [[NSMutableArray alloc] init];
+    [self traverseDown:^BOOL(Tree *node, BOOL *stop) {
+        ElementTree *aNode = (ElementTree*)node;
+        if (aNode.data.elementType == elementType) {
+            [matches addObject:aNode];
+        }
+        return YES;
+    }];
+    return matches;
+}
+
+-(NSArray<ElementTree *> *)childrenMatchingType:(XCUIElementType)elementType
+{
+    __block NSMutableArray<ElementTree *> *matches = [[NSMutableArray alloc] init];
+    if (self.children.count) {
+        for (ElementTree *child in self.children) {
+            if (child.data.elementType == elementType) {
+                [matches addObject:child];
+            }
+        }
+    }
+    return matches;
+}
+
+-(void)tap
+{
+    [Monkey tapAtLocation:getRectCenter(self.data.frame)];
+}
 
 @end
 

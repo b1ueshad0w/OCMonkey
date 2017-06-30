@@ -7,16 +7,16 @@
 //
 
 #import "Monkey.h"
-#import "XCUIApplication.h"
+#import "GGApplication.h"
 #import "XCUIElement.h"
-#import "XCUIApplication+Monkey.h"
+#import "XCUIElement+Tree.h"
 #import "RandomAction.h"
 #import "RegularAction.h"
 #import "Macros.h"
 #import "GGLogger.h"
-#import "XCAXClient_iOS.h"
-#import "XCAccessibilityElement.h"
 #import "GGExceptionHandler.h"
+#import "GGSpringboardApplication.h"
+#import "XCUIDevice+Monkey.h"
 
 
 @interface Monkey()
@@ -40,7 +40,7 @@
 {
     if (self = [super init]) {
         _testedAppBundleID = bundleID;
-        _testedApp = [[XCUIApplication alloc] initPrivateWithPath:nil bundleID:self.testedAppBundleID];
+        _testedApp = [[GGApplication alloc] initWithBundleID:self.testedAppBundleID];
         _launchEnvironment = [NSMutableDictionary dictionaryWithDictionary:launchEnv];
         /* if test target embeds MonkeyPaws.framework */
         if (![_launchEnvironment objectForKey:@"maxGesturesShown"])
@@ -105,9 +105,10 @@
         }
         [NSThread sleepForTimeInterval:0.5];
         @autoreleasepool {
-            dispatch_once(&onceToken, ^{
-//                _screenFrame = self.testedApp.lastSnapshot.frame;
+            dispatch_once(&onceToken, ^{      
                 _screenFrame = self.testedApp.frame;
+                _testedAppIdentifier = self.testedApp.label;
+                _testedAppPid = self.testedApp.processID;
             });
 //            [self runOneStep];
             @try {
@@ -116,6 +117,7 @@
                 if ([exception.name isEqualToString:GGApplicationCrashedException] ||
                     [exception.name isEqualToString:GGApplicationDeadlockDetectedException]) {
                     _exitReason = exception.name;
+                    [GGLogger logFmt:@"Monkey loop will exit because: %@", exception.reason];
                 }
                 else {
                     [GGLogger logFmt:@"Exception: %@ %@", exception, [exception.callStackSymbols componentsJoinedByString:@"\n"]];
@@ -222,16 +224,80 @@
     return CGRectMake(x0, y0, size, size);
 }
 
-+(XCUIApplication *)activeApplication
+-(void)checkAppState
 {
-    XCAccessibilityElement *activeApplicationElement = [[[XCAXClient_iOS sharedClient] activeApplications] firstObject];
-    if (!activeApplicationElement) {
-        return nil;
+    int activeAppPid = [GGApplication activeAppProcessID];
+    if (activeAppPid == _testedApp.processID) {
+        return;
     }
-    XCUIApplication *application = [XCUIApplication appWithPID:activeApplicationElement.processIdentifier];
-    [application query];
-    [application resolve];
-    return application;
+    [GGLogger logFmt:@"TestedApp is not active."];
+    pid_t springboardPid = [GGSpringboardApplication springboardProcessID];
+    
+    /* Three cases:
+     1. Authorization Alert shows (It belongs to Springboard process)
+     2. Springboard Desktop shows
+     3. Another app shows
+     */
+    if (activeAppPid != springboardPid) { // case 3
+        [[XCUIDevice sharedDevice] pressHome];
+        activeAppPid = [GGApplication activeAppProcessID];
+        if (activeAppPid != springboardPid) {
+            [[NSException exceptionWithName:GGMonkeyInternalError reason:@"Press Home buton failed." userInfo:nil] raise];
+        }
+    }
+    if (activeAppPid == springboardPid) { // case 1 or case 2
+        [self checkAndHandleSpringboardAlerts];
+        if ([GGApplication activeAppProcessID] != _testedAppPid) {
+            [[GGSpringboardApplication springboard] tapApplicationWithIdentifier:_testedAppIdentifier error:nil];
+        }
+    } else {
+        [[NSException exceptionWithName:GGMonkeyInternalError
+                                 reason:@"Unexpected active app's process id."
+                               userInfo:nil]
+         raise];
+    }
+    // TestedApp is expected to be active for now
+    [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:1]];
+    pid_t activeAppPidAfterFix = [GGApplication activeAppProcessID];
+    if (activeAppPidAfterFix == springboardPid) {
+        NSString *msg = @"Could not bring back testedApp from Springboard";
+        [[NSException exceptionWithName:GGMonkeyInternalError
+                                 reason:msg
+                               userInfo:nil]
+         raise];
+    } else if (activeAppPidAfterFix != _testedAppPid) {
+        NSString *msg = @"Application's processID is changed. It may possibly had crashed.";
+        [GGLogger log:msg];
+        [[NSException exceptionWithName:GGApplicationCrashedException
+                                 reason:msg
+                               userInfo:nil]
+         raise];
+    }
+}
+
+-(void)checkAndHandleSpringboardAlerts {
+    
+//    [self.testedApp resolveHandleUIInterruption:YES];
+//    return;
+//    XCUIElementQuery *query = [[GGSpringboardApplication springboard] descendantsMatchingType:XCUIElementTypeAlert];
+//    XCUIElement *alert = [query elementBoundByIndex:0];
+//    if (!alert)
+//        return;
+    ElementTree *tree = [[GGSpringboardApplication springboard] tree];
+    NSArray<ElementTree *> *alerts = [tree descendantsMatchingType:XCUIElementTypeAlert];
+    if (0 == alerts.count) {
+        return;
+    }
+    ElementTree *alert = alerts[0];
+    [GGLogger logFmt:@"SpringBoard Alert appears: %@", alert.data];
+    ElementTreeArray *buttons = [alert descendantsMatchingType:XCUIElementTypeButton];
+    NSAssert(buttons.count > 0, @"Springboard Alert has no buttons!");
+    if (1 == buttons.count) {
+        [buttons.lastObject tap];
+    } else {
+        // 允许 不允许
+        [buttons.lastObject tap];
+    }
 }
 
 @end

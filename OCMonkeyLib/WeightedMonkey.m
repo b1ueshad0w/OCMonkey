@@ -9,7 +9,7 @@
 #import "WeightedMonkey.h"
 #import "MonkeyAlgorithm.h"
 #import "ElementTree.h"
-#import "XCUIApplication+Monkey.h"
+#import "XCUIElement+Tree.h"
 #import "Monkey+XCUITestPrivate.h"
 #import "MathUtils.h"
 #import "SmartMonkey.h"
@@ -19,6 +19,7 @@
 #import "Keyboard.h"
 #import "Random.h"
 #import "GGLogger.h"
+#import "GGSpringboardApplication.h"
 
 #define ContainerScrollWeight 0.2
 
@@ -60,6 +61,7 @@ static NSArray * containers;
     if (self) {
         _algorithm = algorithm;
         _vcCallbacks = [[NSMutableDictionary alloc] init];
+        _frequencyOfStateChecking = 0.3;
     }
     return self;
 }
@@ -106,16 +108,19 @@ static NSArray * containers;
  */
 -(void)runOneStep
 {
+    if (RandomZeroToOne < _frequencyOfStateChecking) {
+        [self checkAppState];
+    }
+    
     if (RandomZeroToOne < 0.1 && [self shouldGoBack]) {
         [GGLogger log:@"Perform GoBack."];
         [self goBack];
     }
     
     ElementTree *uiTree = [self.testedApp tree];
-    [GGLogger logFmt:@"leaves count: %ld", [uiTree leaves].count];
 //    NSArray<ElementTree *> *elements = [uiTree leaves];
     NSArray<ElementTree *> *elements = [self getValidElementsFromTree:uiTree];
-    [GGLogger logFmt:@"valid leaves count: %ld", elements.count];
+    [GGLogger logFmt:@"leaves count: %ld    valid ones count: %ld", [uiTree leaves].count, elements.count];
     
 //    NSMutableArray *desc = NSMutableArray.new;
 //    for (Tree *element in elements) {
@@ -176,11 +181,11 @@ static NSArray * containers;
 {
     XCUIElementType elementType = element.data.elementType;
     if (elementType == XCUIElementTypeTextField || elementType == XCUIElementTypeSearchField || elementType == XCUIElementTypeTextView) {
-        [Monkey tapElement:element];
+        [element tap];
         [Keyboard typeText:[Random randomString] error:nil];
         return;
     }
-    [Monkey tapElement:element];
+    [element tap];
 }
 
 -(void)scrollContainer:(ElementTree *)container

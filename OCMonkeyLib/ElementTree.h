@@ -14,7 +14,15 @@
 
 @property (nonatomic, strong) ElementInfo *data;
 
+-(NSArray<ElementTree *> *)descendantsMatchingType:(XCUIElementType)elementType;
+
+-(NSArray<ElementTree *> *)childrenMatchingType:(XCUIElementType)elementType;
+
+-(void)tap;
+
 @end
+
+typedef NSArray<ElementTree *> ElementTreeArray;
 
 ClassPath* getClassPathForElement(Tree *element);
 

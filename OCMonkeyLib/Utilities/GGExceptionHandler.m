@@ -11,6 +11,7 @@
 NSString *const GGApplicationDeadlockDetectedException = @"GGApplicationDeadlockDetectedException";
 NSString *const GGApplicationCrashedException = @"GGApplicationCrashedException";
 NSString *const GGApplicationNotInstalled = @"GGApplicationNotInstalled";
+NSString *const GGMonkeyInternalError = @"GGMonkeyInternalError";
 
 @implementation GGExceptionHandler
 

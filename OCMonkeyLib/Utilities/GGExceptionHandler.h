@@ -11,6 +11,7 @@
 extern NSString *const GGApplicationDeadlockDetectedException;
 extern NSString *const GGApplicationCrashedException;
 extern NSString *const GGApplicationNotInstalled;
+extern NSString *const GGMonkeyInternalError;
 
 @interface GGExceptionHandler : NSObject
 

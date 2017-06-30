@@ -28,13 +28,6 @@
 -(void)addMonkeyLeafElementAction:(int)weight;
 
 /**
- Tap an element.
-
- @param element element to tap
- */
-+(void)tapElement:(Tree *)element;
-
-/**
  Tap a location by coordinates.
 
  @param location location to tap.
