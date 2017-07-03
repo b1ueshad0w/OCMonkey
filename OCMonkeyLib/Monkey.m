@@ -17,6 +17,10 @@
 #import "GGExceptionHandler.h"
 #import "GGSpringboardApplication.h"
 #import "XCUIDevice+Monkey.h"
+#import "XCApplicationMonitor_iOS.h"
+#import "XCApplicationMonitor.h"
+#import "XCUIApplicationProcess.h"
+#import "XCUIApplicationImpl.h"
 
 
 @interface Monkey()
@@ -226,6 +230,21 @@
 
 -(void)checkAppState
 {
+    /*
+    if (_testedApp.applicationImpl.currentProcess.running) {
+        NSLog(@"App is running");
+    } else {
+        NSLog(@"App process is not running.");
+    }
+    return;
+    NSArray<XCUIApplicationImpl *> *appImpls = [XCApplicationMonitor_iOS sharedMonitor].monitoredApplications;
+    XCUIApplication *app = [[XCApplicationMonitor_iOS sharedMonitor] monitoredApplicationWithProcessIdentifier:_testedAppPid];
+    XCUIApplicationProcess *process = [app.applicationImpl currentProcess];
+    
+    NSSet *set = [NSSet setWithObject:process];
+    XCUIApplicationProcess *result = [[XCApplicationMonitor_iOS sharedMonitor] _appFromSet:set thatTransitionedToNotRunningDuringTimeInterval:3];
+     */
+    
     int activeAppPid = [GGApplication activeAppProcessID];
     if (activeAppPid == _testedApp.processID) {
         return;

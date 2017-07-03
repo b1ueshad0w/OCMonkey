@@ -195,15 +195,15 @@
 		407B10551E893B0E00C2E93D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 407B10531E893B0E00C2E93D /* LaunchScreen.storyboard */; };
 		407B105A1E893B6300C2E93D /* OCMonkeyPaws.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 407B10261E89390600C2E93D /* OCMonkeyPaws.framework */; };
 		407B105C1E893CD000C2E93D /* OCMonkeyPaws.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 407B10261E89390600C2E93D /* OCMonkeyPaws.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		408422441EFB882400FD6283 /* GGSpringboardApplication.h in Headers */ = {isa = PBXBuildFile; fileRef = 408422421EFB882400FD6283 /* GGSpringboardApplication.h */; };
+		408422441EFB882400FD6283 /* GGSpringboardApplication.h in Headers */ = {isa = PBXBuildFile; fileRef = 408422421EFB882400FD6283 /* GGSpringboardApplication.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		408422451EFB882400FD6283 /* GGSpringboardApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = 408422431EFB882400FD6283 /* GGSpringboardApplication.m */; };
-		408422481EFB8F9C00FD6283 /* XCUIElement+GGIsVisible.h in Headers */ = {isa = PBXBuildFile; fileRef = 408422461EFB8F9C00FD6283 /* XCUIElement+GGIsVisible.h */; };
+		408422481EFB8F9C00FD6283 /* XCUIElement+GGIsVisible.h in Headers */ = {isa = PBXBuildFile; fileRef = 408422461EFB8F9C00FD6283 /* XCUIElement+GGIsVisible.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		408422491EFB8F9C00FD6283 /* XCUIElement+GGIsVisible.m in Sources */ = {isa = PBXBuildFile; fileRef = 408422471EFB8F9C00FD6283 /* XCUIElement+GGIsVisible.m */; };
 		40895E1E1F0386A200C00E82 /* XCUIElement+Tree.m in Sources */ = {isa = PBXBuildFile; fileRef = 40895E1C1F0386A200C00E82 /* XCUIElement+Tree.m */; };
 		40895E1F1F0386A200C00E82 /* XCUIElement+Tree.h in Headers */ = {isa = PBXBuildFile; fileRef = 40895E1D1F0386A200C00E82 /* XCUIElement+Tree.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		40895E221F0388B800C00E82 /* GGApplication.h in Headers */ = {isa = PBXBuildFile; fileRef = 40895E201F0388B800C00E82 /* GGApplication.h */; };
+		40895E221F0388B800C00E82 /* GGApplication.h in Headers */ = {isa = PBXBuildFile; fileRef = 40895E201F0388B800C00E82 /* GGApplication.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		40895E231F0388B800C00E82 /* GGApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = 40895E211F0388B800C00E82 /* GGApplication.m */; };
-		40895E261F051DA900C00E82 /* XCUIDevice+Monkey.h in Headers */ = {isa = PBXBuildFile; fileRef = 40895E241F051DA900C00E82 /* XCUIDevice+Monkey.h */; };
+		40895E261F051DA900C00E82 /* XCUIDevice+Monkey.h in Headers */ = {isa = PBXBuildFile; fileRef = 40895E241F051DA900C00E82 /* XCUIDevice+Monkey.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		40895E271F051DA900C00E82 /* XCUIDevice+Monkey.m in Sources */ = {isa = PBXBuildFile; fileRef = 40895E251F051DA900C00E82 /* XCUIDevice+Monkey.m */; };
 		40A3F5601EEE7C4200D03FC3 /* Peertalk.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 40F0E58C1EEE762100A82E4E /* Peertalk.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		40A3F5841EEFDA6C00D03FC3 /* Peertalk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40F0E58C1EEE762100A82E4E /* Peertalk.framework */; };
@@ -1195,7 +1195,6 @@
 				4034E9701EE105570061AD95 /* MonkeyConfiguration.h in Headers */,
 				40E1B83F1EB10783000EBEAA /* ClassPath.h in Headers */,
 				40E1B83B1EB105D1000EBEAA /* ElementTree.h in Headers */,
-				408422481EFB8F9C00FD6283 /* XCUIElement+GGIsVisible.h in Headers */,
 				401AB0A21EB2188F00CC1046 /* Random.h in Headers */,
 				404F9E311EB24ED1009CA2A1 /* Monkey+XCUITest.h in Headers */,
 				404F9E351EB2511C009CA2A1 /* Monkey+XCUITestPrivate.h in Headers */,
@@ -1209,7 +1208,6 @@
 				4069E7BD1E68042E00C1C832 /* XCKeyboardLayout.h in Headers */,
 				4069E7E21E68042E00C1C832 /* XCTestSuite.h in Headers */,
 				4069E7AD1E68042E00C1C832 /* UIPanGestureRecognizer-RecordingAdditions.h in Headers */,
-				40895E261F051DA900C00E82 /* XCUIDevice+Monkey.h in Headers */,
 				4069E7F21E68042E00C1C832 /* XCTWaiterDelegatePrivate-Protocol.h in Headers */,
 				4069E7BF1E68042E00C1C832 /* XCPointerEvent.h in Headers */,
 				4069E7AE1E68042E00C1C832 /* UIPinchGestureRecognizer-RecordingAdditions.h in Headers */,
@@ -1235,13 +1233,11 @@
 				4069E7EE1E68042E00C1C832 /* XCTTestRunSessionDelegate-Protocol.h in Headers */,
 				4069E7C31E68042E00C1C832 /* XCSourceCodeTreeNodeEnumerator.h in Headers */,
 				4069E7E41E68042E00C1C832 /* XCTestWaiter.h in Headers */,
-				40895E221F0388B800C00E82 /* GGApplication.h in Headers */,
 				4069E7B41E68042E00C1C832 /* XCApplicationMonitor.h in Headers */,
 				4069E7F61E68042E00C1C832 /* XCUIApplicationImpl.h in Headers */,
 				4069E7AA1E68042E00C1C832 /* NSValue-XCTestAdditions.h in Headers */,
 				4069E7C41E68042E00C1C832 /* XCSymbolicationRecord.h in Headers */,
 				4069E79D1E68042E00C1C832 /* _XCKVOExpectationImplementation.h in Headers */,
-				408422441EFB882400FD6283 /* GGSpringboardApplication.h in Headers */,
 				4069E7CD1E68042E00C1C832 /* XCTestCase.h in Headers */,
 				4069E7F41E68042E00C1C832 /* XCTWaiterManager.h in Headers */,
 				4069E7DD1E68042E00C1C832 /* XCTestObservation-Protocol.h in Headers */,
@@ -1305,9 +1301,13 @@
 				4069E7B91E68042E00C1C832 /* XCElementSnapshot.h in Headers */,
 				4069E7EB1E68042E00C1C832 /* XCTRunnerDaemonSession.h in Headers */,
 				4069E7D21E68042E00C1C832 /* XCTestContextScope.h in Headers */,
+				40895E221F0388B800C00E82 /* GGApplication.h in Headers */,
+				408422481EFB8F9C00FD6283 /* XCUIElement+GGIsVisible.h in Headers */,
 				40895E1F1F0386A200C00E82 /* XCUIElement+Tree.h in Headers */,
+				40895E261F051DA900C00E82 /* XCUIDevice+Monkey.h in Headers */,
 				4069E7B31E68042E00C1C832 /* XCApplicationMonitor_iOS.h in Headers */,
 				4069E7DF1E68042E00C1C832 /* XCTestObserver.h in Headers */,
+				408422441EFB882400FD6283 /* GGSpringboardApplication.h in Headers */,
 				4069E7E61E68042E00C1C832 /* XCTMetric.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

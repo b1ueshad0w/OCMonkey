@@ -143,9 +143,15 @@ static NSArray * containers;
         return;
     }
     
-    ElementTree *selected = (ElementTree *)[_algorithm chooseAnElementFromTree:uiTree
-                                                                 AmongElements:elements
-                                                                  withTreeHash:treeHash];
+    ElementTree *selected;
+    if (treeHash) {
+        selected = (ElementTree *)[_algorithm chooseAnElementFromTree:uiTree
+                                                        AmongElements:elements
+                                                         withTreeHash:treeHash];
+    } else {
+        NSUInteger index = arc4random() % elements.count;
+        selected = elements[index];
+    }
 //    ElementTree *selected = elements[4];
     [GGLogger logFmt:@"selected: %@ %@", selected.identifier, selected.data];
     

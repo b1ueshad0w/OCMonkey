@@ -4,9 +4,13 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "XCTestObservation.h"
+//#import "XCTestObservation.h"
+#import "XCTestObservation-Protocol.h"
+#import "XCTUIApplicationMonitor-Protocol.h"
 
-@class NSArray, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSString;
+
+//@class NSArray, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSString;
+@class NSArray, NSMutableDictionary, NSString, XCUIApplicationProcess;
 
 @interface XCApplicationMonitor : NSObject <XCTUIApplicationMonitor>
 {
@@ -26,7 +30,7 @@
 - (void)crashInProcessWithBundleID:(id)arg1 path:(id)arg2 pid:(int)arg3 symbol:(id)arg4;
 - (void)waitForUnrequestedTerminationOfLaunchedApplicationsWithTimeout:(double)arg1;
 - (void)_waitForCrashReportOrCleanExitStatusOfApp:(id)arg1;
-- (id)_appFromSet:(id)arg1 thatTransitionedToNotRunningDuringTimeInterval:(double)arg2;
+- (XCUIApplicationProcess *)_appFromSet:(id)arg1 thatTransitionedToNotRunningDuringTimeInterval:(double)arg2;
 - (void)terminationTrackedForApplicationProcess:(id)arg1;
 - (void)launchRequestedForApplicationProcess:(id)arg1;
 - (void)_terminateApplicationProcess:(id)arg1;
