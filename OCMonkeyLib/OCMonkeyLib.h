@@ -49,6 +49,9 @@ FOUNDATION_EXPORT const unsigned char OCMonkeyLib_VersionString[];
 #import <OCMonkeyLib/UIViewTree.h>
 #import <OCMonkeyLib/WeightedMonkey.h>
 #import <OCMonkeyLib/XCUIElement+Tree.h>
-
+#import <OCMonkeyLib/GGApplication.h>
+#import <OCMonkeyLib/GGSpringboardApplication.h>
+#import <OCMonkeyLib/XCUIDevice+Monkey.h>
+#import <OCMonkeyLib/XCUIElement+GGIsVisible.h>
 
 #endif /* OCMonkeyLib_h */
