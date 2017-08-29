@@ -179,11 +179,11 @@
 		4069E8101E680C7400C1C832 /* OCMonkeyLib.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 4069E7251E67FB2800C1C832 /* OCMonkeyLib.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		407329D61ED6EDEC00857AFC /* Tree.m in Sources */ = {isa = PBXBuildFile; fileRef = 401AB0661EB0BADF00CC1046 /* Tree.m */; };
 		4079C2901EFBFB6D0044547E /* Peertalk.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 40F0E58C1EEE762100A82E4E /* Peertalk.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		407B10361E89395000C2E93D /* Gesture.h in Headers */ = {isa = PBXBuildFile; fileRef = 407B102E1E89395000C2E93D /* Gesture.h */; };
+		407B10361E89395000C2E93D /* Gesture.h in Headers */ = {isa = PBXBuildFile; fileRef = 407B102E1E89395000C2E93D /* Gesture.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		407B10371E89395000C2E93D /* Gesture.m in Sources */ = {isa = PBXBuildFile; fileRef = 407B102F1E89395000C2E93D /* Gesture.m */; };
-		407B10381E89395000C2E93D /* GestureHash.h in Headers */ = {isa = PBXBuildFile; fileRef = 407B10301E89395000C2E93D /* GestureHash.h */; };
+		407B10381E89395000C2E93D /* GestureHash.h in Headers */ = {isa = PBXBuildFile; fileRef = 407B10301E89395000C2E93D /* GestureHash.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		407B10391E89395000C2E93D /* GestureHash.m in Sources */ = {isa = PBXBuildFile; fileRef = 407B10311E89395000C2E93D /* GestureHash.m */; };
-		407B103A1E89395000C2E93D /* MonkeyPaws.h in Headers */ = {isa = PBXBuildFile; fileRef = 407B10321E89395000C2E93D /* MonkeyPaws.h */; };
+		407B103A1E89395000C2E93D /* MonkeyPaws.h in Headers */ = {isa = PBXBuildFile; fileRef = 407B10321E89395000C2E93D /* MonkeyPaws.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		407B103B1E89395000C2E93D /* MonkeyPaws.m in Sources */ = {isa = PBXBuildFile; fileRef = 407B10331E89395000C2E93D /* MonkeyPaws.m */; };
 		407B103C1E89395000C2E93D /* UIApplication+Monkey.h in Headers */ = {isa = PBXBuildFile; fileRef = 407B10341E89395000C2E93D /* UIApplication+Monkey.h */; };
 		407B103D1E89395000C2E93D /* UIApplication+Monkey.m in Sources */ = {isa = PBXBuildFile; fileRef = 407B10351E89395000C2E93D /* UIApplication+Monkey.m */; };
@@ -336,6 +336,8 @@
 		40AE50921EB8B1F1006A13C5 /* UIViewController+Monkey.h in Headers */ = {isa = PBXBuildFile; fileRef = 40AE50901EB8B1F1006A13C5 /* UIViewController+Monkey.h */; };
 		40AE50931EB8B1F1006A13C5 /* UIViewController+Monkey.m in Sources */ = {isa = PBXBuildFile; fileRef = 40AE50911EB8B1F1006A13C5 /* UIViewController+Monkey.m */; };
 		40AE50E51EBC3C22006A13C5 /* AgentForHost.m in Sources */ = {isa = PBXBuildFile; fileRef = 40EBD3C11EB39E7300CD5050 /* AgentForHost.m */; };
+		40B815011F4FCACA00298C09 /* XCUIElement+GGSwipe.h in Headers */ = {isa = PBXBuildFile; fileRef = 40B814FF1F4FCACA00298C09 /* XCUIElement+GGSwipe.h */; };
+		40B815021F4FCACA00298C09 /* XCUIElement+GGSwipe.m in Sources */ = {isa = PBXBuildFile; fileRef = 40B815001F4FCACA00298C09 /* XCUIElement+GGSwipe.m */; };
 		40E1B83B1EB105D1000EBEAA /* ElementTree.h in Headers */ = {isa = PBXBuildFile; fileRef = 40E1B8391EB105D1000EBEAA /* ElementTree.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		40E1B83C1EB105D1000EBEAA /* ElementTree.m in Sources */ = {isa = PBXBuildFile; fileRef = 40E1B83A1EB105D1000EBEAA /* ElementTree.m */; };
 		40E1B83F1EB10783000EBEAA /* ClassPath.h in Headers */ = {isa = PBXBuildFile; fileRef = 40E1B83D1EB10783000EBEAA /* ClassPath.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -357,6 +359,7 @@
 		40F0E5A21EEE76AC00A82E4E /* PTUSBHub.h in Headers */ = {isa = PBXBuildFile; fileRef = 40F0E59A1EEE76AC00A82E4E /* PTUSBHub.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		40F0E5A31EEE76AC00A82E4E /* PTUSBHub.m in Sources */ = {isa = PBXBuildFile; fileRef = 40F0E59B1EEE76AC00A82E4E /* PTUSBHub.m */; };
 		40F0E5A41EEE778C00A82E4E /* Peertalk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40F0E58C1EEE762100A82E4E /* Peertalk.framework */; };
+		40FDCCE61F3965660086A69E /* OCMonkeyPaws.h in Headers */ = {isa = PBXBuildFile; fileRef = 40FDCCE51F3965660086A69E /* OCMonkeyPaws.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -672,6 +675,8 @@
 		40AE507D1EB89FB1006A13C5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		40AE50901EB8B1F1006A13C5 /* UIViewController+Monkey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Monkey.h"; sourceTree = "<group>"; };
 		40AE50911EB8B1F1006A13C5 /* UIViewController+Monkey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Monkey.m"; sourceTree = "<group>"; };
+		40B814FF1F4FCACA00298C09 /* XCUIElement+GGSwipe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "XCUIElement+GGSwipe.h"; sourceTree = "<group>"; };
+		40B815001F4FCACA00298C09 /* XCUIElement+GGSwipe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "XCUIElement+GGSwipe.m"; sourceTree = "<group>"; };
 		40E1B8391EB105D1000EBEAA /* ElementTree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ElementTree.h; sourceTree = "<group>"; };
 		40E1B83A1EB105D1000EBEAA /* ElementTree.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ElementTree.m; sourceTree = "<group>"; };
 		40E1B83D1EB10783000EBEAA /* ClassPath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassPath.h; sourceTree = "<group>"; };
@@ -697,6 +702,7 @@
 		40F0E5991EEE76AC00A82E4E /* PTProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTProtocol.m; sourceTree = "<group>"; };
 		40F0E59A1EEE76AC00A82E4E /* PTUSBHub.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTUSBHub.h; sourceTree = "<group>"; };
 		40F0E59B1EEE76AC00A82E4E /* PTUSBHub.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTUSBHub.m; sourceTree = "<group>"; };
+		40FDCCE51F3965660086A69E /* OCMonkeyPaws.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMonkeyPaws.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -777,6 +783,8 @@
 				408422471EFB8F9C00FD6283 /* XCUIElement+GGIsVisible.m */,
 				40895E241F051DA900C00E82 /* XCUIDevice+Monkey.h */,
 				40895E251F051DA900C00E82 /* XCUIDevice+Monkey.m */,
+				40B814FF1F4FCACA00298C09 /* XCUIElement+GGSwipe.h */,
+				40B815001F4FCACA00298C09 /* XCUIElement+GGSwipe.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -1013,6 +1021,7 @@
 				407B10341E89395000C2E93D /* UIApplication+Monkey.h */,
 				407B10351E89395000C2E93D /* UIApplication+Monkey.m */,
 				407B10291E89390600C2E93D /* Info.plist */,
+				40FDCCE51F3965660086A69E /* OCMonkeyPaws.h */,
 			);
 			path = OCMonkeyPaws;
 			sourceTree = "<group>";
@@ -1177,6 +1186,7 @@
 				4034E9741EE105570061AD95 /* XCTestDaemonsProxy.h in Headers */,
 				402AA1921EF0D1B700BAA800 /* XCTestCaseImplementationFailureHoldingProxy.h in Headers */,
 				402496401EE7A68000014AA6 /* XCUIElement+GGTyping.h in Headers */,
+				40B815011F4FCACA00298C09 /* XCUIElement+GGSwipe.h in Headers */,
 				402AA19A1EF0D68800BAA800 /* GGExceptionHandler.h in Headers */,
 				406477DF1ECD3554006AB4AB /* SmartMonkey.h in Headers */,
 				40E1B8431EB10802000EBEAA /* ClassPathItem.h in Headers */,
@@ -1316,10 +1326,11 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				407B103C1E89395000C2E93D /* UIApplication+Monkey.h in Headers */,
+				40FDCCE61F3965660086A69E /* OCMonkeyPaws.h in Headers */,
 				407B103A1E89395000C2E93D /* MonkeyPaws.h in Headers */,
-				407B10381E89395000C2E93D /* GestureHash.h in Headers */,
 				407B10361E89395000C2E93D /* Gesture.h in Headers */,
+				407B10381E89395000C2E93D /* GestureHash.h in Headers */,
+				407B103C1E89395000C2E93D /* UIApplication+Monkey.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1740,6 +1751,7 @@
 				401AB09F1EB2152700CC1046 /* RegularAction.m in Sources */,
 				406477D41ECC3B1D006AB4AB /* NSMutableArray+Queue.m in Sources */,
 				40E1B8481EB11473000EBEAA /* NSMutableArray+Reverse.m in Sources */,
+				40B815021F4FCACA00298C09 /* XCUIElement+GGSwipe.m in Sources */,
 				401AB0701EB0C7C200CC1046 /* ElementTypeTransformer.m in Sources */,
 				40895E1E1F0386A200C00E82 /* XCUIElement+Tree.m in Sources */,
 				408422451EFB882400FD6283 /* GGSpringboardApplication.m in Sources */,
@@ -2082,6 +2094,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = A52WM6747D;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;

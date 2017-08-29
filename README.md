@@ -11,11 +11,6 @@ Element-based actions are very important for a Monkey tool. Coordinate-based act
 
 
 ## Requirements
-* Use [Carthage](https://github.com/Carthage/Carthage) to get Peertalk.framework prepared:
-```
-# cd into project directory and run the following command:
-$ carthage bootstrap
-```
 * iOS version: >= 9.0. Support both device and simulator.
 * If you were to run OCMonkey on a real device rather than a simulator, you must configure ```Code Signing``` and ```Mobile Provisioning Profiles``` settings by your self. You may also need to modify the ```bundleID``` of target ```MonkeyRunner```.
 
