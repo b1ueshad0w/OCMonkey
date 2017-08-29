@@ -134,7 +134,14 @@
         }
     }
     _endTime = [NSDate date];
-    [self postRun];
+    if (!_exitReason) {
+        _exitReason = @"Normal ends.";
+    }
+    @try {
+        [self postRun];
+    } @catch (NSException *exception) {
+        [GGLogger logFmt:@"Exception: %@ %@", exception, [exception.callStackSymbols componentsJoinedByString:@"\n"]];
+    }
 }
 
 -(void)run

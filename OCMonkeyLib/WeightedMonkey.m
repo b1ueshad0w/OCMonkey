@@ -25,6 +25,11 @@
 
 @interface WeightedMonkey()
 @property (nonatomic, readwrite) NSMutableDictionary<TreeHashType *, VCCallback> *vcCallbacks;
+/**
+ [[time0, vc1], [time1, vc2], ... [timeN, vcN]]
+ where time is obtained from CFAbsoluteTimeGetCurrent()
+ */
+@property (nonatomic, readwrite) NSMutableArray<NSMutableArray *> *vcSequence;
 @end
 
 @implementation WeightedMonkey
@@ -62,6 +67,7 @@ static NSArray * containers;
         _algorithm = algorithm;
         _vcCallbacks = [[NSMutableDictionary alloc] init];
         _frequencyOfStateChecking = 0.3;
+        _vcSequence = [[NSMutableArray alloc] init];
     }
     return self;
 }
@@ -129,6 +135,9 @@ static NSArray * containers;
 //    [GGLogger logFmt:@"Leaves: %@", [desc componentsJoinedByString:@"\n"]];
     
     TreeHashType *treeHash = [self getCurrentVC];
+    if (!_vcSequence.lastObject || ![_vcSequence.lastObject.lastObject isEqualToString:treeHash]) {
+        [_vcSequence addObject:[NSMutableArray arrayWithObjects:@(CFAbsoluteTimeGetCurrent()), treeHash, nil]];
+    }
     if ([treeHash hasSuffix:@"WebViewController"]) {
         [self goBack];
         return;
@@ -270,6 +279,12 @@ static NSArray * containers;
     NSArray<NSString *> *vcs = [_algorithm viewControllers];
     [GGLogger logFmt:@"visited vc count: %lu", (unsigned long)vcs.count];
     
+    int max = _vcSequence.count - 1;
+    for (int i = 0; i < max; i++) {
+        _vcSequence[i][0] = @([_vcSequence[i+1][0] doubleValue] - [_vcSequence[i][0] doubleValue]);
+    }
+    (_vcSequence.lastObject)[0] = @0;
+    
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateStyle:@"yyyy-MM-dd hh:mm:ss"];
     [dateFormatter setTimeStyle:@"hh:mm:ss"];
@@ -279,9 +294,10 @@ static NSArray * containers;
         @"Duration": @((int)[self.endTime timeIntervalSinceDate:self.startTime]),
         @"ElementsCount": @0,
         @"MonkeyAlgorithm": NSStringFromClass([self.algorithm class]),
-        @"ViewControllers": vcs,
-        @"ViewControllersCount": @(vcs.count)
-       };
+//        @"ViewControllers": vcs,
+        @"ViewControllersCount": @(vcs.count),
+        @"VCSequence": _vcSequence
+    };
     
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
@@ -310,6 +326,7 @@ static NSArray * containers;
     if (error) {
         [GGLogger logFmt:@"NSJSONSerialization failed: %@", error];
     }
+    [GGLogger logFmt:@"Save test result to: %@", filePath];
     [jsonData writeToFile:filePath atomically:YES];
 }
 @end
