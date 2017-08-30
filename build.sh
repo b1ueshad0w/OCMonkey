@@ -56,5 +56,10 @@ lipo -create \
 "${IphoneosFramework}/Frameworks/${SubFrameworkFullName}/${SubFrameworkName}" "${IphonesimulatorFramework}/Frameworks/${SubFrameworkFullName}/${SubFrameworkName}" -output "${UniversalFramework}/Frameworks/${SubFrameworkFullName}/${SubFrameworkName}"
 lipo -info "${UniversalFramework}/Frameworks/${SubFrameworkFullName}/${SubFrameworkName}"
 
-# Remember, only files under $WORKSPACE/result will be displayed by the CI System (RDM)
-cp -rf ${UniversalFramework} "${WORKSPACE}/result"
+# Remember, only files under $WORKSPACE/result will be displayed by the CI System (RDM).
+# Also XXX.framework is a folder and it will not be displayed.
+# So we need to zip it.
+ZIP_OUTPUT="${PRODUCT_FULLNAME}.zip"
+cp -rf ${UniversalFramework} .
+zip -rq ${ZIP_OUTPUT} ${PRODUCT_FULLNAME}
+cp ${ZIP_OUTPUT} "${WORKSPACE}/result"
