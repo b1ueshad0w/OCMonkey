@@ -1,11 +1,16 @@
 # xcodebuild build-for-testing -project OCMonkey.xcodeproj -scheme MonkeyRunner -derivedDataPath /tmp/derivedDataPath3 -sdk iphonesimulator
 
-DERIVED_DATA_PATH=/tmp/buildOCMonkeyLib
+DERIVED_DATA_PATH=$WORKSPACE
 SCHEME=OCMonkeyLib
 CONFIG=Debug
 PRODUCT_TYPE="framework"
 PRODUCT_NAME="$SCHEME"
 PRODUCT_FULLNAME="${PRODUCT_NAME}.${PRODUCT_TYPE}"
+
+if [ -e result ] ;then
+rm -r result
+fi
+mkdir result
 
 # rm -rf $DERIVED_DATA_PATH
 echo "Build for iphoneos:"
@@ -35,3 +40,5 @@ lipo -create \
 "${IphoneosFramework}/Frameworks/${SubFrameworkFullName}/${SubFrameworkName}" "${IphonesimulatorFramework}/Frameworks/${SubFrameworkFullName}/${SubFrameworkName}" -output "${UniversalFramework}/Frameworks/${SubFrameworkFullName}/${SubFrameworkName}"
 lipo -info "${UniversalFramework}/Frameworks/${SubFrameworkFullName}/${SubFrameworkName}"
 
+# mkdir ${WOEKSPACE}/result/${PRODUCT_FULLNAME}
+cp -rf ${UniversalFramework} ${WOEKSPACE}/result
