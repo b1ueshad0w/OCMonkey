@@ -12,6 +12,9 @@ rm -r result
 fi
 mkdir result
 
+echo "Clean workspace:"
+xcodebuild clean -scheme $SCHEME -derivedDataPath $DERIVED_DATA_PATH
+
 # rm -rf $DERIVED_DATA_PATH
 echo "Build for iphoneos:"
 xcodebuild build -scheme $SCHEME -configuration $CONFIG -sdk iphoneos -derivedDataPath $DERIVED_DATA_PATH
@@ -41,4 +44,5 @@ lipo -create \
 lipo -info "${UniversalFramework}/Frameworks/${SubFrameworkFullName}/${SubFrameworkName}"
 
 # mkdir ${WOEKSPACE}/result/${PRODUCT_FULLNAME}
-cp -rf ${UniversalFramework} ${WOEKSPACE}/result
+echo "cp -rf ${UniversalFramework} ${WOEKSPACE}/result"
+cp -rf ${UniversalFramework} "${WOEKSPACE}/result"
