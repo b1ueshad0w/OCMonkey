@@ -1,5 +1,12 @@
-# xcodebuild build-for-testing -project OCMonkey.xcodeproj -scheme MonkeyRunner -derivedDataPath /tmp/derivedDataPath3 -sdk iphonesimulator
+#!/usr/bin/env bash
 
+# This script is intended for CI system (RDM) to perform a CI job.
+# More details at:
+#   http://km.oa.com/group/20528/articles/show/259187
+#   http://km.oa.com/group/18155/articles/show/149556
+
+
+# WORKSPACE is an environment variable defined by the CI System (RDM)
 DERIVED_DATA_PATH=$WORKSPACE
 SCHEME=OCMonkeyLib
 CONFIG=Debug
@@ -7,10 +14,16 @@ PRODUCT_TYPE="framework"
 PRODUCT_NAME="$SCHEME"
 PRODUCT_FULLNAME="${PRODUCT_NAME}.${PRODUCT_TYPE}"
 
+
+# The 'result' folder is required by CI system to put the output files
+#  you want to display on the CI system's front-end (web page).
 if [ -e result ] ;then
 rm -r result
 fi
 mkdir result
+
+
+# xcodebuild build-for-testing -project OCMonkey.xcodeproj -scheme MonkeyRunner -derivedDataPath /tmp/derivedDataPath3 -sdk iphonesimulator
 
 echo "Clean workspace:"
 xcodebuild clean -scheme $SCHEME -derivedDataPath $DERIVED_DATA_PATH
@@ -43,6 +56,5 @@ lipo -create \
 "${IphoneosFramework}/Frameworks/${SubFrameworkFullName}/${SubFrameworkName}" "${IphonesimulatorFramework}/Frameworks/${SubFrameworkFullName}/${SubFrameworkName}" -output "${UniversalFramework}/Frameworks/${SubFrameworkFullName}/${SubFrameworkName}"
 lipo -info "${UniversalFramework}/Frameworks/${SubFrameworkFullName}/${SubFrameworkName}"
 
-# mkdir ${WOEKSPACE}/result/${PRODUCT_FULLNAME}
-echo "cp -rf ${UniversalFramework} ${WOEKSPACE}/result"
-cp -rf ${UniversalFramework} "${WOEKSPACE}/result"
+# Remember, only files under $WORKSPACE/result will be displayed by the CI System (RDM)
+cp -rf ${UniversalFramework} "${WORKSPACE}/result"
