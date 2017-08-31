@@ -499,6 +499,7 @@
 		404F9E341EB2511C009CA2A1 /* Monkey+XCUITestPrivate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Monkey+XCUITestPrivate.m"; path = "Categories/Monkey+XCUITestPrivate.m"; sourceTree = "<group>"; };
 		404F9E371EB25D8B009CA2A1 /* Macros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Macros.h; sourceTree = "<group>"; };
 		404F9E3A1EB262FF009CA2A1 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
+		405874DC1F5827CE00AFFAC5 /* build.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = build.sh; sourceTree = "<group>"; };
 		406477D11ECC3B1D006AB4AB /* NSMutableArray+Queue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+Queue.h"; sourceTree = "<group>"; };
 		406477D21ECC3B1D006AB4AB /* NSMutableArray+Queue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+Queue.m"; sourceTree = "<group>"; };
 		406477D51ECC490B006AB4AB /* NSMutableArray+Stack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+Stack.h"; sourceTree = "<group>"; };
@@ -811,6 +812,7 @@
 		4069E7191E67F77D00C1C832 = {
 			isa = PBXGroup;
 			children = (
+				405874DC1F5827CE00AFFAC5 /* build.sh */,
 				4034E97F1EE539340061AD95 /* shared */,
 				40AE4DFE1EB82C8E006A13C5 /* swizzle.h */,
 				40AE4DFC1EB826DF006A13C5 /* swizzle.m */,
@@ -1614,7 +1616,8 @@
 					};
 					4069E8051E6806BB00C1C832 = {
 						CreatedOnToolsVersion = 8.2.1;
-						ProvisioningStyle = Automatic;
+						DevelopmentTeam = A52WM6747D;
+						ProvisioningStyle = Manual;
 					};
 					407B10251E89390600C2E93D = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -2118,6 +2121,8 @@
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.tencent.MonkeyRunner;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "f962f065-dd5e-44c4-a64a-52dbf765d2ab";
+				PROVISIONING_PROFILE_SPECIFIER = TencentSNGzx;
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -2146,6 +2151,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = "";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -2162,6 +2168,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.tencent.MonkeyRunner;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};

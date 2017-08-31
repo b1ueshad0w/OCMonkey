@@ -9,6 +9,7 @@
 # WORKSPACE is an environment variable defined by the CI System (RDM)
 DERIVED_DATA_PATH=$WORKSPACE
 SCHEME=OCMonkeyLib
+RUNNER_SCHEME=MonkeyRunner
 CONFIG=Debug
 PRODUCT_TYPE="framework"
 PRODUCT_NAME="$SCHEME"
@@ -22,6 +23,7 @@ rm -r result
 fi
 mkdir result
 
+echo "svn revision: ${SVN_REVISION}"
 
 # xcodebuild build-for-testing -project OCMonkey.xcodeproj -scheme MonkeyRunner -derivedDataPath /tmp/derivedDataPath3 -sdk iphonesimulator
 
@@ -63,3 +65,33 @@ ZIP_OUTPUT="${PRODUCT_FULLNAME}.zip"
 cp -rf ${UniversalFramework} .
 zip -rq ${ZIP_OUTPUT} ${PRODUCT_FULLNAME}
 cp ${ZIP_OUTPUT} "${WORKSPACE}/result"
+
+
+
+echo "Build runner for iphoneos:"
+xcodebuild build-for-testing -scheme ${RUNNER_SCHEME} -configuration ${CONFIG} -sdk iphoneos -derivedDataPath ${DERIVED_DATA_PATH}
+echo "Build runner for simulator:"
+xcodebuild build-for-testing -scheme ${RUNNER_SCHEME} -configuration ${CONFIG} -sdk iphonesimulator -derivedDataPath ${DERIVED_DATA_PATH}
+AppFullName="${RUNNER_SCHEME}-Runner.app"
+AppIphoneOSPath="${IPHONEOS_DIR}/${AppFullName}"
+AppIphoneSIPath="${IPHONESIMULATOR_DIR}/${AppFullName}"
+
+AppIphoneOSPathNew="${IPHONEOS_DIR}/${RUNNER_SCHEME}.app"
+AppIphoneSIPathNew="${IPHONESIMULATOR_DIR}/${RUNNER_SCHEME}.app"
+
+mv ${AppIphoneOSPath} ${AppIphoneOSPathNew}
+mv ${AppIphoneSIPath} ${AppIphoneSIPathNew}
+
+ZIP_OS_OUTPUT="${RUNNER_SCHEME}-iphoneos.ipa"
+ZIP_SI_OUTPUT="${RUNNER_SCHEME}-iphonesimulator.ipa"
+
+mkdir Payload
+cp ${AppIphoneOSPathNew} Payload
+zip -rq ${ZIP_OS_OUTPUT} Payload/
+cp ${ZIP_OS_OUTPUT} "${WORKSPACE}/result"
+
+rm -rf Payload
+mkdir Payload
+cp ${AppIphoneSIPathNew} Payload
+zip -rq ${ZIP_SI_OUTPUT} Payload/
+cp ${ZIP_SI_OUTPUT} "${WORKSPACE}/result"
