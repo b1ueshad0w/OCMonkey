@@ -23,7 +23,8 @@ rm -r result
 fi
 mkdir result
 
-echo "svn revision: ${SVN_REVISION}"
+echo "About to print all envs."
+printenv
 
 # xcodebuild build-for-testing -project OCMonkey.xcodeproj -scheme MonkeyRunner -derivedDataPath /tmp/derivedDataPath3 -sdk iphonesimulator
 
@@ -86,12 +87,12 @@ ZIP_OS_OUTPUT="${RUNNER_SCHEME}-iphoneos.ipa"
 ZIP_SI_OUTPUT="${RUNNER_SCHEME}-iphonesimulator.ipa"
 
 mkdir Payload
-cp ${AppIphoneOSPathNew} Payload
+cp -rf ${AppIphoneOSPathNew} Payload
 zip -rq ${ZIP_OS_OUTPUT} Payload/
 cp ${ZIP_OS_OUTPUT} "${WORKSPACE}/result"
 
 rm -rf Payload
 mkdir Payload
-cp ${AppIphoneSIPathNew} Payload
+cp -rf ${AppIphoneSIPathNew} Payload
 zip -rq ${ZIP_SI_OUTPUT} Payload/
 cp ${ZIP_SI_OUTPUT} "${WORKSPACE}/result"
