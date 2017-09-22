@@ -34,7 +34,10 @@
 @property(readonly, nonatomic) UIInterfaceOrientation interfaceOrientation; //TODO tvos
 @property(readonly, nonatomic) BOOL running;
 @property(nonatomic) pid_t processID; // @synthesize processID=_processID;
+#ifndef __IPHONE_11_0
+// In iOS 11, this property will be public rather than private.
 @property unsigned long long state; // @synthesize state=_state;
+#endif
 @property(readonly) XCAccessibilityElement *accessibilityElement;
 
 + (instancetype)appWithPID:(pid_t)processID;
