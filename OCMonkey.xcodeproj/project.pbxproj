@@ -336,7 +336,7 @@
 		40AE50921EB8B1F1006A13C5 /* UIViewController+Monkey.h in Headers */ = {isa = PBXBuildFile; fileRef = 40AE50901EB8B1F1006A13C5 /* UIViewController+Monkey.h */; };
 		40AE50931EB8B1F1006A13C5 /* UIViewController+Monkey.m in Sources */ = {isa = PBXBuildFile; fileRef = 40AE50911EB8B1F1006A13C5 /* UIViewController+Monkey.m */; };
 		40AE50E51EBC3C22006A13C5 /* AgentForHost.m in Sources */ = {isa = PBXBuildFile; fileRef = 40EBD3C11EB39E7300CD5050 /* AgentForHost.m */; };
-		40B815011F4FCACA00298C09 /* XCUIElement+GGSwipe.h in Headers */ = {isa = PBXBuildFile; fileRef = 40B814FF1F4FCACA00298C09 /* XCUIElement+GGSwipe.h */; };
+		40B815011F4FCACA00298C09 /* XCUIElement+GGSwipe.h in Headers */ = {isa = PBXBuildFile; fileRef = 40B814FF1F4FCACA00298C09 /* XCUIElement+GGSwipe.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		40B815021F4FCACA00298C09 /* XCUIElement+GGSwipe.m in Sources */ = {isa = PBXBuildFile; fileRef = 40B815001F4FCACA00298C09 /* XCUIElement+GGSwipe.m */; };
 		40E1B83B1EB105D1000EBEAA /* ElementTree.h in Headers */ = {isa = PBXBuildFile; fileRef = 40E1B8391EB105D1000EBEAA /* ElementTree.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		40E1B83C1EB105D1000EBEAA /* ElementTree.m in Sources */ = {isa = PBXBuildFile; fileRef = 40E1B83A1EB105D1000EBEAA /* ElementTree.m */; };
@@ -1188,7 +1188,6 @@
 				4034E9741EE105570061AD95 /* XCTestDaemonsProxy.h in Headers */,
 				402AA1921EF0D1B700BAA800 /* XCTestCaseImplementationFailureHoldingProxy.h in Headers */,
 				402496401EE7A68000014AA6 /* XCUIElement+GGTyping.h in Headers */,
-				40B815011F4FCACA00298C09 /* XCUIElement+GGSwipe.h in Headers */,
 				402AA19A1EF0D68800BAA800 /* GGExceptionHandler.h in Headers */,
 				406477DF1ECD3554006AB4AB /* SmartMonkey.h in Headers */,
 				40E1B8431EB10802000EBEAA /* ClassPathItem.h in Headers */,
@@ -1320,6 +1319,7 @@
 				4069E7B31E68042E00C1C832 /* XCApplicationMonitor_iOS.h in Headers */,
 				4069E7DF1E68042E00C1C832 /* XCTestObserver.h in Headers */,
 				408422441EFB882400FD6283 /* GGSpringboardApplication.h in Headers */,
+				40B815011F4FCACA00298C09 /* XCUIElement+GGSwipe.h in Headers */,
 				4069E7E61E68042E00C1C832 /* XCTMetric.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

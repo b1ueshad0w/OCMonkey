@@ -53,5 +53,6 @@ FOUNDATION_EXPORT const unsigned char OCMonkeyLib_VersionString[];
 #import <OCMonkeyLib/GGSpringboardApplication.h>
 #import <OCMonkeyLib/XCUIDevice+Monkey.h>
 #import <OCMonkeyLib/XCUIElement+GGIsVisible.h>
+#import <OCMonkeyLib/XCUIElement+GGSwipe.h>
 
 #endif /* OCMonkeyLib_h */
