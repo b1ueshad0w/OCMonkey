@@ -34,13 +34,16 @@
     return nc;
 }
 
-- (instancetype)monkey_initWithNavigationBarClass:(Class)navigationBarClass
-                                     toolbarClass:(Class)toolbarClass
+- (instancetype)monkey_initWithNavigationBarClass:(nullable Class)navigationBarClass
+                                     toolbarClass:(nullable Class)toolbarClass
 {
 //    NSString *selStr = NSStringFromSelector(_cmd);
     NSString *selStr = @"initWithNavigationBarClass:toolbarClass:";
     UINavigationController *nc = [self monkey_initWithNavigationBarClass:navigationBarClass toolbarClass:toolbarClass];
-    NSArray<NSString *> *args = @[self.description, navigationBarClass, toolbarClass, nc.description];
+    NSArray<NSString *> *args = @[self.description,
+                                  navigationBarClass ? navigationBarClass : @"nil",
+                                  toolbarClass ? toolbarClass : @"nil",
+                                  nc.description];
     [GGLogger logFmt:@"[UINavigationController (did)%@] %@", selStr, [args componentsJoinedByString:@" "]];
     [[Outlet sharedOutlet] sendJSON:@{@"class": UINaviCtrl,
                                       @"selector": selStr,
@@ -73,7 +76,7 @@
     return;
 }
 
-- (UIViewController *)monkey_popViewControllerAnimated:(BOOL)animated
+- (nullable UIViewController *)monkey_popViewControllerAnimated:(BOOL)animated
 {
     NSString *selStr = @"popViewControllerAnimated:";
 //    NSString *selStr = NSStringFromSelector(_cmd);
@@ -98,7 +101,7 @@
 }
 
 
-- (NSArray<__kindof UIViewController *> *)monkey_popToRootViewControllerAnimated:(BOOL)animated
+- (nullable NSArray<__kindof UIViewController *> *)monkey_popToRootViewControllerAnimated:(BOOL)animated
 {
 //    NSString *selStr = NSStringFromSelector(_cmd);
     NSString *selStr = @"popToRootViewControllerAnimated:";
@@ -123,7 +126,7 @@
 }
 
 
-- (NSArray<__kindof UIViewController *> *)monkey_popToViewController:(UIViewController *)vc animated:(BOOL)animated
+- (nullable NSArray<__kindof UIViewController *> *)monkey_popToViewController:(UIViewController *)vc animated:(BOOL)animated
 {
 //    NSString *selStr = NSStringFromSelector(_cmd);
     NSString *selStr = @"popToViewController:animated:";
