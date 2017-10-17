@@ -338,6 +338,15 @@
 		40AE50E51EBC3C22006A13C5 /* AgentForHost.m in Sources */ = {isa = PBXBuildFile; fileRef = 40EBD3C11EB39E7300CD5050 /* AgentForHost.m */; };
 		40B815011F4FCACA00298C09 /* XCUIElement+GGSwipe.h in Headers */ = {isa = PBXBuildFile; fileRef = 40B814FF1F4FCACA00298C09 /* XCUIElement+GGSwipe.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		40B815021F4FCACA00298C09 /* XCUIElement+GGSwipe.m in Sources */ = {isa = PBXBuildFile; fileRef = 40B815001F4FCACA00298C09 /* XCUIElement+GGSwipe.m */; };
+		40D301761F8F239300C77EF9 /* APICompatibility.m in Sources */ = {isa = PBXBuildFile; fileRef = 40D301751F8F239300C77EF9 /* APICompatibility.m */; };
+		40D301791F8F29AB00C77EF9 /* XCElementSnapshot+GGHelpers.h in Headers */ = {isa = PBXBuildFile; fileRef = 40D301771F8F29AB00C77EF9 /* XCElementSnapshot+GGHelpers.h */; };
+		40D3017A1F8F29AB00C77EF9 /* XCElementSnapshot+GGHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 40D301781F8F29AB00C77EF9 /* XCElementSnapshot+GGHelpers.m */; };
+		40D3017D1F8F2BFF00C77EF9 /* XCTestPrivateSymbols.h in Headers */ = {isa = PBXBuildFile; fileRef = 40D3017B1F8F2BFF00C77EF9 /* XCTestPrivateSymbols.h */; };
+		40D3017E1F8F2BFF00C77EF9 /* XCTestPrivateSymbols.m in Sources */ = {isa = PBXBuildFile; fileRef = 40D3017C1F8F2BFF00C77EF9 /* XCTestPrivateSymbols.m */; };
+		40D301811F8F2E2D00C77EF9 /* GGRuntimeUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 40D3017F1F8F2E2D00C77EF9 /* GGRuntimeUtils.h */; };
+		40D301821F8F2E2D00C77EF9 /* GGRuntimeUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 40D301801F8F2E2D00C77EF9 /* GGRuntimeUtils.m */; };
+		40D301851F8F31DB00C77EF9 /* XCElementSnapshot+GGHitPoint.h in Headers */ = {isa = PBXBuildFile; fileRef = 40D301831F8F31DB00C77EF9 /* XCElementSnapshot+GGHitPoint.h */; };
+		40D301861F8F31DB00C77EF9 /* XCElementSnapshot+GGHitPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 40D301841F8F31DB00C77EF9 /* XCElementSnapshot+GGHitPoint.m */; };
 		40E1B83B1EB105D1000EBEAA /* ElementTree.h in Headers */ = {isa = PBXBuildFile; fileRef = 40E1B8391EB105D1000EBEAA /* ElementTree.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		40E1B83C1EB105D1000EBEAA /* ElementTree.m in Sources */ = {isa = PBXBuildFile; fileRef = 40E1B83A1EB105D1000EBEAA /* ElementTree.m */; };
 		40E1B83F1EB10783000EBEAA /* ClassPath.h in Headers */ = {isa = PBXBuildFile; fileRef = 40E1B83D1EB10783000EBEAA /* ClassPath.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -678,6 +687,16 @@
 		40AE50911EB8B1F1006A13C5 /* UIViewController+Monkey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Monkey.m"; sourceTree = "<group>"; };
 		40B814FF1F4FCACA00298C09 /* XCUIElement+GGSwipe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "XCUIElement+GGSwipe.h"; sourceTree = "<group>"; };
 		40B815001F4FCACA00298C09 /* XCUIElement+GGSwipe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "XCUIElement+GGSwipe.m"; sourceTree = "<group>"; };
+		40D301741F8F229E00C77EF9 /* APICompatibility.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APICompatibility.h; sourceTree = "<group>"; };
+		40D301751F8F239300C77EF9 /* APICompatibility.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = APICompatibility.m; sourceTree = "<group>"; };
+		40D301771F8F29AB00C77EF9 /* XCElementSnapshot+GGHelpers.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "XCElementSnapshot+GGHelpers.h"; sourceTree = "<group>"; };
+		40D301781F8F29AB00C77EF9 /* XCElementSnapshot+GGHelpers.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "XCElementSnapshot+GGHelpers.m"; sourceTree = "<group>"; };
+		40D3017B1F8F2BFF00C77EF9 /* XCTestPrivateSymbols.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XCTestPrivateSymbols.h; sourceTree = "<group>"; };
+		40D3017C1F8F2BFF00C77EF9 /* XCTestPrivateSymbols.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XCTestPrivateSymbols.m; sourceTree = "<group>"; };
+		40D3017F1F8F2E2D00C77EF9 /* GGRuntimeUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GGRuntimeUtils.h; sourceTree = "<group>"; };
+		40D301801F8F2E2D00C77EF9 /* GGRuntimeUtils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GGRuntimeUtils.m; sourceTree = "<group>"; };
+		40D301831F8F31DB00C77EF9 /* XCElementSnapshot+GGHitPoint.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "XCElementSnapshot+GGHitPoint.h"; sourceTree = "<group>"; };
+		40D301841F8F31DB00C77EF9 /* XCElementSnapshot+GGHitPoint.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "XCElementSnapshot+GGHitPoint.m"; sourceTree = "<group>"; };
 		40E1B8391EB105D1000EBEAA /* ElementTree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ElementTree.h; sourceTree = "<group>"; };
 		40E1B83A1EB105D1000EBEAA /* ElementTree.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ElementTree.m; sourceTree = "<group>"; };
 		40E1B83D1EB10783000EBEAA /* ClassPath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassPath.h; sourceTree = "<group>"; };
@@ -786,6 +805,12 @@
 				40895E251F051DA900C00E82 /* XCUIDevice+Monkey.m */,
 				40B814FF1F4FCACA00298C09 /* XCUIElement+GGSwipe.h */,
 				40B815001F4FCACA00298C09 /* XCUIElement+GGSwipe.m */,
+				40D301741F8F229E00C77EF9 /* APICompatibility.h */,
+				40D301751F8F239300C77EF9 /* APICompatibility.m */,
+				40D301771F8F29AB00C77EF9 /* XCElementSnapshot+GGHelpers.h */,
+				40D301781F8F29AB00C77EF9 /* XCElementSnapshot+GGHelpers.m */,
+				40D301831F8F31DB00C77EF9 /* XCElementSnapshot+GGHitPoint.h */,
+				40D301841F8F31DB00C77EF9 /* XCElementSnapshot+GGHitPoint.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -1152,6 +1177,10 @@
 				402AA1951EF0D44900BAA800 /* GGTestCase.m */,
 				402AA1981EF0D68800BAA800 /* GGExceptionHandler.h */,
 				402AA1991EF0D68800BAA800 /* GGExceptionHandler.m */,
+				40D3017B1F8F2BFF00C77EF9 /* XCTestPrivateSymbols.h */,
+				40D3017C1F8F2BFF00C77EF9 /* XCTestPrivateSymbols.m */,
+				40D3017F1F8F2E2D00C77EF9 /* GGRuntimeUtils.h */,
+				40D301801F8F2E2D00C77EF9 /* GGRuntimeUtils.m */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -1200,6 +1229,7 @@
 				4034E96E1EE105570061AD95 /* Keyboard.h in Headers */,
 				4034E9781EE10EB80061AD95 /* RunLoopSpinner.h in Headers */,
 				401AB06B1EB0BB3400CC1046 /* ElementInfo.h in Headers */,
+				40D301791F8F29AB00C77EF9 /* XCElementSnapshot+GGHelpers.h in Headers */,
 				406477E21ECD42F0006AB4AB /* MonkeyAlgorithm.h in Headers */,
 				40EBD3C21EB39E7300CD5050 /* AgentForHost.h in Headers */,
 				401AB09E1EB2152700CC1046 /* RegularAction.h in Headers */,
@@ -1275,6 +1305,7 @@
 				4069E7B51E68042E00C1C832 /* XCApplicationQuery.h in Headers */,
 				4069E7FC1E68042E00C1C832 /* XCUIElementHitPointCoordinate.h in Headers */,
 				4069E7A51E68042E00C1C832 /* _XCTNSNotificationExpectationImplementation.h in Headers */,
+				40D301851F8F31DB00C77EF9 /* XCElementSnapshot+GGHitPoint.h in Headers */,
 				4069E7E11E68042E00C1C832 /* XCTestRun.h in Headers */,
 				4069E7C61E68042E00C1C832 /* XCSynthesizedEventRecord.h in Headers */,
 				4069E7CB1E68042E00C1C832 /* XCTDarwinNotificationExpectation.h in Headers */,
@@ -1287,6 +1318,7 @@
 				4069E7D31E68042E00C1C832 /* XCTestDriver.h in Headers */,
 				4069E7A81E68042E00C1C832 /* CDStructures.h in Headers */,
 				4069E7B01E68042E00C1C832 /* UITapGestureRecognizer-RecordingAdditions.h in Headers */,
+				40D301811F8F2E2D00C77EF9 /* GGRuntimeUtils.h in Headers */,
 				4069E7A01E68042E00C1C832 /* _XCTestCaseInterruptionException.h in Headers */,
 				4069E7E51E68042E00C1C832 /* XCTKVOExpectation.h in Headers */,
 				4069E7C51E68042E00C1C832 /* XCSymbolicatorHolder.h in Headers */,
@@ -1298,6 +1330,7 @@
 				4069E79C1E68042E00C1C832 /* _XCInternalTestRun.h in Headers */,
 				4069E7E31E68042E00C1C832 /* XCTestSuiteRun.h in Headers */,
 				4069E7DE1E68042E00C1C832 /* XCTestObservationCenter.h in Headers */,
+				40D3017D1F8F2BFF00C77EF9 /* XCTestPrivateSymbols.h in Headers */,
 				4069E7F11E68042E00C1C832 /* XCTWaiterDelegate-Protocol.h in Headers */,
 				4069E7CF1E68042E00C1C832 /* XCTestCaseSuite.h in Headers */,
 				4069E7A71E68042E00C1C832 /* _XCTWaiterImpl.h in Headers */,
@@ -1730,6 +1763,7 @@
 			files = (
 				4069E7311E67FC2800C1C832 /* Monkey.m in Sources */,
 				40895E271F051DA900C00E82 /* XCUIDevice+Monkey.m in Sources */,
+				40D301821F8F2E2D00C77EF9 /* GGRuntimeUtils.m in Sources */,
 				4034E9791EE10EB80061AD95 /* RunLoopSpinner.m in Sources */,
 				406477DC1ECD34F0006AB4AB /* SmartMonkey+UIChangeDelegate.m in Sources */,
 				402496411EE7A68000014AA6 /* XCUIElement+GGTyping.m in Sources */,
@@ -1746,19 +1780,23 @@
 				401AB09B1EB212CF00CC1046 /* RandomAction.m in Sources */,
 				40EBD3C31EB39E7300CD5050 /* AgentForHost.m in Sources */,
 				40E1B83C1EB105D1000EBEAA /* ElementTree.m in Sources */,
+				40D301861F8F31DB00C77EF9 /* XCElementSnapshot+GGHitPoint.m in Sources */,
 				4034E9831EE53ADF0061AD95 /* GGLogger.m in Sources */,
 				401AB0A31EB2188F00CC1046 /* Random.m in Sources */,
 				404AF2A71ECD457200DFC6BF /* MonkeyAlgorithm.m in Sources */,
 				4034E9751EE105570061AD95 /* XCTestDaemonsProxy.m in Sources */,
+				40D301761F8F239300C77EF9 /* APICompatibility.m in Sources */,
 				4034E96F1EE105570061AD95 /* Keyboard.m in Sources */,
 				401AB09F1EB2152700CC1046 /* RegularAction.m in Sources */,
 				406477D41ECC3B1D006AB4AB /* NSMutableArray+Queue.m in Sources */,
 				40E1B8481EB11473000EBEAA /* NSMutableArray+Reverse.m in Sources */,
 				40B815021F4FCACA00298C09 /* XCUIElement+GGSwipe.m in Sources */,
+				40D3017E1F8F2BFF00C77EF9 /* XCTestPrivateSymbols.m in Sources */,
 				401AB0701EB0C7C200CC1046 /* ElementTypeTransformer.m in Sources */,
 				40895E1E1F0386A200C00E82 /* XCUIElement+Tree.m in Sources */,
 				408422451EFB882400FD6283 /* GGSpringboardApplication.m in Sources */,
 				40E1B8441EB10802000EBEAA /* ClassPathItem.m in Sources */,
+				40D3017A1F8F29AB00C77EF9 /* XCElementSnapshot+GGHelpers.m in Sources */,
 				4034E9711EE105570061AD95 /* MonkeyConfiguration.m in Sources */,
 				401AB06C1EB0BB3400CC1046 /* ElementInfo.m in Sources */,
 				40E1B8401EB10783000EBEAA /* ClassPath.m in Sources */,

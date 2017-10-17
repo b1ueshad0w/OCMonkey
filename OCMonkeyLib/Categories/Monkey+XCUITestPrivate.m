@@ -288,6 +288,22 @@ UIInterfaceOrientation orientationValue = UIInterfaceOrientationPortrait;
     [Monkey swipeFrame:frame vertically:YES];
 }
 
++(void)swipeLeftFrame:(CGRect)frame
+{
+    CGFloat halfHeight = frame.size.height / 2;
+    CGPoint start = CGPointMake(frame.size.width / 5, halfHeight);
+    CGPoint end = CGPointMake(frame.size.width / 5 * 4, halfHeight);
+    [Monkey swipeFrom:end to:start];
+}
+
++(void)swipeRightFrame:(CGRect)frame
+{
+    CGFloat halfHeight = frame.size.height / 2;
+    CGPoint start = CGPointMake(frame.size.width / 5, halfHeight);
+    CGPoint end = CGPointMake(frame.size.width / 5 * 4, halfHeight);
+    [Monkey swipeFrom:start to:end];
+}
+
 +(void)swipeFrame:(CGRect)frame vertically:(BOOL)reversed
 {
     CGFloat halfWidth = frame.size.width /2;

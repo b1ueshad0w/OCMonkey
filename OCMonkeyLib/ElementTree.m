@@ -57,6 +57,26 @@
     [Monkey tapAtLocation:getRectCenter(self.data.frame)];
 }
 
+-(void)swipeLeft
+{
+    [Monkey swipeLeftFrame:self.data.frame];
+}
+
+-(void)swipeRight
+{
+    [Monkey swipeRightFrame:self.data.frame];
+}
+
+-(void)swipeUp
+{
+    [Monkey swipeUpFrame:self.data.frame];
+}
+
+-(void)swipeDown
+{
+    [Monkey swipeDownFrame:self.data.frame];
+}
+
 @end
 
 

@@ -13,7 +13,9 @@
 @interface ElementInfo : NSObject <XCUIElementAttributes>
 
 -(id)initWithSnapshot:(XCElementSnapshot *)snapshot;
+-(id)initWithSnapshot:(XCElementSnapshot *)snapshot detectVisible:(BOOL)detectVisible;
 
 @property (nonatomic, readonly) BOOL isMainWindow;
+@property (nonatomic, readonly) BOOL isVisible;
 
 @end

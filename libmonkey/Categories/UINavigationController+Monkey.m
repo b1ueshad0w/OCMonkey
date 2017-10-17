@@ -41,8 +41,8 @@
     NSString *selStr = @"initWithNavigationBarClass:toolbarClass:";
     UINavigationController *nc = [self monkey_initWithNavigationBarClass:navigationBarClass toolbarClass:toolbarClass];
     NSArray<NSString *> *args = @[self.description,
-                                  navigationBarClass ? navigationBarClass : @"nil",
-                                  toolbarClass ? toolbarClass : @"nil",
+                                  navigationBarClass ? NSStringFromClass(navigationBarClass) : @"nil",
+                                  toolbarClass ? NSStringFromClass(toolbarClass) : @"nil",
                                   nc.description];
     [GGLogger logFmt:@"[UINavigationController (did)%@] %@", selStr, [args componentsJoinedByString:@" "]];
     [[Outlet sharedOutlet] sendJSON:@{@"class": UINaviCtrl,

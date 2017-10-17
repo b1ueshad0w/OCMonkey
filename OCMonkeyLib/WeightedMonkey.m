@@ -82,10 +82,19 @@ static NSArray * containers;
     NSMutableArray<ElementTree *> *elements = [[NSMutableArray alloc] init];
     [uiTree traverseDown:^BOOL(Tree *element, BOOL *stop) {
         ElementInfo *data = ((ElementTree*)element).data;
+        if (!data.isVisible)
+            return NO;  // discard invisible element and its descendants
+        
+        /*! Main Window is broken on iOS 11 */
+        /*
         if (data.elementType == XCUIElementTypeWindow && !data.isMainWindow)
             return NO;  // discard non-mainWindows' descendants
+         */
+        
         if (data.elementType == XCUIElementTypeStatusBar)
-            return NO;
+            return NO;  // discard StatusBar and its descendants
+        
+        /*
         BOOL isTooBigElement = (data.frame.size.width > (self.screenFrame.size.width - 1) &&
                                 data.frame.size.height > self.screenFrame.size.height - 1);
         if ([WeightedMonkey isContainer:data.elementType]) {
@@ -94,6 +103,8 @@ static NSArray * containers;
         }
         if (isTooBigElement)
             return YES;
+         */
+         
         if (element.children.count == 0) {
             [elements addObject:(ElementTree*)element];
             return NO;
@@ -123,7 +134,7 @@ static NSArray * containers;
         [self goBack];
     }
     
-    ElementTree *uiTree = [self.testedApp tree];
+    ElementTree *uiTree = [self.testedApp treeDetectVisible:NO];
 //    NSArray<ElementTree *> *elements = [uiTree leaves];
     NSArray<ElementTree *> *elements = [self getValidElementsFromTree:uiTree];
     [GGLogger logFmt:@"leaves count: %ld    valid ones count: %ld", [uiTree leaves].count, elements.count];
@@ -195,9 +206,27 @@ static NSArray * containers;
 -(void)processElement:(ElementTree *)element
 {
     XCUIElementType elementType = element.data.elementType;
+    
     if (elementType == XCUIElementTypeTextField || elementType == XCUIElementTypeSearchField || elementType == XCUIElementTypeTextView) {
         [element tap];
         [Keyboard typeText:[Random randomString] error:nil];
+        return;
+    }
+    if (elementType == XCUIElementTypeImage) {
+        float p_to_swipe = RandomZeroToOne;
+        if (isSizeEqualToSize(element.data.frame.size, self.screenFrame.size, 5)) {
+            if (p_to_swipe < 0.7) {
+                [element swipeLeft];
+            } else {
+                [element tap];
+            }
+        } else {
+            if (p_to_swipe < 0.3) {
+                [element swipeLeft];
+            } else {
+                [element tap];
+            }
+        }
         return;
     }
     [element tap];

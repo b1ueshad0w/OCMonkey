@@ -20,6 +20,14 @@
 
 -(void)tap;
 
+-(void)swipeLeft;
+
+-(void)swipeRight;
+
+-(void)swipeDown;
+
+-(void)swipeUp;
+
 @end
 
 typedef NSArray<ElementTree *> ElementTreeArray;

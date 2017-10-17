@@ -9,6 +9,7 @@
 #import "ElementInfo.h"
 #import "ElementTypeTransformer.h"
 #import <XCTest/XCUIElementAttributes.h>
+#import "XCUIElement+GGIsVisible.h"
 
 @interface ElementInfo ()
 
@@ -24,11 +25,17 @@
 @property (nonatomic, readwrite) XCUIUserInterfaceSizeClass horizontalSizeClass;
 @property (nonatomic, readwrite) XCUIUserInterfaceSizeClass verticalSizeClass;
 @property (nonatomic, readwrite) BOOL isMainWindow;
+@property (nonatomic, readwrite) BOOL isVisible;
 @end
 
 @implementation ElementInfo
 
 -(id)initWithSnapshot:(XCElementSnapshot *)snapshot
+{
+    return [self initWithSnapshot:snapshot detectVisible:NO];
+}
+
+-(id)initWithSnapshot:(XCElementSnapshot *)snapshot detectVisible:(BOOL)detectVisible
 {
     self = [super init];
     if (self) {
@@ -42,6 +49,7 @@
         _selected = snapshot.selected;
         _placeholderValue = snapshot.placeholderValue;
         _isMainWindow = snapshot.isMainWindow;
+        _isVisible = detectVisible ? snapshot.gg_isVisible : YES;
     }
     return self;
 }
@@ -50,7 +58,7 @@
 {
     NSString *elementType = [ElementTypeTransformer shortStringWithElementType:_elementType];
     NSString *isMainWin = _isMainWindow ? @"Main Window" : @"";
-    return [NSString stringWithFormat:@"type: %@ %@ | frame: {{%.1f, %.1f},{%.1f, %.1f}} | label: %@", elementType, isMainWin, _frame.origin.x, _frame.origin.y, _frame.size.width, _frame.size.height, _label];
+    return [NSString stringWithFormat:@"type: %@ %@ | frame: {{%.1f, %.1f},{%.1f, %.1f}} | label: %@ | visible: %@", elementType, isMainWin, _frame.origin.x, _frame.origin.y, _frame.size.width, _frame.size.height, _label, _isVisible ? @"1" : @"0"];
 }
 
 @end

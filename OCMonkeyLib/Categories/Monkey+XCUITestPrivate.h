@@ -66,6 +66,21 @@
  */
 +(void)swipeDownFrame:(CGRect)frame;
 
+
+/**
+ Swipe right a frame.
+ 
+ @param frame frame to swipe right
+ */
++(void)swipeRightFrame:(CGRect)frame;
+
+/**
+ Swipe left a frame.
+
+ @param frame frame to swipe left
+ */
++(void)swipeLeftFrame:(CGRect)frame;
+
 /**
  Swipe between two points.
 

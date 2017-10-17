@@ -9,6 +9,7 @@
 #ifndef MathUtils_h
 #define MathUtils_h
 
+#import <UIKit/UIKit.h>
 #import <CoreGraphics/CoreGraphics.h>
 #import <Foundation/Foundation.h>
 
@@ -33,6 +34,8 @@ BOOL isRectEqualToRect(CGRect rect1, CGRect rect2, CGFloat threshold);
  */
 BOOL isFrameInFrame(CGRect guest, CGRect host);
 
+/*! Inverts size if necessary to match current screen orientation */
+CGSize GGAdjustDimensionsForApplication(CGSize actualSize, UIInterfaceOrientation orientation);
 
 
 #endif /* MathUtils_h */
