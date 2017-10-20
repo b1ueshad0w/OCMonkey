@@ -20,7 +20,7 @@ static __attribute__((constructor)) void onLoad(){
     swizzle_UIViewController();
     swizzle_UITabBarController();
     swizzle_UIWindow();
-    swizzle_UIApplication();
+//    swizzle_UIApplication();
     start_socket_communication();
     hookBusinees();
     

@@ -259,11 +259,11 @@ UIInterfaceOrientation orientationValue = UIInterfaceOrientationPortrait;
 
 #pragma mark Swipe
 
-+(void)swipeRightThroughFrame:(CGRect)frame
++(void)swipeRightThroughFrame:(CGSize)size
 {
-    CGFloat halfHeight = frame.size.height / 2;
+    CGFloat halfHeight = size.height / 2;
     CGPoint start = CGPointMake(0, halfHeight);
-    CGPoint end = CGPointMake(frame.size.width - 10, halfHeight);
+    CGPoint end = CGPointMake(size.width - 10, halfHeight);
     [Monkey dragFrom:start to:end duration:0 velocity:2000];
 }
 

@@ -105,7 +105,7 @@ static NSArray * containers;
             return YES;
          */
          
-        if (element.children.count == 0) {
+        if (element.children.count == 0 || [WeightedMonkey isContainer:data.elementType]) {
             [elements addObject:(ElementTree*)element];
             return NO;
         }
@@ -150,8 +150,10 @@ static NSArray * containers;
         [_vcSequence addObject:[NSMutableArray arrayWithObjects:@(CFAbsoluteTimeGetCurrent()), treeHash, nil]];
     }
     if ([treeHash hasSuffix:@"WebViewController"]) {
-        [self goBack];
-        return;
+        if (RandomZeroToOne < 0.4) {
+            [self goBack];
+            return;
+        }
     }
     if ([_vcCallbacks objectForKey:treeHash]) {
         if (!_vcCallbacks[treeHash](uiTree))
@@ -278,7 +280,8 @@ static NSArray * containers;
 -(void)goBack
 {
     NSUInteger stackLength = self.stackDepth;
-    [Monkey swipeRightThroughFrame:self.screenFrame];
+    CGSize size = GGAdjustDimensionsForApplication(self.screenFrame.size, (UIInterfaceOrientation)[XCUIDevice sharedDevice].orientation);
+    [Monkey swipeRightThroughFrame:size];
     if (self.stackDepth < stackLength)
         return;
     

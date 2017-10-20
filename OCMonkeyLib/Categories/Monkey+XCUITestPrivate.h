@@ -93,9 +93,9 @@
  Swipe from a frame's left edge to its right edge.
  This is useful to perform going back with an app's frame is passed in.
 
- @param frame frame to swipe right through
+ @param size size to swipe right through
  */
-+(void)swipeRightThroughFrame:(CGRect)frame;
++(void)swipeRightThroughFrame:(CGSize)size;
 
 /**
  Swipe from a frame's left edge to its right edge.
