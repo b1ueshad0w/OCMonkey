@@ -49,17 +49,13 @@
 }
 
 - (void)testWeightedMonkey {
-//    NSString *account = @"2724493214";
-//    NSString *password = @"blueshadow2010";
     NSString *account = [[NSProcessInfo processInfo] environment][@"USERNAME"];
     NSString *password = [[NSProcessInfo processInfo] environment][@"PASSWORD"];
     NSString *bundleID = [[NSProcessInfo processInfo] environment][@"BundleID"];
     int steps = [[[NSProcessInfo processInfo] environment][@"STEPS"] intValue];
     if (!bundleID) {
         NSString *testApp = @"com.blueshadow.LibMonkeyExample";
-        NSString *catalog = @"com.example.apple-samplecode.UIKitCatalog";
-        NSString *qq = @"com.tencent.qq.dailybuild";
-        bundleID = qq;
+        bundleID = testApp;
     }
     if (!steps) {
         steps = 10000;
@@ -67,33 +63,28 @@
     WeightedAlgorithm *algorithm = [[WeightedAlgorithm alloc] init];
     WeightedMonkey *monkey = [[WeightedMonkey alloc] initWithBundleID:bundleID algorithm:algorithm];
     
+    // This is an example showing how to register a callback to a ViewController
     [monkey registerAction:^BOOL(ElementTree *tree){
         if (!account) {
             [GGLogger log:@"Please provide account!"];
+            return NO;
         }
         if (!password) {
             [GGLogger log:@"Please provide password!"];
+            return NO;
         }
-        if (![monkey.testedApp.secureTextFields count]) {
-            XCUIElement *logInButton = monkey.testedApp.buttons[@"登录"];
-            if (!logInButton.exists) {
-                [GGLogger log:@"找不到登录按钮！"];
-                return NO;
-            }
-            [logInButton tap];
-        }
-
-        XCUIElement *logInButton2 = monkey.testedApp.buttons[@"登录"];
+        XCUIElement *logInButton2 = monkey.testedApp.buttons[@"Username"];
         if (!monkey.testedApp.textFields.count) {
-            [GGLogger log:@"找不到QQ号输入框！"];
+            [GGLogger log:@"Could not find Username textfield!"];
             return NO;
         }
         if (!monkey.testedApp.secureTextFields.count) {
-            [GGLogger log:@"找不到密码输入框！"];
+            [GGLogger log:@"Could not find secure text field!"];
             return NO;
         }
-        if (!logInButton2.exists) {
-            [GGLogger log:@"找不到登录按钮！"];
+        XCUIElement *logInButton = monkey.testedApp.buttons[@"Log In"];
+        if (!logInButton.exists) {
+            [GGLogger log:@"Could not find log in buttong!"];
             return NO;
         }
         XCUIElement *usernameTextField = [monkey.testedApp.textFields allElementsBoundByIndex][0];
@@ -103,25 +94,11 @@
         [usernameTextField typeText:account];
         [passwordSecureTextField gg_clearTextWithError:nil];
         [passwordSecureTextField typeText:password];
-        [logInButton2 tap];
+        [logInButton tap];
         
-        XCTAssert(!logInButton2.exists);
+        XCTAssert(!logInButton.exists);
         return NO;
-    } forVC:@"QQLoginViewController"];
-    /*
-    [monkey registerAction:^BOOL(ElementTree *tree){
-        [monkey tapElement:[monkey getValidElementsFromTree:tree][0]];
-        return NO;
-    } forVC:@"QQRecentController"];
-    [monkey registerAction:^BOOL(ElementTree *tree){
-        [monkey tapElement:[monkey getValidElementsFromTree:tree][0]];
-        return NO;
-    } forVC:@"DrawerContentsViewController"];
-    [monkey registerAction:^BOOL(ElementTree *tree){
-        [monkey tapElement:[monkey getValidElementsFromTree:tree][5]];  // will go to the PendantStoreViewController
-        return NO;
-    } forVC:@"UserSummaryViewController"];
-     */
+    } forVC:@"XXLoginViewController"];
     [monkey run:steps];
 }
 
